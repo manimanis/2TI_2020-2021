@@ -7,6 +7,7 @@
   <title>Séance 1</title>
   <link rel="stylesheet" href="styles/bootstrap.min.css">
   <link rel="stylesheet" href="styles/default.css">
+  <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
@@ -30,13 +31,25 @@
 left(25)
 forward(100)
 mainloop()</code></pre>
-      <h3>Explication</h3>
-      <p><img src="images/s01_img01.png" alt="Programme expliqué"></p>
+      <p class="explication">Explication</p>
+      <figure>
+        <img src="images/s01-img01.svg" alt="Programme expliqué">
+        <figcaption>Programme expliqué</figcaption>
+      </figure>
       <h3>Travail à faire</h3>
       <ol>
         <li>Utiliser les fonctions précédentes pour dessiner un carré.</li>
         <li>Modifier le programme pour dessiner un rectangle.</li>
-        <li>Dessiner le rectangle avec une longueur et une largeur données.</li>
+        <li>Dessiner le rectangle avec une longueur et une largeur données.
+          <p class="explication">Code snippet</p>
+          <p>L'instruction suivante permet de saisir une donnée au clavier :</p>
+          <pre><code class="language-python">long = int(input('Longueur : '))</code></pre>
+          <p class="explication">Explication</p>
+          <figure>
+            <img src="images/s01-img02.svg" alt="Saisie d'une donnée au clavier">
+            <figcaption>Saisie d'une donnée au clavier</figcaption>
+          </figure>
+        </li>
         <li>Dessiner un polygone régulier avec un nombre de cotés donné.
           <ul>
             <li>Si nc = 3 &rArr; Triangle équilatéral</li>
@@ -44,8 +57,33 @@ mainloop()</code></pre>
             <li>Si nc = 5 &rArr; Pentagone régulier</li>
             <li>Si nc = 6 &rArr; Hexagone régulier</li>
           </ul>
+          <figure>
+            <img src="images/s01-img03.svg" alt="Formes à dessiner">
+            <figcaption>Exemples de formes à dessiner</figcaption>
+          </figure>
+          <p class="explication">Code snippet</p>
+          <pre><code class="language-python">for _ in range(nc):
+    forward(long)
+    left(360 / nc)</code></pre>
+          <p class="explication">Explication</p>
+          <figure>
+            <img src="images/s01-img04.svg" alt="Structure itérative complète">
+            <figcaption>Structure itérative complète</figcaption>
+          </figure>
         </li>
-        <li>Dessiner un polygone régulier, colorier l'arrière plan et la bordure avec des couleurs de votre choix.</li>
+        <li>Dessiner un polygone régulier, colorier l'arrière plan et la bordure avec des couleurs de votre choix.
+          <p class="explication">Code snippet</p>
+          <pre><code class="language-python">color('blue', 'gold')
+
+begin_fill()
+
+# dessiner un triangle équilatéral
+for _ in range(3):
+    forward(200)
+    left(120)
+
+end_fill()</code></pre>
+        </li>
         <li>Permettre à l'utilisateur d'entrer des couleurs de son choix.</li>
         <li>Dessiner un carré d'une longueur donnée:
           <ul>

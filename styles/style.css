@@ -1,0 +1,19 @@
+body {
+    counter-reset: figures;
+}
+
+.explication {
+    color: #e91e63;
+    font-weight: bold;
+    font-style: italic;
+}
+
+figcaption::before {
+    content: "Figure " counter(figures) ", ";
+}
+
+figcaption {
+    counter-increment: figures;
+    font-size: 0.8em;
+    font-style: italic;
+}
