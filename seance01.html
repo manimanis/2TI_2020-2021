@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Séance 1</title>
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/default.css">
+</head>
+
+<body>
+  <main class="container">
+    <h1>Séance 1 - Rappel</h1>
+    <section>
+      <h2>Objectifs</h2>
+      <ol>
+        <li>Importer des fonctions à partir de modules</li>
+        <li>Appeler des fonctions et leur passer des arguments</li>
+        <li>Saisir des données au clavier</li>
+        <li>Utiliser une structure conditionnelle</li>
+        <li>Utiliser une structure itérative complète</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Activités</h2>
+      <p>Soit le programme <strong>Python</strong> suivant:</p>
+      <pre><code class="language-python">from turtle import *
+left(25)
+forward(100)
+mainloop()</code></pre>
+      <h3>Explication</h3>
+      <p><img src="images/s01_img01.png" alt="Programme expliqué"></p>
+      <h3>Travail à faire</h3>
+      <ol>
+        <li>Utiliser les fonctions précédentes pour dessiner un carré.</li>
+        <li>Modifier le programme pour dessiner un rectangle.</li>
+        <li>Dessiner le rectangle avec une longueur et une largeur données.</li>
+        <li>Dessiner un polygone régulier avec un nombre de cotés donné.
+          <ul>
+            <li>Si nc = 3 &rArr; Triangle équilatéral</li>
+            <li>Si nc = 4 &rArr; Carré</li>
+            <li>Si nc = 5 &rArr; Pentagone régulier</li>
+            <li>Si nc = 6 &rArr; Hexagone régulier</li>
+          </ul>
+        </li>
+        <li>Dessiner un polygone régulier, colorier l'arrière plan et la bordure avec des couleurs de votre choix.</li>
+        <li>Permettre à l'utilisateur d'entrer des couleurs de son choix.</li>
+        <li>Dessiner un carré d'une longueur donnée:
+          <ul>
+            <li>Si cote &ge; 100 &rArr; Bordure rouge, Remplissage vert</li>
+            <li>Si cote &lt; 100 &rArr; Bordure verte, Remplissage rouge</li>
+          </ul>
+        </li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Evaluation</h2>
+      <ol>
+        <li>Importer la fonction <strong>randint</strong> du module <strong>random</strong>.</li>
+        <li>Saisir votre âge, dans une variable <strong>age</strong>.</li>
+        <li>Saisir votre nom, dans une variable <strong>nom</strong>.</li>
+        <li>Générer un nombre aléatoire, entre 5 et 10, en utilisant la fonction <strong>randint</strong>, affecter ce
+          nombre dans une variable <strong>x</strong>.</li>
+        <li>Si x &ge; 8, afficher un carré vert de coté 100</li>
+        <li>Si x &lt; 8, afficher un triangle rouge de coté 120</li>
+      </ol>
+    </section>
+  </main>
+  <script src="scripts/bootstrap.min.js"></script>
+  <script src="scripts/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+</body>
+
+</html>
