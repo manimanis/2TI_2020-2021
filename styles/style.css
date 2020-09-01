@@ -17,3 +17,10 @@ figcaption {
     font-size: 0.8em;
     font-style: italic;
 }
+
+.alert.alert-warning.warning-sign {
+    background-image: url(../images/warning-sign.svg);
+    background-repeat: no-repeat;
+    padding-left: 160px;
+    min-height: 150px;
+}

@@ -83,14 +83,39 @@ for _ in range(3):
     left(120)
 
 end_fill()</code></pre>
+            <p class="explication">Explication</p>
+            <figure>
+              <img src="images/s01-img05.svg" alt="Changer couleurs de bordure et de remplissage">
+              <figcaption>Changer couleurs de bordure et de remplissage</figcaption>
+            </figure>
         </li>
-        <li>Permettre à l'utilisateur d'entrer des couleurs de son choix.</li>
+        <li>Permettre à l'utilisateur d'entrer des couleurs de son choix.
+          <p class="explication">Code snippet</p>
+          <pre><code class="language-python">cbord = input('Couleur de la bordure')</code></pre>
+          <div class="alert alert-warning warning-sign" role="alert">
+            Le code de couleur, est une chaine de caractères, elle ne nécessite aucune conversion.
+            Il suffit just d'écrire :
+            <pre><code class="language-python">cbord = input('Couleur de la bordure')</code></pre>
+            Par contre, la longueur d'un coté par contre est un entier, c'est pour cela que nous avons utilisé <strong>int</strong> :
+            <pre><code class="language-python">long = int(input('Longueur : '))</code></pre>
+          </div>
+        </li>
         <li>Dessiner un carré d'une longueur donnée:
           <ul>
             <li>Si cote &ge; 100 &rArr; Bordure rouge, Remplissage vert</li>
             <li>Si cote &lt; 100 &rArr; Bordure verte, Remplissage rouge</li>
           </ul>
+          <p class="explication">Code snippet</p>
+          <pre><code class="language-python">if long &lt; 100:
+    color('green', 'red')
+else:
+    color('red', 'green')</code></pre>
         </li>
+        <p class="explication">Explication</p>
+        <figure>
+          <img src="images/s01-img06.svg" alt="Utilisation d'une structure conditionnelle">
+          <figcaption>Utilisation d'une structure conditionnelle</figcaption>
+        </figure>
       </ol>
     </section>
 
