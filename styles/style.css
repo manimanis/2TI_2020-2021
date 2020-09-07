@@ -24,3 +24,20 @@ figcaption {
     padding-left: 160px;
     min-height: 150px;
 }
+
+.drop-target {
+    min-height: 3rem;
+}
+
+.ordered-items-exercise {
+    page-break-inside: avoid;
+}
+
+.ordered-items .numbered.list-group-item::before {
+    content: counter(listgroupitem) ".";
+    margin: 0 0.5rem;
+}
+
+.ordered-items .list-group-item {
+    counter-increment: listgroupitem;
+}

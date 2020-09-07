@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Séance 2 - Pile/Face</title>
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/default.css">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+  <main class="container">
+    <h1>Séance 2 - Pile/Face</h1>
+
+    <section>
+      <h2>Problème</h2>
+      <p>Au lancement d'un match de football, l'arbitre procède à un tirage au sort
+        pour déterminer l'équipe en possession du ballon.</p>
+      <figure>
+        <img src="images/s02-img01.jpg" alt="Pile/Face">
+        <img src="images/s02-img02.jpg" alt="Tirage au sort">
+        <figcaption>Tirage au sort Pile/Face</figcaption>
+      </figure>
+      <p>L'opération se déroule comme suit :</p>
+      <ul>
+        <li>L'arbitre tire de sa poche une pièce de monnaie.</li>
+        <li>Il demande à l'un des capitaines des équipes de choisir <strong>Pile/Face</strong>.</li>
+        <li>Il lance la pièce dans l'aire puis l'attrape tout en la cachant
+          sous la paume de sa main</li>
+        <li>Il découvre la pièce sous le regard des deux capitaines des équipes :
+          <ul>
+            <li>Si la face visible de la pièce est celle choisie par le capitaine
+              de l'équipe, alors son équipe commence avec le ballon en sa possession.</li>
+            <li>Sinon, l'équipe adversaire reprend le ballon au début du match.</li>
+          </ul>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Exemples d'exécution</h2>
+      <div class="row">
+        <div class="col">
+          <p class="explication">Exemple 1</p>
+          <code><pre>Nom 1ère équipe : ESS
+Nom 2ème équipe : CA
+Le capitaine de l'équipe CA choisit Pile/Face
+0: Pile, 1: Face ? 0
+Le capitaine de l'équipe CA a choisi Pile
+L'arbitre lance la pièce puis il l'attrape
+Résultat du tirage au sort : Pile
+Le ballon est en possession de l'équipe : CA</pre></code>
+        </div>
+        <div class="col">
+          <p class="explication">Exemple 2</p>
+          <code><pre>Nom 1ère équipe : CA
+Nom 2ème équipe : ESS
+Le capitaine de l'équipe CA choisit Pile/Face
+0: Pile, 1: Face ? 0
+Le capitaine de l'équipe CA a choisi Pile
+L'arbitre lance la pièce puis il l'attrape
+Résultat du tirage au sort : Face
+Le ballon est en possession de l'équipe : ESS</pre></code>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Etapes du programme</h2>
+      <ol type="a" class="order-items-exercise" data-enonce="Ordonner les étapes du problème." data-isnumbered="false" hidden>
+        <li data-ordre="6">Afficher le nom de l'équipe en possession du ballon</li>
+        <li data-ordre="5">Afficher le résultat du tirage au sort</li>
+        <li data-ordre="1">Saisir les noms des équipes</li>
+        <li data-ordre="4">Effectuer le tirage au sort à l'aide de la pièce de monnaie</li>
+        <li data-ordre="3">Demander le choix du capitaine : Pile/Face</li>
+        <li data-ordre="2">Choisir au hasard le capitaine qui choisit en premier</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Briques logicielles</h2>
+
+      <h3>Saisir une valeur</h3>
+      <div class="row">
+        <div class="col">
+          <p class="explication">Algorithme</p>
+          <pre><code class="language-algorithm">Afficher("Donner votre nom : ")
+Lire(nom)</code></pre>
+        </div>
+        <div class="col">
+          <p class="explication">Python</p>
+          <pre><code class="language-python">nom = input('Donner votre nom : ')
+# nom est de type str</code></pre>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <p class="explication">Algorithme</p>
+          <pre><code class="language-algorithm">Afficher("Donner votre age : ")
+Lire(age)</code></pre>
+        </div>
+        <div class="col">
+          <p class="explication">Python</p>
+          <pre><code class="language-python">age = int(input('Donner votre age : '))
+# age est de type int</code></pre>
+        </div>
+      </div>
+
+      <h3>Afficher un message</h3>
+      <div class="row">
+        <div class="col">
+          <p class="explication">Algorithme</p>
+          <pre><code class="language-algorithm">Afficher("Bonjour", nom, "vous avez", age, "ans")</code></pre>
+        </div>
+        <div class="col">
+          <p class="explication">Python</p>
+          <pre><code class="language-python">print("Bonjour", nom, "vous avez", age, "ans")</code></pre>
+        </div>
+      </div>
+
+      <h3>Générer un nombre au hasard</h3>
+      <div class="row">
+        <div class="col">
+          <p class="explication">Algorithme</p>
+          <pre><code class="language-algorithm">
+// nombre aléatoire entre 10 er 99
+x &larr; alea(10, 99)</code></pre>
+        </div>
+        <div class="col">
+          <p class="explication">Python</p>
+          <pre><code class="language-python">from random import randint
+# nombre aléatoire entre 10 er 99      
+x = randint(10, 99)</code></pre>
+        </div>
+      </div>
+
+      <h3>Structure conditionnelle</h3>
+      <div class="row">
+        <div class="col">
+          <p class="explication">Algorithme</p>
+          <pre><code class="language-algorithm">Si x mod 2 = 0 Alors
+  nature &larr; "Pair"
+Sinon
+  nature &larr; "Impair"
+Fin Si</code></pre>
+        </div>
+        <div class="col">
+          <p class="explication">Python</p>
+          <pre><code class="language-python">if x % 2 == 0:
+  nature = "Pair"
+else:
+  nature = "Impair"
+ </code></pre>
+        </div>
+      </div>
+
+      <h3>Initialisation d'une liste</h3>
+      <div class="row">
+        <div class="col">
+          <p class="explication">Algorithme</p>
+          <pre><code class="language-algorithm">piece &larr; ["Pile", "Face"]</code></pre>
+        </div>
+        <div class="col">
+          <p class="explication">Python</p>
+          <pre><code class="language-python">piece = ["Pile", "Face"]</code></pre>
+        </div>
+      </div>
+
+      <h3>Accès aux éléments de la liste</h3>
+      <div class="row">
+        <div class="col">
+          <p class="explication">Algorithme</p>
+          <pre><code class="language-algorithm">// afficher un élément
+Afficher(piece[1])
+
+// Modifier un élément
+piece[0] &larr; "Bonjour"
+
+// nombre d'éléments de la liste
+l &larr; long(piece)</code></pre>
+        </div>
+        <div class="col">
+          <p class="explication">Python</p>
+          <pre><code class="language-python"># afficher un élément
+print(piece[1])
+
+# Modifier un élément
+piece[0] = "Bonjour"
+
+# nombre d'éléments de la liste
+l = len(piece)</code></pre>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <script src="scripts/bootstrap.min.js"></script>
+  <script src="scripts/highlight.pack.js"></script>
+  <script src="scripts/hljs.algorithm.js"></script>
+  <script src="scripts/draggable.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+</body>
+
+</html>
