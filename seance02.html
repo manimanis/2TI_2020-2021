@@ -16,7 +16,12 @@
 
     <section>
       <h2>Problème</h2>
-      <p>Au lancement d'un match de football, l'arbitre procède à un tirage au sort
+      <p class="text-danger font-weight-bold">Souvent, on soupçonne l'arbitre d'être en faveur d'une équipe sur l'autre.
+        Pour cela, et pour éviter que l'arbitre triche, on vous demande d'informatiser l'opération de tirage
+        au sort lors au lancement d'un match de football.</p>
+
+      <h2>Scénario de l'opération</h2>
+      <p>En effet, au lancement d'un match de football, l'arbitre procède à un tirage au sort
         pour déterminer l'équipe en possession du ballon.</p>
       <figure>
         <img src="images/s02-img01.jpg" alt="Pile/Face">
@@ -44,32 +49,33 @@
       <div class="row">
         <div class="col">
           <p class="explication">Exemple 1</p>
-          <code><pre>Nom 1ère équipe : ESS
+          <pre><code class="nohighlight hljs">Nom 1ère équipe : ESS
 Nom 2ème équipe : CA
 Le capitaine de l'équipe CA choisit Pile/Face
 0: Pile, 1: Face ? 0
 Le capitaine de l'équipe CA a choisi Pile
 L'arbitre lance la pièce puis il l'attrape
 Résultat du tirage au sort : Pile
-Le ballon est en possession de l'équipe : CA</pre></code>
+Le ballon est en possession de l'équipe : CA</code></pre>
         </div>
         <div class="col">
           <p class="explication">Exemple 2</p>
-          <code><pre>Nom 1ère équipe : CA
+          <pre><code class="nohighlight hljs">Nom 1ère équipe : CA
 Nom 2ème équipe : ESS
 Le capitaine de l'équipe CA choisit Pile/Face
 0: Pile, 1: Face ? 0
 Le capitaine de l'équipe CA a choisi Pile
 L'arbitre lance la pièce puis il l'attrape
 Résultat du tirage au sort : Face
-Le ballon est en possession de l'équipe : ESS</pre></code>
+Le ballon est en possession de l'équipe : ESS</code></pre>
         </div>
       </div>
     </section>
 
-    <section>
+    <section class="no-page-break-inside">
       <h2>Etapes du programme</h2>
-      <ol type="a" class="order-items-exercise" data-enonce="Ordonner les étapes du problème." data-isnumbered="false"
+      <ol type="a" class="order-items-exercise"
+        data-enonce="Ordonner les étapes d'exécution d'après les examples donnés ci-dessus." data-isnumbered="false"
         hidden>
         <li data-ordre="6">Afficher le nom de l'équipe en possession du ballon</li>
         <li data-ordre="5">Afficher le résultat du tirage au sort</li>
@@ -87,7 +93,8 @@ Le ballon est en possession de l'équipe : ESS</pre></code>
         <h3>Problème n°1</h3>
         <p>Afficher le nom de l'équipe en possession du ballon.</p>
         <p>On veut, par exemple, afficher le message :</p>
-        <pre><code class="nohighlight">Le ballon est en possession de l'équipe : <mark>{nom d'une équipe}</mark></code></pre>
+        <pre><code class="nohighlight hljs">Le ballon est en possession de l'équipe : <mark>{nom d'une équipe}</mark></code></pre>
+        <p><strong>Donner l'algorithme ?</strong></p>
         <pre><code class="language-algorithm">equipe &larr; "Mon équipe"
 Afficher("Le ballon est en possession de l'équipe", equipe)</code></pre>
       </div>
@@ -96,6 +103,7 @@ Afficher("Le ballon est en possession de l'équipe", equipe)</code></pre>
         <h3>Problème n°2</h3>
         <p>Effectuer le tirage au sort à l'aide de la pièce de monnaie.</p>
         <p>On veut choisir au hasard <strong>Pile</strong> ou <strong>Face</strong>.</p>
+        <p><strong>Donner l'algorithme ?</strong></p>
         <pre><code class="language-algorithm">ts &larr; alea(0, 1) // 0: Pile, 1: Face
 Si ts = 0 Alors
   face &larr; "Pile"
@@ -110,9 +118,9 @@ Afficher("Résultat du tirage au sort :", face)</code></pre>
         <h3>Problème n°3</h3>
         <p>Afficher le résultat du tirage au sort. </p>
         <p>On veut, par exemple, afficher le message suivant :</p>
-
-        <pre><code class="nohighlight">L'arbitre lance la pièce puis il l'attrape
+        <pre><code class="nohighlight hljs">L'arbitre lance la pièce puis il l'attrape
 Résultat du tirage au sort : {Pile ou Face}</code></pre>
+        <p><strong>Donner l'algorithme ?</strong></p>
         <pre><code class="language-algorithm">Afficher("L'arbitre lance la pièce puis il l'attrape")
 Afficher("Résultat du tirage au sort :", face)</code></pre>
       </div>
@@ -121,7 +129,8 @@ Afficher("Résultat du tirage au sort :", face)</code></pre>
         <h3>Problème n°4</h3>
         <p>Choisir au hasard le capitaine de l'équipe qui choisit en premier (Pile/face).</p>
         <p>On veut, par exemple, afficher le message suivant :</p>
-        <pre><code class="nohighlight">Le capitaine de l'équipe {nom d'une équipe} choisit Pile/Face</code></pre>
+        <pre><code class="nohighlight hljs">Le capitaine de l'équipe {nom d'une équipe} choisit Pile/Face</code></pre>
+        <p><strong>Donner l'algorithme ?</strong></p>
         <pre><code class="language-algorithm">eq1 &larr; "Real"
 eq2 &larr; "Barça"
 num_eq &larr; alea(0, 1) // 0: Real, 1: Barça
@@ -140,10 +149,11 @@ Afficher("Le capitaine de l'équipe", eq, "choisit Pile/Face")</code></pre>
           Par exemple, de la façon suivante,
           les valeurs en <i class="text-success">italique vert</i> sont ceux introduites
           par l'utilisateur à travers le clavier :</p>
-        <pre><code class="nohighlight">Nom 1ère équipe : <i class="text-success">Real</i>
+        <pre><code class="nohighlight hljs">Nom 1ère équipe : <i class="text-success">Real</i>
 Nom 2ème équipe : <i class="text-success">Barça</i>
 Le match est joué aujourd'hui entre Real et Barça</code></pre>
-        <pre><code class="language-algorithm">Afficher("Nom 1ère équipe : ")
+<p><strong>Donner l'algorithme ?</strong></p>
+<pre><code class="language-algorithm">Afficher("Nom 1ère équipe : ")
 Lire(eq1)
 Afficher("Nom 2ème équipe : ")
 Lire(eq2)
@@ -158,7 +168,8 @@ Afficher("Le match est joué aujourd'hui entre", eq1, "et", eq2)</code></pre>
           Par exemple, de la façon suivante,
           les valeurs en <i class="text-success">italique vert</i> sont ceux introduites
           par l'utilisateur à travers le clavier :</p>
-        <pre><code class="nohighlight">0: Pile, 1: Face ? <i class="text-success">0</i></code></pre>
+        <pre><code class="nohighlight hljs">0: Pile, 1: Face ? <i class="text-success">0</i></code></pre>
+        <p><strong>Donner l'algorithme ?</strong></p>
         <pre><code class="language-algorithm">Afficher("0: Pile, 1: Face ?")
 Lire(choix_cap)</code></pre>
       </div>
@@ -294,13 +305,13 @@ Fin Pile_Face</code></pre>
     document.querySelectorAll('.language-algorithm')
       .forEach(item => {
         const div = document.createElement('div');
-        div.className = 'bd-clipboard';
+        div.className = 'bd-clipboard d-print-none';
         const btn = document.createElement('button');
         btn.className = 'btn-clipboard';
         btn.textContent = "📋";
         btn.title = "Copier";
         div.appendChild(btn);
-        item.parentElement.parentElement.insertBefore(div, item.parentElement);
+        item.parentElement.insertBefore(div, item);
       });
     new ClipboardJS('.btn-clipboard', {
       target: (trigger) => {
