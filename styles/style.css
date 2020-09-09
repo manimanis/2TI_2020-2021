@@ -1,43 +1,81 @@
 body {
-    counter-reset: figures;
+  counter-reset: figures;
 }
 
 .explication {
-    color: #e91e63;
-    font-weight: bold;
-    font-style: italic;
+  color: #e91e63;
+  font-weight: bold;
+  font-style: italic;
 }
 
 figcaption::before {
-    content: "Figure " counter(figures) ", ";
+  content: "Figure " counter(figures) ", ";
 }
 
 figcaption {
-    counter-increment: figures;
-    font-size: 0.8em;
-    font-style: italic;
+  counter-increment: figures;
+  font-size: 0.8em;
+  font-style: italic;
 }
 
 .alert.alert-warning.warning-sign {
-    background-image: url(../images/warning-sign.svg);
-    background-repeat: no-repeat;
-    padding-left: 160px;
-    min-height: 150px;
+  background-image: url(../images/warning-sign.svg);
+  background-repeat: no-repeat;
+  padding-left: 160px;
+  min-height: 150px;
 }
 
 .drop-target {
-    min-height: 3rem;
+  min-height: 3rem;
 }
 
 .ordered-items-exercise {
-    page-break-inside: avoid;
+  page-break-inside: avoid;
 }
 
 .ordered-items .numbered.list-group-item::before {
-    content: counter(listgroupitem) ".";
-    margin: 0 0.5rem;
+  content: counter(listgroupitem) ".";
+  margin: 0 0.5rem;
 }
 
 .ordered-items .list-group-item {
-    counter-increment: listgroupitem;
+  counter-increment: listgroupitem;
+}
+
+.language-algorithm::before, .language-python::before {
+	display: block;
+	font-family: sans-serif;
+	font-size: 1rem;
+	font-weight: bold;
+	margin-bottom: 0.5em;
+	background-color: var(--dark);
+	color: var(--light);
+	padding: 0.25rem 1rem;
+	border-radius: 0.5rem;
+}
+
+.language-algorithm::before {
+  content: "Algorithme";
+}
+
+.language-python::before {
+  content: "Python";
+}
+
+.bd-clipboard {
+	position: relative;
+	width: 100%;
+}
+
+.btn-clipboard {
+	position: absolute;
+	right: 15px;
+	top: 9px;
+	border: 0;
+	background-color: transparent;
+	color: var(--light);
+}
+
+.no-page-break-inside {
+  page-break-inside: avoid;
 }

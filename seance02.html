@@ -69,7 +69,8 @@ Le ballon est en possession de l'équipe : ESS</pre></code>
 
     <section>
       <h2>Etapes du programme</h2>
-      <ol type="a" class="order-items-exercise" data-enonce="Ordonner les étapes du problème." data-isnumbered="false" hidden>
+      <ol type="a" class="order-items-exercise" data-enonce="Ordonner les étapes du problème." data-isnumbered="false"
+        hidden>
         <li data-ordre="6">Afficher le nom de l'équipe en possession du ballon</li>
         <li data-ordre="5">Afficher le résultat du tirage au sort</li>
         <li data-ordre="1">Saisir les noms des équipes</li>
@@ -80,120 +81,206 @@ Le ballon est en possession de l'équipe : ESS</pre></code>
     </section>
 
     <section>
-      <h2>Briques logicielles</h2>
+      <h2>Décomposition modulaire</h2>
 
-      <h3>Saisir une valeur</h3>
-      <div class="row">
-        <div class="col">
-          <p class="explication">Algorithme</p>
-          <pre><code class="language-algorithm">Afficher("Donner votre nom : ")
-Lire(nom)</code></pre>
-        </div>
-        <div class="col">
-          <p class="explication">Python</p>
-          <pre><code class="language-python">nom = input('Donner votre nom : ')
-# nom est de type str</code></pre>
-        </div>
+      <div class="no-page-break-inside">
+        <h3>Problème n°1</h3>
+        <p>Afficher le nom de l'équipe en possession du ballon.</p>
+        <p>On veut, par exemple, afficher le message :</p>
+        <pre><code class="nohighlight">Le ballon est en possession de l'équipe : <mark>{nom d'une équipe}</mark></code></pre>
+        <pre><code class="language-algorithm">equipe &larr; "Mon équipe"
+Afficher("Le ballon est en possession de l'équipe", equipe)</code></pre>
       </div>
 
-      <div class="row">
-        <div class="col">
-          <p class="explication">Algorithme</p>
-          <pre><code class="language-algorithm">Afficher("Donner votre age : ")
-Lire(age)</code></pre>
-        </div>
-        <div class="col">
-          <p class="explication">Python</p>
-          <pre><code class="language-python">age = int(input('Donner votre age : '))
-# age est de type int</code></pre>
-        </div>
-      </div>
-
-      <h3>Afficher un message</h3>
-      <div class="row">
-        <div class="col">
-          <p class="explication">Algorithme</p>
-          <pre><code class="language-algorithm">Afficher("Bonjour", nom, "vous avez", age, "ans")</code></pre>
-        </div>
-        <div class="col">
-          <p class="explication">Python</p>
-          <pre><code class="language-python">print("Bonjour", nom, "vous avez", age, "ans")</code></pre>
-        </div>
-      </div>
-
-      <h3>Générer un nombre au hasard</h3>
-      <div class="row">
-        <div class="col">
-          <p class="explication">Algorithme</p>
-          <pre><code class="language-algorithm">
-// nombre aléatoire entre 10 er 99
-x &larr; alea(10, 99)</code></pre>
-        </div>
-        <div class="col">
-          <p class="explication">Python</p>
-          <pre><code class="language-python">from random import randint
-# nombre aléatoire entre 10 er 99      
-x = randint(10, 99)</code></pre>
-        </div>
-      </div>
-
-      <h3>Structure conditionnelle</h3>
-      <div class="row">
-        <div class="col">
-          <p class="explication">Algorithme</p>
-          <pre><code class="language-algorithm">Si x mod 2 = 0 Alors
-  nature &larr; "Pair"
+      <div class="no-page-break-inside">
+        <h3>Problème n°2</h3>
+        <p>Effectuer le tirage au sort à l'aide de la pièce de monnaie.</p>
+        <p>On veut choisir au hasard <strong>Pile</strong> ou <strong>Face</strong>.</p>
+        <pre><code class="language-algorithm">ts &larr; alea(0, 1) // 0: Pile, 1: Face
+Si ts = 0 Alors
+  face &larr; "Pile"
 Sinon
-  nature &larr; "Impair"
-Fin Si</code></pre>
-        </div>
-        <div class="col">
-          <p class="explication">Python</p>
-          <pre><code class="language-python">if x % 2 == 0:
-  nature = "Pair"
-else:
-  nature = "Impair"
- </code></pre>
-        </div>
+  face &larr; "Face"
+Fin Si
+Afficher("L'arbitre lance la pièce puis il l'attrape")
+Afficher("Résultat du tirage au sort :", face)</code></pre>
       </div>
 
-      <h3>Initialisation d'une liste</h3>
-      <div class="row">
-        <div class="col">
-          <p class="explication">Algorithme</p>
-          <pre><code class="language-algorithm">piece &larr; ["Pile", "Face"]</code></pre>
-        </div>
-        <div class="col">
-          <p class="explication">Python</p>
-          <pre><code class="language-python">piece = ["Pile", "Face"]</code></pre>
-        </div>
+      <div class="no-page-break-inside">
+        <h3>Problème n°3</h3>
+        <p>Afficher le résultat du tirage au sort. </p>
+        <p>On veut, par exemple, afficher le message suivant :</p>
+
+        <pre><code class="nohighlight">L'arbitre lance la pièce puis il l'attrape
+Résultat du tirage au sort : {Pile ou Face}</code></pre>
+        <pre><code class="language-algorithm">Afficher("L'arbitre lance la pièce puis il l'attrape")
+Afficher("Résultat du tirage au sort :", face)</code></pre>
       </div>
 
-      <h3>Accès aux éléments de la liste</h3>
-      <div class="row">
-        <div class="col">
-          <p class="explication">Algorithme</p>
-          <pre><code class="language-algorithm">// afficher un élément
-Afficher(piece[1])
-
-// Modifier un élément
-piece[0] &larr; "Bonjour"
-
-// nombre d'éléments de la liste
-l &larr; long(piece)</code></pre>
-        </div>
-        <div class="col">
-          <p class="explication">Python</p>
-          <pre><code class="language-python"># afficher un élément
-print(piece[1])
-
-# Modifier un élément
-piece[0] = "Bonjour"
-
-# nombre d'éléments de la liste
-l = len(piece)</code></pre>
-        </div>
+      <div class="no-page-break-inside">
+        <h3>Problème n°4</h3>
+        <p>Choisir au hasard le capitaine de l'équipe qui choisit en premier (Pile/face).</p>
+        <p>On veut, par exemple, afficher le message suivant :</p>
+        <pre><code class="nohighlight">Le capitaine de l'équipe {nom d'une équipe} choisit Pile/Face</code></pre>
+        <pre><code class="language-algorithm">eq1 &larr; "Real"
+eq2 &larr; "Barça"
+num_eq &larr; alea(0, 1) // 0: Real, 1: Barça
+Si num_eq = 0 Alors
+  eq &larr; eq1
+Sinon
+  eq &larr; eq2
+Fin Si
+Afficher("Le capitaine de l'équipe", eq, "choisit Pile/Face")</code></pre>
       </div>
+
+      <div class="no-page-break-inside">
+        <h3>Problème n°5</h3>
+        <p>Saisir les noms des équipes.</p>
+        <p>Dans cette étape, l'utilisateur va introduire les noms des deux équipes.
+          Par exemple, de la façon suivante,
+          les valeurs en <i class="text-success">italique vert</i> sont ceux introduites
+          par l'utilisateur à travers le clavier :</p>
+        <pre><code class="nohighlight">Nom 1ère équipe : <i class="text-success">Real</i>
+Nom 2ème équipe : <i class="text-success">Barça</i>
+Le match est joué aujourd'hui entre Real et Barça</code></pre>
+        <pre><code class="language-algorithm">Afficher("Nom 1ère équipe : ")
+Lire(eq1)
+Afficher("Nom 2ème équipe : ")
+Lire(eq2)
+Afficher("Le match est joué aujourd'hui entre", eq1, "et", eq2)</code></pre>
+      </div>
+
+      <div class="no-page-break-inside">
+        <h3>Problème n°6</h3>
+        <p>Demander le choix du capitaine : Pile/Face.</p>
+        <p>Dans cette étape l'utilisateur va introduire son choix.
+          Par exemple, le chiffre 0 signifie Pile et le chiffre 1 signifie Face.
+          Par exemple, de la façon suivante,
+          les valeurs en <i class="text-success">italique vert</i> sont ceux introduites
+          par l'utilisateur à travers le clavier :</p>
+        <pre><code class="nohighlight">0: Pile, 1: Face ? <i class="text-success">0</i></code></pre>
+        <pre><code class="language-algorithm">Afficher("0: Pile, 1: Face ?")
+Lire(choix_cap)</code></pre>
+      </div>
+    </section>
+
+    <section>
+      <h2>Algorithme</h2>
+      <p>On demande de :</p>
+      <ol>
+        <li>Écrire l'algorithme du programme.</li>
+        <li>Déterminer la liste des variables utilisées ainsi que leurs types respectifs.</li>
+      </ol>
+      <pre><code class="language-algorithm">Début Pile_Face
+// Saisir les noms des équipes.
+Afficher("Nom 1ère équipe : ")
+Lire(eq1)
+Afficher("Nom 2ème équipe : ")
+Lire(eq2)
+Afficher("Le match est joué aujourd'hui entre", eq1, "et", eq2)
+
+// Choisir au hasard le capitaine de l'équipe qui choisit en premier (Pile/face).
+num_eq ← alea(0, 1)
+Si num_eq = 0 Alors
+  eq ← eq1
+  autre_eq ← eq2
+Sinon
+  eq ← eq2
+  autre_eq ← eq1
+Fin Si
+Afficher("Le capitaine de l'équipe", eq, "choisit Pile/Face")
+
+// Demander le choix du capitaine : Pile/Face.
+Afficher("0: Pile, 1: Face ?")
+Lire(choix_cap)
+Si choix_cap = 0 Alors
+  ch_cap ← "Pile"
+Sinon
+  ch_cap ← "Face"
+Fin Si
+Afficher("Le capitaine de l'équipe", eq, "a choisit ", ch_cap)
+
+// Effectuer le tirage au sort à l'aide de la pièce de monnaie.
+ts ← alea(0, 1) // 0: Pile, 1: Face
+Si ts = 0 Alors
+  face ← "Pile"
+Sinon
+  face ← "Face"
+Fin Si
+
+// Afficher le résultat du tirage au sort
+Afficher("L'arbitre lance la pièce puis il l'attrape")
+Afficher("Résultat du tirage au sort :", face)
+
+// Afficher le nom de l'équipe en possession du ballon.
+Si ts = choix_cap Alors
+  equipe ← eq
+Sinon
+  equipe ← autre_eq
+Fin Si
+Afficher("Le ballon est en possession de l'équipe", equipe)
+Fin Pile_Face</code></pre>
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>Objet</th>
+            <th>Type</th>
+            <th>Rôle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>eq1</td>
+            <td>chaine</td>
+            <td>Nom de la 1ère équipe</td>
+          </tr>
+          <tr>
+            <td>eq2</td>
+            <td>chaine</td>
+            <td>Nom de la 2ème équipe</td>
+          </tr>
+          <tr>
+            <td>eq</td>
+            <td>chaine</td>
+            <td>L'équipe qui choisit une face au tirage au sort</td>
+          </tr>
+          <tr>
+            <td>autre_eq</td>
+            <td>chaine</td>
+            <td>L'équipe qui choisit l'autre face au tirage au sort</td>
+          </tr>
+          <tr>
+            <td>num_eq</td>
+            <td>entier</td>
+            <td>Numéro de l'équipe qui choisit en premier au tirage au sort</td>
+          </tr>
+          <tr>
+            <td>choix_cap</td>
+            <td>entier</td>
+            <td>Choix du capitaine : 0 pour Pile et 1 pour Face</td>
+          </tr>
+          <tr>
+            <td>ch_cap</td>
+            <td>chaine</td>
+            <td>Pile/Face</td>
+          </tr>
+          <tr>
+            <td>ts</td>
+            <td>entier</td>
+            <td>Tirage au sort : 0 pour Pile et 1 pour Face</td>
+          </tr>
+          <tr>
+            <td>face</td>
+            <td>chaine</td>
+            <td>0 &rarr; Pile/1 &rarr; Face</td>
+          </tr>
+          <tr>
+            <td>equipe</td>
+            <td>chaine</td>
+            <td>L'équipe qui sera en possession du ballon</td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 
   </main>
@@ -201,8 +288,25 @@ l = len(piece)</code></pre>
   <script src="scripts/highlight.pack.js"></script>
   <script src="scripts/hljs.algorithm.js"></script>
   <script src="scripts/draggable.js"></script>
+  <script src="scripts/clipboard.min.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
+    document.querySelectorAll('.language-algorithm')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.parentElement.insertBefore(div, item.parentElement);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
   </script>
 </body>
 
