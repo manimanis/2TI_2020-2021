@@ -97,6 +97,54 @@ Le ballon est en possession de l'équipe : ESS</code></pre>
       <div class="no-page-break-inside">
         <h3 class="brique">Brique n°1 - Affichage</h3>
 
+        <h4 class="brique-experiment">Assemblages</h4>
+        <p class="explication">Affichage d'un texte simple</p>
+        <div class="row">
+          <div class="col-6">
+            <pre><code class="language-algorithm">Afficher("J'aime la vie!")</code></pre>
+          </div>
+          <div class="col-6">
+            <pre><code class="language-python">print("J'aime la vie!")</code></pre>
+          </div>
+        </div>
+
+        <p class="explication">Affichage du contenu d'une variable</p>
+        <div class="row">
+          <div class="col-6">
+            <pre><code class="language-algorithm">msg &larr; "J'aime la vie!"
+Afficher(msg)</code></pre>
+          </div>
+          <div class="col-6">
+            <pre><code class="language-python">msg = "J'aime la vie"
+print(msg)</code></pre>
+          </div>
+        </div>
+
+        <p class="explication">Affichage mixte (textes et variables)</p>
+        <div class="row">
+          <div class="col-6">
+            <pre><code class="language-algorithm">nom &larr; "Mohamed"
+Afficher(nom, "est plein d'espoir.")</code></pre>
+          </div>
+          <div class="col-6">
+            <pre><code class="language-python">nom = "Mohamed"
+print(nom, "est plein d'espoir.")</code></pre>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <pre><code class="language-algorithm">nom &larr; "Mohamed"
+age &larr; 16
+Afficher("Je suis", nom, ", j'ai", age, "ans.")</code></pre>
+          </div>
+          <div class="col-6">
+            <pre><code class="language-python">nom = "Mohamed"
+age = 16
+print("Je suis", nom, ", j'ai", age, "ans.")</code></pre>
+          </div>
+        </div>
+
         <h4 class="sous-brique">Assemblage n°1</h4>
         <p>Afficher le nom de l'équipe en possession du ballon.</p>
         <p>On veut, par exemple, afficher le message :</p>
@@ -117,6 +165,61 @@ Afficher("Résultat du tirage au sort :", face)</code></pre>
 
       <div class="no-page-break-inside">
         <h3 class="brique">Brique n°2 - Choix d'une valeur au hasard</h3>
+
+        <h4 class="brique-experiment">Assemblages</h4>
+        <p class="explication">Choix d'un nombre dans un intervalle</p>
+        <div class="row">
+          <div class="col-6">
+            <pre><code class="language-algorithm">
+// Nbre aléatoire dans l'intervalle [10, 99]
+na &larr; alea(10, 99)</code></pre>
+          </div>
+          <div class="col-6">
+            <pre><code class="language-python">from random import randint
+# Nbre aléatoire dans l'intervalle [10, 99]
+na = randint(10, 99)</code></pre>
+          </div>
+        </div>
+
+        <p class="explication">Correspondre une valeur numérique à un texte</p>
+        <div class="row">
+          <div class="col-6">
+            <pre><code class="language-algorithm">
+// Nbre alétaoire [1, 5]
+nbre &larr; alea(1, 5)
+Si nbre = 1 Alors
+  nbre_txt &larr; "Un"
+Sinon Si nbre = 2 Alors
+  nbre_txt &larr; "Deux"
+Sinon Si nbre = 3 Alors
+  nbre_txt &larr; "Trois"
+Sinon Si nbre = 4 Alors
+  nbre_txt &larr; "Quatre"
+Sinon 
+  nbre_txt &larr; "Cinq"
+Fin Si
+// Afficher le nombre tiré
+Afficher(nbre, " = ", nbre_txt)</code></pre>
+          </div>
+          <div class="col-6">
+            <pre><code class="language-python">from random import randint
+# Nbre alétaoire [1, 5]
+nbre = randint(1, 5)
+if nbre == 1:
+  nbre_txt = "Un"
+elif nbre == 2:
+  nbre_txt = "Deux"
+elif nbre == 3:
+  nbre_txt = "Trois"
+elif nbre == 4:
+  nbre_txt = "Quatre"
+else: 
+  nbre_txt = "Cinq"
+
+# Afficher le nombre tiré
+print(nbre, " = ", nbre_txt)</code></pre>
+          </div>
+        </div>
 
         <h4 class="sous-brique">Assemblage n°1</h4>
         <p>Effectuer le tirage au sort à l'aide de la pièce de monnaie.</p>
@@ -149,6 +252,35 @@ Afficher("Le capitaine de l'équipe", eq, "choisit Pile/Face")</code></pre>
 
       <div class="no-page-break-inside">
         <h3 class="brique">Brique n°3 - Saisie d'une donnée</h3>
+
+        <h4 class="brique-experiment">Assemblages</h4>
+        <p class="explication">Saisie d'une chaîne de caractères</p>
+        <div class="row">
+          <div class="col-6">
+            <pre><code class="language-algorithm">// nom est de type chaîne de caractères
+Afficher("Quel est votre nom ? ")
+Lire(nom)</code></pre>
+          </div>
+          <div class="col-6">
+            <pre><code class="language-python"># nom est de type chaîne de caractères
+# Python permet d'écrire un code plus réduit
+nom = input("Quel est votre nom ? ")</code></pre>
+          </div>
+        </div>
+
+        <p class="explication">Saisie d'un entier</p>
+        <div class="row">
+          <div class="col-6">
+            <pre><code class="language-algorithm">// age est de type entier
+Afficher("Quel est votre age ? ")
+Lire(age)</code></pre>
+          </div>
+          <div class="col-6">
+            <pre><code class="language-python"># Python permet d'écrire un code plus réduit
+# age est de type entier
+age = int(input("Quel est votre age ? "))</code></pre>
+          </div>
+        </div>
 
         <h4 class="sous-brique">Assemblage n°1</h4>
         <p>Saisir les noms des équipes.</p>
@@ -308,7 +440,7 @@ Fin Pile_Face</code></pre>
   <script src="scripts/clipboard.min.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
-    document.querySelectorAll('.language-algorithm')
+    document.querySelectorAll('.language-algorithm,.language-python')
       .forEach(item => {
         const div = document.createElement('div');
         div.className = 'bd-clipboard d-print-none';

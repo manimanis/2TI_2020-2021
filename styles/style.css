@@ -80,19 +80,24 @@ figcaption {
   page-break-inside: avoid;
 }
 
-.brique {
+.brique, .sous-brique, .brique-experiment {
 	padding-left: 40px;
-	background-image: url(../images/lego-icon-02.png);
 	background-repeat: no-repeat;
-	background-position: left center;
+  background-position: left center;
+  line-height: 34px;
+}
+
+.brique {
+	background-image: url(../images/lego-icon-02.png);
 	color: #3900c5;
 }
 
 .sous-brique {
-	padding-left: 40px;
 	background-image: url(../images/lego-icon-03.png);
-	background-repeat: no-repeat;
-	background-position: left center;
 	color: #cd0000;
-	line-height: 34px;
+}
+
+.brique-experiment {
+  background-image: url(../images/lego-icon-04.png);
+  color: #005a0e;
 }
