@@ -1,0 +1,11 @@
+.interactive div {
+    display: inline-block;
+}
+
+.interactive .function {
+    border-radius: 5px;
+    padding: 5px;
+    background-color: #2b78bb;
+    color: #fff;
+    font-weight: 500;
+}
