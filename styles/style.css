@@ -79,3 +79,20 @@ figcaption {
 .no-page-break-inside {
   page-break-inside: avoid;
 }
+
+.brique {
+	padding-left: 40px;
+	background-image: url(../images/lego-icon-02.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	color: #3900c5;
+}
+
+.sous-brique {
+	padding-left: 40px;
+	background-image: url(../images/lego-icon-03.png);
+	background-repeat: no-repeat;
+	background-position: left center;
+	color: #cd0000;
+	line-height: 34px;
+}

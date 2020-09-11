@@ -24,7 +24,7 @@
       <p>En effet, au lancement d'un match de football, l'arbitre procède à un tirage au sort
         pour déterminer l'équipe en possession du ballon.</p>
       <figure>
-        <img src="images/s02-img01.jpg" alt="Pile/Face">
+        <img src="images/s02-img01.png" alt="Pile/Face">
         <img src="images/s02-img02.jpg" alt="Tirage au sort">
         <figcaption>Tirage au sort Pile/Face</figcaption>
       </figure>
@@ -87,20 +87,38 @@ Le ballon est en possession de l'équipe : ESS</code></pre>
     </section>
 
     <section>
-      <h2>Décomposition modulaire</h2>
+      <h2>Briques Logicielles</h2>
+
+      <figure>
+        <img src="images/s02-img03.jpg" alt="Briques logicielles">
+        <figcaption>Un programme est un assemblage de briques logicielles</figcaption>
+      </figure>
 
       <div class="no-page-break-inside">
-        <h3>Problème n°1</h3>
+        <h3 class="brique">Brique n°1 - Affichage</h3>
+
+        <h4 class="sous-brique">Assemblage n°1</h4>
         <p>Afficher le nom de l'équipe en possession du ballon.</p>
         <p>On veut, par exemple, afficher le message :</p>
         <pre><code class="nohighlight hljs">Le ballon est en possession de l'équipe : <mark>{nom d'une équipe}</mark></code></pre>
         <p><strong>Donner l'algorithme ?</strong></p>
         <pre><code class="language-algorithm">equipe &larr; "Mon équipe"
 Afficher("Le ballon est en possession de l'équipe", equipe)</code></pre>
+
+        <h4 class="sous-brique">Assemblage n°2</h4>
+        <p>Afficher le résultat du tirage au sort. </p>
+        <p>On veut, par exemple, afficher le message suivant :</p>
+        <pre><code class="nohighlight hljs">L'arbitre lance la pièce puis il l'attrape
+Résultat du tirage au sort : {Pile ou Face}</code></pre>
+        <p><strong>Donner l'algorithme ?</strong></p>
+        <pre><code class="language-algorithm">Afficher("L'arbitre lance la pièce puis il l'attrape")
+Afficher("Résultat du tirage au sort :", face)</code></pre>
       </div>
 
       <div class="no-page-break-inside">
-        <h3>Problème n°2</h3>
+        <h3 class="brique">Brique n°2 - Choix d'une valeur au hasard</h3>
+
+        <h4 class="sous-brique">Assemblage n°1</h4>
         <p>Effectuer le tirage au sort à l'aide de la pièce de monnaie.</p>
         <p>On veut choisir au hasard <strong>Pile</strong> ou <strong>Face</strong>.</p>
         <p><strong>Donner l'algorithme ?</strong></p>
@@ -112,21 +130,8 @@ Sinon
 Fin Si
 Afficher("L'arbitre lance la pièce puis il l'attrape")
 Afficher("Résultat du tirage au sort :", face)</code></pre>
-      </div>
 
-      <div class="no-page-break-inside">
-        <h3>Problème n°3</h3>
-        <p>Afficher le résultat du tirage au sort. </p>
-        <p>On veut, par exemple, afficher le message suivant :</p>
-        <pre><code class="nohighlight hljs">L'arbitre lance la pièce puis il l'attrape
-Résultat du tirage au sort : {Pile ou Face}</code></pre>
-        <p><strong>Donner l'algorithme ?</strong></p>
-        <pre><code class="language-algorithm">Afficher("L'arbitre lance la pièce puis il l'attrape")
-Afficher("Résultat du tirage au sort :", face)</code></pre>
-      </div>
-
-      <div class="no-page-break-inside">
-        <h3>Problème n°4</h3>
+        <h4 class="sous-brique">Assemblage n°2</h4>
         <p>Choisir au hasard le capitaine de l'équipe qui choisit en premier (Pile/face).</p>
         <p>On veut, par exemple, afficher le message suivant :</p>
         <pre><code class="nohighlight hljs">Le capitaine de l'équipe {nom d'une équipe} choisit Pile/Face</code></pre>
@@ -143,7 +148,9 @@ Afficher("Le capitaine de l'équipe", eq, "choisit Pile/Face")</code></pre>
       </div>
 
       <div class="no-page-break-inside">
-        <h3>Problème n°5</h3>
+        <h3 class="brique">Brique n°3 - Saisie d'une donnée</h3>
+
+        <h4 class="sous-brique">Assemblage n°1</h4>
         <p>Saisir les noms des équipes.</p>
         <p>Dans cette étape, l'utilisateur va introduire les noms des deux équipes.
           Par exemple, de la façon suivante,
@@ -152,16 +159,14 @@ Afficher("Le capitaine de l'équipe", eq, "choisit Pile/Face")</code></pre>
         <pre><code class="nohighlight hljs">Nom 1ère équipe : <i class="text-success">Real</i>
 Nom 2ème équipe : <i class="text-success">Barça</i>
 Le match est joué aujourd'hui entre Real et Barça</code></pre>
-<p><strong>Donner l'algorithme ?</strong></p>
-<pre><code class="language-algorithm">Afficher("Nom 1ère équipe : ")
+        <p><strong>Donner l'algorithme ?</strong></p>
+        <pre><code class="language-algorithm">Afficher("Nom 1ère équipe : ")
 Lire(eq1)
 Afficher("Nom 2ème équipe : ")
 Lire(eq2)
 Afficher("Le match est joué aujourd'hui entre", eq1, "et", eq2)</code></pre>
-      </div>
 
-      <div class="no-page-break-inside">
-        <h3>Problème n°6</h3>
+        <h4 class="sous-brique">Assemblage n°2</h4>
         <p>Demander le choix du capitaine : Pile/Face.</p>
         <p>Dans cette étape l'utilisateur va introduire son choix.
           Par exemple, le chiffre 0 signifie Pile et le chiffre 1 signifie Face.
