@@ -80,11 +80,11 @@ figcaption {
   page-break-inside: avoid;
 }
 
-.brique, .sous-brique, .brique-experiment {
+.brique, .sous-brique, .brique-experiment, .brique-algorithm {
 	padding-left: 40px;
 	background-repeat: no-repeat;
   background-position: left center;
-  line-height: 34px;
+  background-size: contain;
 }
 
 .brique {
@@ -100,4 +100,9 @@ figcaption {
 .brique-experiment {
   background-image: url(../images/lego-icon-04.png);
   color: #005a0e;
+}
+
+.brique-algorithm {
+  background-image: url(../images/algorithm.svg);
+  color: #009688;
 }
