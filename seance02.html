@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Séance 2 - Pile/Face</title>
+  <title>Projet n°1 - Pile/Face</title>
   <link rel="stylesheet" href="styles/bootstrap.min.css">
   <link rel="stylesheet" href="styles/default.css">
   <link rel="stylesheet" href="styles/style.css">
@@ -12,7 +12,7 @@
 
 <body>
   <main class="container">
-    <h1>Séance 2 - Pile/Face</h1>
+    <h1>Projet n°1 - Pile/Face</h1>
 
     <section>
       <h2>Problème</h2>
@@ -312,6 +312,232 @@ Lire(choix_cap)</code></pre>
       </div>
     </section>
 
+    <section>
+      <h2>Briques Logicielles</h2>
+
+      <figure>
+        <img src="images/s02-img03.jpg" alt="Briques logicielles">
+        <figcaption>Un programme est un assemblage de briques logicielles</figcaption>
+      </figure>
+
+      <div class="no-page-break-inside">
+        <h3 class="brique">Brique n°1 - Affichage</h3>
+
+        <h4 class="brique-experiment">Assemblages</h4>
+        <p class="explication">Affichage d'un texte simple</p>
+        <div class="row">
+          <div class="col-6">
+            <pre><code class="language-algorithm">Afficher("J'aime la vie!")</code></pre>
+          </div>
+          <div class="col-6">
+            <pre><code class="language-python">print("J'aime la vie!")</code></pre>
+          </div>
+        </div>
+
+        <p class="explication">Affichage du contenu d'une variable</p>
+        <div class="row">
+          <div class="col-6">
+            <pre><code class="language-algorithm">msg &larr; "J'aime la vie!"
+Afficher(msg)</code></pre>
+          </div>
+          <div class="col-6">
+            <pre><code class="language-python">msg = "J'aime la vie"
+print(msg)</code></pre>
+          </div>
+        </div>
+
+        <p class="explication">Affichage mixte (textes et variables)</p>
+        <div class="row">
+          <div class="col-6">
+            <pre><code class="language-algorithm">nom &larr; "Mohamed"
+Afficher(nom, "est plein d'espoir.")</code></pre>
+          </div>
+          <div class="col-6">
+            <pre><code class="language-python">nom = "Mohamed"
+print(nom, "est plein d'espoir.")</code></pre>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-6">
+            <pre><code class="language-algorithm">nom &larr; "Mohamed"
+age &larr; 16
+Afficher("Je suis", nom, ", j'ai", age, "ans.")</code></pre>
+          </div>
+          <div class="col-6">
+            <pre><code class="language-python">nom = "Mohamed"
+age = 16
+print("Je suis", nom, ", j'ai", age, "ans.")</code></pre>
+          </div>
+        </div>
+
+        <h4 class="sous-brique">Assemblage n°1</h4>
+        <p>Afficher le nom de l'équipe en possession du ballon.</p>
+        <p>On veut, par exemple, afficher le message :</p>
+        <pre><code class="nohighlight hljs">Le ballon est en possession de l'équipe : <mark>{nom d'une équipe}</mark></code></pre>
+        <p><strong>Donner l'algorithme ?</strong></p>
+        <pre><code class="language-algorithm">equipe &larr; "Mon équipe"
+Afficher("Le ballon est en possession de l'équipe", equipe)</code></pre>
+
+        <h4 class="sous-brique">Assemblage n°2</h4>
+        <p>Afficher le résultat du tirage au sort. </p>
+        <p>On veut, par exemple, afficher le message suivant :</p>
+        <pre><code class="nohighlight hljs">L'arbitre lance la pièce puis il l'attrape
+Résultat du tirage au sort : {Pile ou Face}</code></pre>
+        <p><strong>Donner l'algorithme ?</strong></p>
+        <pre><code class="language-algorithm">Afficher("L'arbitre lance la pièce puis il l'attrape")
+Afficher("Résultat du tirage au sort :", face)</code></pre>
+      </div>
+
+      <div class="no-page-break-inside">
+        <h3 class="brique">Brique n°2 - Choix d'une valeur au hasard</h3>
+
+        <h4 class="brique-experiment">Assemblages</h4>
+        <p class="explication">Choix d'un nombre dans un intervalle</p>
+        <div class="row">
+          <div class="col-6">
+            <pre><code class="language-algorithm">
+// Nbre aléatoire dans l'intervalle [10, 99]
+na &larr; alea(10, 99)</code></pre>
+          </div>
+          <div class="col-6">
+            <pre><code class="language-python">from random import randint
+# Nbre aléatoire dans l'intervalle [10, 99]
+na = randint(10, 99)</code></pre>
+          </div>
+        </div>
+
+        <p class="explication">Correspondre une valeur numérique à un texte</p>
+        <div class="row">
+          <div class="col-6">
+            <pre><code class="language-algorithm">
+// Nbre alétaoire [1, 5]
+nbre &larr; alea(1, 5)
+Si nbre = 1 Alors
+  nbre_txt &larr; "Un"
+Sinon Si nbre = 2 Alors
+  nbre_txt &larr; "Deux"
+Sinon Si nbre = 3 Alors
+  nbre_txt &larr; "Trois"
+Sinon Si nbre = 4 Alors
+  nbre_txt &larr; "Quatre"
+Sinon 
+  nbre_txt &larr; "Cinq"
+Fin Si
+// Afficher le nombre tiré
+Afficher(nbre, " = ", nbre_txt)</code></pre>
+          </div>
+          <div class="col-6">
+            <pre><code class="language-python">from random import randint
+# Nbre alétaoire [1, 5]
+nbre = randint(1, 5)
+if nbre == 1:
+  nbre_txt = "Un"
+elif nbre == 2:
+  nbre_txt = "Deux"
+elif nbre == 3:
+  nbre_txt = "Trois"
+elif nbre == 4:
+  nbre_txt = "Quatre"
+else: 
+  nbre_txt = "Cinq"
+
+# Afficher le nombre tiré
+print(nbre, " = ", nbre_txt)</code></pre>
+          </div>
+        </div>
+
+        <h4 class="sous-brique">Assemblage n°1</h4>
+        <p>Effectuer le tirage au sort à l'aide de la pièce de monnaie.</p>
+        <p>On veut choisir au hasard <strong>Pile</strong> ou <strong>Face</strong>.</p>
+        <p><strong>Donner l'algorithme ?</strong></p>
+        <pre><code class="language-algorithm">ts &larr; alea(0, 1) // 0: Pile, 1: Face
+Si ts = 0 Alors
+  face &larr; "Pile"
+Sinon
+  face &larr; "Face"
+Fin Si
+Afficher("L'arbitre lance la pièce puis il l'attrape")
+Afficher("Résultat du tirage au sort :", face)</code></pre>
+
+        <h4 class="sous-brique">Assemblage n°2</h4>
+        <p>Choisir au hasard le capitaine de l'équipe qui choisit en premier (Pile/face).</p>
+        <p>On veut, par exemple, afficher le message suivant :</p>
+        <pre><code class="nohighlight hljs">Le capitaine de l'équipe {nom d'une équipe} choisit Pile/Face</code></pre>
+        <p><strong>Donner l'algorithme ?</strong></p>
+        <pre><code class="language-algorithm">eq1 &larr; "Real"
+eq2 &larr; "Barça"
+num_eq &larr; alea(0, 1) // 0: Real, 1: Barça
+Si num_eq = 0 Alors
+  eq &larr; eq1
+Sinon
+  eq &larr; eq2
+Fin Si
+Afficher("Le capitaine de l'équipe", eq, "choisit Pile/Face")</code></pre>
+      </div>
+
+      <div class="no-page-break-inside">
+        <h3 class="brique">Brique n°3 - Saisie d'une donnée</h3>
+
+        <h4 class="brique-experiment">Assemblages</h4>
+        <p class="explication">Saisie d'une chaîne de caractères</p>
+        <div class="row">
+          <div class="col-6">
+            <pre><code class="language-algorithm">// nom est de type chaîne de caractères
+Afficher("Quel est votre nom ? ")
+Lire(nom)</code></pre>
+          </div>
+          <div class="col-6">
+            <pre><code class="language-python"># nom est de type chaîne de caractères
+# Python permet d'écrire un code plus réduit
+nom = input("Quel est votre nom ? ")</code></pre>
+          </div>
+        </div>
+
+        <p class="explication">Saisie d'un entier</p>
+        <div class="row">
+          <div class="col-6">
+            <pre><code class="language-algorithm">// age est de type entier
+Afficher("Quel est votre age ? ")
+Lire(age)</code></pre>
+          </div>
+          <div class="col-6">
+            <pre><code class="language-python"># Python permet d'écrire un code plus réduit
+# age est de type entier
+age = int(input("Quel est votre age ? "))</code></pre>
+          </div>
+        </div>
+
+        <h4 class="sous-brique">Assemblage n°1</h4>
+        <p>Saisir les noms des équipes.</p>
+        <p>Dans cette étape, l'utilisateur va introduire les noms des deux équipes.
+          Par exemple, de la façon suivante,
+          les valeurs en <i class="text-success">italique vert</i> sont ceux introduites
+          par l'utilisateur à travers le clavier :</p>
+        <pre><code class="nohighlight hljs">Nom 1ère équipe : <i class="text-success">Real</i>
+Nom 2ème équipe : <i class="text-success">Barça</i>
+Le match est joué aujourd'hui entre Real et Barça</code></pre>
+        <p><strong>Donner l'algorithme ?</strong></p>
+        <pre><code class="language-algorithm">Afficher("Nom 1ère équipe : ")
+Lire(eq1)
+Afficher("Nom 2ème équipe : ")
+Lire(eq2)
+Afficher("Le match est joué aujourd'hui entre", eq1, "et", eq2)</code></pre>
+
+        <h4 class="sous-brique">Assemblage n°2</h4>
+        <p>Demander le choix du capitaine : Pile/Face.</p>
+        <p>Dans cette étape l'utilisateur va introduire son choix.
+          Par exemple, le chiffre 0 signifie Pile et le chiffre 1 signifie Face.
+          Par exemple, de la façon suivante,
+          les valeurs en <i class="text-success">italique vert</i> sont ceux introduites
+          par l'utilisateur à travers le clavier :</p>
+        <pre><code class="nohighlight hljs">0: Pile, 1: Face ? <i class="text-success">0</i></code></pre>
+        <p><strong>Donner l'algorithme ?</strong></p>
+        <pre><code class="language-algorithm">Afficher("0: Pile, 1: Face ?")
+Lire(choix_cap)</code></pre>
+      </div>
+    </section>
+        
     <section>
       <h2>Algorithme</h2>
       <p>On demande de :</p>
