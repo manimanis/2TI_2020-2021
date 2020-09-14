@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet n°2 - She la for me</title>
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/default.css">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+  <main class="container">
+    <h1>Projet n°2 - She la for me</h1>
+
+    <h2>Mise en scène</h2>
+
+    <p>Tarek et Tamer son deux jeunes enfants de 10 et 12 ans, respectivement. Ils aiment jouer à Minecraft, sur leur
+      PC, parfois en mode créatif, et d’autres fois en mode survie (Survival).</p>
+    <figure>
+      <img src="images/prj02/img01.png" alt="Jeu Minecraft">
+      <img src="images/prj02/img02.jpg" alt="Scène de Minecraft">
+      <figcaption>Jeu Minecraft</figcaption>
+    </figure>
+    <p>Tous les jours, ces deux frères se disputent celui qui joue en premier. Pour les calmer, et pour profiter d’un
+      moment de silence, leur père leurs apprend à gérer ce conflit en jouant à « She la for me ».</p>
+    <figure>
+      <img src="images/prj02/img03.jpg" alt="Jeu de mains, She la for me">
+      <figcaption>Jeu de mains, She la for me</figcaption>
+    </figure>
+    <p>L’un des deux, Tarek, cette fois-ci, sélectionne de haute voix : « pair ». Son frère, Tamer, lui répond d’un même
+      ton : « Impair ». Puis, rapidement, les deux enfants tendent leurs mains en pliant quelques-un de leurs doigts :
+      « She la for me ». Et tout en comptant, ensemble : « Cinq et deux, Sept, Impair ». « C’est moi qui gagne », crie
+      Tamer. Tarek non satisfait : « Une autre fois ! Une autre fois ! ».</p>
+    <p>Des cris similaires s’entendent deux autres fois. Au premier, Tarek, est déclaré gagnant. Au second, Tamer,
+      l’emporte contre Tarek. Ce dernier accepte, malgré, bon-gré, d’être spectateur pendant que Tamer joue leur jeu
+      favori.</p>
+
+    <h2>Exemples d'exécution</h2>
+    <div class="row">
+      <div class="col-6">
+        <p class="explication">Exemple 1</p>
+        <p>Les joueurs jouent, seulement, deux tours si l'un des deux joueurs gagne deux fois successives.</p>
+        <pre><code class="nohighlight hljs">Nom du 1er joueur ? Tarek
+Nom du 2nd joueur ? Tamer
+------------------------------
+Tour n° 1
+
+Le joueur Tamer choisit
+0 : Pair / 1 : Impair ? 0
+
+Tarek et Tamer tendent leurs mains
+Tarek : 5 - Tamer : 4
+Tarek gagne ce tour.
+
+------------------------------
+Tour n° 2
+
+Le joueur Tarek choisit
+0 : Pair / 1 : Impair ? 0
+
+Tarek et Tamer tendent leurs mains
+Tarek : 3 - Tamer : 5
+Tarek gagne ce tour.
+
+Tarek gagne la partie contre Tamer
+Score : 2 - 0</code></pre>
+      </div>
+      <div class="col-6">
+        <p class="explication">Exemple 2</p>
+        <p>Les joueurs jouent trois tours uniquement si chacun des joueurs remporte l'un des deux premiers tours.</p>
+        <pre><code class="nohighlight hljs">Nom du 1er joueur ? Tamer
+Nom du 2nd joueur ? Tarek
+------------------------------
+Tour n° 1
+
+Le joueur Tarek choisit
+0 : Pair / 1 : Impair ? 1
+
+Tamer et Tarek tendent leurs mains
+Tamer : 2 - Tarek : 3
+Tarek gagne ce tour.
+
+------------------------------
+Tour n° 2
+
+Le joueur Tamer choisit
+0 : Pair / 1 : Impair ? 1
+
+Tamer et Tarek tendent leurs mains
+Tamer : 0 - Tarek : 3
+Tamer gagne ce tour.
+
+------------------------------
+Tour n° 3
+
+Le joueur Tamer choisit
+0 : Pair / 1 : Impair ? 1
+
+Tamer et Tarek tendent leurs mains
+Tamer : 5 - Tarek : 3
+Tarek gagne ce tour.
+
+Tarek gagne la partie contre Tamer
+Score : 2 - 1</code></pre>
+      </div>
+    </div>
+
+    <section class="no-page-break-inside">
+      <h2>Etapes du programme</h2>
+      <ol type="a" class="order-items-exercise"
+        data-enonce="Ordonner les étapes du programme d'après les examples d'exécution donnés ci-dessus." data-isnumbered="true"
+        hidden>
+        <li data-ordre="5" data-place="true">Afficher le numéro de tour</li>
+        <li data-ordre="2">Ranger les noms des deux joueurs dans un tableau</li>
+        <li data-ordre="6" data-place="true">Afficher le nom du joueur qui choisit pair/impair</li>
+        <li data-ordre="8">Afficher les nombres choisis par les deux joueurs</li>
+        <li data-ordre="4" data-place="true">Répéter 2 ou 3 fois les étapes de 5 à 10</li>
+        <li data-ordre="3">Initialiser un tableau avec le score des deux joueurs</li>
+        <li data-ordre="7">Choisir au hasard deux nombres compris entre 0 et 5</li>
+        <li data-ordre="1">Saisir les noms des deux joueurs</li>
+        <li data-ordre="9" data-place="true">Afficher le gagnant pour ce tour</li>
+        <li data-ordre="10" data-place="true">Afficher le nom du gagnant</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2 class="sous-brique">Briques Logicielles</h2>
+
+      <h3 class="brique">Brique n°1 - Affichage</h3>
+    </section>
+  </main>
+  <script src="scripts/jquery.min.js"></script>
+  <script src="scripts/bootstrap.min.js"></script>
+  <script src="scripts/highlight.pack.js"></script>
+  <script src="scripts/hljs.algorithm.js"></script>
+  <script src="scripts/draggable.js"></script>
+  <script src="scripts/clipboard.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+    document.querySelectorAll('.language-algorithm,.language-python')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+  </script>
+</body>
+
+</html>
