@@ -25,6 +25,10 @@ figcaption {
   min-height: 150px;
 }
 
+.draggable-item {
+  cursor: grab;
+}
+
 .drop-target {
   min-height: 3rem;
 }
@@ -70,7 +74,7 @@ figcaption {
 .btn-clipboard {
 	position: absolute;
 	right: 15px;
-	top: 9px;
+	top: 13px;
 	border: 0;
 	background-color: transparent;
 	color: var(--light);
@@ -105,4 +109,35 @@ figcaption {
 .brique-algorithm {
   background-image: url(../images/algorithm.svg);
   color: #009688;
+}
+/*----------------------------------------------------------------------------*/
+.bricks-canvas {
+  min-width: 400px;
+  min-height: 200px;
+}
+
+.bricks-canvas .brick {
+  padding: 3px;
+  border-radius: 5px;
+  display: inline-block;
+  border: #333 solid 1px;
+}
+
+.bricks-canvas .brick.assignment {
+  background-color: brown;
+  color: white;
+}
+
+.bricks-canvas .brick.identifier, .bricks-canvas .brick.function  {
+  background-color: cadetblue;
+  color: #000;
+}
+
+.bricks-canvas .brick.string, .bricks-canvas .brick.number {
+  background-color: chartreuse;
+  color: #000;
+}
+
+.bricks-canvas .brick.string::before, .bricks-canvas .brick.string::after {
+  content: '"';
 }

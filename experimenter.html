@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experimenter</title>
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/default.css">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+  <main class="container">
+    <div class="bricks-canvas">
+      <div class="brick assignment">
+        <span class="brick-container">
+          <span class="brick identifier">eq1</span>
+        </span>
+        <span>&larr;</span>
+        <span class="brick-container">
+          <span class="brick string">Real</span>
+        </span>
+      </div>
+
+      <div class="brick assignment">
+        <span class="brick-container">
+          <span class="brick identifier">eq2</span>
+        </span>
+        <span>&larr;</span>
+        <span class="brick-container">
+          <span class="brick string">Barça</span>
+        </span>
+      </div>
+
+      <div class="brick assignment">
+        <span class="brick-container">
+          <span class="brick identifier">num_eq</span>
+        </span>
+        <span>&larr;</span>
+        <span class="brick-container">
+          <span class="brick function">
+            <span>alea(</span>
+            <span class="brick-container">
+              <span class="brick number">0</span>
+            </span>
+            <span>,</span>
+            <span class="brick-container">
+              <span class="brick number">1</span>
+            </span>
+            <span>)</span>
+          </span>
+        </span>
+      </div>
+      
+    </div>
+  </main>
+
+  <script src="scripts/jquery.min.js"></script>
+  <script src="scripts/bootstrap.min.js"></script>
+  <script src="scripts/highlight.pack.js"></script>
+  <script src="scripts/hljs.algorithm.js"></script>
+  <script src="scripts/draggable.js"></script>
+  <script src="scripts/clipboard.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+    document.querySelectorAll('.language-algorithm,.language-python')
+      .forEach(item => {
+        const span = document.createElement('span');
+        span.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        span.appendChild(btn);
+        item.parentElement.insertBefore(span, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+  </script>
+</body>
+
+</html>

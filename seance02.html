@@ -17,8 +17,8 @@
     <section>
       <h2>Problème</h2>
       <p class="text-danger font-weight-bold">Souvent, on soupçonne l'arbitre d'être en faveur d'une équipe sur l'autre.
-        Pour cela, et pour éviter que l'arbitre triche, on vous demande d'informatiser l'opération de tirage
-        au sort lors au lancement d'un match de football.</p>
+        Pour cela, et pour éviter que l'arbitre ne triche, on vous demande d'informatiser l'opération de tirage
+        au sort lors du lancement d'un match de football.</p>
 
       <h2>Scénario de l'opération</h2>
       <p>En effet, au lancement d'un match de football, l'arbitre procède à un tirage au sort
@@ -32,7 +32,7 @@
       <ul>
         <li>L'arbitre tire de sa poche une pièce de monnaie.</li>
         <li>Il demande à l'un des capitaines des équipes de choisir <strong>Pile/Face</strong>.</li>
-        <li>Il lance la pièce dans l'aire puis l'attrape tout en la cachant
+        <li>Il lance la pièce dans l'air puis l'attrape tout en la cachant
           sous la paume de sa main</li>
         <li>Il découvre la pièce sous le regard des deux capitaines des équipes :
           <ul>
@@ -75,7 +75,7 @@ Le ballon est en possession de l'équipe : ESS</code></pre>
     <section class="no-page-break-inside">
       <h2>Etapes du programme</h2>
       <ol type="a" class="order-items-exercise"
-        data-enonce="Ordonner les étapes d'exécution d'après les examples donnés ci-dessus." data-isnumbered="false"
+        data-enonce="Ordonner les étapes d'exécution d'après les examples donnés ci-dessus." data-isnumbered="true"
         hidden>
         <li data-ordre="6">Afficher le nom de l'équipe en possession du ballon</li>
         <li data-ordre="5">Afficher le résultat du tirage au sort</li>
@@ -88,7 +88,6 @@ Le ballon est en possession de l'équipe : ESS</code></pre>
 
     <section>
       <h2 class="sous-brique">Briques Logicielles</h2>
-
 
       <h3 class="brique">Brique n°1 - Affichage</h3>
       <div class="no-page-break-inside">
@@ -244,7 +243,7 @@ age = int(input("Quel est votre age ? "))</code></pre>
       </figure>
 
 
-      <h3 class="brique">Brique n°1 - Affichage</h3>
+      <h3 class="brique">Affichages</h3>
       <h4 class="sous-brique">Assemblage n°1</h4>
       <div class="no-page-break-inside">
         <p>Afficher le nom de l'équipe en possession du ballon.</p>
@@ -266,7 +265,7 @@ Résultat du tirage au sort : {Pile ou Face}</code></pre>
       <pre><code class="language-algorithm">Afficher("L'arbitre lance la pièce puis il l'attrape")
 Afficher("Résultat du tirage au sort :", face)</code></pre>
 
-      <h3 class="brique">Brique n°2 - Choix d'une valeur au hasard</h3>
+      <h3 class="brique">Choix d'une valeur au hasard</h3>
       <h4 class="sous-brique">Assemblage n°1</h4>
       <div class="no-page-break-inside">
         <p>Effectuer le tirage au sort à l'aide de la pièce de monnaie.</p>
@@ -299,7 +298,7 @@ Sinon
 Fin Si
 Afficher("Le capitaine de l'équipe", eq, "choisit Pile/Face")</code></pre>
 
-      <h3 class="brique">Brique n°3 - Saisie d'une donnée</h3>
+      <h3 class="brique">Saisie de données</h3>
       <h4 class="sous-brique">Assemblage n°1</h4>
       <div class="no-page-break-inside">
         <p>Saisir les noms des équipes.</p>

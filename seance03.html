@@ -121,8 +121,8 @@ Score : 2 - 1</code></pre>
     <section class="no-page-break-inside">
       <h2>Etapes du programme</h2>
       <ol type="a" class="order-items-exercise"
-        data-enonce="Ordonner les étapes du programme d'après les examples d'exécution donnés ci-dessus." data-isnumbered="true"
-        hidden>
+        data-enonce="Ordonner les étapes du programme d'après les examples d'exécution donnés ci-dessus."
+        data-isnumbered="true" hidden>
         <li data-ordre="5" data-place="true">Afficher le numéro de tour</li>
         <li data-ordre="2">Ranger les noms des deux joueurs dans un tableau</li>
         <li data-ordre="6" data-place="true">Afficher le nom du joueur qui choisit pair/impair</li>
@@ -139,7 +139,182 @@ Score : 2 - 1</code></pre>
     <section>
       <h2 class="sous-brique">Briques Logicielles</h2>
 
-      <h3 class="brique">Brique n°1 - Affichage</h3>
+      <h3 class="brique">Brique n°1 - Tableaux</h3>
+      <p>Un tableau est une structure de données qui est utilisée
+        pour stocker plusieurs données, généralement de même types.</p>
+      <p>Les données sont stockées dans des cases numérotées commençant à partir du 0, appelés indices.</p>
+      <figure>
+        <img src="images/prj02/img04.svg" alt="Tableau d'entiers">
+        <figcaption>Tableau d'entiers, masse en kg de six enfants inscrits dans une crêche/garderie</figcaption>
+      </figure>
+      <div class="no-page-break-inside">
+        <p class="explication">Déclaration d'un tableau vide</p>
+        <div class="row">
+          <div class="col-6">
+            <pre><code class="language-algorithm">t &larr; []</code></pre>
+          </div>
+          <div class="col-6">
+            <pre><code class="language-python">t = []</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="no-page-break-inside">
+        <p class="explication">Déclaration et initialisation d'un tableau</p>
+        <div class="row">
+          <div class="col-6">
+            <pre><code class="language-algorithm">// Tableau de chaines (noms de personnes)
+noms &larr; ["Yassine", "Ahmed", "Omar"]
+// Tableau d'entiers (L'âge des personnes)
+ages &larr; [16, 35, 16]
+// Tableau de réels (Le montant du crédit en milliers de DT)
+credits &larr; [20.5, 0.0, 8.375]
+// Tableau de booléens (Est-ce ces personnes sont sportives ?)
+celib &larr; [Vrai, Faux, Vrai]</code></pre>
+          </div>
+          <div class="col-6">
+            <pre><code class="language-python"># Tableau de chaines (noms de personnes)
+noms = ["Yassine", "Ahmed", "Omar"]
+# Tableau d'entiers (L'âge des personnes)
+ages = [16, 35, 14]
+# Tableau de réels (Le montant du crédit en milliers de DT)
+credits = [20.5, 0.0, 8.375]
+# Tableau de booléens (Est-ce ces personnes sont célibataires ?)
+celib = [True, False, True]</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="no-page-break-inside">
+        <p class="explication">Lecture</p>
+        <div class="row">
+          <div class="col-6">
+            <pre><code class="language-algorithm">// Afficher le nom, l'âge, le crédit et l'état marital
+// 1ère personne
+Afficher("Nom :", noms[0])
+Afficher("Age :", ages[0])
+Afficher("credits :", credits[0])
+Afficher("Célibataire :", celib[0])</code></pre>
+          </div>
+          <div class="col-6">
+            <pre><code class="language-python"># Afficher le nom, l'âge, le crédit et l'état marital
+# 1ère personne
+print("Nom :", noms[0])
+print("Age :", ages[0])
+print("credits :", credits[0])
+print("Célibataire :", celib[0])</code></pre>
+          </div>
+        </div>
+      </div>
+      <div class="no-page-break-inside">
+        <div class="row">
+          <div class="col-6">
+            <pre><code class="language-algorithm">
+num &rarr; alea(0, 2)
+// Afficher le nom, l'âge, le crédit et l'état marital
+// Une personne avec un indice num choisi au hasard
+Afficher("Nom :", noms[num])
+Afficher("Age :", ages[num])
+Afficher("credits :", credits[num])
+Afficher("Célibataire :", celib[num])</code></pre>
+          </div>
+          <div class="col-6">
+            <pre><code class="language-python">from random import randint
+num = randint(0, 2)
+# Afficher le nom, l'âge, le crédit et l'état marital
+# Une personne avec un indice num choisi au hasard
+print("Nom :", noms[num])
+print("Age :", ages[num])
+print("credits :", credits[num])
+print("Célibataire :", celib[num])</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="no-page-break-inside">
+        <p class="explication">Modification</p>
+        <div class="row">
+          <div class="col-6">
+            <pre><code class="language-algorithm">// Quels sera l'age de ces personnes après 15 ans ?
+ages[0] &larr; 31
+ages[1] &larr; ages[1] + 15
+ages[2] &larr; ages[2] + 15
+// Les personnes célibataires et agées de 30 ans ou plus
+// ne sont plus célibataires
+celib[0] &larr; celib[0] et ages[0] &lt; 30
+celib[1] &larr; celib[1] et ages[1] &lt; 30
+celib[2] &larr; celib[2] et ages[2] &lt; 30</code></pre>
+          </div>
+          <div class="col-6">
+            <pre><code class="language-python"># Quels sera l'age de ces personnes après 15 ans ?
+ages[0] = 31
+ages[1] = ages[1] + 15
+ages[2] += 15
+# Les personnes célibataires et agées de 30 ans ou plus
+# ne sont plus célibataires
+celib[0] = celib[0] and ages[0] &lt; 30
+celib[1] = celib[1] and ages[1] &lt; 30
+celib[2] = celib[2] and ages[2] &lt; 30</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="brique">Brique n°2 - Répétition</h3>
+      <div class="no-page-break-inside">
+        <p class="explication">Cas Général</p>
+        <div class="row">
+          <div class="col-6">
+            <pre><code class="language-algorithm">Pour i de 0 à n-1 Faire
+  // répéter le traitement n fois
+Fin Pour</code></pre>
+          </div>
+          <div class="col-6">
+            <pre><code class="language-python">for i in range(n):
+  # répéter le traitement n fois
+  # attention i commence à 0
+</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="no-page-break-inside">
+        <p class="explication">Afficher les nombres de 1 à 5</p>
+        <div class="row">
+          <div class="col-6">
+            <pre><code class="language-algorithm">Pour i de 1 à 5 Faire
+  Afficher(i)
+Fin Pour</code></pre>
+          </div>
+          <div class="col-6">
+            <pre><code class="language-python">for i in range(1, 6):
+  print(i)
+</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="no-page-break-inside">
+        <p class="explication">Afficher les informations des personnes</p>
+        <div class="row">
+          <div class="col-6">
+            <pre><code class="language-algorithm">Pour i de 0 à 2 Faire
+  Afficher("Nom :", noms[i])
+  Afficher("Age :", ages[i])
+  Afficher("credits :", credits[i])
+  Afficher("Célibataire :", celib[i])
+Fin Pour</code></pre>
+          </div>
+          <div class="col-6">
+            <pre><code class="language-python">for i in range(3):
+  print("Nom :", noms[i])
+  print("Age :", ages[i])
+  print("credits :", credits[i])
+  print("Célibataire :", celib[i])
+</code></pre>
+          </div>
+        </div>
+      </div>
+
     </section>
   </main>
   <script src="scripts/jquery.min.js"></script>

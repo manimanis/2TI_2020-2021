@@ -212,5 +212,7 @@ class ExerciceOrderItems {
   }
 }
 
+
+
 document.querySelectorAll('.order-items-exercise')
   .forEach(item => new ExerciceOrderItems(item));
