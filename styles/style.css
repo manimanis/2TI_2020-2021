@@ -116,12 +116,13 @@ figcaption {
   min-height: 200px;
 }
 
-.bricks-canvas .brick {
+.bricks-canvas .brick, .brick-container {
   margin: 2px;
   padding: 3px;
   border-radius: 5px;
   border: #333 solid 1px;
   line-height: 2rem;
+  display: inline-block;
 }
 
 .bricks-canvas .brick.assignment {
@@ -141,4 +142,33 @@ figcaption {
 
 .bricks-canvas .brick.string::before, .bricks-canvas .brick.string::after {
   content: '"';
+}
+
+.brick-container {
+  border-width: 1px;
+  border-color: var(--light);
+}
+
+.internal-brick {
+  min-height: 1.6rem;
+  display: inline-block;
+  text-align: initial;
+  padding: 0.25rem;
+}
+
+.internal-brick > .brick-container {
+  min-width: 3rem;
+  min-height: 1rem;
+}
+
+.blk-container {
+  padding: 0.5rem;
+}
+
+.blk-container .internal-brick {
+  margin: 0.25rem;
+}
+
+.bricks-canvas .badge {
+  font-size: 0.8rem;
 }

@@ -12,24 +12,24 @@
 
 <body>
   <main class="container">
-    <div class="bricks-canvas">
-      <div class="brick">eq1 &larr; "Real"</div>
-      <div class="brick">eq2 &larr; "Barça"</div>
-      <div class="brick">num_eq &larr; alea(<span class="brick">0</span>, <span class="brick">1</span>)</div>
-      <div class="brick">
+    <div class="bricks-canvas" data-slots="5">
+      <span class="brick">eq1 &larr; "Real"</span>
+      <span class="brick">eq2 &larr; "Barça"</span>
+      <span class="brick">num_eq &larr; <span class="brick">alea(0, 1)</span></span>
+      <span class="brick">
         Si <span class="brick">num_eq = 0</span> Alors<br>
         <span class="brick">eq &larr; eq1</span><br>
         Sinon<br>
         <span class="brick">eq &larr; eq2</span><br>
         Fin Si
-      </div>
-      <div class="brick">
+      </span>
+      <span class="brick">
         Afficher(
           <span class="brick">"Le capitaine de l'équipe"</span>,
           <span class="brick">eq</span>,
           <span class="brick">"choisit Pile/Face"</span>
         )
-      </div>
+      </span>
     </div>
   </main>
 

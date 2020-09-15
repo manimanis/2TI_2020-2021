@@ -221,24 +221,107 @@ class BrickExercise {
     this.id = `brick-exercise-${this.num_ex}`;
     this.canvas = $(canvas);
     this.blocks = this.canvas.find('.brick');
+    this.slots_count = this.canvas.data('slots');
     this.buildUI();
+    this.dragDrop();
   }
 
   buildUI() {
     const thisObj = this;
     this.canvas
       .attr('id', this.id);
+    // create a container
+    const blk_container = $('<div>')
+      .addClass('blk-container border drop-target')
+      .appendTo(this.canvas);
     this.blocks
       .each(function (index) {
         const block = $(this);
-        console.log(`brick-${thisObj.num_ex}-${index}`);
         block
-          .attr('id', `block-${thisObj.num_ex}-${index}`);
-      });
-    const blk_container = $('<div>')
-      .addClass('blk-container')
+          .wrap('<span class="brick-container drop-target"></span>')
+          .removeClass('brick')
+          .addClass('internal-brick draggable-item badge badge-secondary')
+          .attr('id', `block-${thisObj.num_ex}-${index}`)
+          .attr('draggable', true);
+      })
+      .appendTo(blk_container);
+    // Remove main brick container
+    // they are not needed anymore 
+    this.canvas
+      .children('.brick-container')
+      .remove();
+    // The container where the user will drop
+    const blk_drop = $('<div>')
+      .addClass('blk-drop-bricks')
       .appendTo(this.canvas);
-    
+    this.blk_drop = blk_drop;
+    const ul = $('<ul>')
+      .addClass('list-group')
+      .appendTo(blk_drop);
+    // Add drop targets
+    for (let i = 0; i < this.slots_count; i++) {
+      const li = $('<li>')
+        .addClass('list-group-item drop-target numbered')
+        .appendTo(ul);
+    }
+    // Add control buttons
+    const blk_control = $('<div>')
+      .addClass('p-2')
+      .appendTo(this.canvas);
+    this.btn_verify = $('<button>')
+      .addClass('btn btn-primary')
+      .text('Vérifier')
+      .appendTo(blk_control)
+      .on('click', e => {
+        e.preventDefault();
+        this.verify();
+      });
+    this.btn_reset = $('<button>')
+      .addClass('btn btn-dark ml-2')
+      .text('Reset')
+      .appendTo(blk_control)
+      .on('click', e => {
+        e.preventDefault();
+        this.reset();
+      });
+  }
+
+  dragDrop() {
+    // drag n drop handlers
+    this.canvas[0].addEventListener('dragstart', e => {
+      if (e.target.classList.contains('draggable-item')) {
+        e.dataTransfer.setData("Text", e.target.id);
+      }
+    });
+    this.canvas[0].addEventListener('dragover', e => { e.preventDefault(); });
+    this.canvas[0].addEventListener('drop', e => {
+      e.preventDefault();
+      const target = $(e.target);
+      const parentDropTarget = target.closest('.drop-target');
+      if (parentDropTarget) {
+        const data = e.dataTransfer.getData("Text");
+        if (data.substr(0, data.lastIndexOf('-')) === `block-${this.num_ex}`) {
+          $(`#${data}`)
+            .appendTo(parentDropTarget);
+          //this.refreshButtons();
+        }
+      }
+    });
+  }
+
+  verify() {
+    this.blk_drop
+      .find('.internal-brick')
+      .each(function (index) {
+        const brick = $(this);
+        const brick_id = brick.attr('id');
+        const id = +brick_id.substr(brick_id.lastIndexOf('-') + 1);
+        console.log(id);
+      });
+  }
+
+  reset() {
+
   }
 }
 
