@@ -212,7 +212,38 @@ class ExerciceOrderItems {
   }
 }
 
+class BrickExercise {
+  static counter = 0;
 
+  constructor(canvas) {
+    BrickExercise.counter++;
+    this.num_ex = BrickExercise.counter;
+    this.id = `brick-exercise-${this.num_ex}`;
+    this.canvas = $(canvas);
+    this.blocks = this.canvas.find('.brick');
+    this.buildUI();
+  }
+
+  buildUI() {
+    const thisObj = this;
+    this.canvas
+      .attr('id', this.id);
+    this.blocks
+      .each(function (index) {
+        const block = $(this);
+        console.log(`brick-${thisObj.num_ex}-${index}`);
+        block
+          .attr('id', `block-${thisObj.num_ex}-${index}`);
+      });
+    const blk_container = $('<div>')
+      .addClass('blk-container')
+      .appendTo(this.canvas);
+    
+  }
+}
 
 document.querySelectorAll('.order-items-exercise')
   .forEach(item => new ExerciceOrderItems(item));
+
+document.querySelectorAll('.bricks-canvas')
+  .forEach(item => new BrickExercise(item));

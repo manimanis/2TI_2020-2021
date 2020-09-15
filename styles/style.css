@@ -117,10 +117,11 @@ figcaption {
 }
 
 .bricks-canvas .brick {
+  margin: 2px;
   padding: 3px;
   border-radius: 5px;
-  display: inline-block;
   border: #333 solid 1px;
+  line-height: 2rem;
 }
 
 .bricks-canvas .brick.assignment {

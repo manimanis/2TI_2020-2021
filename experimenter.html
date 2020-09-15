@@ -13,46 +13,23 @@
 <body>
   <main class="container">
     <div class="bricks-canvas">
-      <div class="brick assignment">
-        <span class="brick-container">
-          <span class="brick identifier">eq1</span>
-        </span>
-        <span>&larr;</span>
-        <span class="brick-container">
-          <span class="brick string">Real</span>
-        </span>
+      <div class="brick">eq1 &larr; "Real"</div>
+      <div class="brick">eq2 &larr; "Barça"</div>
+      <div class="brick">num_eq &larr; alea(<span class="brick">0</span>, <span class="brick">1</span>)</div>
+      <div class="brick">
+        Si <span class="brick">num_eq = 0</span> Alors<br>
+        <span class="brick">eq &larr; eq1</span><br>
+        Sinon<br>
+        <span class="brick">eq &larr; eq2</span><br>
+        Fin Si
       </div>
-
-      <div class="brick assignment">
-        <span class="brick-container">
-          <span class="brick identifier">eq2</span>
-        </span>
-        <span>&larr;</span>
-        <span class="brick-container">
-          <span class="brick string">Barça</span>
-        </span>
+      <div class="brick">
+        Afficher(
+          <span class="brick">"Le capitaine de l'équipe"</span>,
+          <span class="brick">eq</span>,
+          <span class="brick">"choisit Pile/Face"</span>
+        )
       </div>
-
-      <div class="brick assignment">
-        <span class="brick-container">
-          <span class="brick identifier">num_eq</span>
-        </span>
-        <span>&larr;</span>
-        <span class="brick-container">
-          <span class="brick function">
-            <span>alea(</span>
-            <span class="brick-container">
-              <span class="brick number">0</span>
-            </span>
-            <span>,</span>
-            <span class="brick-container">
-              <span class="brick number">1</span>
-            </span>
-            <span>)</span>
-          </span>
-        </span>
-      </div>
-      
     </div>
   </main>
 
