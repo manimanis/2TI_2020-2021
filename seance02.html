@@ -288,7 +288,25 @@ Afficher("Résultat du tirage au sort :", face)</code></pre>
         <pre><code class="nohighlight hljs">Le capitaine de l'équipe {nom d'une équipe} choisit Pile/Face</code></pre>
         <p><strong>Donner l'algorithme ?</strong></p>
       </div>
-      <pre><code class="language-algorithm">eq1 &larr; "Real"
+      <div class="bricks-canvas" data-slots="3">
+        <span class="brick">eq1 &larr; "Real"<br>
+          eq2 &larr; "Barça"<br>
+          num_eq &larr; <span class="brick">alea(0, 1)</span></span>
+        <span class="brick">
+          Si <span class="brick">num_eq = 0</span> Alors<br>
+          <span class="brick">eq &larr; eq1</span><br>
+          Sinon<br>
+          <span class="brick">eq &larr; eq2</span><br>
+          Fin Si
+        </span>
+        <span class="brick">
+          Afficher(
+          <span class="brick">"Le capitaine de l'équipe"</span>,
+          <span class="brick">eq</span>,
+          <span class="brick">"choisit Pile/Face"</span>
+          )
+        </span>
+        <pre class="success" hidden><code class="language-algorithm">eq1 &larr; "Real"
 eq2 &larr; "Barça"
 num_eq &larr; alea(0, 1) // 0: Real, 1: Barça
 Si num_eq = 0 Alors
@@ -297,6 +315,8 @@ Sinon
   eq &larr; eq2
 Fin Si
 Afficher("Le capitaine de l'équipe", eq, "choisit Pile/Face")</code></pre>
+      </div>
+      
 
       <h3 class="brique">Saisie de données</h3>
       <h4 class="sous-brique">Assemblage n°1</h4>

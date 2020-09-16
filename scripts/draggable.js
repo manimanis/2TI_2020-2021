@@ -217,13 +217,60 @@ class BrickExercise {
 
   constructor(canvas) {
     BrickExercise.counter++;
+    const thisObj = this;
     this.num_ex = BrickExercise.counter;
     this.id = `brick-exercise-${this.num_ex}`;
     this.canvas = $(canvas);
-    this.blocks = this.canvas.find('.brick');
+    this.blocks = this.canvas
+      .find('.brick')
+      .each(function (index) {
+        const id = `block-${thisObj.num_ex}-${index}`;
+        const child = $(this)
+          .attr('id', id);
+      });
+    this.blk_success = this.canvas
+      .find('.success')
+      .addClass('d-none d-print-block')
+      .removeAttr('hidden');
     this.slots_count = this.canvas.data('slots');
+    this.structure = this.browseStructure(this.canvas, '.brick');
     this.buildUI();
     this.dragDrop();
+    this.scramble();
+    this.refreshButtons();
+  }
+
+  browseStructure(node, selector) {
+    const tree = [];
+    const thisObj = this;
+    node.children(selector)
+      .each(function () {
+        const child = $(this);
+        const id = child.attr('id');
+        tree.push({ [id]: thisObj.browseStructure(child, selector) });
+      });
+    return tree;
+  }
+
+  /**
+   * 
+   * @param {HTMLNode} node 
+   * @param {string} classname 
+   */
+  filterByClassname(node, classname) {
+    let tree = [];
+    node.childNodes.forEach(child => {
+      if (child.nodeType !== Node.ELEMENT_NODE) {
+        return;
+      }
+      if (child.classList.contains(classname)) {
+        const id = child.getAttribute('id');
+        tree.push({ [id]: this.filterByClassname(child, classname) });
+      } else {
+        tree = tree.concat(this.filterByClassname(child, classname));
+      }
+    });
+    return tree;
   }
 
   buildUI() {
@@ -232,8 +279,9 @@ class BrickExercise {
       .attr('id', this.id);
     // create a container
     const blk_container = $('<div>')
-      .addClass('blk-container border drop-target')
+      .addClass('blk-container d-print-none border drop-target')
       .appendTo(this.canvas);
+    this.blk_container = blk_container;
     this.blocks
       .each(function (index) {
         const block = $(this);
@@ -241,7 +289,7 @@ class BrickExercise {
           .wrap('<span class="brick-container drop-target"></span>')
           .removeClass('brick')
           .addClass('internal-brick draggable-item badge badge-secondary')
-          .attr('id', `block-${thisObj.num_ex}-${index}`)
+
           .attr('draggable', true);
       })
       .appendTo(blk_container);
@@ -252,7 +300,7 @@ class BrickExercise {
       .remove();
     // The container where the user will drop
     const blk_drop = $('<div>')
-      .addClass('blk-drop-bricks')
+      .addClass('blk-drop-bricks d-print-none')
       .appendTo(this.canvas);
     this.blk_drop = blk_drop;
     const ul = $('<ul>')
@@ -266,15 +314,16 @@ class BrickExercise {
     }
     // Add control buttons
     const blk_control = $('<div>')
-      .addClass('p-2')
+      .addClass('blk_control p-2 d-print-none')
       .appendTo(this.canvas);
+    this.blk_control = blk_control;
     this.btn_verify = $('<button>')
       .addClass('btn btn-primary')
       .text('Vérifier')
       .appendTo(blk_control)
       .on('click', e => {
         e.preventDefault();
-        this.verify();
+        thisObj.verify();
       });
     this.btn_reset = $('<button>')
       .addClass('btn btn-dark ml-2')
@@ -282,8 +331,17 @@ class BrickExercise {
       .appendTo(blk_control)
       .on('click', e => {
         e.preventDefault();
-        this.reset();
+        thisObj.reset();
       });
+  }
+
+  scramble() {
+    const bricks = this.blk_container
+      .find('.internal-brick');
+    for (let i = 0; i < bricks.length / 2; i++) {
+      const pos = Math.floor(Math.random() * bricks.length);
+      $(bricks[i]).insertAfter($(bricks[pos]));
+    }
   }
 
   dragDrop() {
@@ -293,35 +351,119 @@ class BrickExercise {
         e.dataTransfer.setData("Text", e.target.id);
       }
     });
-    this.canvas[0].addEventListener('dragover', e => { e.preventDefault(); });
+    this.canvas[0].addEventListener('dragover', e => {
+      e.preventDefault();
+      const target = $(e.target);
+    });
+    this.canvas[0].addEventListener('dragenter', e => {
+      e.preventDefault();
+      const target = $(e.target);
+      const parentDropTarget = target.closest('.drop-target');
+      if (parentDropTarget.length) {
+        parentDropTarget.addClass('drag-enter');
+      }
+    });
+    this.canvas[0].addEventListener('dragleave', e => {
+      e.preventDefault();
+      const target = $(e.target);
+      const parentDropTarget = target.closest('.drop-target');
+      if (parentDropTarget.length) {
+        parentDropTarget.removeClass('drag-enter');
+      }
+    });
     this.canvas[0].addEventListener('drop', e => {
       e.preventDefault();
       const target = $(e.target);
       const parentDropTarget = target.closest('.drop-target');
-      if (parentDropTarget) {
+
+      if (parentDropTarget.length) {
+        parentDropTarget.removeClass('drag-enter');
+        if (parentDropTarget[0].childNodes.length > 0) {
+          parentDropTarget[0].childNodes.forEach(node => {
+            $(node)
+              .appendTo(this.blk_container);
+          });
+          this.refreshButtons();
+        }
         const data = e.dataTransfer.getData("Text");
         if (data.substr(0, data.lastIndexOf('-')) === `block-${this.num_ex}`) {
           $(`#${data}`)
             .appendTo(parentDropTarget);
-          //this.refreshButtons();
+          this.refreshButtons();
         }
       }
     });
   }
 
+  sameTree(t1, t2) {
+    let isEqual = t1.length === t2.length;
+    for (let i = 0; i < Math.min(t1.length, t2.length); i++) {
+      const n1 = t1[i];
+      const n2 = t2[i];
+      Object.keys(n1)
+        .forEach(k1 => {
+          if (n2[k1]) {
+            const same = this.sameTree(n1[k1], n2[k1]);
+            isEqual = isEqual && same;
+            $(`#${k1}`)
+              .removeClass('badge-secondary badge-danger')
+              .addClass('badge-success');
+          } else {
+            isEqual = false;
+            Object.keys(n2).forEach(k2 => {
+              $(`#${k2}`)
+                .removeClass('badge-secondary badge-success')
+                .addClass('badge-danger');
+            });
+          }
+        });
+    }
+    return isEqual;
+  }
+
+  hasAllItemsPlaced() {
+    return this.blk_container
+      .find('.internal-brick').length === 0;
+  }
+
+  refreshButtons() {
+    const itemsPlaced = this.hasAllItemsPlaced();
+    this.btn_verify
+      .attr('disabled', !itemsPlaced);
+    this.btn_reset
+      .attr('disabled', !itemsPlaced);
+  }
+
   verify() {
-    this.blk_drop
-      .find('.internal-brick')
-      .each(function (index) {
-        const brick = $(this);
-        const brick_id = brick.attr('id');
-        const id = +brick_id.substr(brick_id.lastIndexOf('-') + 1);
-        console.log(id);
-      });
+    const curr_struct = this.filterByClassname(this.blk_drop[0], 'internal-brick');
+    const isOK = this.sameTree(this.structure, curr_struct);
+    if (isOK) {
+      this.blk_drop
+        .find('.internal-brick')
+        .removeAttr('draggable');
+      this.blk_success
+        .removeClass('d-none');
+      this.blk_container.hide();
+      this.blk_control.hide();
+      this.blk_drop.hide();
+    }
+    this.refreshButtons();
   }
 
   reset() {
-
+    const thisObj = this;
+    this.blk_drop
+      .find('.internal-brick')
+      .each(function () {
+        const brick = $(this);
+        brick
+          .removeClass('badge-success badge-danger')
+          .addClass('badge-secondary')
+          .attr('draggable', true)
+          .appendTo(thisObj.blk_container);
+      });
+    this.scramble();
+    this.refreshButtons();
   }
 }
 

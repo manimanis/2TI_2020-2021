@@ -33,6 +33,11 @@ figcaption {
   min-height: 3rem;
 }
 
+.drag-enter {
+  border-color: #cd0000 !important;
+  background-color: #e91e63 !important;
+}
+
 .ordered-items-exercise {
   page-break-inside: avoid;
 }
@@ -121,7 +126,6 @@ figcaption {
   padding: 3px;
   border-radius: 5px;
   border: #333 solid 1px;
-  line-height: 2rem;
   display: inline-block;
 }
 
@@ -150,15 +154,16 @@ figcaption {
 }
 
 .internal-brick {
-  min-height: 1.6rem;
-  display: inline-block;
-  text-align: initial;
-  padding: 0.25rem;
+	min-height: 1.6rem;
+	display: inline-block;
+	text-align: initial;
+	padding: 0.5rem;
 }
 
 .internal-brick > .brick-container {
-  min-width: 3rem;
-  min-height: 1rem;
+	min-width: 2rem;
+	min-height: 1rem;
+	background-color: var(--gray-dark);
 }
 
 .blk-container {
