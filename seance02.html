@@ -251,8 +251,13 @@ age = int(input("Quel est votre age ? "))</code></pre>
         <pre><code class="nohighlight hljs">Le ballon est en possession de l'équipe : <mark>{nom d'une équipe}</mark></code></pre>
         <p><strong>Donner l'algorithme ?</strong></p>
       </div>
-      <pre><code class="language-algorithm">equipe &larr; "Mon équipe"
+      <div class="bricks-canvas" data-slots="2">
+        <span class="brick">equipe &larr; "Mon équipe"</span>
+        <span class="brick">Afficher(<span class="brick">"Le ballon est en possession de l'équipe"</span>, <span
+            class="brick">equipe</span>)</span>
+        <pre class="success"><code class="language-algorithm">equipe &larr; "Mon équipe"
 Afficher("Le ballon est en possession de l'équipe", equipe)</code></pre>
+      </div>
 
       <h4 class="sous-brique">Assemblage n°2</h4>
       <div class="no-page-break-inside">
@@ -262,8 +267,14 @@ Afficher("Le ballon est en possession de l'équipe", equipe)</code></pre>
 Résultat du tirage au sort : {Pile ou Face}</code></pre>
         <p><strong>Donner l'algorithme ?</strong></p>
       </div>
-      <pre><code class="language-algorithm">Afficher("L'arbitre lance la pièce puis il l'attrape")
+      <div class="bricks-canvas" data-slots="2">
+        <span class="brick">Afficher(<span class="brick">"L'arbitre lance la pièce puis il l'attrape"</span>)</span>
+        <span class="brick">Afficher( <span class="brick">"Résultat du tirage au sort :"</span>, <span
+            class="brick">face</span>)</span>
+        <pre class="success"><code class="language-algorithm">Afficher("L'arbitre lance la pièce puis il l'attrape")
 Afficher("Résultat du tirage au sort :", face)</code></pre>
+      </div>
+
 
       <h3 class="brique">Choix d'une valeur au hasard</h3>
       <h4 class="sous-brique">Assemblage n°1</h4>
@@ -272,7 +283,18 @@ Afficher("Résultat du tirage au sort :", face)</code></pre>
         <p>On veut choisir au hasard <strong>Pile</strong> ou <strong>Face</strong>.</p>
         <p><strong>Donner l'algorithme ?</strong></p>
       </div>
-      <pre><code class="language-algorithm">ts &larr; alea(0, 1) // 0: Pile, 1: Face
+      <div class="bricks-canvas" data-slots="4">
+        <span class="brick">ts &larr; <span class="brick">alea(0, 1)</span> <span class="brick">// 0: Pile, 1:
+            Face</span></span>
+        <span class="brick">Si ts = 0 Alors<br>
+          <span class="brick">face &larr; "Pile"</span><br>
+          Sinon<br>
+          <span class="brick">face &larr; "Face"</span><br>
+          Fin Si</span>
+        <span class="brick">Afficher(<span class="brick">"L'arbitre lance la pièce puis il l'attrape"</span>)</span>
+        <span class="brick">Afficher(<span class="brick">"Résultat du tirage au sort :"</span>, <span
+            class="brick">face</span>)</span>
+        <pre class="success"><code class="language-algorithm">ts &larr; alea(0, 1) // 0: Pile, 1: Face
 Si ts = 0 Alors
   face &larr; "Pile"
 Sinon
@@ -280,6 +302,7 @@ Sinon
 Fin Si
 Afficher("L'arbitre lance la pièce puis il l'attrape")
 Afficher("Résultat du tirage au sort :", face)</code></pre>
+      </div>
 
       <h4 class="sous-brique">Assemblage n°2</h4>
       <div class="no-page-break-inside">
@@ -316,7 +339,7 @@ Sinon
 Fin Si
 Afficher("Le capitaine de l'équipe", eq, "choisit Pile/Face")</code></pre>
       </div>
-      
+
 
       <h3 class="brique">Saisie de données</h3>
       <h4 class="sous-brique">Assemblage n°1</h4>
@@ -331,12 +354,16 @@ Nom 2ème équipe : <i class="text-success">Barça</i>
 Le match est joué aujourd'hui entre Real et Barça</code></pre>
         <p><strong>Donner l'algorithme ?</strong></p>
       </div>
-      <pre><code class="language-algorithm">Afficher("Nom 1ère équipe : ")
+      <div class="bricks-canvas" data-slots="3">
+        <span class="brick">Afficher("Nom 1ère équipe : ")<br>Lire(eq1)</span>
+        <span class="brick">Afficher("Nom 2ème équipe : ")<br>Lire(eq2)</span>
+        <span class="brick">Afficher("Le match est joué aujourd'hui entre", eq1, "et", eq2)</span>
+        <pre class="success"><code class="language-algorithm">Afficher("Nom 1ère équipe : ")
 Lire(eq1)
 Afficher("Nom 2ème équipe : ")
 Lire(eq2)
 Afficher("Le match est joué aujourd'hui entre", eq1, "et", eq2)</code></pre>
-
+      </div>
 
       <h4 class="sous-brique">Assemblage n°2</h4>
       <div class="no-page-break-inside">
@@ -349,8 +376,12 @@ Afficher("Le match est joué aujourd'hui entre", eq1, "et", eq2)</code></pre>
         <pre><code class="nohighlight hljs">0: Pile, 1: Face ? <i class="text-success">0</i></code></pre>
         <p><strong>Donner l'algorithme ?</strong></p>
       </div>
-      <pre><code class="language-algorithm">Afficher("0: Pile, 1: Face ?")
+      <div class="bricks-canvas" data-slots="2">
+        <span class="brick">Afficher(<span class="brick">"0: Pile, 1: Face ?"</span>)</span>
+        <span class="brick">Lire(<span class="brick">choix_cap</span>)</span>
+      <pre class="success"><code class="language-algorithm">Afficher("0: Pile, 1: Face ?")
 Lire(choix_cap)</code></pre>
+</div>
     </section>
 
     <section>

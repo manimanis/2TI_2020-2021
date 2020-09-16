@@ -118,7 +118,6 @@ figcaption {
 /*----------------------------------------------------------------------------*/
 .bricks-canvas {
   min-width: 400px;
-  min-height: 200px;
 }
 
 .bricks-canvas .brick, .brick-container {
