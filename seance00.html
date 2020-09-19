@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet n°0 - Warez Downloader</title>
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/default.css">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+  <main class="container">
+    <h1>Projet n°0 - Warez Downloader</h1>
+
+    <section>
+      <h2>Prise de contact avec la programmation</h2>
+      <p>On donne le code source d'un programme en Python :</p>
+      <pre><code class="language-python">from time import sleep
+
+print('-' * 5, 'Dark Warez Downloader', '-' * 5)
+print('Initializing, please wait... ')
+sleep(3)
+print('Done.')
+print()
+print('Welcome to Warez! A service that let you download any game of your '
+      'choice')
+print()
+game = input('Please, input the game name you like ? ')
+print('Searching... This operation may take a while...')
+sleep(5)
+print(game, 'found and ready to download!')
+print('This service is provided as is no warranties of any kind are provided.')
+answer = input('Do you accept the service conditions ? (Y/n) ')
+if answer == 'Y' or answer == 'y':
+    print('Downloading...')
+    for i in range(100):
+        print('Progress ', i, '%', end='\r')
+        sleep(0.2)
+    print()
+    sleep(5)
+    print('Network error, retry again!')
+else:
+    print('Goodbye!')</code></pre>
+      <h3>Instructions</h3>
+      <ol>
+        <li>Exécuter ce code en utilisant l'outil de votre choix.</li>
+        <li>Commenter les lignes suivantes :
+          <ol type="a">
+            <li>
+              <pre><code class="language-python">print('Initializing, please wait... ')</code></pre>
+              <div class="mt-1 mb-4 p-1">
+                <textarea class="form-control" cols="30" rows="2"></textarea>
+              </div>
+            </li>
+            <li>
+              <pre><code class="language-python">print(game, 'found and ready to download!')</code></pre>
+              <div class="mt-1 mb-4 p-1">
+                <textarea class="form-control" cols="30" rows="2"></textarea>
+              </div>
+            </li>
+            <li>
+              <pre><code class="language-python">print('Progress ', i, '%', end='\r')</code></pre>
+              <div class="mt-1 mb-4 p-1">
+                <textarea class="form-control" cols="30" rows="2"></textarea>
+              </div>
+            </li>
+            <li>
+              <pre><code class="language-python">print('=-' * 10)</code></pre>
+              <div class="mt-1 mb-4 p-1">
+                <textarea class="form-control" cols="30" rows="2"></textarea>
+              </div>
+            </li>
+            <li>
+              <pre><code class="language-python">print()</code></pre>
+              <div class="mt-1 mb-4 p-1">
+                <textarea class="form-control" cols="30" rows="2"></textarea>
+              </div>
+            </li>
+            <li>
+              <pre><code class="language-python">game = input('Please, input the game name you like ? ')</code></pre>
+              <div class="mt-1 mb-4 p-1">
+                <textarea class="form-control" cols="30" rows="2"></textarea>
+              </div>
+            </li>
+            <li>
+              <pre><code class="language-python">if answer == 'Y' or answer == 'y':
+    print('Downloading...')
+    # ...
+else:
+    print('Goodbye!')
+    # ...</code></pre>
+              <div class="mt-1 mb-4 p-1">
+                <textarea class="form-control" cols="30" rows="2"></textarea>
+              </div>
+            </li>
+            <li>
+              <pre><code class="language-python">for i in range(100):
+    print('Progress ', i, '%', end='\r')
+    # ...</code></pre>
+              <div class="mt-1 mb-4 p-1">
+                <textarea class="form-control" cols="30" rows="2"></textarea>
+              </div>
+            </li>
+            <li>
+              <pre><code class="language-python">from time import sleep</code></pre>
+              <div class="mt-0 mb-4 p-1">
+                <textarea class="form-control" cols="30" rows="2"></textarea>
+              </div>
+            </li>
+            <li>
+              <pre><code class="language-python">sleep(5)</code></pre>
+              <div class="mt-1 mb-4 p-1">
+                <textarea class="form-control" cols="30" rows="2"></textarea>
+              </div>
+            </li>
+          </ol>
+        </li>
+        <li>Essayer de trouver la définition d'un programme informatique en se basant sur les éléments précédents.</li>
+
+      </ol>
+    </section>
+  </main>
+  <script src="scripts/jquery.min.js"></script>
+  <script src="scripts/bootstrap.min.js"></script>
+  <script src="scripts/highlight.pack.js"></script>
+  <script src="scripts/hljs.algorithm.js"></script>
+  <script src="scripts/draggable.js"></script>
+  <script src="scripts/clipboard.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+    document.querySelectorAll('.language-algorithm,.language-python')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+    $(() => {
+      const userInputSaver = new UserInputSaver();
+      $('textarea').each(function (index) {
+        const textarea = $(this);
+        textarea
+          .attr('placeholder', 'Taper votre réponse ici!')
+          .wrap('<div></div>');
+        const div_id = `text-area-${index}`;
+        const parent_div = textarea
+          .parent('div')
+          .attr('id', div_id);
+        textarea
+          .on('blur', (e) => {
+            const textarea = $(e.target);
+            const parent_div = textarea.parent('div');
+            const div_id = parent_div.attr('id');
+            userInputSaver.data[div_id] = textarea.val();
+            userInputSaver.saveData();
+            textarea.hide();
+            parent_div.find('pre')
+              .show()
+              .text(userInputSaver.data[div_id] || 'Cliquer pour éditer');
+          })
+          .hide();
+        $('<pre>')
+          .text(userInputSaver.data[div_id] || 'Cliquer pour éditer')
+          .on('click', (e) => {
+            const pre = $(e.target);
+            const parent_div = pre.parent('div');
+            const div_id = parent_div.attr('id');
+            pre.hide();
+            parent_div.find('textarea')
+              .show()
+              .val(userInputSaver.data[div_id] || '')
+              .focus();
+          })
+          .appendTo(parent_div);
+      });
+    });
+  </script>
+</body>
+
+</html>

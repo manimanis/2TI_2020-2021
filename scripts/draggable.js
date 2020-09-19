@@ -467,8 +467,210 @@ class BrickExercise {
   }
 }
 
+class QcmExercise {
+  static counter = 0;
+  constructor(node) {
+    QcmExercise.counter++;
+    this.num_id = QcmExercise.counter;
+    this.exercise_id = `qcm-exercise-${this.num_id}`;
+    this.node = $(node);
+    this.prop_container = this.node.find('.propositions');
+    let data_correct = this.node.data('correct') || '1';
+    if (data_correct) {
+      data_correct = data_correct.toString();
+    }
+    this.answers = (data_correct || '1')
+      .split(',')
+      .map(num => +num - 1);
+    this.control_type = (this.answers.length == 1) ? 'radio' : 'checkbox';
+    this.scrambled = this.node.data('scramble') ? this.node.data('scramble') : true;
+    this.buildUI();
+    this.scramble();
+  }
+
+  buildUI() {
+    this.node
+      .attr('id', this.exercise_id);
+    this.prop_container
+      .addClass('list-group');
+    const thisObj = this;
+    this.props = this.prop_container
+      .find('li')
+      .each(function (index) {
+        const li = $(this);
+        const li_text = li.html();
+        const prop_id = `${thisObj.exercise_id}_${index}`;
+        li
+          .html('')
+          .addClass('list-group-item');
+        const prop_div = $('<div>')
+          .appendTo(li);
+        const control = $('<input>')
+          .attr('type', thisObj.control_type)
+          .attr('id', prop_id)
+          .attr('name', `qcmex_${thisObj.num_id}`)
+          .appendTo(prop_div);
+        const label = $('<label>')
+          .addClass('p-2')
+          .attr('for', prop_id)
+          .html(li_text)
+          .appendTo(prop_div);
+      });
+    this.blk_control = $('<div>')
+      .addClass('p-2 d-print-none')
+      .appendTo(this.node);
+    this.btn_verify = $('<button>')
+      .addClass('btn btn-primary mr-2')
+      .text('Vérifier')
+      .appendTo(this.blk_control)
+      .on('click', (e) => {
+        e.preventDefault();
+        thisObj.verify();
+      });
+    this.btn_reset = $('<button>')
+      .addClass('btn btn-dark')
+      .text('Reset')
+      .appendTo(this.blk_control)
+      .on('click', (e) => {
+        e.preventDefault();
+        thisObj.reset();
+      })
+      .hide();
+    this.blk_message = $('<div>')
+      .insertBefore(this.blk_control);
+  }
+
+  scramble() {
+    const li_count = this.props.length;
+    for (let i = 0; i < li_count; i++) {
+      const pos = Math.floor(Math.random() * li_count);
+      $(this.props[i])
+        .insertAfter($(this.props[pos]));
+    }
+  }
+
+  hasCheckedItems() {
+    return this.props.find(':checked').length > 0;
+  }
+
+  verify() {
+    if (!this.hasCheckedItems()) {
+      alert('Veuillez cocher les bonnes réponses !');
+      return;
+    }
+
+    let score = 0;
+    const user_ans = [];
+    const thisObj = this;
+    this.props.find(`:${this.control_type}`)
+      .each(function () {
+        const id = $(this).attr('id');
+        const num = +id.substr(id.lastIndexOf('_') + 1);
+        const isChecked = $(this).is(':checked');
+        const includes = thisObj.answers.includes(num);
+        if (isChecked === includes) {
+          score += 1;
+        }
+      });
+    this.props.find(`:${this.control_type}`)
+      .attr('disabled', true);
+    this.btn_verify
+      .hide();
+    this.btn_reset
+      .show();
+    if (score === this.props.length) {
+      this.blk_message
+        .removeClass('badge-danger')
+        .addClass('badge badge-success')
+        .text('Bravo, correct!');
+    } else {
+      this.blk_message
+        .removeClass('badge-success')
+        .addClass('badge badge-danger')
+        .text(`Incorrect, ${score} corrects parmi ${this.props.length}!`);
+    }
+  }
+
+  reset() {
+    this.btn_verify
+      .show();
+    this.btn_reset
+      .hide();
+    this.props.find(`:${this.control_type}`)
+      .attr('disabled', false)
+      .prop('checked', false);
+    this.blk_message
+      .removeClass('badge badge-success badge-danger')
+      .text('');
+  }
+}
+
+class UserInputSaver {
+  constructor() {
+    this.page_id = location.pathname;
+    this.load();
+  }
+
+  generateToken() {
+    const generateRandomToken = (length) => {
+      const ph = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+      let token = '';
+      for (let i = 0; i < length; i++) {
+        token += ph[Math.floor(Math.random() * ph.length)];
+      }
+      return token;
+    };
+    let token;
+    do {
+      token = generateRandomToken(8);
+    } while (this.hasToken(token));
+    return token;
+  }
+
+  load() {
+    if (!localStorage.getItem(this.page_id)) {
+      this.tokens = [];
+      const token = this.generateToken();
+      this.addToken(token);
+    }
+    this.tokens = JSON.parse(localStorage.getItem(this.page_id));
+    this.token = this.tokens[this.tokens.length - 1].token;
+    this.loadData();
+  }
+
+  loadData() {
+    this.data = JSON.parse(localStorage.getItem(this.token)) || {};
+  }
+
+  saveData() {
+    localStorage.setItem(this.token, JSON.stringify(this.data));
+  }
+
+  hasToken(token) {
+    return localStorage.getItem(token) ||
+      this.tokens.findIndex(token_obj => token_obj.token === token) !== -1;
+  }
+
+  addToken(token) {
+    if (this.hasToken(token)) {
+      throw new Error(`Token ${token} is already in use!`);
+    }
+    this.data = {};
+    this.tokens.push({
+      token: token,
+      date: new Date()
+    });
+    this.token = token;
+    localStorage.setItem(this.page_id, JSON.stringify(this.tokens));
+    this.saveData();
+  }
+}
+
 document.querySelectorAll('.order-items-exercise')
   .forEach(item => new ExerciceOrderItems(item));
 
 document.querySelectorAll('.bricks-canvas')
   .forEach(item => new BrickExercise(item));
+
+document.querySelectorAll('.qcm-exercise')
+  .forEach(item => new QcmExercise(item));
