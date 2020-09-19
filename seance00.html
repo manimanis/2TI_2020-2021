@@ -11,7 +11,21 @@
 </head>
 
 <body>
+  <header>
+
+  </header>
   <main class="container">
+    <div class="row bg-secondary text-white mb-5">
+      <div class="col-6">
+        <label>Nom & Prénom</label>
+        <input type="text" class="form-control save-content" placeholder="Nom & Prénom">
+      </div>
+      <div class="col-6">
+        <label>Classe</label>
+        <input type="text" class="form-control save-content" placeholder="Classe">
+      </div>
+    </div>
+
     <h1>Projet n°0 - Warez Downloader</h1>
 
     <section>
@@ -51,37 +65,37 @@ else:
             <li>
               <pre><code class="language-python">print('Initializing, please wait... ')</code></pre>
               <div class="mt-1 mb-4 p-1">
-                <textarea class="form-control" cols="30" rows="2"></textarea>
+                <textarea class="form-control save-content" cols="30" rows="2"></textarea>
               </div>
             </li>
             <li>
               <pre><code class="language-python">print(game, 'found and ready to download!')</code></pre>
               <div class="mt-1 mb-4 p-1">
-                <textarea class="form-control" cols="30" rows="2"></textarea>
+                <textarea class="form-control save-content" cols="30" rows="2"></textarea>
               </div>
             </li>
             <li>
               <pre><code class="language-python">print('Progress ', i, '%', end='\r')</code></pre>
               <div class="mt-1 mb-4 p-1">
-                <textarea class="form-control" cols="30" rows="2"></textarea>
+                <textarea class="form-control save-content" cols="30" rows="2"></textarea>
               </div>
             </li>
             <li>
               <pre><code class="language-python">print('=-' * 10)</code></pre>
               <div class="mt-1 mb-4 p-1">
-                <textarea class="form-control" cols="30" rows="2"></textarea>
+                <textarea class="form-control save-content" cols="30" rows="2"></textarea>
               </div>
             </li>
             <li>
               <pre><code class="language-python">print()</code></pre>
               <div class="mt-1 mb-4 p-1">
-                <textarea class="form-control" cols="30" rows="2"></textarea>
+                <textarea class="form-control save-content" cols="30" rows="2"></textarea>
               </div>
             </li>
             <li>
               <pre><code class="language-python">game = input('Please, input the game name you like ? ')</code></pre>
               <div class="mt-1 mb-4 p-1">
-                <textarea class="form-control" cols="30" rows="2"></textarea>
+                <textarea class="form-control save-content" cols="30" rows="2"></textarea>
               </div>
             </li>
             <li>
@@ -92,7 +106,7 @@ else:
     print('Goodbye!')
     # ...</code></pre>
               <div class="mt-1 mb-4 p-1">
-                <textarea class="form-control" cols="30" rows="2"></textarea>
+                <textarea class="form-control save-content" cols="30" rows="2"></textarea>
               </div>
             </li>
             <li>
@@ -100,24 +114,28 @@ else:
     print('Progress ', i, '%', end='\r')
     # ...</code></pre>
               <div class="mt-1 mb-4 p-1">
-                <textarea class="form-control" cols="30" rows="2"></textarea>
+                <textarea class="form-control save-content" cols="30" rows="2"></textarea>
               </div>
             </li>
             <li>
               <pre><code class="language-python">from time import sleep</code></pre>
               <div class="mt-0 mb-4 p-1">
-                <textarea class="form-control" cols="30" rows="2"></textarea>
+                <textarea class="form-control save-content" cols="30" rows="2"></textarea>
               </div>
             </li>
             <li>
               <pre><code class="language-python">sleep(5)</code></pre>
               <div class="mt-1 mb-4 p-1">
-                <textarea class="form-control" cols="30" rows="2"></textarea>
+                <textarea class="form-control save-content" cols="30" rows="2"></textarea>
               </div>
             </li>
           </ol>
         </li>
-        <li>Essayer de trouver la définition d'un programme informatique en se basant sur les éléments précédents.</li>
+        <li>Essayer de trouver la définition d'un programme informatique en se basant sur les éléments précédents.
+          <div class="mt-1 mb-4 p-1">
+            <textarea class="form-control save-content" cols="30" rows="2"></textarea>
+          </div>
+        </li>
 
       </ol>
     </section>
@@ -148,36 +166,37 @@ else:
     });
     $(() => {
       const userInputSaver = new UserInputSaver();
-      $('textarea').each(function (index) {
-        const textarea = $(this);
-        textarea
-          .attr('placeholder', 'Taper votre réponse ici!')
+      $('.save-content').each(function (index) {
+        const input_ctrl = $(this);
+        const placeholder = input_ctrl.attr('placeholder') || 'Taper un texte...';
+        input_ctrl
           .wrap('<div></div>');
-        const div_id = `text-area-${index}`;
-        const parent_div = textarea
+        const div_id = `save-content-${index}`;
+        const parent_div = input_ctrl
           .parent('div')
           .attr('id', div_id);
-        textarea
+        input_ctrl
           .on('blur', (e) => {
-            const textarea = $(e.target);
-            const parent_div = textarea.parent('div');
+            const input_ctrl = $(e.target);
+            const parent_div = input_ctrl.parent('div');
             const div_id = parent_div.attr('id');
-            userInputSaver.data[div_id] = textarea.val();
+            userInputSaver.data[div_id] = input_ctrl.val();
             userInputSaver.saveData();
-            textarea.hide();
+            input_ctrl.hide();
             parent_div.find('pre')
               .show()
-              .text(userInputSaver.data[div_id] || 'Cliquer pour éditer');
+              .text(userInputSaver.data[div_id] || placeholder);
           })
           .hide();
         $('<pre>')
-          .text(userInputSaver.data[div_id] || 'Cliquer pour éditer')
+          .text(userInputSaver.data[div_id] || placeholder)
+          .addClass('save-content-pre')
           .on('click', (e) => {
             const pre = $(e.target);
             const parent_div = pre.parent('div');
             const div_id = parent_div.attr('id');
             pre.hide();
-            parent_div.find('textarea')
+            parent_div.find('.save-content')
               .show()
               .val(userInputSaver.data[div_id] || '')
               .focus();

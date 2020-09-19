@@ -176,3 +176,10 @@ figcaption {
 .bricks-canvas .badge {
   font-size: 0.8rem;
 }
+/*************************************************************************************/
+.save-content-pre {
+  background-color: var(--light);
+  color: var(--dark);
+  padding: .375rem .75rem;
+  border-radius: 0.25rem;
+}
