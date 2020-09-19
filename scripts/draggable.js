@@ -606,9 +606,89 @@ class QcmExercise {
 }
 
 class UserInputSaver {
-  constructor() {
+  constructor(node) {
+    this.node = $(node);
     this.page_id = location.pathname;
     this.load();
+    this.buildUI();
+  }
+
+  buildUI() {
+    const thisObj = this;
+    this.blk_control = $('<div>')
+      .addClass('d-print-none')
+      .appendTo(this.node);
+    this.blk_saves_list = $('<div>')
+      .addClass('my-2 d-print-none')
+      .appendTo(this.node);
+    this.load_btn = $('<button>')
+      .addClass('btn btn-success')
+      .text('Sauvegardes...')
+      .appendTo(this.blk_control)
+      .on('click', e => {
+        this.blk_saves_list
+          .html('');
+        const select = $('<select>')
+          .appendTo(this.blk_saves_list)
+          .on('change', e => {
+            const val = +select.val();
+            if (val === -1) {
+              return;
+            }
+            this.load(val);
+          });
+        $('<option>')
+          .attr('value', '-1')
+          .text('Choisir une sauvegarde')
+          .appendTo(select);
+        this.tokens.forEach((token, index) => {
+          const option = $('<option>')
+            .attr('value', index)
+            .text(token.date)
+            .appendTo(select);
+        });
+        $('<option>')
+          .attr('value', this.tokens.length)
+          .text('Nouvelle sauvegarde...')
+          .appendTo(select);
+      });
+    $('.save-content').each(function (index) {
+      const input_ctrl = $(this);
+      const placeholder = input_ctrl.attr('placeholder') || 'Taper un texte...';
+      input_ctrl
+        .wrap('<div></div>');
+      const div_id = `save-content-${index}`;
+      const parent_div = input_ctrl
+        .parent('div')
+        .attr('id', div_id);
+      input_ctrl
+        .on('blur', (e) => {
+          const input_ctrl = $(e.target);
+          const parent_div = input_ctrl.parent('div');
+          const div_id = parent_div.attr('id');
+          thisObj.data[div_id] = input_ctrl.val();
+          thisObj.saveData();
+          input_ctrl.hide();
+          parent_div.find('pre')
+            .show()
+            .text(thisObj.data[div_id] || placeholder);
+        })
+        .hide();
+      $('<pre>')
+        .text(thisObj.data[div_id] || placeholder)
+        .addClass('save-content-pre')
+        .on('click', (e) => {
+          const pre = $(e.target);
+          const parent_div = pre.parent('div');
+          const div_id = parent_div.attr('id');
+          pre.hide();
+          parent_div.find('.save-content')
+            .show()
+            .val(thisObj.data[div_id] || '')
+            .focus();
+        })
+        .appendTo(parent_div);
+    });
   }
 
   generateToken() {
@@ -627,14 +707,24 @@ class UserInputSaver {
     return token;
   }
 
-  load() {
+  load(index) {
     if (!localStorage.getItem(this.page_id)) {
       this.tokens = [];
       const token = this.generateToken();
       this.addToken(token);
     }
     this.tokens = JSON.parse(localStorage.getItem(this.page_id));
-    this.token = this.tokens[this.tokens.length - 1].token;
+    console.log();
+    if (typeof index === 'undefined') {
+      index = this.tokens.length - 1;
+    } else if (index >= this.tokens.length) {
+      const token = this.generateToken();
+      this.addToken(token);
+    } else if (index >= 0 && index < this.tokens.length - 1) {
+      this.switchTo(index);
+      index = this.tokens.length - 1;
+    }
+    this.token = this.tokens[index].token;
     this.loadData();
   }
 
@@ -651,6 +741,8 @@ class UserInputSaver {
       this.tokens.findIndex(token_obj => token_obj.token === token) !== -1;
   }
 
+  
+
   addToken(token) {
     if (this.hasToken(token)) {
       throw new Error(`Token ${token} is already in use!`);
@@ -663,6 +755,19 @@ class UserInputSaver {
     this.token = token;
     localStorage.setItem(this.page_id, JSON.stringify(this.tokens));
     this.saveData();
+  }
+
+  switchTo(index) {
+    if (this.tokens.length <= 1) {
+      return;
+    }
+    this.saveData();
+
+    const v1 = this.tokens[index];
+    const v2 = this.tokens[this.tokens.length - 1];
+    this.tokens[index] = v2;
+    this.tokens[this.tokens.length - 1] = v1;
+    localStorage.setItem(this.page_id, JSON.stringify(this.tokens));
   }
 }
 

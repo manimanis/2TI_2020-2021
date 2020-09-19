@@ -15,14 +15,16 @@
 
   </header>
   <main class="container">
-    <div class="row bg-secondary text-white mb-5">
-      <div class="col-6">
-        <label>Nom & Prénom</label>
-        <input type="text" class="form-control save-content" placeholder="Nom & Prénom">
-      </div>
-      <div class="col-6">
-        <label>Classe</label>
-        <input type="text" class="form-control save-content" placeholder="Classe">
+    <div class="user-input-saver bg-secondary text-white mb-5 p-2">
+      <div class="row">
+        <div class="col-6">
+          <label>Nom & Prénom</label>
+          <input type="text" class="form-control save-content" placeholder="Nom & Prénom">
+        </div>
+        <div class="col-6">
+          <label>Classe</label>
+          <input type="text" class="form-control save-content" placeholder="Classe">
+        </div>
       </div>
     </div>
 
@@ -165,44 +167,7 @@ else:
       }
     });
     $(() => {
-      const userInputSaver = new UserInputSaver();
-      $('.save-content').each(function (index) {
-        const input_ctrl = $(this);
-        const placeholder = input_ctrl.attr('placeholder') || 'Taper un texte...';
-        input_ctrl
-          .wrap('<div></div>');
-        const div_id = `save-content-${index}`;
-        const parent_div = input_ctrl
-          .parent('div')
-          .attr('id', div_id);
-        input_ctrl
-          .on('blur', (e) => {
-            const input_ctrl = $(e.target);
-            const parent_div = input_ctrl.parent('div');
-            const div_id = parent_div.attr('id');
-            userInputSaver.data[div_id] = input_ctrl.val();
-            userInputSaver.saveData();
-            input_ctrl.hide();
-            parent_div.find('pre')
-              .show()
-              .text(userInputSaver.data[div_id] || placeholder);
-          })
-          .hide();
-        $('<pre>')
-          .text(userInputSaver.data[div_id] || placeholder)
-          .addClass('save-content-pre')
-          .on('click', (e) => {
-            const pre = $(e.target);
-            const parent_div = pre.parent('div');
-            const div_id = parent_div.attr('id');
-            pre.hide();
-            parent_div.find('.save-content')
-              .show()
-              .val(userInputSaver.data[div_id] || '')
-              .focus();
-          })
-          .appendTo(parent_div);
-      });
+      const userInputSaver = new UserInputSaver(document.querySelector('.user-input-saver'));
     });
   </script>
 </body>
