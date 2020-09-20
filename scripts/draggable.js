@@ -483,9 +483,12 @@ class QcmExercise {
       .split(',')
       .map(num => +num - 1);
     this.control_type = (this.answers.length == 1) ? 'radio' : 'checkbox';
-    this.scrambled = this.node.data('scramble') ? this.node.data('scramble') : true;
+    this.scrambled = !!this.node.data('scrambled');
     this.buildUI();
-    this.scramble();
+    console.log(this.scrambled);
+    if (this.scrambled) {
+      this.scramble();
+    }
   }
 
   buildUI() {
@@ -605,90 +608,21 @@ class QcmExercise {
   }
 }
 
-class UserInputSaver {
-  constructor(node) {
-    this.node = $(node);
+class PagePersistance {
+  constructor() {
     this.page_id = location.pathname;
-    this.load();
-    this.buildUI();
+    this.listeners = [];
+    this.tokens = [];
+    this.token = {};
+    this.loadData();
   }
 
-  buildUI() {
-    const thisObj = this;
-    this.blk_control = $('<div>')
-      .addClass('d-print-none')
-      .appendTo(this.node);
-    this.blk_saves_list = $('<div>')
-      .addClass('my-2 d-print-none')
-      .appendTo(this.node);
-    this.load_btn = $('<button>')
-      .addClass('btn btn-success')
-      .text('Sauvegardes...')
-      .appendTo(this.blk_control)
-      .on('click', e => {
-        this.blk_saves_list
-          .html('');
-        const select = $('<select>')
-          .appendTo(this.blk_saves_list)
-          .on('change', e => {
-            const val = +select.val();
-            if (val === -1) {
-              return;
-            }
-            this.load(val);
-          });
-        $('<option>')
-          .attr('value', '-1')
-          .text('Choisir une sauvegarde')
-          .appendTo(select);
-        this.tokens.forEach((token, index) => {
-          const option = $('<option>')
-            .attr('value', index)
-            .text(token.date)
-            .appendTo(select);
-        });
-        $('<option>')
-          .attr('value', this.tokens.length)
-          .text('Nouvelle sauvegarde...')
-          .appendTo(select);
-      });
-    $('.save-content').each(function (index) {
-      const input_ctrl = $(this);
-      const placeholder = input_ctrl.attr('placeholder') || 'Taper un texte...';
-      input_ctrl
-        .wrap('<div></div>');
-      const div_id = `save-content-${index}`;
-      const parent_div = input_ctrl
-        .parent('div')
-        .attr('id', div_id);
-      input_ctrl
-        .on('blur', (e) => {
-          const input_ctrl = $(e.target);
-          const parent_div = input_ctrl.parent('div');
-          const div_id = parent_div.attr('id');
-          thisObj.data[div_id] = input_ctrl.val();
-          thisObj.saveData();
-          input_ctrl.hide();
-          parent_div.find('pre')
-            .show()
-            .text(thisObj.data[div_id] || placeholder);
-        })
-        .hide();
-      $('<pre>')
-        .text(thisObj.data[div_id] || placeholder)
-        .addClass('save-content-pre')
-        .on('click', (e) => {
-          const pre = $(e.target);
-          const parent_div = pre.parent('div');
-          const div_id = parent_div.attr('id');
-          pre.hide();
-          parent_div.find('.save-content')
-            .show()
-            .val(thisObj.data[div_id] || '')
-            .focus();
-        })
-        .appendTo(parent_div);
-    });
+  addListener(callback) {
+    this.listeners.push(callback);
+  }
+
+  notifyClients(event_name) {
+    this.listeners.forEach(listener => listener(event_name, this));
   }
 
   generateToken() {
@@ -707,67 +641,221 @@ class UserInputSaver {
     return token;
   }
 
-  load(index) {
-    if (!localStorage.getItem(this.page_id)) {
-      this.tokens = [];
-      const token = this.generateToken();
-      this.addToken(token);
-    }
-    this.tokens = JSON.parse(localStorage.getItem(this.page_id));
-    console.log();
-    if (typeof index === 'undefined') {
-      index = this.tokens.length - 1;
-    } else if (index >= this.tokens.length) {
-      const token = this.generateToken();
-      this.addToken(token);
-    } else if (index >= 0 && index < this.tokens.length - 1) {
-      this.switchTo(index);
-      index = this.tokens.length - 1;
-    }
-    this.token = this.tokens[index].token;
-    this.loadData();
-  }
-
-  loadData() {
-    this.data = JSON.parse(localStorage.getItem(this.token)) || {};
-  }
-
-  saveData() {
-    localStorage.setItem(this.token, JSON.stringify(this.data));
-  }
-
   hasToken(token) {
-    return localStorage.getItem(token) ||
-      this.tokens.findIndex(token_obj => token_obj.token === token) !== -1;
+    return this.tokens.findIndex(token_obj => token_obj.token === token) !== -1;
   }
 
-  
+  createToken() {
+    const token = this.generateToken();
+    this.addToken(token);
+    this.notifyClients('create');
+  }
 
   addToken(token) {
     if (this.hasToken(token)) {
       throw new Error(`Token ${token} is already in use!`);
     }
-    this.data = {};
-    this.tokens.push({
+    this.token = {
+      name: token,
       token: token,
-      date: new Date()
-    });
-    this.token = token;
-    localStorage.setItem(this.page_id, JSON.stringify(this.tokens));
+      date: new Date().toISOString(),
+      data: {}
+    };
+    this.tokens.push(this.token);
     this.saveData();
   }
 
-  switchTo(index) {
-    if (this.tokens.length <= 1) {
-      return;
+  loadByToken(token_name) {
+    this.loadData();
+    const idx1 = this.indexOf(token_name);
+    if (idx1 === -1) {
+      throw new Error(`Invalid token ${token_name}.`);
+    }
+    this.token = this.tokens[idx1];
+    const idx2 = this.tokens.length - 1;
+    if (idx1 !== idx2) {
+      const temp = this.tokens[idx2];
+      this.tokens[idx1] = temp;
+      this.tokens[idx2] = this.token;
     }
     this.saveData();
+    this.notifyClients('load-by-token');
+  }
 
-    const v1 = this.tokens[index];
-    const v2 = this.tokens[this.tokens.length - 1];
-    this.tokens[index] = v2;
-    this.tokens[this.tokens.length - 1] = v1;
+  findByName(token_name) {
+    return this.tokens.find(t => t.name === token_name);
+  }
+
+  indexOf(token_name) {
+    return this.tokens.findIndex(token_obj => token_obj.token === token_name);
+  }
+
+  loadData() {
+    this.tokens = JSON.parse(localStorage.getItem(this.page_id)) || [];
+    if (this.tokens.length === 0) {
+      this.createToken();
+    } else {
+      this.token = this.tokens[this.tokens.length - 1];
+    }
+    this.notifyClients('load-data');
+  }
+
+  saveData() {
     localStorage.setItem(this.page_id, JSON.stringify(this.tokens));
+    this.notifyClients('save-data');
+  }
+
+  setData(key, data) {
+    if (!data) {
+      this.token.data = key;
+    } else {
+      this.token.data[key] = data;
+    }
+    this.saveData();
+  }
+
+  getData(key) {
+    if (!key) {
+      return this.token.data;
+    }
+    return this.token.data[key];
+  }
+
+  setName(name) {
+    this.token.name = name;
+    this.saveData();
+  }
+
+  getName() {
+    return this.token.name;
+  }
+}
+
+class UserInputSaver {
+  constructor(node, persistance) {
+    this.node = $(node);
+    this.persistance = persistance;
+    this.buildUI();
+    this.persistance.addListener((event_name) => {
+      // console.log(event_name);
+      this.update();
+    });
+  }
+
+  buildUI() {
+    const thisObj = this;
+    this.blk_control = $('<div>')
+      .addClass('d-print-none')
+      .appendTo(this.node);
+    this.blk_saves_list = $('<div>')
+      .addClass('my-2 d-print-none')
+      .appendTo(this.node);    
+    const select = $('<select>')
+      .appendTo(this.blk_saves_list)
+      .on('change', e => {
+        const val = select.val();
+        if (val.length !== 8 && val !== 'new') {
+          return;
+        }
+        if (val === 'new') {
+          this.persistance.createToken();
+        } else {
+          this.persistance.loadByToken(val);
+        }
+      });
+    this._refreshTokensList();
+
+    $('<button>')
+      .text('Changer nom...')
+      .addClass('btn btn-success ml-2')
+      .appendTo(this.blk_saves_list)
+      .on('click', (e) => {
+        const newName = prompt('Donner un nouveau nom à votre travail !', thisObj.persistance.getName());
+        if (!/^[A-Za-z0-9_]+$/.test(newName)) {
+          alert('Caractères invalides, uniquement des nombres et des chiffres et le caractère de soulignement (_).');
+          return;
+        }
+        if (newName.length < 3 || newName.length > 32) {
+          alert('Longueur invalide, la longueur du nom doit être entre 3 et 32 caractères');
+          return;
+        }
+        thisObj.persistance.setName(newName);
+      });
+
+    $('.save-content').each(function (index) {
+      const input_ctrl = $(this);
+      const placeholder = input_ctrl.attr('placeholder') || 'Taper un texte...';
+      input_ctrl
+        .wrap('<div></div>');
+      const div_id = `save-content-${index}`;
+      const parent_div = input_ctrl
+        .parent('div')
+        .attr('id', div_id)
+        .addClass('save-content-div');
+      input_ctrl
+        .on('blur', (e) => {
+          const input_ctrl = $(e.target);
+          const parent_div = input_ctrl.parent('div');
+          const div_id = parent_div.attr('id');
+          thisObj.persistance.setData(div_id, input_ctrl.val());
+          input_ctrl.hide();
+          parent_div.find('pre')
+            .show()
+            .text(thisObj.persistance.getData(div_id) || placeholder);
+        })
+        .hide();
+      $('<pre>')
+        .text(thisObj.persistance.getData(div_id) || placeholder)
+        .addClass('save-content-pre')
+        .on('click', (e) => {
+          const pre = $(e.target);
+          const parent_div = pre.parent('div');
+          const div_id = parent_div.attr('id');
+          pre.hide();
+          parent_div.find('.save-content')
+            .show()
+            .val(thisObj.persistance.getData(div_id) || '')
+            .focus();
+        })
+        .appendTo(parent_div);
+    });
+  }
+
+  _refreshTokensList() {
+    const select = this.blk_saves_list.find('select')
+      .html('');
+    this.persistance.tokens.forEach((token, index) => {
+      const option = $('<option>')
+        .attr('value', token.token)
+        .text(`${token.name} (${token.date.substr(0, 16)})`)
+        .appendTo(select);
+      if (token.token === this.persistance.token['token']) {
+        option.attr('selected', true);
+      }
+    });
+    $('<option>')
+      .attr('value', 'new')
+      .text('Nouvelle sauvegarde...')
+      .appendTo(select);
+  }
+
+  _refreshInputs() {
+    const thisObj = this;
+    $('.save-content-div')
+      .each(function () {
+        const div = $(this);
+        const div_id = div.attr('id');
+        const input_ctrl = div.find('.save-content');
+        const pre = div.find('.save-content-pre');
+        const placeholder = input_ctrl.attr('placeholder') || 'Taper un texte...';
+        input_ctrl.val(thisObj.persistance.getData(div_id) || '');
+        pre.text(thisObj.persistance.getData(div_id) || placeholder);
+      });
+  }
+
+  update() {
+    this._refreshTokensList();
+    this._refreshInputs();
   }
 }
 

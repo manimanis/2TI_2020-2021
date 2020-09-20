@@ -71,7 +71,8 @@ else:
               </div>
             </li>
             <li>
-              <pre><code class="language-python">print(game, 'found and ready to download!')</code></pre>
+              <pre><code class="language-python">game = 'League of Legends'
+print(game, 'found and ready to download!')</code></pre>
               <div class="mt-1 mb-4 p-1">
                 <textarea class="form-control save-content" cols="30" rows="2"></textarea>
               </div>
@@ -101,20 +102,18 @@ else:
               </div>
             </li>
             <li>
-              <pre><code class="language-python">if answer == 'Y' or answer == 'y':
+              <pre><code class="language-python">answer = 'n'
+if answer == 'Y' or answer == 'y':
     print('Downloading...')
-    # ...
 else:
-    print('Goodbye!')
-    # ...</code></pre>
+    print('Goodbye!')</code></pre>
               <div class="mt-1 mb-4 p-1">
                 <textarea class="form-control save-content" cols="30" rows="2"></textarea>
               </div>
             </li>
             <li>
               <pre><code class="language-python">for i in range(100):
-    print('Progress ', i, '%', end='\r')
-    # ...</code></pre>
+    print('Progress ', i, '%', end='\r')</code></pre>
               <div class="mt-1 mb-4 p-1">
                 <textarea class="form-control save-content" cols="30" rows="2"></textarea>
               </div>
@@ -138,8 +137,140 @@ else:
             <textarea class="form-control save-content" cols="30" rows="2"></textarea>
           </div>
         </li>
-
       </ol>
+    </section>
+
+    <section>
+      <h2>QCM</h2>
+      <div class="qcm-exercise" data-correct="2" data-scrambled="false">
+        <h5 class="question-title">Question 1</h5>
+        <div class="question">
+          <p>Soit le code suivant :</p>
+          <pre><code class="language-python"># Instruction 1
+nom = input('Quel est votre nom ? ')
+# Instruction 2
+print(nom)
+# Instruction 3
+print("nom")</code></pre>
+          <p><b>Quelle est l'instruction qui affiche le nom ?</b></p>
+        </div>
+        <ul class="propositions">
+          <li>Instruction 1</li>
+          <li>Instruction 2</li>
+          <li>Instruction 3</li>
+        </ul>
+      </div>
+
+      <div class="qcm-exercise" data-correct="2" data-scrambled="false">
+        <h5 class="question-title">Question 2</h5>
+        <div class="question">
+          <p>Soit le code suivant :</p>
+          <pre><code class="language-python"># Instruction 1
+age = input('Quel est votre age ? ')
+# Instruction 2
+age = int(input('Quel est votre age ? '))
+# Instruction 3
+age = print('Quel est votre age ? ')
+# Instruction 3
+age = int(print('Quel est votre age ? '))</code></pre>
+          <p><b>Quelle est l'instruction qui saisit correctement l'age d'une personne ?</b></p>
+        </div>
+        <ul class="propositions">
+          <li>Instruction 1</li>
+          <li>Instruction 2</li>
+          <li>Instruction 3</li>
+          <li>Instruction 4</li>
+        </ul>
+      </div>
+
+      <div class="qcm-exercise" data-correct="1,2" data-scrambled="true">
+        <h5 class="question-title">Question 3</h5>
+        <div class="question">
+          <p>L'exécution d'une instruction a donné l'erreur suivante :</p>
+          <pre><code class="no-highlight hljs">&gt;&gt;&gt; sleep(5)
+Traceback (most recent call last):
+  File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
+NameError: name &apos;sleep&apos; is not defined</code></pre>
+          <p><b>Quelles sont les raisons possibles ?</b></p>
+        </div>
+        <ul class="propositions">
+          <li>La fonction <b>sleep</b> doit être définie pour pouvoir l'appeler.</li>
+          <li>La fonction <b>sleep</b> doit être importé depuis le module <b>time</b>.</li>
+          <li>La fonction <b>sleep</b> n'est pas écrite correctement.</li>
+        </ul>
+      </div>
+
+      <div class="qcm-exercise" data-correct="4" data-scrambled="true">
+        <h5 class="question-title">Question 4</h5>
+        <div class="question">
+          <p>On donne les instructions suivantes :</p>
+          <pre><code class="language-python">a = 5
+A = 7
+A = A + a
+a = a + A
+print(A, a)</code></pre>
+          <p><b>Quelle est la valeur affichée ?</b></p>
+        </div>
+        <ul class="propositions">
+          <li>Une erreur</li>
+          <li>12 12</li>
+          <li>17 12</li>
+          <li>12 17</li>
+          <li>17 17</li>
+        </ul>
+      </div>
+
+      <div class="qcm-exercise" data-correct="1,2" data-scrambled="true">
+        <h5 class="question-title">Question 5</h5>
+        <div class="question">
+          <p>Samer veut afficher le message <span class="bg-light">Welcome to Tunisia</span>. Il a tapé l'instruction suivante :</p>
+          <pre><code class="no-highlight hljs">&gt;&gt;&gt; print(Welcome to Tunisia)
+  File &quot;&lt;stdin&gt;&quot;, line 1
+    print(Welcome to Tunisia)
+                  ^
+SyntaxError: invalid syntax</code></pre>
+          <p><b>Comment corriger l'erreur ?</b></p>
+        </div>
+        <ul class="propositions">
+          <li>Mettre le message entre guillemets <span class="bg-light">"Welcome to Tunisia"</span></li>
+          <li>Mettre le message entre apostrophes <span class="bg-light">'Welcome to Tunisia'</span></li>
+          <li>Mettre le message entre guillemet et apostrophe <span class="bg-light">"Welcome to Tunisia'</span> ou <span class="bg-light">'Welcome to Tunisia"</span></li>
+        </ul>
+      </div>
+
+      <div class="qcm-exercise" data-correct="1" data-scrambled="false">
+        <h5 class="question-title">Question 6</h5>
+        <div class="question">
+          <p>Est-ce qu'il est possible d'écrire comme suit ?</p>
+          <pre><code class="language-python">x = input()</code></pre>
+        </div>
+        <ul class="propositions">
+          <li>Oui</li>
+          <li>Non</li>
+        </ul>
+      </div>
+
+      <div class="qcm-exercise" data-correct="1,2,3,4" data-scrambled="false">
+        <h5 class="question-title">Question 6</h5>
+        <div class="question">
+          <p>Quelles sont les bonnes instructions pour afficher la taille ?</p>
+          <pre><code class="language-python">taille = 180
+# Instruction 1
+print('Taille :', taille, 'cm')
+# Instruction 2
+print('Taille : ' + str(taille) + ' cm')
+# Instruction 3
+print('Taille : %d cm' % taille)
+# Instruction 4
+print('Taille : {} cm'.format(taille))</code></pre>
+        </div>
+        <ul class="propositions">
+          <li>Instruction 1</li>
+          <li>Instruction 2</li>
+          <li>Instruction 3</li>
+          <li>Instruction 4</li>
+        </ul>
+      </div>
     </section>
   </main>
   <script src="scripts/jquery.min.js"></script>
@@ -167,7 +298,8 @@ else:
       }
     });
     $(() => {
-      const userInputSaver = new UserInputSaver(document.querySelector('.user-input-saver'));
+      const pagePersist = new PagePersistance();
+      const userInputSaver = new UserInputSaver(document.querySelector('.user-input-saver'), pagePersist);
     });
   </script>
 </body>

@@ -183,3 +183,7 @@ figcaption {
   padding: .375rem .75rem;
   border-radius: 0.25rem;
 }
+/************************************************************************************/
+.propositions label {
+  margin-bottom: initial;
+}
