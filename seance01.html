@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Séance 1 - Rappel</title>
+  <title>Projet n°1 - La tortue magique</title>
   <link rel="stylesheet" href="styles/bootstrap.min.css">
   <link rel="stylesheet" href="styles/default.css">
   <link rel="stylesheet" href="styles/style.css">
@@ -12,7 +12,20 @@
 
 <body>
   <main class="container">
-    <h1>Séance 1 - Rappel</h1>
+    <div class="user-input-saver bg-secondary text-white mb-5 p-2">
+      <div class="row">
+        <div class="col-6">
+          <label>Nom & Prénom</label>
+          <input type="text" class="form-control save-content" placeholder="Nom & Prénom">
+        </div>
+        <div class="col-6">
+          <label>Classe</label>
+          <input type="text" class="form-control save-content" placeholder="Classe">
+        </div>
+      </div>
+    </div>
+
+    <h1>Projet n°1 - La tortue magique</h1>
     <section>
       <h2>Objectifs</h2>
       <ol>
@@ -33,23 +46,40 @@ forward(100)
 mainloop()</code></pre>
       <p class="explication">Explication</p>
       <figure>
-        <img src="images/s01-img01.svg" alt="Programme expliqué">
+        <img src="images/prj01/s01-img01.svg" alt="Programme expliqué">
         <figcaption>Programme expliqué</figcaption>
       </figure>
       <h3>Travail à faire</h3>
       <ol>
-        <li>Utiliser les fonctions précédentes pour dessiner un carré.</li>
-        <li>Modifier le programme pour dessiner un rectangle.</li>
+        <li>Utiliser les fonctions précédentes pour dessiner un carré.
+          <p class="explication">Code source</p>
+          <div class="mt-1 mb-4 p-1">
+            <textarea class="form-control save-content" cols="30" rows="2" placeholder="Votre code ici..."></textarea>
+          </div>
+        </li>
+
+        <li>Modifier le programme pour dessiner un rectangle.
+          <p class="explication">Code source</p>
+          <div class="mt-1 mb-4 p-1">
+            <textarea class="form-control save-content" cols="30" rows="2" placeholder="Votre code ici..."></textarea>
+          </div>
+        </li>
+
         <li>Dessiner le rectangle avec une longueur et une largeur données.
           <p class="explication">Code snippet</p>
           <p>L'instruction suivante permet de saisir une donnée au clavier :</p>
           <pre><code class="language-python">long = int(input('Longueur : '))</code></pre>
           <p class="explication">Explication</p>
           <figure>
-            <img src="images/s01-img02.svg" alt="Saisie d'une donnée au clavier">
+            <img src="images/prj01/s01-img02.svg" alt="Saisie d'une donnée au clavier">
             <figcaption>Saisie d'une donnée au clavier</figcaption>
           </figure>
+          <p class="explication">Code source</p>
+          <div class="mt-1 mb-4 p-1">
+            <textarea class="form-control save-content" cols="30" rows="2" placeholder="Votre code ici..."></textarea>
+          </div>
         </li>
+
         <li>Dessiner un polygone régulier avec un nombre de cotés donné.
           <ul>
             <li>Si nc = 3 &rArr; Triangle équilatéral</li>
@@ -58,7 +88,7 @@ mainloop()</code></pre>
             <li>Si nc = 6 &rArr; Hexagone régulier</li>
           </ul>
           <figure>
-            <img src="images/s01-img03.svg" alt="Formes à dessiner">
+            <img src="images/prj01/s01-img03.svg" alt="Formes à dessiner">
             <figcaption>Exemples de formes à dessiner</figcaption>
           </figure>
           <p class="explication">Code snippet</p>
@@ -67,9 +97,13 @@ mainloop()</code></pre>
     left(360 / nc)</code></pre>
           <p class="explication">Explication</p>
           <figure>
-            <img src="images/s01-img04.svg" alt="Structure itérative complète">
+            <img src="images/prj01/s01-img04.svg" alt="Structure itérative complète">
             <figcaption>Structure itérative complète</figcaption>
           </figure>
+          <p class="explication">Code source</p>
+          <div class="mt-1 mb-4 p-1">
+            <textarea class="form-control save-content" cols="30" rows="2" placeholder="Votre code ici..."></textarea>
+          </div>
         </li>
         <li>Dessiner un polygone régulier, colorier l'arrière plan et la bordure avec des couleurs de votre choix.
           <p class="explication">Code snippet</p>
@@ -83,11 +117,15 @@ for _ in range(3):
     left(120)
 
 end_fill()</code></pre>
-            <p class="explication">Explication</p>
-            <figure>
-              <img src="images/s01-img05.svg" alt="Changer couleurs de bordure et de remplissage">
-              <figcaption>Changer couleurs de bordure et de remplissage</figcaption>
-            </figure>
+          <p class="explication">Explication</p>
+          <figure>
+            <img src="images/prj01/s01-img05.svg" alt="Changer couleurs de bordure et de remplissage">
+            <figcaption>Changer couleurs de bordure et de remplissage</figcaption>
+          </figure>
+          <p class="explication">Code source</p>
+          <div class="mt-1 mb-4 p-1">
+            <textarea class="form-control save-content" cols="30" rows="2" placeholder="Votre code ici..."></textarea>
+          </div>
         </li>
         <li>Permettre à l'utilisateur d'entrer des couleurs de son choix.
           <p class="explication">Code snippet</p>
@@ -96,8 +134,13 @@ end_fill()</code></pre>
             Le code de couleur, est une chaine de caractères, elle ne nécessite aucune conversion.
             Il suffit just d'écrire :
             <pre><code class="language-python">cbord = input('Couleur de la bordure : ')</code></pre>
-            Par contre, la longueur d'un coté par contre est un entier, c'est pour cela que nous avons utilisé <strong>int</strong> :
+            Par contre, la longueur d'un coté par contre est un entier, c'est pour cela que nous avons utilisé
+            <strong>int</strong> :
             <pre><code class="language-python">long = int(input('Longueur : '))</code></pre>
+          </div>
+          <p class="explication">Code source</p>
+          <div class="mt-1 mb-4 p-1">
+            <textarea class="form-control save-content" cols="30" rows="2" placeholder="Votre code ici..."></textarea>
           </div>
         </li>
         <li>Dessiner un carré d'une longueur donnée:
@@ -110,12 +153,16 @@ end_fill()</code></pre>
     color('green', 'red')
 else:
     color('red', 'green')</code></pre>
+          <p class="explication">Explication</p>
+          <figure>
+            <img src="images/prj01/s01-img06.svg" alt="Utilisation d'une structure conditionnelle">
+            <figcaption>Utilisation d'une structure conditionnelle</figcaption>
+          </figure>
+          <p class="explication">Code source</p>
+          <div class="mt-1 mb-4 p-1">
+            <textarea class="form-control save-content" cols="30" rows="2" placeholder="Votre code ici..."></textarea>
+          </div>
         </li>
-        <p class="explication">Explication</p>
-        <figure>
-          <img src="images/s01-img06.svg" alt="Utilisation d'une structure conditionnelle">
-          <figcaption>Utilisation d'une structure conditionnelle</figcaption>
-        </figure>
       </ol>
     </section>
 
@@ -130,13 +177,40 @@ else:
         <li>Si x &ge; 8, afficher un carré vert de coté 100</li>
         <li>Si x &lt; 8, afficher un triangle rouge de coté 120</li>
       </ol>
+      <p class="explication">Code source</p>
+      <div class="mt-1 mb-4 p-1">
+        <textarea class="form-control save-content" cols="30" rows="2" placeholder="Votre code ici..."></textarea>
+      </div>
     </section>
   </main>
+  <script src="scripts/jquery.min.js"></script>
   <script src="scripts/bootstrap.min.js"></script>
   <script src="scripts/highlight.pack.js"></script>
   <script src="scripts/hljs.algorithm.js"></script>
+  <script src="scripts/draggable.js"></script>
+  <script src="scripts/clipboard.min.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
+    document.querySelectorAll('.language-algorithm,.language-python')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+    $(() => {
+      const pagePersist = new PagePersistance();
+      const userInputSaver = new UserInputSaver(document.querySelector('.user-input-saver'), pagePersist);
+    });
   </script>
 </body>
 
