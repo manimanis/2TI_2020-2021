@@ -617,6 +617,32 @@ class PagePersistance {
     this.loadData();
   }
 
+  validateToken(token_string) {
+    try {
+      const token = JSON.parse(token_string);
+      const keys = ['data', 'date', 'name', 'token'];
+      let valid = typeof token === 'object';
+      const tokenKeys = Object.keys(token);
+      valid = valid && tokenKeys
+        .reduce((pv, cv) => pv && keys.includes(cv), valid);
+      valid = valid && keys
+        .reduce((pv, cv) => pv && tokenKeys.includes(cv), valid);
+      valid = valid && typeof token.data === 'object' && Object
+        .entries(token.data)
+        .findIndex(arr => arr.findIndex(el => typeof el !== 'string') !== -1) === -1;
+      return valid;
+    } catch (err) {
+      return false;
+    }
+  }
+
+  setToken(token_string) {
+    const token = JSON.parse(token_string);
+    this.token.data = { ...token.data };
+    this.token.date = token.date;
+    this.notifyClients('load-token');
+  }
+
   addListener(callback) {
     this.listeners.push(callback);
   }
@@ -720,6 +746,11 @@ class PagePersistance {
     return this.token.data[key];
   }
 
+  resetData() {
+    this.token.data = {};
+    this.notifyClients('reset-data');
+  }
+
   setName(name) {
     this.token.name = name;
     this.saveData();
@@ -779,6 +810,45 @@ class UserInputSaver {
           return;
         }
         thisObj.persistance.setName(newName);
+      });
+
+    $('<button>')
+      .addClass('btn btn-success ml-2')
+      .text('Charger...')
+      .appendTo(this.blk_saves_list)
+      .on('click', (e) => {
+        const token = prompt('Copier/Coller votre travail ici!');
+        if (!token) {
+          return;
+        }
+        if (!thisObj.persistance.validateToken(token)) {
+          alert('Données non valides!');
+          return;
+        }
+        thisObj.persistance.setToken(token);
+      });
+    const btn_copy = $('<button>')
+      .addClass('btn btn-success ml-2')
+      .text('Copier')
+      .appendTo(this.blk_saves_list);
+    new ClipboardJS(btn_copy[0], {
+      text: function (trigger) {
+        return JSON.stringify(thisObj.persistance.token);
+      }
+    });
+    $('<button>')
+      .addClass('btn btn-outline-danger ml-2')
+      .text('Effacer')
+      .appendTo(this.blk_saves_list)
+      .on('click', e => {
+        if (!confirm('Voulez-supprimer votre travail ?')) {
+          return;
+        }
+        const nom = prompt('Taper le nom que vous avez donné à ce projet!');
+        if (nom !== thisObj.persistance.getName()) {
+          return;
+        }
+        thisObj.persistance.resetData();
       });
 
     $('.save-content').each(function (index) {
