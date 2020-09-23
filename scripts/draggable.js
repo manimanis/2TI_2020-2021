@@ -706,11 +706,10 @@ class PagePersistance {
   }
 
   setData(key, data) {
-    if (!data) {
-      this.token.data = key;
-    } else {
-      this.token.data[key] = data;
+    if (typeof this.token.data !== 'object') {
+      this.token.data = {};
     }
+    this.token.data[key] = data;
     this.saveData();
   }
 
@@ -749,7 +748,7 @@ class UserInputSaver {
       .appendTo(this.node);
     this.blk_saves_list = $('<div>')
       .addClass('my-2 d-print-none')
-      .appendTo(this.node);    
+      .appendTo(this.node);
     const select = $('<select>')
       .appendTo(this.blk_saves_list)
       .on('change', e => {
