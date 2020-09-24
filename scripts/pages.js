@@ -95,7 +95,11 @@ $(() => {
       .removeClass('d-none');
     $(`a#link-${art_obj.article_index + 1}-${index + 1}`)
       .addClass('active');
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(art_obj));
+
+    localStorage.setItem(STORAGE_KEY, JSON.stringify({
+      article_index: art_obj.article_index,
+      section_index: art_obj.section_index
+    }));
   };
 
   const links = aside.find('a')
