@@ -11,38 +11,51 @@
 </head>
 
 <body>
-  <header>
-
-  </header>
-  <main class="container">
-    <div class="user-input-saver bg-secondary text-white mb-5 p-2">
+  <header class="py-2 px-4 bg-secondary">
+    <div class="user-input-saver text-white">
       <div class="row">
-        <div class="col-6">
+        <div class="col-sm-6">
           <label>Nom & Prénom</label>
           <input type="text" class="form-control save-content" placeholder="Nom & Prénom">
         </div>
-        <div class="col-6">
+        <div class="col-sm-6">
           <label>Classe</label>
           <input type="text" class="form-control save-content" placeholder="Classe">
         </div>
       </div>
     </div>
-
+  </header>
+  <aside>
+    <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+  <main class="container my-4">
     <h1>Projet n°0 - Warez Downloader</h1>
 
-    <div>
+    <article>
       <h2>Objectifs</h2>
-      <ul>
-        <li>Découvrir un programme simple</li>
-        <li>Découvrir l'algorithmique</li>
-      </ul>
-    </div>
+      <section>
+        <h3>Objectifs principaux</h3>
+        <ul>
+          <li>Découvrir un programme simple</li>
+          <li>Découvrir l'algorithmique</li>
+        </ul>
+      </section>
+    </article>
 
-    <section>
+    <article>
       <h2>Prise de contact avec la programmation</h2>
 
-      <p>On donne le code source d'un programme en Python :</p>
-      <pre><code class="language-python">from time import sleep
+      <section>
+        <h3>Programme</h3>
+        <p>On donne le code source d'un programme en Python.</p>
+        <p>Exécuter le code suivant en utilisant l'outil de votre choix.</p>
+        <pre><code class="language-python">from time import sleep
 
 print('-' * 5, 'Dark Warez Downloader', '-' * 5)
 print('Initializing, please wait... ')
@@ -68,114 +81,173 @@ if answer == 'Y' or answer == 'y':
     print('Network error, retry again!')
 else:
     print('Goodbye!')</code></pre>
-      <h3>Instructions</h3>
-      <ol>
-        <li>Exécuter ce code en utilisant l'outil de votre choix.</li>
-        <li>Commenter les lignes suivantes :
-          <ol type="a">
-            <li>
-              <pre><code class="language-python">print('Initializing, please wait... ')</code></pre>
-              <div class="mt-1 mb-4 p-1">
-                <textarea class="form-control save-content" cols="30" rows="2"></textarea>
-              </div>
-            </li>
-            <li>
-              <pre><code class="language-python">game = 'League of Legends'
-print(game, 'found and ready to download!')</code></pre>
-              <div class="mt-1 mb-4 p-1">
-                <textarea class="form-control save-content" cols="30" rows="2"></textarea>
-              </div>
-            </li>
-            <li>
-              <pre><code class="language-python">print('Progress ', i, '%', end='\r')</code></pre>
-              <div class="mt-1 mb-4 p-1">
-                <textarea class="form-control save-content" cols="30" rows="2"></textarea>
-              </div>
-            </li>
-            <li>
-              <pre><code class="language-python">print('=-' * 10)</code></pre>
-              <div class="mt-1 mb-4 p-1">
-                <textarea class="form-control save-content" cols="30" rows="2"></textarea>
-              </div>
-            </li>
-            <li>
-              <pre><code class="language-python">print()</code></pre>
-              <div class="mt-1 mb-4 p-1">
-                <textarea class="form-control save-content" cols="30" rows="2"></textarea>
-              </div>
-            </li>
-            <li>
-              <pre><code class="language-python">game = input('Please, input the game name you like ? ')</code></pre>
-              <div class="mt-1 mb-4 p-1">
-                <textarea class="form-control save-content" cols="30" rows="2"></textarea>
-              </div>
-            </li>
-            <li>
-              <pre><code class="language-python">answer = 'n'
+      </section>
+
+      <section>
+        <h3>Brique 1</h3>
+        <p>Que fait l'instruction <code>print(...)</code> suivante ?</p>
+        <pre><code class="language-python">print('Initializing, please wait... ')</code></pre>
+        <div class="mt-1 mb-4 p-1">
+          <textarea class="form-control save-content" cols="30" rows="2"></textarea>
+        </div>
+      </section>
+
+      <section>
+        <h3>Brique 2</h3>
+        <p>Que fait cette autre version de la fonction <code>print(...)</code> ?</p>
+        <pre><code class="language-python">game = 'League of Legends'
+print(game, 'found and ready to download!')
+print('I like to play', game, 'everyday')</code></pre>
+        <div class="mt-1 mb-4 p-1">
+          <textarea class="form-control save-content" cols="30" rows="2"></textarea>
+        </div>
+      </section>
+
+      <section>
+        <h3>Brique 3</h3>
+        <p>Exécuter des deux morceaux de code :</p>
+        <pre><code class="language-python">print('I love');print('Tunisia');print('My family')</code></pre>
+        <pre><code class="language-python">print('I love', end=' ');print('Tunisia', end=' and ');print('My family')</code></pre>
+        <p>Puis, déterminer quelle est la fonction de l'argument <code>end='...'</code>.</p>
+        <div class="mt-1 mb-4 p-1">
+          <textarea class="form-control save-content" cols="30" rows="2"></textarea>
+        </div>
+      </section>
+
+      <section>
+        <h3>Brique 4</h3>
+        <p>Exécuter ces morceaux de code.</p>
+        <pre><code class="language-python">print('=-' * 20)</code></pre>
+        <pre><code class="language-python">print('Halalouya!' * 4)</code></pre>
+        <pre><code class="language-python">print('=-' * 20);print('|', ' ' * 13, 'Tunisia' , ' ' * 14, '|');print('=-' * 20)</code></pre>
+        <p>Quelle est la fonction du symbole <code>*</code> lorsqu'il est utilisé avec un texte.</p>
+        <div class="mt-1 mb-4 p-1">
+          <textarea class="form-control save-content" cols="30" rows="2"></textarea>
+        </div>
+      </section>
+
+      <section>
+        <h3>Brique 5</h3>
+        <p>Exécuter ce morceau code.</p>
+        <pre><code class="language-python">print('I like');print();print();print('Python')</code></pre>
+        <p>Quelle est la fonction de <code>print()</code> sans arguments?</p>
+        <div class="mt-1 mb-4 p-1">
+          <textarea class="form-control save-content" cols="30" rows="2"></textarea>
+        </div>
+      </section>
+
+      <section>
+        <h3>Brique 6</h3>
+        <p>Exécuter ces morceaux de code.</p>
+        <pre><code class="language-python">name = input('Your name ? ')</code></pre>
+        <pre><code class="language-python">age = int(input('Your arge ? '))</code></pre>
+        <pre><code class="language-python">height = float(input('Your height in meters ? '))</code></pre>
+        <ol>
+          <li>Quelle est la fonction de <code>input('xxx')</code> ?</li>
+          <li>Quelle est la fonction de <code>int(...)</code> et <code>float(...)</code> ?</li>
+          <li>Quelle est la signification de <code>name = input('Your name ? ')</code></li>
+        </ol>
+        <div class="mt-1 mb-4 p-1">
+          <textarea class="form-control save-content" cols="30" rows="2"></textarea>
+        </div>
+      </section>
+
+      <section>
+        <h3>Brique 7</h3>
+        <p>Exécuter ces morceaux de code.</p>
+        <pre><code class="language-python">answer = 'n'
 if answer == 'Y' or answer == 'y':
     print('Downloading...')
 else:
     print('Goodbye!')</code></pre>
-              <div class="mt-1 mb-4 p-1">
-                <textarea class="form-control save-content" cols="30" rows="2"></textarea>
-              </div>
-            </li>
-            <li>
-              <pre><code class="language-python">for i in range(100):
-    print('Progress ', i, '%', end='\r')</code></pre>
-              <div class="mt-1 mb-4 p-1">
-                <textarea class="form-control save-content" cols="30" rows="2"></textarea>
-              </div>
-            </li>
-            <li>
-              <pre><code class="language-python">from time import sleep</code></pre>
-              <div class="mt-0 mb-4 p-1">
-                <textarea class="form-control save-content" cols="30" rows="2"></textarea>
-              </div>
-            </li>
-            <li>
-              <pre><code class="language-python">sleep(5)</code></pre>
-              <div class="mt-1 mb-4 p-1">
-                <textarea class="form-control save-content" cols="30" rows="2"></textarea>
-              </div>
-            </li>
-          </ol>
-        </li>
-        <li>Essayer de trouver la définition d'un programme informatique en se basant sur les éléments précédents.
-          <div class="mt-1 mb-4 p-1">
-            <textarea class="form-control save-content" cols="30" rows="2"></textarea>
-          </div>
-        </li>
-      </ol>
-    </section>
+        <pre><code class="language-python">answer = 'y'
+if answer == 'Y' or answer == 'y':
+    print('Downloading...')
+else:
+    print('Goodbye!')</code></pre>
+        <pre><code class="language-python">answer = 'B'
+if answer == 'Y' or answer == 'y':
+    print('Downloading...')
+else:
+    print('Goodbye!')</code></pre>
+        <ol>
+          <li>Combien y a t-il de résultats possibles ?</li>
+          <li>Quel est le rôle de <code>if ... else ...</code></li>
+        </ol>
+        <div class="mt-1 mb-4 p-1">
+          <textarea class="form-control save-content" cols="30" rows="2"></textarea>
+        </div>
+      </section>
 
-    <section>
-      <h3>QCM</h3
-        >
-      <div class="qcm-exercise" data-correct="2" data-scrambled="false">
-        <h5 class="question-title">Question 1</h5>
-        <div class="question">
-          <p>Soit le code suivant :</p>
-          <pre><code class="language-python"># Instruction 1
+      <section>
+        <h3>Brique 8</h3>
+        <p>Exécuter ces morceaux de code.</p>
+        <pre><code class="language-python">for i in range(10):
+    print(i)</code></pre>
+        <pre><code class="language-python">for i in range(21):
+    print('Progress', i * 5, '%')</code></pre>
+        <p>Quelle est la fonction de <code>for</code> et celle de <code>range</code> ?</p>
+        <div class="mt-1 mb-4 p-1">
+          <textarea class="form-control save-content" cols="30" rows="2"></textarea>
+        </div>
+      </section>
+
+      <section>
+        <h3>Brique 9</h3>
+        <ol>
+          <li>Que fais l'instruction suivante ?</li>
+          <li>Quand est-ce qu'on a besoin d'utiliser <code>from x import y</code> ?</li>
+        </ol>
+        <pre><code class="language-python">from time import sleep</code></pre>
+        <div class="mt-0 mb-4 p-1">
+          <textarea class="form-control save-content" cols="30" rows="2"></textarea>
+        </div>
+      </section>
+
+      <section>
+        <h3>Brique 10</h3>
+        <p>Commenter ce code.</p>
+        <pre><code class="language-python">print(':)');sleep(5);print(':D')</code></pre>
+        <p>Quelle est la fonction de <code>sleep</code> ?</p>
+        <div class="mt-1 mb-4 p-1">
+          <textarea class="form-control save-content" cols="30" rows="2"></textarea>
+        </div>
+      </section>
+
+      <section>
+        <h3>Résumé</h3>
+        <p>Essayer de trouver la définition d'un programme informatique en se basant sur les éléments précédents.</p>
+        <div class="mt-1 mb-4 p-1">
+          <textarea class="form-control save-content" cols="30" rows="2"></textarea>
+        </div>
+      </section>
+
+      <section>
+        <h3>QCM</h3>
+        <div class="qcm-exercise" data-correct="2" data-scrambled="false">
+          <h5 class="question-title">Question 1</h5>
+          <div class="question">
+            <p>Soit le code suivant :</p>
+            <pre><code class="language-python"># Instruction 1
 nom = input('Quel est votre nom ? ')
 # Instruction 2
 print(nom)
 # Instruction 3
 print("nom")</code></pre>
-          <p><b>Quelle est l'instruction qui affiche le nom ?</b></p>
+            <p><b>Quelle est l'instruction qui affiche le nom ?</b></p>
+          </div>
+          <ul class="propositions">
+            <li>Instruction 1</li>
+            <li>Instruction 2</li>
+            <li>Instruction 3</li>
+          </ul>
         </div>
-        <ul class="propositions">
-          <li>Instruction 1</li>
-          <li>Instruction 2</li>
-          <li>Instruction 3</li>
-        </ul>
-      </div>
 
-      <div class="qcm-exercise" data-correct="2" data-scrambled="false">
-        <h5 class="question-title">Question 2</h5>
-        <div class="question">
-          <p>Soit le code suivant :</p>
-          <pre><code class="language-python"># Instruction 1
+        <div class="qcm-exercise" data-correct="2" data-scrambled="false">
+          <h5 class="question-title">Question 2</h5>
+          <div class="question">
+            <p>Soit le code suivant :</p>
+            <pre><code class="language-python"># Instruction 1
 age = input('Quel est votre age ? ')
 # Instruction 2
 age = int(input('Quel est votre age ? '))
@@ -183,90 +255,90 @@ age = int(input('Quel est votre age ? '))
 age = print('Quel est votre age ? ')
 # Instruction 3
 age = int(print('Quel est votre age ? '))</code></pre>
-          <p><b>Quelle est l'instruction qui saisit correctement l'age d'une personne ?</b></p>
+            <p><b>Quelle est l'instruction qui saisit correctement l'age d'une personne ?</b></p>
+          </div>
+          <ul class="propositions">
+            <li>Instruction 1</li>
+            <li>Instruction 2</li>
+            <li>Instruction 3</li>
+            <li>Instruction 4</li>
+          </ul>
         </div>
-        <ul class="propositions">
-          <li>Instruction 1</li>
-          <li>Instruction 2</li>
-          <li>Instruction 3</li>
-          <li>Instruction 4</li>
-        </ul>
-      </div>
 
-      <div class="qcm-exercise" data-correct="1,2" data-scrambled="true">
-        <h5 class="question-title">Question 3</h5>
-        <div class="question">
-          <p>L'exécution d'une instruction a donné l'erreur suivante :</p>
-          <pre><code class="no-highlight hljs">&gt;&gt;&gt; sleep(5)
+        <div class="qcm-exercise" data-correct="1,2" data-scrambled="true">
+          <h5 class="question-title">Question 3</h5>
+          <div class="question">
+            <p>L'exécution d'une instruction a donné l'erreur suivante :</p>
+            <pre><code class="no-highlight hljs">&gt;&gt;&gt; sleep(5)
 Traceback (most recent call last):
   File &quot;&lt;stdin&gt;&quot;, line 1, in &lt;module&gt;
 NameError: name &apos;sleep&apos; is not defined</code></pre>
-          <p><b>Quelles sont les raisons possibles ?</b></p>
+            <p><b>Quelles sont les raisons possibles ?</b></p>
+          </div>
+          <ul class="propositions">
+            <li>La fonction <b>sleep</b> doit être définie pour pouvoir l'appeler.</li>
+            <li>La fonction <b>sleep</b> doit être importé depuis le module <b>time</b>.</li>
+            <li>La fonction <b>sleep</b> n'est pas écrite correctement.</li>
+          </ul>
         </div>
-        <ul class="propositions">
-          <li>La fonction <b>sleep</b> doit être définie pour pouvoir l'appeler.</li>
-          <li>La fonction <b>sleep</b> doit être importé depuis le module <b>time</b>.</li>
-          <li>La fonction <b>sleep</b> n'est pas écrite correctement.</li>
-        </ul>
-      </div>
 
-      <div class="qcm-exercise" data-correct="4" data-scrambled="true">
-        <h5 class="question-title">Question 4</h5>
-        <div class="question">
-          <p>On donne les instructions suivantes :</p>
-          <pre><code class="language-python">a = 5
+        <div class="qcm-exercise" data-correct="4" data-scrambled="true">
+          <h5 class="question-title">Question 4</h5>
+          <div class="question">
+            <p>On donne les instructions suivantes :</p>
+            <pre><code class="language-python">a = 5
 A = 7
 A = A + a
 a = a + A
 print(A, a)</code></pre>
-          <p><b>Quelle est la valeur affichée ?</b></p>
+            <p><b>Quelle est la valeur affichée ?</b></p>
+          </div>
+          <ul class="propositions">
+            <li>Une erreur</li>
+            <li>12 12</li>
+            <li>17 12</li>
+            <li>12 17</li>
+            <li>17 17</li>
+          </ul>
         </div>
-        <ul class="propositions">
-          <li>Une erreur</li>
-          <li>12 12</li>
-          <li>17 12</li>
-          <li>12 17</li>
-          <li>17 17</li>
-        </ul>
-      </div>
 
-      <div class="qcm-exercise" data-correct="1,2" data-scrambled="true">
-        <h5 class="question-title">Question 5</h5>
-        <div class="question">
-          <p>Samer veut afficher le message <span class="bg-light">Welcome to Tunisia</span>. Il a tapé l'instruction
-            suivante :</p>
-          <pre><code class="no-highlight hljs">&gt;&gt;&gt; print(Welcome to Tunisia)
+        <div class="qcm-exercise" data-correct="1,2" data-scrambled="true">
+          <h5 class="question-title">Question 5</h5>
+          <div class="question">
+            <p>Samer veut afficher le message <span class="bg-light">Welcome to Tunisia</span>. Il a tapé l'instruction
+              suivante :</p>
+            <pre><code class="no-highlight hljs">&gt;&gt;&gt; print(Welcome to Tunisia)
   File &quot;&lt;stdin&gt;&quot;, line 1
     print(Welcome to Tunisia)
                   ^
 SyntaxError: invalid syntax</code></pre>
-          <p><b>Comment corriger l'erreur ?</b></p>
+            <p><b>Comment corriger l'erreur ?</b></p>
+          </div>
+          <ul class="propositions">
+            <li>Mettre le message entre guillemets <span class="bg-light">"Welcome to Tunisia"</span></li>
+            <li>Mettre le message entre apostrophes <span class="bg-light">'Welcome to Tunisia'</span></li>
+            <li>Mettre le message entre guillemet et apostrophe <span class="bg-light">"Welcome to Tunisia'</span> ou
+              <span class="bg-light">'Welcome to Tunisia"</span></li>
+          </ul>
         </div>
-        <ul class="propositions">
-          <li>Mettre le message entre guillemets <span class="bg-light">"Welcome to Tunisia"</span></li>
-          <li>Mettre le message entre apostrophes <span class="bg-light">'Welcome to Tunisia'</span></li>
-          <li>Mettre le message entre guillemet et apostrophe <span class="bg-light">"Welcome to Tunisia'</span> ou
-            <span class="bg-light">'Welcome to Tunisia"</span></li>
-        </ul>
-      </div>
 
-      <div class="qcm-exercise" data-correct="1" data-scrambled="false">
-        <h5 class="question-title">Question 6</h5>
-        <div class="question">
-          <p>Est-ce qu'il est possible d'écrire comme suit ?</p>
-          <pre><code class="language-python">x = input()</code></pre>
+        <div class="qcm-exercise" data-correct="1" data-scrambled="false">
+          <h5 class="question-title">Question 6</h5>
+          <div class="question">
+            <p>Est-ce qu'il est possible d'écrire comme suit ?</p>
+            <pre><code class="language-python">x = input()</code></pre>
+          </div>
+          <ul class="propositions">
+            <li>Oui</li>
+            <li>Non</li>
+          </ul>
         </div>
-        <ul class="propositions">
-          <li>Oui</li>
-          <li>Non</li>
-        </ul>
-      </div>
 
-      <div class="qcm-exercise" data-correct="1,2,3,4" data-scrambled="false">
-        <h5 class="question-title">Question 6</h5>
-        <div class="question">
-          <p>Quelles sont les bonnes instructions pour afficher la taille ?</p>
-          <pre><code class="language-python">taille = 180
+        <div class="qcm-exercise" data-correct="1,2,3,4" data-scrambled="false">
+          <h5 class="question-title">Question 6</h5>
+          <div class="question">
+            <p>Quelles sont les bonnes instructions pour afficher la taille ?</p>
+            <pre><code class="language-python">taille = 180
 # Instruction 1
 print('Taille :', taille, 'cm')
 # Instruction 2
@@ -275,19 +347,21 @@ print('Taille : ' + str(taille) + ' cm')
 print('Taille : %d cm' % taille)
 # Instruction 4
 print('Taille : {} cm'.format(taille))</code></pre>
+          </div>
+          <ul class="propositions">
+            <li>Instruction 1</li>
+            <li>Instruction 2</li>
+            <li>Instruction 3</li>
+            <li>Instruction 4</li>
+          </ul>
         </div>
-        <ul class="propositions">
-          <li>Instruction 1</li>
-          <li>Instruction 2</li>
-          <li>Instruction 3</li>
-          <li>Instruction 4</li>
-        </ul>
-      </div>
-    </section>
+      </section>
+    </article>
 
-    <section>
+
+    <article>
       <h2>Prise de contact avec l'algorithmique</h2>
-      <article>
+      <section>
         <h3>Echanger le contenu de deux bouteilles</h3>
         <p>On veut échanger le contenu des deux bouteilles noire et orange.</p>
         <figure>
@@ -298,9 +372,9 @@ print('Taille : {} cm'.format(taille))</code></pre>
         <div class="mt-1 mb-4 p-1">
           <textarea class="form-control save-content" cols="30" rows="2"></textarea>
         </div>
-      </article>
+      </section>
 
-      <article>
+      <section>
         <h3>Sudoku</h3>
         <p>La grille Sudoku est composée de quatre animaux : la vache, l'hibou, la chèvre et le cochon.</p>
         <figure>
@@ -311,9 +385,9 @@ print('Taille : {} cm'.format(taille))</code></pre>
         <div class="mt-1 mb-4 p-1">
           <textarea class="form-control save-content" cols="30" rows="2"></textarea>
         </div>
-      </article>
+      </section>
 
-      <article>
+      <section>
         <h3>Calcul d'aire</h3>
         <p>Calculer l'aire de la partie colorée.</p>
         <figure>
@@ -324,9 +398,9 @@ print('Taille : {} cm'.format(taille))</code></pre>
         <div class="mt-1 mb-4 p-1">
           <textarea class="form-control save-content" cols="30" rows="2"></textarea>
         </div>
-      </article>
+      </section>
 
-      <article>
+      <section>
         <h3>Le Loup, le mouton et le chou</h3>
         <p>On a confié à un batelier un loup, un mouton et un chou, qu'il doit passer un à un de l'autre coté de la
           rivière.</p>
@@ -338,9 +412,9 @@ print('Taille : {} cm'.format(taille))</code></pre>
         <div class="mt-1 mb-4 p-1">
           <textarea class="form-control save-content" cols="30" rows="2"></textarea>
         </div>
-      </article>
+      </section>
 
-      <article>
+      <section>
         <h3>Trouve les Decepticons</h3>
         <figure>
           <img src="images/prj00/img06.jpg" alt="Les Decepticons">
@@ -351,9 +425,9 @@ print('Taille : {} cm'.format(taille))</code></pre>
         <div class="mt-1 mb-4 p-1">
           <input type="text" class="form-control save-content">
         </div>
-      </article>
+      </section>
 
-      <article>
+      <section>
         <h3>Tours de Hanoï</h3>
         <p>Nous voulons faire déplacer les cylindres de diamètres différents du piquet A vers le piquet C, en passant
           par le piquet B.</p>
@@ -370,24 +444,29 @@ print('Taille : {} cm'.format(taille))</code></pre>
         <div class="mt-1 mb-4 p-1">
           <textarea class="form-control save-content" cols="30" rows="2"></textarea>
         </div>
-      </article>
+      </section>
 
-      <article>
+      <section>
         <h3>Résumé</h3>
         <p>Essayer d'énoncer une définition du terme <b>Algorithme</b> en vous basant sur les activités précédentes.</p>
         <div class="mt-1 mb-4 p-1">
           <textarea class="form-control save-content" cols="30" rows="2"></textarea>
         </div>
-      </article>
-    </section>
+      </section>
+    </article>
 
   </main>
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
+    <div class="text-center small">Année scolaire : 2020/2021</div>
+  </footer>
   <script src="scripts/jquery.min.js"></script>
   <script src="scripts/bootstrap.min.js"></script>
   <script src="scripts/highlight.pack.js"></script>
   <script src="scripts/hljs.algorithm.js"></script>
   <script src="scripts/draggable.js"></script>
   <script src="scripts/clipboard.min.js"></script>
+  <script src="scripts/pages.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
     document.querySelectorAll('.language-algorithm,.language-python')

@@ -1,5 +1,23 @@
 body {
-  counter-reset: figures;
+  counter-reset: figures
+}
+
+main {
+  min-height: 100vh;
+}
+
+h1 {
+  color: #e91e63;
+  text-align: center;
+}
+
+h2 {
+  color:#3F51B5;
+  text-align: center;
+}
+
+h3 {
+  color: #009688;
 }
 
 .explication {
@@ -52,15 +70,15 @@ figcaption {
 }
 
 .language-algorithm::before, .language-python::before {
-	display: block;
-	font-family: sans-serif;
-	font-size: 1rem;
-	font-weight: bold;
-	margin-bottom: 0.5em;
-	background-color: var(--dark);
-	color: var(--light);
-	padding: 0.25rem 1rem;
-	border-radius: 0.5rem;
+  display: block;
+  font-family: sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+  background-color: var(--dark);
+  color: var(--light);
+  padding: 0.25rem 1rem;
+  border-radius: 0.5rem;
 }
 
 .language-algorithm::before {
@@ -72,17 +90,17 @@ figcaption {
 }
 
 .bd-clipboard {
-	position: relative;
-	width: 100%;
+  position: relative;
+  width: 100%;
 }
 
 .btn-clipboard {
-	position: absolute;
-	right: 15px;
-	top: 13px;
-	border: 0;
-	background-color: transparent;
-	color: var(--light);
+  position: absolute;
+  right: 15px;
+  top: 13px;
+  border: 0;
+  background-color: transparent;
+  color: var(--light);
 }
 
 .no-page-break-inside {
@@ -90,20 +108,20 @@ figcaption {
 }
 
 .brique, .sous-brique, .brique-experiment, .brique-algorithm {
-	padding-left: 40px;
-	background-repeat: no-repeat;
+  padding-left: 40px;
+  background-repeat: no-repeat;
   background-position: left center;
   background-size: contain;
 }
 
 .brique {
-	background-image: url(../images/lego-icon-02.png);
-	color: #3900c5;
+  background-image: url(../images/lego-icon-02.png);
+  color: #3900c5;
 }
 
 .sous-brique {
-	background-image: url(../images/lego-icon-03.png);
-	color: #cd0000;
+  background-image: url(../images/lego-icon-03.png);
+  color: #cd0000;
 }
 
 .brique-experiment {
@@ -115,7 +133,9 @@ figcaption {
   background-image: url(../images/algorithm.svg);
   color: #009688;
 }
+
 /*----------------------------------------------------------------------------*/
+
 .bricks-canvas {
   min-width: 400px;
 }
@@ -133,7 +153,7 @@ figcaption {
   color: white;
 }
 
-.bricks-canvas .brick.identifier, .bricks-canvas .brick.function  {
+.bricks-canvas .brick.identifier, .bricks-canvas .brick.function {
   background-color: cadetblue;
   color: #000;
 }
@@ -153,16 +173,16 @@ figcaption {
 }
 
 .internal-brick {
-	min-height: 1.6rem;
-	display: inline-block;
-	text-align: initial;
-	padding: 0.5rem;
+  min-height: 1.6rem;
+  display: inline-block;
+  text-align: initial;
+  padding: 0.5rem;
 }
 
-.internal-brick > .brick-container {
-	min-width: 2rem;
-	min-height: 1rem;
-	background-color: var(--gray-dark);
+.internal-brick>.brick-container {
+  min-width: 2rem;
+  min-height: 1rem;
+  background-color: var(--gray-dark);
 }
 
 .blk-container {
@@ -176,14 +196,18 @@ figcaption {
 .bricks-canvas .badge {
   font-size: 0.8rem;
 }
+
 /*************************************************************************************/
+
 .save-content-pre {
   background-color: var(--light);
   color: var(--dark);
   padding: .375rem .75rem;
   border-radius: 0.25rem;
 }
+
 /************************************************************************************/
+
 .propositions label {
   margin-bottom: initial;
 }
