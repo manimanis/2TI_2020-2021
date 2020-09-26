@@ -31,12 +31,27 @@ function generate_unique_key($db, $length)
   return $key;
 }
 
-function insert_data($db, $key, $value)
+function insert_data($db, $user_name, $key, $value)
 {
-  $query = "INSERT INTO saves (cle, valeur, can_save) VALUES (?, ?, ?)";
+  // host_addr 	creation_date 	user_name 	update_date 	visible
+  $query = "INSERT INTO saves (cle, valeur, can_save, host_addr, creation_date, user_name, update_date, visible) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
   $stmt = $db->prepare($query);
   $can_save = TRUE;
-  $stmt->bind_param('ssi', $key, $value, $can_save);
+  $host_addr = $_SERVER['REMOTE_ADDR'];
+  $creation_date = date('Y-m-d H:i:s');
+  $visible = TRUE;
+  $stmt->bind_param(
+    'ssissssi',
+    $key,
+    $value,
+    $can_save,
+    $host_addr,
+    $creation_date,
+    $user_name,
+    $creation_date,
+    $visible
+  );
   $stmt->execute();
   $aff_rows = $stmt->affected_rows;
   $stmt->close();
@@ -55,6 +70,31 @@ function get_data_bykey($db, $key)
   return $row;
 }
 
+function update_data($db, $cle, $valeur) {
+  $query = "UPDATE saves 
+              valeur = ?, 
+              host_addr = ?, 
+              update_date = ? 
+            WHERE cle = ?";
+  $stmt = $db->prepare($query);
+  $host_addr = $_SERVER['REMOTE_ADDR'];
+  $update_date = date('Y-m-d H:i:s');
+  $stmt->bind_param(
+    'ssss',
+    $valeur,
+    $host_addr,
+    $update_date,
+    $cle
+  );
+  $stmt->execute();
+  $aff_rows = $stmt->affected_rows;
+  $stmt->close();
+  return $aff_rows > 0;
+}
+
+/******************************************************************************/
+date_default_timezone_set('Africa/Tunis');
+
 $HOST = '127.0.0.1';
 $USER = 'root';
 $PWD = 'abdouda';
@@ -62,25 +102,50 @@ $DB = 'pages_contents';
 $db = mysqli_connect($HOST, $USER, $PWD, $DB);
 $request_method = $_SERVER['REQUEST_METHOD'];
 
-if ($request_method === 'POST' && isset($_POST['save'])) {
-  $value = $_POST['save'];
-  $key = generate_unique_key($db, 10);
-  $ok = insert_data($db, $key, $value);
-  echo json_encode(array('resultat' => 'ok', 'cle' => $key));
-} else if ($request_method === 'GET' && isset($_GET['key'])) {
-  $key = $_GET['key'];
-  if (has_key($db, $key)) {
-    $data = get_data_bykey($db, $key);
-    if ($data['can_save'] == 0) {
-      $key = generate_unique_key($db, 10);
-      $ok = insert_data($db, $key, $data['valeur']);
-      $data = get_data_bykey($db, $key);
-    }
-    echo json_encode(array('resultat' => 'ok', 'data' => $data));
+if ($request_method === 'POST') {
+  if (isset($_POST['user_name']) && isset($_POST['save'])) {
+    $user_name = $_POST['user_name'];
+    $value = $_POST['save'];
+    $key = generate_unique_key($db, 10);
+    $ok = insert_data($db, $user_name, $key, $value);
+    echo json_encode(array('resultat' => 'ok', 'cle' => $key));
   } else {
-    echo json_encode(array('resultat' => 'error', 'message' => 'Clé introuvable'));
+    echo json_encode(array('resultat' => 'error', 'message' => 'user_name or save fields empty'));
+  }
+} else if ($request_method === 'GET') {
+  if (isset($_GET['key'])) {
+    $key = $_GET['key'];
+    if (has_key($db, $key)) {
+      $data = get_data_bykey($db, $key);
+      if ($data['can_save'] == 0) {
+        if (isset($_GET['user_name'])) {
+          $key = generate_unique_key($db, 10);
+          $user_name = $_GET['user_name'];
+          $ok = insert_data($db, $user_name, $key, $data['valeur']);
+          $data = get_data_bykey($db, $key);
+        } else {
+          echo json_encode(array('resultat' => 'error', 'message' => 'Indiquer le nom d\'utilisateur'));
+          die();
+        }
+      }
+      echo json_encode(array('resultat' => 'ok', 'data' => $data));
+    }
+  } else {
+    echo json_encode(array('resultat' => 'error', 'message' => 'Indiquer une Clé'));
   }
 } else if ($request_method === 'PUT') {
   parse_str(file_get_contents('php://input'), $_PUT);
-  print_r($_PUT);
+  if (isset($_PUT['cle']) && isset($_PUT['valeur'])) {
+    $cle = $_PUT['cle'];
+    $valeur = $_PUT['valeur'];
+    if (has_key($db, $key)) {
+      $data = get_data_bykey($db, $key);
+    }
+    if ($data['can_save'] == 0) {
+      echo json_encode(array('resultat' => 'error', 'message' => 'Indiquer une Clé valide'));
+      return;
+    }
+    $ok = update_data($db, $cle, $valeur);
+    echo json_encode(array('resultat' => 'ok', 'data' => 'Données mise à jour'));
+  }
 }
