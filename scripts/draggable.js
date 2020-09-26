@@ -919,6 +919,7 @@ class UserInputSaver {
         const placeholder = input_ctrl.attr('placeholder') || 'Taper un texte...';
         input_ctrl.val(thisObj.persistance.getData(div_id) || '');
         pre.text(thisObj.persistance.getData(div_id) || placeholder);
+        
       });
   }
 
