@@ -97,7 +97,7 @@ date_default_timezone_set('Africa/Tunis');
 
 $HOST = '127.0.0.1';
 $USER = 'root';
-$PWD = 'abdouda';
+$PWD = ''; // 'abdouda';
 $DB = 'pages_contents';
 $db = mysqli_connect($HOST, $USER, $PWD, $DB);
 $request_method = $_SERVER['REQUEST_METHOD'];
@@ -131,7 +131,7 @@ if ($request_method === 'POST') {
       echo json_encode(array('resultat' => 'ok', 'data' => $data));
     }
   } else {
-    echo json_encode(array('resultat' => 'error', 'message' => 'Indiquer une Clé'));
+    echo json_encode(array('resultat' => 'error', 'message' => 'Indiquer une clé'));
   }
 } else if ($request_method === 'PUT') {
   parse_str(file_get_contents('php://input'), $_PUT);
@@ -142,10 +142,12 @@ if ($request_method === 'POST') {
       $data = get_data_bykey($db, $key);
     }
     if ($data['can_save'] == 0) {
-      echo json_encode(array('resultat' => 'error', 'message' => 'Indiquer une Clé valide'));
+      echo json_encode(array('resultat' => 'error', 'message' => 'Indiquer une clé valide'));
       return;
     }
     $ok = update_data($db, $cle, $valeur);
     echo json_encode(array('resultat' => 'ok', 'data' => 'Données mise à jour'));
+  } else {
+    echo json_encode(array('resultat' => 'error', 'message' => 'Indiquer une clé et une valeur'));
   }
 }
