@@ -761,6 +761,12 @@ class PagePersistance {
   }
 }
 
+class ServerSaves {
+  constructor() {
+
+  }
+}
+
 class UserInputSaver {
   constructor(node, persistance) {
     this.node = $(node);
@@ -780,44 +786,12 @@ class UserInputSaver {
     this.blk_saves_list = $('<div>')
       .addClass('my-2 d-print-none')
       .appendTo(this.node);
-    const select = $('<select>')
-      .appendTo(this.blk_saves_list)
-      .on('change', e => {
-        const val = select.val();
-        if (val.length !== 8 && val !== 'new') {
-          return;
-        }
-        if (val === 'new') {
-          this.persistance.createToken();
-        } else {
-          this.persistance.loadByToken(val);
-        }
-      });
-    this._refreshTokensList();
-
-    $('<button>')
-      .text('Changer nom...')
-      .addClass('btn btn-success ml-2')
-      .appendTo(this.blk_saves_list)
-      .on('click', (e) => {
-        const newName = prompt('Donner un nouveau nom à votre travail !', thisObj.persistance.getName());
-        if (!/^[A-Za-z0-9_]+$/.test(newName)) {
-          alert('Caractères invalides, uniquement des nombres et des chiffres et le caractère de soulignement (_).');
-          return;
-        }
-        if (newName.length < 3 || newName.length > 32) {
-          alert('Longueur invalide, la longueur du nom doit être entre 3 et 32 caractères');
-          return;
-        }
-        thisObj.persistance.setName(newName);
-      });
-
-    $('<button>')
+    const btn_load = $('<button>')
       .addClass('btn btn-success ml-2')
       .text('Charger...')
       .appendTo(this.blk_saves_list)
       .on('click', (e) => {
-        const token = prompt('Copier/Coller votre travail ici!');
+        const token = prompt('Donner une clé');
         if (!token) {
           return;
         }
@@ -827,29 +801,76 @@ class UserInputSaver {
         }
         thisObj.persistance.setToken(token);
       });
-    const btn_copy = $('<button>')
-      .addClass('btn btn-success ml-2')
-      .text('Copier')
-      .appendTo(this.blk_saves_list);
-    new ClipboardJS(btn_copy[0], {
-      text: function (trigger) {
-        return JSON.stringify(thisObj.persistance.token);
-      }
-    });
-    $('<button>')
-      .addClass('btn btn-outline-danger ml-2')
-      .text('Effacer')
-      .appendTo(this.blk_saves_list)
-      .on('click', e => {
-        if (!confirm('Voulez-supprimer votre travail ?')) {
-          return;
-        }
-        const nom = prompt('Taper le nom que vous avez donné à ce projet!');
-        if (nom !== thisObj.persistance.getName()) {
-          return;
-        }
-        thisObj.persistance.resetData();
-      });
+    // const select = $('<select>')
+    //   .appendTo(this.blk_saves_list)
+    //   .on('change', e => {
+    //     const val = select.val();
+    //     if (val.length !== 8 && val !== 'new') {
+    //       return;
+    //     }
+    //     if (val === 'new') {
+    //       this.persistance.createToken();
+    //     } else {
+    //       this.persistance.loadByToken(val);
+    //     }
+    //   });
+    // this._refreshTokensList();
+
+    // $('<button>')
+    //   .text('Changer nom...')
+    //   .addClass('btn btn-success ml-2')
+    //   .appendTo(this.blk_saves_list)
+    //   .on('click', (e) => {
+    //     const newName = prompt('Donner un nouveau nom à votre travail !', thisObj.persistance.getName());
+    //     if (!/^[A-Za-z0-9_]+$/.test(newName)) {
+    //       alert('Caractères invalides, uniquement des nombres et des chiffres et le caractère de soulignement (_).');
+    //       return;
+    //     }
+    //     if (newName.length < 3 || newName.length > 32) {
+    //       alert('Longueur invalide, la longueur du nom doit être entre 3 et 32 caractères');
+    //       return;
+    //     }
+    //     thisObj.persistance.setName(newName);
+    //   });
+
+    // $('<button>')
+    //   .addClass('btn btn-success ml-2')
+    //   .text('Charger...')
+    //   .appendTo(this.blk_saves_list)
+    //   .on('click', (e) => {
+    //     const token = prompt('Copier/Coller votre travail ici!');
+    //     if (!token) {
+    //       return;
+    //     }
+    //     if (!thisObj.persistance.validateToken(token)) {
+    //       alert('Données non valides!');
+    //       return;
+    //     }
+    //     thisObj.persistance.setToken(token);
+    //   });
+    // const btn_copy = $('<button>')
+    //   .addClass('btn btn-success ml-2')
+    //   .text('Copier')
+    //   .appendTo(this.blk_saves_list);
+    // new ClipboardJS(btn_copy[0], {
+    //   text: function (trigger) {
+    //     return JSON.stringify(thisObj.persistance.token);
+    //   }
+    // });
+    // $('<button>')
+    //   .addClass('btn btn-outline-danger ml-2')
+    //   .text('Effacer')
+    //   .appendTo(this.blk_saves_list)
+    //   .on('click', e => {
+    //     if (!confirm('Voulez-supprimer votre travail ?')) {
+    //       return;
+    //     }
+    //     const nom = prompt('Taper le nom que vous avez donné à ce projet!');
+    //     if (nom !== thisObj.persistance.getName()) {
+    //       return;
+    //     }
+    //     thisObj.persistance.resetData();
+    //   });
 
     $('.save-content').each(function (index) {
       const input_ctrl = $(this);

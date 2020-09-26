@@ -5,10 +5,10 @@ $(() => {
   const STORAGE_KEY = location.pathname + '#art_obj';
   const art_obj = JSON.parse(localStorage.getItem(STORAGE_KEY)) || {
     article: null,
-    article_index: -1,
+    article_index: 0,
     sections: null,
     section: null,
-    section_index: -1
+    section_index: 0
   };
 
   const link_list = $('<ul>')
