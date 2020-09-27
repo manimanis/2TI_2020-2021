@@ -467,6 +467,7 @@ print('Taille : {} cm'.format(taille))</code></pre>
   <script src="scripts/draggable.js"></script>
   <script src="scripts/clipboard.min.js"></script>
   <script src="scripts/pages.js"></script>
+  <script src="scripts/savecontent.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
     document.querySelectorAll('.language-algorithm,.language-python')
@@ -486,8 +487,12 @@ print('Taille : {} cm'.format(taille))</code></pre>
       }
     });
     $(() => {
-      const pagePersist = new PagePersistance();
-      const userInputSaver = new UserInputSaver(document.querySelector('.user-input-saver'), pagePersist);
+      const localStore = new PagePersistance();
+      const serverStore = new ServerSaves();
+      const userInputSaver = new UserInputSaver(
+        document.querySelector('.user-input-saver'),
+        localStore,
+        serverStore);
     });
   </script>
 </body>

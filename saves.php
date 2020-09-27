@@ -70,8 +70,10 @@ function get_data_bykey($db, $key)
   return $row;
 }
 
-function update_data($db, $cle, $valeur) {
+function update_data($db, $cle, $valeur)
+{
   $query = "UPDATE saves 
+            SET
               valeur = ?, 
               host_addr = ?, 
               update_date = ? 
@@ -97,57 +99,71 @@ date_default_timezone_set('Africa/Tunis');
 
 $HOST = '127.0.0.1';
 $USER = 'root';
-$PWD = ''; // 'abdouda';
+// $PWD = '';
+$PWD = 'abdouda';
 $DB = 'pages_contents';
 $db = mysqli_connect($HOST, $USER, $PWD, $DB);
 $request_method = $_SERVER['REQUEST_METHOD'];
 
 if ($request_method === 'POST') {
-  if (isset($_POST['user_name']) && isset($_POST['save'])) {
-    $user_name = $_POST['user_name'];
-    $value = $_POST['save'];
-    $key = generate_unique_key($db, 10);
-    $ok = insert_data($db, $user_name, $key, $value);
-    echo json_encode(array('resultat' => 'ok', 'cle' => $key));
+  $has_keys = isset($_POST['key']) && $_POST['key'] != '';
+  if (isset($_POST['value'])) {
+    $value = $_POST['value'];
+    if (!$has_keys) {
+      $key = generate_unique_key($db, 10);
+      $user_name = $key;
+      $ok = insert_data($db, $user_name, $key, $value);
+    } else {
+      $key = $_POST['key'];
+      if (!has_key($db, $key)) {
+        echo json_encode(array(
+          'resultat' => 'error', 
+          'message' => 'Clé invalide'
+        ));
+        die();
+      }
+    }
+    $data = get_data_bykey($db, $key);
+    // Cannot save over readonly data
+    // Generate a new key and use the new one
+    if ($data['can_save'] == 0) {
+      $key = generate_unique_key($db, 10);
+      $user_name = $key;
+      $ok = insert_data($db, $user_name, $key, $value);
+      $data = get_data_bykey($db, $key);
+    } else if ($has_keys) {
+      update_data($db, $key, $value);
+      $data = get_data_bykey($db, $key);
+    }
+    echo json_encode(array(
+      'resultat' => 'ok', 
+      'data' => $data
+    ));
   } else {
-    echo json_encode(array('resultat' => 'error', 'message' => 'user_name or save fields empty'));
+    echo json_encode(array(
+      'resultat' => 'error', 
+      'message' => 'valeur à insérer manquante'
+    ));
   }
 } else if ($request_method === 'GET') {
   if (isset($_GET['key'])) {
     $key = $_GET['key'];
     if (has_key($db, $key)) {
       $data = get_data_bykey($db, $key);
-      if ($data['can_save'] == 0) {
-        if (isset($_GET['user_name'])) {
-          $key = generate_unique_key($db, 10);
-          $user_name = $_GET['user_name'];
-          $ok = insert_data($db, $user_name, $key, $data['valeur']);
-          $data = get_data_bykey($db, $key);
-        } else {
-          echo json_encode(array('resultat' => 'error', 'message' => 'Indiquer le nom d\'utilisateur'));
-          die();
-        }
-      }
-      echo json_encode(array('resultat' => 'ok', 'data' => $data));
+      echo json_encode(array(
+        'resultat' => 'ok', 
+        'data' => $data
+      ));
+    } else {
+      echo json_encode(array(
+        'resultat' => 'error', 
+        'message' => 'Clé invalide'
+      ));
     }
   } else {
-    echo json_encode(array('resultat' => 'error', 'message' => 'Indiquer une clé'));
-  }
-} else if ($request_method === 'PUT') {
-  parse_str(file_get_contents('php://input'), $_PUT);
-  if (isset($_PUT['cle']) && isset($_PUT['valeur'])) {
-    $cle = $_PUT['cle'];
-    $valeur = $_PUT['valeur'];
-    if (has_key($db, $key)) {
-      $data = get_data_bykey($db, $key);
-    }
-    if ($data['can_save'] == 0) {
-      echo json_encode(array('resultat' => 'error', 'message' => 'Indiquer une clé valide'));
-      return;
-    }
-    $ok = update_data($db, $cle, $valeur);
-    echo json_encode(array('resultat' => 'ok', 'data' => 'Données mise à jour'));
-  } else {
-    echo json_encode(array('resultat' => 'error', 'message' => 'Indiquer une clé et une valeur'));
+    echo json_encode(array(
+      'resultat' => 'error', 
+      'message' => 'Indiquer une clé'
+    ));
   }
 }
