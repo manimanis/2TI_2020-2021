@@ -34,6 +34,15 @@ figcaption {
   counter-increment: figures;
   font-size: 0.8em;
   font-style: italic;
+  text-align: center;
+}
+
+figure {
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
 }
 
 .alert.alert-warning.warning-sign {
@@ -87,6 +96,22 @@ figcaption {
 
 .language-python::before {
   content: "Python";
+}
+
+pre > code.shell.python.nohighlight {
+  display: block;
+  background-color: #333;
+  color: #eee;
+  padding: 0.5rem;
+}
+
+.shell.python::before {
+	display: block;
+	content: attr(data-text);
+	font-weight: bold;
+	font-style: italic;
+	text-decoration: underline;
+	text-align: center;
 }
 
 .bd-clipboard {
@@ -179,10 +204,17 @@ figcaption {
   padding: 0.5rem;
 }
 
-.internal-brick>.brick-container {
-  min-width: 2rem;
-  min-height: 1rem;
+.brick-container.drop-target {  
+  min-height: initial;
+}
+
+.internal-brick>.brick-container:empty {
+  min-width: 4rem;
   background-color: var(--gray-dark);
+}
+
+.internal-brick>.brick-container:empty::after {
+  content: "-";
 }
 
 .blk-container {

@@ -289,7 +289,6 @@ class BrickExercise {
           .wrap('<span class="brick-container drop-target"></span>')
           .removeClass('brick')
           .addClass('internal-brick draggable-item badge badge-secondary')
-
           .attr('draggable', true);
       })
       .appendTo(blk_container);
@@ -387,7 +386,9 @@ class BrickExercise {
         }
         const data = e.dataTransfer.getData("Text");
         if (data.substr(0, data.lastIndexOf('-')) === `block-${this.num_ex}`) {
-          $(`#${data}`)
+          const elem = $(`#${data}`);
+          const parent = elem.parent();
+          elem
             .appendTo(parentDropTarget);
           this.refreshButtons();
         }
