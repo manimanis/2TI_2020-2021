@@ -104,6 +104,12 @@ Le ballon est en possession de l'équipe : ESS</code></pre>
           </div>
         </div>
 
+        <div class="d-print-none text-center">
+          <video controls>
+            <source src="videos/projet01_cast.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
 
         <h4>Etapes du programme</h4>
         <ol type="a" class="order-items-exercise"
@@ -476,20 +482,29 @@ a = randint(15, 20)</code></pre>
           </ul>
         </div>
 
-        <div class="qcm-exercise no-page-break-inside" data-correct="1" data-scrambled="false">
+        <div class="qcm-exercise no-page-break-inside" data-correct="2,3,6" data-scrambled="false">
           <h5 class="question-title">Question 9</h5>
           <div class="question">
             <p>Soit le code suivant :</p>
-            <pre><code class="language-python">from random import randint
-a = randint(15, 20)</code></pre>
-            <p><b>Quelles sont les valeurs valides qui peuvent être affectées à la variable <code>a</code> ?</b></p>
+            <pre><code class="language-python">from random import randint, seed
+seed(892012)
+a = randint(10, 99)
+b = randint(10, 99)
+if a &gt; b:
+  print(a, '&gt;', b)
+elif a &lt; b:
+  print(a, '&lt;', b)
+else:
+  print(a, '=', b)</code></pre>
+            <p><b>Cocher les bonnes réponses ?</b></p>
           </div>
           <ul class="propositions">
-            <li>14</li>
-            <li>16</li>
-            <li>18</li>
-            <li>20</li>
-            <li>22</li>
+            <li>La variable <code>a</code> contient 85</li>
+            <li>La variable <code>a</code> contient 90</li>
+            <li>La variable <code>b</code> contient 85</li>
+            <li>La variable <code>b</code> contient 90</li>
+            <li>Le programme affiche : <code>85 &lt; 90</code></li>
+            <li>Le programme affiche : <code>90 &gt; 85</code></li>
           </ul>
         </div>
 
@@ -518,8 +533,9 @@ a = randint(15, 20)</code></pre>
           <li>Quelle est la fonction qui convertit un <b>texte</b> &rarr; <b>réel</b> ?</li>
           <li>Quelle est la fonction qui convertit un <b>entier</b> ou un <b>réel</b> &rarr; <b>texte</b> ?</li>
           <li>Comment trouver le quotient de division entière de 19 / 3 ? Comment trouver le reste de division entière
-            de
-            19 / 3 ?</li>
+            de 19 / 3 ?</li>
+          <li>Comment générer un nombre aléatoire de 4 chiffres ? Comment contrôler la séquence de nombres générée ?
+          </li>
         </ol>
         <div class="mt-0 mb-4 p-1">
           <textarea class="form-control save-content" cols="30" rows="2"></textarea>
@@ -615,7 +631,7 @@ Afficher("Le match est joué aujourd'hui entre", eq1, "et", eq2)</code></pre>
             autre_eq &larr; eq2<br>
             Sinon<br>
             <span class="brick">eq &larr; eq2</span><br>
-            autre_eq &larr; eq2<br>
+            autre_eq &larr; eq1<br>
             Fin Si
           </span>
           <span class="brick">
@@ -626,14 +642,16 @@ Afficher("Le match est joué aujourd'hui entre", eq1, "et", eq2)</code></pre>
             )
           </span>
           <pre class="success" hidden><code class="language-algorithm">eq1 &larr; "Real"
-  eq2 &larr; "Barça"
-  num_eq &larr; alea(0, 1) // 0: Real, 1: Barça
-  Si num_eq = 0 Alors
-    eq &larr; eq1
-  Sinon
-    eq &larr; eq2
-  Fin Si
-  Afficher("Le capitaine de l'équipe", eq, "choisit Pile/Face")</code></pre>
+eq2 &larr; "Barça"
+num_eq &larr; alea(0, 1) // 0: Real, 1: Barça
+Si num_eq = 0 Alors
+  eq &larr; eq1
+  autre_eq &larr; eq2
+Sinon
+  eq &larr; eq2
+  autre_eq &larr; eq1
+Fin Si
+Afficher("Le capitaine de l'équipe", eq, "choisit Pile/Face")</code></pre>
         </div>
       </section>
 
@@ -660,13 +678,28 @@ Lire(choix_cap)</code></pre>
       <section>
         <h3 class="brique">Afficher le choix du capitaine</h3>
         <div>
-          <p>On suppose que la variable <code>choix_cap</code> contient une valeur numérique :</p>
+          <p>On suppose que :</p>
           <ul>
-            <li><code>0</code> qui correspond à Pile</li>
-            <li><code>1</code> qui correspond à Face</li>
+            <li>
+              la variable <code>choix_cap</code> contient une valeur numérique :
+              <ul>
+                <li><code>0</code> qui correspond à Pile</li>
+                <li><code>1</code> qui correspond à Face</li>
+              </ul>
+            </li>
+            <li>la variable <code>eq</code> correspond au nom de l'équipe qui a choisit en premier</li>
           </ul>
-          <p>On suppose, aussi, que la variable <code>eq</code> correspond au nom de l'équipe qui a choisit en premier.
-          </p>
+          <p>On désire :</p>
+          <ul>
+            <li>Saisir le choix du capitaine d'une équipe dans <code>choix_cap</code>, un entier : 0 ou 1</li>
+            <li>Trouver <code>ch_cap</code> :
+              <ul>
+                <li><code>ch_cap &larr; "Pile"</code>, si <code>choix_cap = 0</code></li>
+                <li><code>ch_cap &larr; "Face"</code>, si <code>choix_cap = 1</code></li>
+              </ul>
+            </li>
+            <li>Afficher le choix du capitaine (<code>ch_choix</code>) de l'équipe (<code>eq</code>)</li>
+          </ul>
           <p>On veut, par exemple, afficher le message :</p>
           <pre><code class="nohighlight hljs">Le capitaine de l'équipe <b>Real</b> a choisit <b>Pile</b></code></pre>
           <p><strong>Donner l'algorithme ?</strong></p>
@@ -696,9 +729,9 @@ Afficher("Le capitaine de l'équipe", eq, "a choisit", ch_cap)</code></pre>
         <h3 class="brique">Effectuer le tirage au sort</h3>
         <div>
           <p>Dans une activité précédente, nous avons vu comment sélectionner une valeur numérique au hasard.
-            En réalité, on veut effectuer le tirage au sort à l'aide d'une pièce de monnaie.</p>
-          <p>Avec une pièce de monnaie, il est plus correct d'afficher le nom de la face visible : <strong>Pile</strong>
-            ou <strong>Face</strong>, au lieu d'un simple numéro.</p>
+            En réalité, on veut effectuer le tirage au sort à l'aide d'une pièce de monnaie. Dans ce cas, il est plus
+            correct d'afficher le nom de la face visible : <strong>Pile</strong> ou <strong>Face</strong>, au lieu d'un
+            simple numéro.</p>
           <p>On veut parfois obtenir l'affichage suivant : </p>
           <pre><code class="nohighlight hljs">L'arbitre lance la pièce puis il l'attrape
 Résultat du tirage au sort : <b>Face</b></code></pre>
@@ -713,7 +746,7 @@ Résultat du tirage au sort : <b>Pile</b></code></pre>
           </ul>
           <p><strong>Donner l'algorithme ?</strong></p>
         </div>
-        <div class="bricks-canvas" data-slots="3">
+        <div class="bricks-canvas" data-slots="2">
           <span class="brick">ts &larr; alea(0, 1) // 0: Pile, 1: Face<br>
             Si ts = 0 Alors<br>
             <span class="brick">face &larr; "Pile"</span><br>
@@ -756,8 +789,20 @@ Sinon
   equipe &larr; autre_eq
 Fin Si</code></pre>
           </div>
-      </section>
-      </div>
+
+          <div class="qcm-exercise no-page-break-inside" data-correct="3" data-scrambled="false">
+            <h5 class="question-title">Question</h5>
+            <div class="question">
+              <p><b>Quelle est la variable qui contient le nom de l'équipe qui commence le match ?</b></p>
+            </div>
+            <ul class="propositions">
+              <li><code>ts</code></li>
+              <li><code>choix_cap</code></li>
+              <li><code>equipe</code></li>
+              <li><code>eq</code></li>
+              <li><code>autre_eq</code></li>
+            </ul>
+          </div>
       </section>
 
       <section>

@@ -41,7 +41,7 @@ figure {
   text-align: center;
 }
 
-img {
+img, video {
   max-width: 100%;
 }
 
@@ -76,6 +76,14 @@ img {
 
 .ordered-items .list-group-item {
   counter-increment: listgroupitem;
+}
+
+.index-page-link {
+	display: block;
+	font-size: 40pt;
+	padding: 2rem;
+	margin: 1rem 0;
+	font-weight: bolder;
 }
 
 .language-algorithm::before, .language-python::before {
