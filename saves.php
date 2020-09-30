@@ -31,10 +31,10 @@ function generate_unique_key($db, $length)
   return $key;
 }
 
-function insert_data($db, $user_name, $key, $value)
+function insert_data($db, $user_name, $classname, $key, $value)
 {
   // host_addr 	creation_date 	user_name 	update_date 	visible
-  $query = "INSERT INTO saves (cle, valeur, can_save, host_addr, creation_date, user_name, update_date, visible) 
+  $query = "INSERT INTO saves (cle, valeur, can_save, host_addr, creation_date, user_name, classname, update_date, visible) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
   $stmt = $db->prepare($query);
   $can_save = TRUE;
@@ -42,13 +42,14 @@ function insert_data($db, $user_name, $key, $value)
   $creation_date = date('Y-m-d H:i:s');
   $visible = TRUE;
   $stmt->bind_param(
-    'ssissssi',
+    'ssisssssi',
     $key,
     $value,
     $can_save,
     $host_addr,
     $creation_date,
     $user_name,
+    $classname,
     $creation_date,
     $visible
   );
@@ -70,28 +71,60 @@ function get_data_bykey($db, $key)
   return $row;
 }
 
-function update_data($db, $cle, $valeur)
+function update_data($db, $cle, $valeur, $user_name = "", $classname = "")
 {
-  $query = "UPDATE saves 
-            SET
-              valeur = ?, 
-              host_addr = ?, 
-              update_date = ? 
-            WHERE cle = ?";
-  $stmt = $db->prepare($query);
   $host_addr = $_SERVER['REMOTE_ADDR'];
   $update_date = date('Y-m-d H:i:s');
-  $stmt->bind_param(
-    'ssss',
-    $valeur,
-    $host_addr,
-    $update_date,
-    $cle
+  $data = array(
+    'valeur' => $valeur,
+    'host_addr' => $host_addr,
+    'update_date' => $update_date
   );
-  $stmt->execute();
-  $aff_rows = $stmt->affected_rows;
-  $stmt->close();
-  return $aff_rows > 0;
+  if ($user_name != "") {
+    $data['user_name'] = $user_name;
+  }
+  if ($classname != "") {
+    $data['classname'] = $classname;
+  }
+ 
+  $fields = "";
+  foreach ($data as $key => $value) {
+    if ($fields != "") $fields .= ", ";
+    $fields .= "`".$key."` = '".mysqli_real_escape_string($db, $value)."'";
+  }
+  $query = "UPDATE saves SET $fields WHERE cle = '".mysqli_real_escape_string($db, $cle)."'";
+  //echo $query;
+  $res = $db->query($query) or die($db->error);
+  return $res;
+}
+
+function extract_data($data)
+{
+  try {
+    $arr = json_decode($data, TRUE);
+    if (!$arr) {
+      return array("");
+    }
+    return $arr;
+  } catch (Exception $e) {
+    return array("");
+  }
+}
+
+function get_username($arr)
+{
+  if (key_exists('data', $arr) && key_exists('save-content-0', $arr['data'])) {
+    return $arr['data']['save-content-0'];
+  }
+  return "";
+}
+
+function get_classname($arr)
+{
+  if (key_exists('data', $arr) && key_exists('save-content-1', $arr['data'])) {
+    return $arr['data']['save-content-1'];
+  }
+  return "";
 }
 
 /******************************************************************************/
@@ -109,19 +142,17 @@ if ($request_method === 'POST') {
   $has_keys = isset($_POST['key']) && $_POST['key'] != '';
   if (isset($_POST['value'])) {
     $value = $_POST['value'];
-    if (!$has_keys) {
-      $key = generate_unique_key($db, 10);
-      $user_name = $key;
-      $ok = insert_data($db, $user_name, $key, $value);
-    } else {
+    $arr = extract_data($value);
+    $user_name = get_username($arr);
+    $classname = get_classname($arr);
+    if ($has_keys) {
       $key = $_POST['key'];
-      if (!has_key($db, $key)) {
-        echo json_encode(array(
-          'resultat' => 'error', 
-          'message' => 'Clé invalide'
-        ));
-        die();
-      }
+      $has_keys = has_key($db, $key);
+    } else {
+      $key = generate_unique_key($db, 10);
+      $user_name = ($user_name == "") ? $key : $user_name;
+      $classname = ($classname == "") ? $key : $classname;
+      $ok = insert_data($db, $user_name, $classname, $key, $value);
     }
     $data = get_data_bykey($db, $key);
     // Cannot save over readonly data
@@ -129,19 +160,19 @@ if ($request_method === 'POST') {
     if ($data['can_save'] == 0) {
       $key = generate_unique_key($db, 10);
       $user_name = $key;
-      $ok = insert_data($db, $user_name, $key, $value);
+      $ok = insert_data($db, $user_name, $classname, $key, $value);
       $data = get_data_bykey($db, $key);
     } else if ($has_keys) {
-      update_data($db, $key, $value);
+      update_data($db, $key, $value, $user_name, $classname);
       $data = get_data_bykey($db, $key);
     }
     echo json_encode(array(
-      'resultat' => 'ok', 
+      'resultat' => 'ok',
       'data' => $data
     ));
   } else {
     echo json_encode(array(
-      'resultat' => 'error', 
+      'resultat' => 'error',
       'message' => 'valeur à insérer manquante'
     ));
   }
@@ -151,18 +182,18 @@ if ($request_method === 'POST') {
     if (has_key($db, $key)) {
       $data = get_data_bykey($db, $key);
       echo json_encode(array(
-        'resultat' => 'ok', 
+        'resultat' => 'ok',
         'data' => $data
       ));
     } else {
       echo json_encode(array(
-        'resultat' => 'error', 
+        'resultat' => 'error',
         'message' => 'Clé invalide'
       ));
     }
   } else {
     echo json_encode(array(
-      'resultat' => 'error', 
+      'resultat' => 'error',
       'message' => 'Indiquer une clé'
     ));
   }

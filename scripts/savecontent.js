@@ -171,6 +171,15 @@ class ServerSaves {
     localStorage.setItem(this.storage_key, JSON.stringify(this.key));
   }
 
+  setKey(key) {
+    this.key = key;
+    this.saveData();
+  }
+
+  getKey() {
+    return this.key;
+  }
+
   addListener(listener) {
     this.listeners.push(listener);
   }
@@ -369,10 +378,12 @@ class UserInputSaver {
   _saveToServer() {
     return this.serverStore.save(
       JSON.stringify(this.localStore.token) || "{}"
-    );
+    )
+      .then(data => console.log(data));
   }
 
   _loadFromServer(key) {
+    this.serverStore.setKey(key);
     this.serverStore.load();
   }
 
