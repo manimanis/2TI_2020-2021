@@ -138,6 +138,7 @@ class PagePersistance {
 
   resetData() {
     this.token.data = {};
+    this.saveData();
     this.notifyClients('reset-data');
   }
 
@@ -151,11 +152,23 @@ class PagePersistance {
   }
 }
 
+
 class ServerSaves {
   constructor() {
+    this.storage_key = `${location.pathname}#server-saves`;
     this.url = 'saves.php';
     this.listeners = [];
     this.data = {};
+    this.key = null;
+    this.loadData();
+  }
+
+  loadData() {
+    this.key = JSON.parse(localStorage.getItem(this.storage_key)) || '';
+  }
+
+  saveData() {
+    localStorage.setItem(this.storage_key, JSON.stringify(this.key));
   }
 
   addListener(listener) {
@@ -168,28 +181,57 @@ class ServerSaves {
     }
   }
 
-  save(key, value) {
-    this._notify('saving', null);
-    $.post(this.url, { key: key, value: value }, (data) => {
-      if (data.resultat === 'ok') {
-        this.data = data.data;
-        this._notify('saved', data.data);
-      } else {
-        this._notify('error', data.message);
-      }
-    }, 'json');
+  /**
+   * 
+   * @param {string} value
+   * @returns {Promse} 
+   */
+  save(value) {
+    return new Promise((resolve, reject) => {
+      this._notify('saving', null);
+      $.post(this.url, { key: this.key, value: value }, (data) => {
+        if (data.resultat === 'ok') {
+          this.data = data.data;
+          this.key = this.getData('cle');
+          this.saveData();
+          this._notify('saved', data.data);
+          resolve(data.data);
+        } else {
+          this._notify('error', data.message);
+          reject(data.message);
+        }
+      }, 'json');
+    });
   }
 
-  load(key) {
-    this._notify('loading', null);
-    $.getJSON(this.url, { key: key }, (data) => {
-      if (data.resultat === 'ok') {
-        this.data = data.data;
-        this._notify('loaded', data.data);
-      } else {
-        this._notify('error', data.message);
-      }
+  /**
+   * 
+   * @returns {Promise}
+   */
+  load() {
+    return new Promise((resolve, reject) => {
+      this._notify('loading', null);
+      $.getJSON(this.url, { key: this.key }, (data) => {
+        if (data.resultat === 'ok') {
+          this.data = data.data;
+          this.key = this.getData('cle');
+          this.saveData();
+          this._notify('loaded', data.data);
+          resolve(data.data);
+        } else {
+          this._notify('error', data.message);
+          reject(data.message);
+        }
+      });
     });
+  }
+
+  reset() {
+    const oldData = this.data;
+    this.key = '';
+    this.data = {};
+    this.saveData();
+    this._notify('reset', oldData);
   }
 
   getData(field) {
@@ -209,7 +251,10 @@ class UserInputSaver {
     });
     this.serverStore.addListener((event_name, data) => {
       // console.log(event_name, data);
-      if (event_name === 'loading') {
+      if (event_name === 'reset') {
+        this._enableButtons(true);
+        this.msg_span.text('Nouveau travail');
+      } else if (event_name === 'loading') {
         this._enableButtons(false);
         this.msg_span.text('Chargement en cours...');
       } else if (event_name === 'saving') {
@@ -218,13 +263,14 @@ class UserInputSaver {
       } else if (event_name === 'loaded') {
         this._enableButtons(true);
         this.localStore.setToken(data['valeur']);
-        this.msg_span.text(`Loaded. Clé : ${data['cle']} - Création : ${data['creation_date']} - MAJ : ${data['update_date']}`);
+        this.msg_span.text(`Chargé. Clé : ${data['cle']} - Création : ${data['creation_date']} - MAJ : ${data['update_date']}`);
       } else if (event_name === 'saved') {
         this._enableButtons(true);
         this.localStore.setToken(data['valeur']);
-        this.msg_span.text(`Saved. Clé : ${data['cle']} - Création : ${data['creation_date']} - MAJ : ${data['update_date']}`);
+        this.msg_span.text(`Enregistré. Clé : ${data['cle']} - Création : ${data['creation_date']} - MAJ : ${data['update_date']}`);
       } else if (event_name === 'error') {
         this.msg_span.text('Erreur : ' + data);
+        this._enableButtons(true);
       }
     });
   }
@@ -237,6 +283,24 @@ class UserInputSaver {
     this.blk_saves_list = $('<div>')
       .addClass('my-2 d-print-none')
       .appendTo(this.node);
+    this.btn_new = $('<button>')
+      .addClass('btn btn-success ml-2')
+      .text('Nouveau...')
+      .appendTo(this.blk_saves_list)
+      .on('click', (e) => {
+        if (confirm('Choisir Annuler pour créer une nouvelle sauvegarde. Ok, sinon.')) {
+          return;
+        }
+        this._saveToServer()
+          .then(data => {
+            this.serverStore.reset();
+            this.localStore.resetData();
+          })
+          .catch(err => {
+            this.serverStore.reset();
+            this.localStore.resetData();
+          });
+      });
     this.btn_load = $('<button>')
       .addClass('btn btn-success ml-2')
       .text('Charger...')
@@ -303,17 +367,18 @@ class UserInputSaver {
   }
 
   _saveToServer() {
-    this.serverStore.save(
-      this.serverStore.getData('cle'),
-      JSON.stringify(this.localStore.token)
+    return this.serverStore.save(
+      JSON.stringify(this.localStore.token) || "{}"
     );
   }
 
   _loadFromServer(key) {
-    this.serverStore.load(key);
+    this.serverStore.load();
   }
 
   _enableButtons(enabled) {
+    this.btn_new
+      .attr('disabled', !enabled);
     this.btn_load
       .attr('disabled', !enabled);
     this.btn_save
