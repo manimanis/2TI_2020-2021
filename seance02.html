@@ -987,7 +987,7 @@ Fin Pile_Face</code></pre>
     });
     $(() => {
       const localStore = new PagePersistance();
-      const serverStore = new ServerSaves();
+      const serverStore = new ServerSaves('Projet 1');
       const userInputSaver = new UserInputSaver(
         document.querySelector('.user-input-saver'),
         localStore,

@@ -20,7 +20,12 @@
         </div>
         <div class="col-sm-6">
           <label>Classe</label>
-          <input type="text" class="form-control save-content" placeholder="Classe">
+          <select class="form-control save-content" placeholder="Classe">
+            <option>2TI</option>
+            <option>2SC</option>
+            <option>3T</option>
+          </select>
+          <!-- <input type="text" class="form-control save-content" placeholder="Classe"> -->
         </div>
       </div>
     </div>
@@ -488,7 +493,7 @@ print('Taille : {} cm'.format(taille))</code></pre>
     });
     $(() => {
       const localStore = new PagePersistance();
-      const serverStore = new ServerSaves();
+      const serverStore = new ServerSaves('Projet 0');
       const userInputSaver = new UserInputSaver(
         document.querySelector('.user-input-saver'),
         localStore,

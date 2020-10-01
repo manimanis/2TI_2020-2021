@@ -31,19 +31,20 @@ function generate_unique_key($db, $length)
   return $key;
 }
 
-function insert_data($db, $user_name, $classname, $key, $value)
+function insert_data($db, $user_name, $classname, $key, $value, $pagename)
 {
   // host_addr 	creation_date 	user_name 	update_date 	visible
-  $query = "INSERT INTO saves (cle, valeur, can_save, host_addr, creation_date, user_name, classname, update_date, visible) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+  $query = "INSERT INTO saves (cle, pagename, valeur, can_save, host_addr, creation_date, user_name, classname, update_date, visible) 
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
   $stmt = $db->prepare($query);
   $can_save = TRUE;
   $host_addr = $_SERVER['REMOTE_ADDR'];
   $creation_date = date('Y-m-d H:i:s');
   $visible = TRUE;
   $stmt->bind_param(
-    'ssisssssi',
+    'sssisssssi',
     $key,
+    $pagename,
     $value,
     $can_save,
     $host_addr,
@@ -71,11 +72,12 @@ function get_data_bykey($db, $key)
   return $row;
 }
 
-function update_data($db, $cle, $valeur, $user_name = "", $classname = "")
+function update_data($db, $cle, $pagename, $valeur, $user_name = "", $classname = "")
 {
   $host_addr = $_SERVER['REMOTE_ADDR'];
   $update_date = date('Y-m-d H:i:s');
   $data = array(
+    'pagename' => $pagename,
     'valeur' => $valeur,
     'host_addr' => $host_addr,
     'update_date' => $update_date
@@ -134,12 +136,15 @@ $HOST = '127.0.0.1';
 $USER = 'root';
 // $PWD = '';
 $PWD = 'abdouda';
+// $PWD = 'mysqlroot';
 $DB = 'pages_contents';
 $db = mysqli_connect($HOST, $USER, $PWD, $DB);
 $request_method = $_SERVER['REQUEST_METHOD'];
+$host_addr = $_SERVER['REMOTE_ADDR'];
 
 if ($request_method === 'POST') {
   $has_keys = isset($_POST['key']) && $_POST['key'] != '';
+  $pagename = $_POST['pagename'];
   if (isset($_POST['value'])) {
     $value = $_POST['value'];
     $arr = extract_data($value);
@@ -152,18 +157,19 @@ if ($request_method === 'POST') {
       $key = generate_unique_key($db, 10);
       $user_name = ($user_name == "") ? $key : $user_name;
       $classname = ($classname == "") ? $key : $classname;
-      $ok = insert_data($db, $user_name, $classname, $key, $value);
+      $ok = insert_data($db, $user_name, $classname, $key, $value, $pagename);
     }
     $data = get_data_bykey($db, $key);
     // Cannot save over readonly data
+    // Cannot save on top of others works
     // Generate a new key and use the new one
-    if ($data['can_save'] == 0) {
+    if ($data['can_save'] == 0 || $host_addr != $data['host_addr']) {
       $key = generate_unique_key($db, 10);
       $user_name = $key;
-      $ok = insert_data($db, $user_name, $classname, $key, $value);
+      $ok = insert_data($db, $user_name, $classname, $key, $value, $pagename);
       $data = get_data_bykey($db, $key);
     } else if ($has_keys) {
-      update_data($db, $key, $value, $user_name, $classname);
+      update_data($db, $key, $pagename, $value, $user_name, $classname);
       $data = get_data_bykey($db, $key);
     }
     echo json_encode(array(
@@ -177,10 +183,15 @@ if ($request_method === 'POST') {
     ));
   }
 } else if ($request_method === 'GET') {
+  $pagename = isset($_GET['pagename']) ? $_GET['pagename'] : '';
   if (isset($_GET['key'])) {
     $key = $_GET['key'];
+    $valid_key = TRUE;
     if (has_key($db, $key)) {
       $data = get_data_bykey($db, $key);
+      $valid_key = $pagename == $data['pagename'];
+    }
+    if ($valid_key) {
       echo json_encode(array(
         'resultat' => 'ok',
         'data' => $data

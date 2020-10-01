@@ -154,8 +154,9 @@ class PagePersistance {
 
 
 class ServerSaves {
-  constructor() {
+  constructor(pagename) {
     this.storage_key = `${location.pathname}#server-saves`;
+    this.pagename = pagename;
     this.url = 'saves.php';
     this.listeners = [];
     this.data = {};
@@ -198,7 +199,7 @@ class ServerSaves {
   save(value) {
     return new Promise((resolve, reject) => {
       this._notify('saving', null);
-      $.post(this.url, { key: this.key, value: value }, (data) => {
+      $.post(this.url, { key: this.key, value: value, pagename: this.pagename }, (data) => {
         if (data.resultat === 'ok') {
           this.data = data.data;
           this.key = this.getData('cle');
@@ -218,21 +219,31 @@ class ServerSaves {
    * @returns {Promise}
    */
   load() {
-    return new Promise((resolve, reject) => {
-      this._notify('loading', null);
-      $.getJSON(this.url, { key: this.key }, (data) => {
+    this._notify('loading', null);
+    const url = `${this.url}?key=${encodeURIComponent(this.key)}&pagename=${encodeURIComponent(this.pagename)}`;
+    return fetch(url, {
+      "method": "GET",
+      "headers": {
+        "Accept": "application/json, text/javascript, */*; q=0.01"
+      }
+    })
+      .then(response => response.json())
+      .then(data => {
         if (data.resultat === 'ok') {
           this.data = data.data;
           this.key = this.getData('cle');
           this.saveData();
           this._notify('loaded', data.data);
-          resolve(data.data);
+          return data.data;
         } else {
           this._notify('error', data.message);
-          reject(data.message);
+          throw new Error(data.message);
         }
+      })
+      .catch(error => {
+        console.log(error);
+        this._notify('error', error);
       });
-    });
   }
 
   reset() {
@@ -293,7 +304,7 @@ class UserInputSaver {
       .addClass('my-2 d-print-none')
       .appendTo(this.node);
     this.btn_new = $('<button>')
-      .addClass('btn btn-success ml-2')
+      .addClass('btn btn-success ml-1')
       .text('Nouveau...')
       .appendTo(this.blk_saves_list)
       .on('click', (e) => {
@@ -311,7 +322,7 @@ class UserInputSaver {
           });
       });
     this.btn_load = $('<button>')
-      .addClass('btn btn-success ml-2')
+      .addClass('btn btn-success ml-1')
       .text('Charger...')
       .appendTo(this.blk_saves_list)
       .on('click', (e) => {
@@ -322,12 +333,19 @@ class UserInputSaver {
         this._loadFromServer(key);
       });
     this.btn_save = $('<button>')
-      .addClass('btn btn-success ml-2')
+      .addClass('btn btn-success ml-1')
       .text('Enregistrer')
       .appendTo(this.blk_saves_list)
       .on('click', (e) => {
         this._saveToServer();
       });
+    this.search_link = $('<a>')
+      .addClass('btn btn-secondary ml-1')
+      .text('Chercher...')
+      .attr('href', 'search.php?pagename=' + encodeURIComponent(this.serverStore.pagename))
+      .attr('target', '_blank')
+      .attr('rel', 'noopener')
+      .appendTo(this.blk_saves_list);
     this.msg_span = $('<span>')
       .addClass('small ml-2')
       .appendTo(this.blk_saves_list);
