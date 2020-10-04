@@ -565,7 +565,7 @@ else:
           <pre><code class="nohighlight hljs">Nom 1ère équipe : <i class="text-success">Real</i>
 Nom 2ème équipe : <i class="text-success">Barça</i>
 Le match est joué aujourd'hui entre Real et Barça</code></pre>
-          <p><strong>Donner l'algorithme ?</strong></p>
+          <p><strong>Donner l'algorithme ? Traduire en Python ?</strong></p>
         </div>
         <div class="bricks-canvas" data-slots="3">
           <span class="brick">Afficher("Nom 1ère équipe : ")<br>Lire(eq1)</span>
@@ -587,7 +587,7 @@ Afficher("Le match est joué aujourd'hui entre", eq1, "et", eq2)</code></pre>
           <p>Pour choisir une valeur au hasard on utilise la fonction <code>alea(min, max)</code>.</p>
           <p>On veut sélectionner une valeur aléatoire entre 0 et 1, inclus. Cette valeur sera stockée par la suite dans
             une variable nommée <code>ts</code>.</p>
-          <p><strong>Donner l'algorithme ?</strong></p>
+          <p><strong>Donner l'algorithme ? Traduire en Python ?</strong></p>
         </div>
 
         <div class="bricks-canvas" data-slots="1">
@@ -620,7 +620,7 @@ Afficher("Le match est joué aujourd'hui entre", eq1, "et", eq2)</code></pre>
             <li>Afficher le nom de l'équipe <code>eq</code> qui va choisir en premier.</li>
           </ul>
           <p></p>
-          <p><strong>Donner l'algorithme ?</strong></p>
+          <p><strong>Donner l'algorithme ? Traduire en Python ?</strong></p>
         </div>
         <div class="bricks-canvas" data-slots="3">
           <span class="brick">eq1 &larr; "Real"<br>
@@ -666,7 +666,7 @@ Afficher("Le capitaine de l'équipe", eq, "choisit Pile/Face")</code></pre>
             les valeurs en <i class="text-success">italique vert</i> sont ceux introduites
             par l'utilisateur à partir du clavier :</p>
           <pre><code class="nohighlight hljs">0: Pile, 1: Face ? <i class="text-success">0</i></code></pre>
-          <p><strong>Donner l'algorithme ?</strong></p>
+          <p><strong>Donner l'algorithme ? Traduire en Python ?</strong></p>
         </div>
         <div class="bricks-canvas" data-slots="2">
           <span class="brick">Afficher(<span class="brick">"0: Pile, 1: Face ?"</span>)</span>
@@ -703,7 +703,7 @@ Lire(choix_cap)</code></pre>
           </ul>
           <p>On veut, par exemple, afficher le message :</p>
           <pre><code class="nohighlight hljs">Le capitaine de l'équipe <b>Real</b> a choisit <b>Pile</b></code></pre>
-          <p><strong>Donner l'algorithme ?</strong></p>
+          <p><strong>Donner l'algorithme ? Traduire en Python ?</strong></p>
         </div>
         <div class="bricks-canvas" data-slots="2">
           <span class="brick">Afficher("0: Pile, 1: Face ? ")<br>
@@ -745,7 +745,7 @@ Résultat du tirage au sort : <b>Pile</b></code></pre>
             <li>Affecter le texte <code>"Face"</code> à la variable <code>face</code>, si <code>ts &ne; 0</code></li>
             <li>Afficher le résultat du tirage au sort comme indiqué précédemment.</li>
           </ul>
-          <p><strong>Donner l'algorithme ?</strong></p>
+          <p><strong>Donner l'algorithme ? Traduire en Python ?</strong></p>
         </div>
         <div class="bricks-canvas" data-slots="2">
           <span class="brick">ts &larr; alea(0, 1) // 0: Pile, 1: Face<br>
@@ -777,7 +777,7 @@ Afficher("Résultat du tirage au sort :", face)</code></pre>
             <li>Si la face visible, n'est pas celle choisie par le capitaine, l'équipe adversaire commence, variable
               <code>autre_eq</code>.</li>
           </ul>
-          <p><strong>Donner l'algorithme ?</strong></p>
+          <p><strong>Donner l'algorithme ? Traduire en Python ?</strong></p>
           <div class="bricks-canvas" data-slots="1">
             <span class="brick">Si ts = choix_cap Alors<br>
               <span class="brick">equipe &larr; eq</span><br>
@@ -813,7 +813,7 @@ Fin Si</code></pre>
             <code>equipe</code>.</p>
           <p>On veut, par exemple, afficher le message :</p>
           <pre><code class="nohighlight hljs">Le ballon est en possession de l'équipe : ESHS</code></pre>
-          <p><strong>Donner l'algorithme ?</strong></p>
+          <p><strong>Donner l'algorithme ? Traduire en Python ?</strong></p>
         </div>
         <div class="bricks-canvas" data-slots="2">
           <span class="brick">equipe &larr; "ESHS"</span>
@@ -830,12 +830,8 @@ Afficher("Le ballon est en possession de l'équipe", equipe)</code></pre>
 
       <section class="d-none">
         <h3 class="brique-algorithm">Algorithme</h3>
-        <p>On demande de :</p>
-        <ol>
-          <li>Écrire l'algorithme du programme.</li>
-          <li>Déterminer la liste des variables utilisées ainsi que leurs types respectifs.</li>
-        </ol>
-        <pre><code class="language-algorithm" style="page-break-inside: auto;">Début Pile_Face
+        <p>Écrire l'algorithme du programme.</p>
+        <pre class="d-none d-print-block"><code class="language-algorithm" style="page-break-inside: auto;">Début Pile_Face
 // Saisir les noms des équipes.
 Afficher("Nom 1ère équipe : ")
 Lire(eq1)
@@ -888,7 +884,9 @@ Fin Pile_Face</code></pre>
 
       <section>
         <h3>Tableau de déclaration des objets</h3>
-        <table class="table">
+        <p>Déterminer la liste des variables utilisées ainsi que leurs types respectifs.</p>
+        
+        <table class="table d-none d-print-block">
           <thead class="thead-dark">
             <tr>
               <th>Objet</th>

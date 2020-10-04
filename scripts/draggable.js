@@ -485,6 +485,7 @@ class QcmExercise {
       .map(num => +num - 1);
     this.control_type = (this.answers.length == 1) ? 'radio' : 'checkbox';
     this.scrambled = !!this.node.data('scrambled');
+    this.number_of_tries = this.node.data('tries') || Number.MAX_SAFE_INTEGER;
     this.buildUI();
     console.log(this.scrambled);
     if (this.scrambled) {
@@ -498,6 +499,9 @@ class QcmExercise {
     this.prop_container
       .addClass('list-group');
     const thisObj = this;
+    this.retries_count = $('<div>')
+      .text((this.number_of_tries > 1000000) ? 'Essais illimités' : `${this.number_of_tries} essais restants`)
+      .prependTo(this.node);
     this.props = this.prop_container
       .find('li')
       .each(function (index) {
@@ -553,15 +557,28 @@ class QcmExercise {
     }
   }
 
+  canRetry() {
+    return this.number_of_tries > 0;
+  }
+
   hasCheckedItems() {
     return this.props.find(':checked').length > 0;
   }
 
   verify() {
+    if (!this.canRetry()) {
+      alert('Vous avez écoulé tous les essais!');
+      return;
+    }
+
     if (!this.hasCheckedItems()) {
       alert('Veuillez cocher les bonnes réponses !');
       return;
     }
+
+    this.number_of_tries--;
+    this.retries_count
+      .text((this.number_of_tries > 1000000) ? 'Essais illimités' : `${this.number_of_tries} essais restants`);
 
     let score = 0;
     const user_ans = [];
@@ -580,8 +597,10 @@ class QcmExercise {
       .attr('disabled', true);
     this.btn_verify
       .hide();
-    this.btn_reset
-      .show();
+    if (this.canRetry()) {
+      this.btn_reset
+        .show();
+    }
     if (score === this.props.length) {
       this.blk_message
         .removeClass('badge-danger')
@@ -596,6 +615,11 @@ class QcmExercise {
   }
 
   reset() {
+    if (!this.canRetry()) {
+      alert('Vous avez écoulé tous les essais!');
+      return;
+    }
+
     this.btn_verify
       .show();
     this.btn_reset
