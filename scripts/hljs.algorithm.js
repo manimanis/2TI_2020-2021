@@ -3,9 +3,9 @@ hljs.registerLanguage('algorithm', (hljs) => {
     name: 'algorithm',
     case_insensitive: true, 
     aliases: ['alg'],
-    lexemes : '[àéèêâäöüÄÖÜßa-zA-Z]+',
+    lexemes : '[\\\'àéèêâäöüÄÖÜßa-zA-Z]+',
     keywords: {
-      keyword: 'début afficher lire si alors sinon fin tantque faire répéter jusqua mod div pour de à pas non et ou ouex',
+      keyword: 'début afficher lire si alors sinon fin tantque faire répéter jusqu\'à mod div pour de à pas non et ou ouex',
       literal: 'faux vrai nul'
     },
     contains: [

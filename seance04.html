@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Devine mon nombre</title>
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/default.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <style>
+    .table-simulation td,
+    .table-simulation th {
+      width: 11.1%;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="py-2 px-4 bg-secondary">
+    <div class="user-input-saver text-white">
+      <div class="row">
+        <div class="col-sm-6">
+          <label>Nom & Prénom</label>
+          <input type="text" class="form-control save-content" placeholder="Nom & Prénom">
+        </div>
+        <div class="col-sm-6">
+          <label>Classe</label>
+          <input type="text" class="form-control save-content" placeholder="Classe">
+        </div>
+      </div>
+    </div>
+  </header>
+  <aside>
+    <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+  <main class="container my-4">
+    <h1>Projet n°2 - Devine mon nombre</h1>
+
+    <article>
+      <h2>Exploration</h2>
+
+      <section>
+        <h3>Principe</h3>
+
+        <p>Le jeu devine mon nombre est l'un des jeux, le plus simples, qu'on puisse jouer à deux.</p>
+        <p>Dans ce jeu, un des joueurs choisit un nombre que le second joueur doit deviner en moins de n essais.</p>
+        <p>
+        <figure>
+          <img src="images/prj03/guess_number.png" alt="Devine mon nombre">
+          <figcaption>Devine mon nombre</figcaption>
+        </figure>
+        </p>
+      </section>
+
+      <section>
+        <h3>Activité débranchée</h3>
+
+        <ul>
+          <li>Un élève choisit un nombre entre 1 et 127. Il le note sur une feuille, c'est le <b>nombre secret</b>.</li>
+          <li>Son collègue de classe, essaye de trouver le <b>nombre secret</b> en un nombre minimal d'essais. Pour celà
+            il propose un nombre : <b>nombre proposé</b></li>
+          <li>Le premier élève lui répond :
+            <ul>
+              <li><b>&gt;</b> : si le <b>nombre proposé</b> est inférieur au <b>nombre secret</b></li>
+              <li><b>&lt;</b> : si le <b>nombre proposé</b> est supérieur au <b>nombre secret</b></li>
+              <li><b>=</b> : si le <b>nombre proposé</b> est égal au <b>nombre secret</b></li>
+            </ul>
+          </li>
+        </ul>
+
+        <p>
+        <figure>
+          <img src="images/prj03/unplugged_activity.jpg" alt="Activité débranchée">
+          <figcaption>Activité débranchée</figcaption>
+        </figure>
+        </p>
+
+        <p class="explication">Questions</p>
+        <ol>
+          <li>Quel est le nombre minimal d'essais pour trouver le <b>nombre secret</b> ?</li>
+          <li>Dresser un tableau des étapes qui vous ont permis de retrouver la solution.</li>
+        </ol>
+
+        <p class="explication">Exemple</p>
+        <table class="table table-bordered table-simulation">
+          <tbody>
+            <tr>
+              <th>Essai</th>
+              <td class="text-right">1</td>
+              <td class="text-right">2</td>
+              <td class="text-right">3</td>
+              <td class="text-right">4</td>
+              <td class="text-right">5</td>
+              <td class="text-right">6</td>
+              <td class="text-right">7</td>
+            </tr>
+            <tr>
+              <th>Proposition</th>
+              <td class="text-right">&nbsp;</td>
+              <td class="text-right">&nbsp;</td>
+              <td class="text-right">&nbsp;</td>
+              <td class="text-right">&nbsp;</td>
+              <td class="text-right">&nbsp;</td>
+              <td class="text-right">&nbsp;</td>
+              <td class="text-right">&nbsp;</td>
+            </tr>
+            <tr>
+              <th>Réponse</th>
+              <td class="text-right">&nbsp;</td>
+              <td class="text-right">&nbsp;</td>
+              <td class="text-right">&nbsp;</td>
+              <td class="text-right">&nbsp;</td>
+              <td class="text-right">&nbsp;</td>
+              <td class="text-right">&nbsp;</td>
+              <td class="text-right">&nbsp;</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h3>Démarche</h3>
+
+        <p>On donne les exemples suivants qui permettent de retrouver le <b>nombre secret</b> en un nombre minimal
+          d'essais :</p>
+
+        <h4>Exemple 1</h4>
+        <p>On suppose que le <b>nombre secret</b> est <b>63</b></p>
+
+        <table class="table table-bordered table-simulation">
+          <tbody>
+            <tr>
+              <th>Essai</th>
+              <td class="text-right">1</td>
+              <td class="text-right">2</td>
+              <td class="text-right">3</td>
+              <td class="text-right">4</td>
+              <td class="text-right">5</td>
+              <td class="text-right">6</td>
+              <td class="text-right">7</td>
+            </tr>
+            <tr>
+              <th>Proposition</th>
+              <td class="text-right">64</td>
+              <td class="text-right">32</td>
+              <td class="text-right">48</td>
+              <td class="text-right">56</td>
+              <td class="text-right">60</td>
+              <td class="text-right">62</td>
+              <td class="text-right">63</td>
+            </tr>
+            <tr>
+              <th>Réponse</th>
+              <td class="text-right">&lt;</td>
+              <td class="text-right">&gt;</td>
+              <td class="text-right">&gt;</td>
+              <td class="text-right">&gt;</td>
+              <td class="text-right">&gt;</td>
+              <td class="text-right">&gt;</td>
+              <td class="text-right">=</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4>Exemple 2</h4>
+        <p>On suppose que le <b>nombre secret</b> est <b>42</b></p>
+
+        <table class="table table-bordered table-simulation">
+          <tbody>
+            <tr>
+              <th>Essai</th>
+              <td class="text-right">1</td>
+              <td class="text-right">2</td>
+              <td class="text-right">3</td>
+              <td class="text-right">4</td>
+              <td class="text-right">5</td>
+              <td class="text-right">6</td>
+              <td class="text-right">-</td>
+            </tr>
+            <tr>
+              <th>Proposition</th>
+              <td class="text-right">64</td>
+              <td class="text-right">32</td>
+              <td class="text-right">48</td>
+              <td class="text-right">40</td>
+              <td class="text-right">44</td>
+              <td class="text-right">42</td>
+              <td class="text-right">-</td>
+            </tr>
+            <tr>
+              <th>Réponse</th>
+              <td class="text-right">&lt;</td>
+              <td class="text-right">&gt;</td>
+              <td class="text-right">&lt;</td>
+              <td class="text-right">&gt;</td>
+              <td class="text-right">&lt;</td>
+              <td class="text-right">=</td>
+              <td class="text-right">-</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4>Exemple 3</h4>
+        <p>On suppose que le <b>nombre secret</b> est <b>99</b></p>
+
+        <table class="table table-bordered table-simulation">
+          <tbody>
+            <tr>
+              <th>Essai</th>
+              <td class="text-right">1</td>
+              <td class="text-right">2</td>
+              <td class="text-right">3</td>
+              <td class="text-right">4</td>
+              <td class="text-right">5</td>
+              <td class="text-right">6</td>
+              <td class="text-right">7</td>
+            </tr>
+            <tr>
+              <th>Proposition</th>
+              <td class="text-right">64</td>
+              <td class="text-right">96</td>
+              <td class="text-right">112</td>
+              <td class="text-right">104</td>
+              <td class="text-right">100</td>
+              <td class="text-right">98</td>
+              <td class="text-right">97</td>
+            </tr>
+            <tr>
+              <th>Réponse</th>
+              <td class="text-right">&gt;</td>
+              <td class="text-right">&gt;</td>
+              <td class="text-right">&lt;</td>
+              <td class="text-right">&lt;</td>
+              <td class="text-right">&lt;</td>
+              <td class="text-right">&gt;</td>
+              <td class="text-right">=</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h4>Questions</h4>
+        <ol>
+          <li>Pourquoi on commence toujours par proposer le nombre 64 ?
+            <div class="mt-0 mb-4 p-1">
+              <textarea class="form-control save-content" cols="30" rows="2"></textarea>
+            </div>
+          </li>
+          <li>D'après les tableaux précédents, quel est le <b>nombre proposé</b> qui suit au nombre 64 ?
+            <div class="mt-0 mb-4 p-1">
+              <textarea class="form-control save-content" cols="30" rows="2"></textarea>
+            </div>
+          </li>
+          <li>A votre avis, comment ces nombres ont été trouvés ?
+            <div class="mt-0 mb-4 p-1">
+              <textarea class="form-control save-content" cols="30" rows="2"></textarea>
+            </div>
+          </li>
+          <li>Sachant que la réponse au <b>nombre proposé</b> 96 est : &gt;. Et que la réponse au <b>nombre proposé</b>
+            112
+            est : &lt;. Calculer le <b>nombre proposé</b> suivant.
+            <figure>
+              <img src="images/prj03/img01.svg" alt="Le nombre est dans l'intervalle ]96, 112[">
+              <figcaption>Le nombre est dans l'intervalle ]96, 112[</figcaption>
+            </figure>
+            <div class="mt-0 mb-4 p-1">
+              <textarea class="form-control save-content" cols="30" rows="2"></textarea>
+            </div>
+          </li>
+          <li>Sachant que la réponse au <b>nombre proposé</b> 36 est : &gt;. Et que la réponse au <b>nombre proposé</b>
+            40
+            est : &lt;. Calculer le <b>nombre proposé</b> suivant.
+            <figure>
+              <img src="images/prj03/img02.svg" alt="Le nombre est dans l'intervalle ]36, 40[">
+              <figcaption>Le nombre est dans l'intervalle ]36, 40[</figcaption>
+            </figure>
+            <div class="mt-0 mb-4 p-1">
+              <textarea class="form-control save-content" cols="30" rows="2"></textarea>
+            </div>
+          </li>
+          <li>Utiliser le principe décrit pour deviner un <b>nombre secret</b> dans l'intervalle [1, 127].</li>
+        </ol>
+
+        <table class="table table-bordered table-simulation">
+          <tbody>
+            <tr>
+              <th>Essai</th>
+              <td class="text-right">1</td>
+              <td class="text-right">2</td>
+              <td class="text-right">3</td>
+              <td class="text-right">4</td>
+              <td class="text-right">5</td>
+              <td class="text-right">6</td>
+              <td class="text-right">7</td>
+            </tr>
+            <tr>
+              <th>Proposition</th>
+              <td class="text-right"><input type="text" class="form-control save-content" placeholder="---"></td>
+              <td class="text-right"><input type="text" class="form-control save-content" placeholder="---"></td>
+              <td class="text-right"><input type="text" class="form-control save-content" placeholder="---"></td>
+              <td class="text-right"><input type="text" class="form-control save-content" placeholder="---"></td>
+              <td class="text-right"><input type="text" class="form-control save-content" placeholder="---"></td>
+              <td class="text-right"><input type="text" class="form-control save-content" placeholder="---"></td>
+              <td class="text-right"><input type="text" class="form-control save-content" placeholder="---"></td>
+            </tr>
+            <tr>
+              <th>Réponse</th>
+              <td class="text-right">
+                <select class="form-control save-content" placeholder="---">
+                  <option>---</option>
+                  <option>&gt;</option>
+                  <option>&lt;</option>
+                  <option>=</option>
+                </select>
+              </td>
+              <td class="text-right">
+                <select class="form-control save-content" placeholder="---">
+                  <option>---</option>
+                  <option>&gt;</option>
+                  <option>&lt;</option>
+                  <option>=</option>
+                </select>
+              </td>
+              <td class="text-right">
+                <select class="form-control save-content" placeholder="---">
+                  <option>---</option>
+                  <option>&gt;</option>
+                  <option>&lt;</option>
+                  <option>=</option>
+                </select>
+              </td>
+              <td class="text-right">
+                <select class="form-control save-content" placeholder="---">
+                  <option>---</option>
+                  <option>&gt;</option>
+                  <option>&lt;</option>
+                  <option>=</option>
+                </select>
+              </td>
+              <td class="text-right">
+                <select class="form-control save-content" placeholder="---">
+                  <option>---</option>
+                  <option>&gt;</option>
+                  <option>&lt;</option>
+                  <option>=</option>
+                </select>
+              </td>
+              <td class="text-right">
+                <select class="form-control save-content" placeholder="---">
+                  <option>---</option>
+                  <option>&gt;</option>
+                  <option>&lt;</option>
+                  <option>=</option>
+                </select>
+              </td>
+              <td class="text-right">
+                <select class="form-control save-content" placeholder="---">
+                  <option>---</option>
+                  <option>&gt;</option>
+                  <option>&lt;</option>
+                  <option>=</option>
+                </select>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <div class="d-print-none">
+          <h3>Simulation</h3>
+
+          <p>Sélectionner un nombre dans l'intervalle [1, 127] et je vais le deviner en 7 essais ou moins.</p>
+
+          <table id="simulation-00" class="table table-bordered table-simulation">
+            <tbody>
+              <tr>
+                <th>essai</th>
+                <td v-for="(prop, index) in propositions">{{index + 1}}</td>
+                <td v-if="!trouve">
+                  {{propositions.length + 1}}
+                </td>
+                <td v-if="current_value !== 64">&nbsp;</td>
+              </tr>
+              <tr>
+                <th>nombre proposé</th>
+                <td v-for="prop in propositions">{{prop['nbre']}}</td>
+                <td v-if="!trouve">
+                  {{current_value}}
+                </td>
+                <td v-if="current_value !== 64">
+                  <button v-on:click.prevent="reset" class="btn btn-dark btn-sm">Reset</button>
+                </td>
+              </tr>
+              <tr>
+                <th>réponse</th>
+                <td v-for="prop in propositions">{{prop['reponse']}}</td>
+                <td v-if="!trouve">
+                  <select v-model="current_reponse">
+                    <option>---</option>
+                    <option>&gt;</option>
+                    <option>&lt;</option>
+                    <option>=</option>
+                  </select>
+                  <a href="#" v-on:click.prevent="setChoice()">Valider</a>
+                </td>
+                <td v-if="current_value !== 64">&nbsp;</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section>
+        <h3>Exemple d'exécution</h3>
+
+        <pre><code class="hljs nohighlight">Bienvenue, cher utilisateur
+Aujourd&apos;hui, je vais jouer avec vous au jeu devine mon nombre.
+
+Principe du jeu
+<div class="d-print-none">=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Le principe du jeu est simple : 
+- Vous choisissez un nombre dans l&apos;intervalle [1, 127].
+- Je vais le deviner en 8 essais max.
+- Vous devez indiquer si mon nombre proposé est supèrieur, inférieur ou égal au votre.
+
+Attention! Notez le nombre pour ne pas l&apos;oublier.
+</div><div class="d-none d-print-inline">...</div>
+Mon essai n°1
+********************
+Je propose : 64
+Le nombre secret est-t-il :
+- supérieur à mon nombre (tapez &gt;)
+- inférieur à mon nombre (tapez &lt;)
+- égal à mon nombre (tapez =)
+? &lt;                       
+
+<div class="d-print-none">Mon essai n°2
+********************
+Je propose : 32
+Le nombre secret est-t-il :
+- supérieur à mon nombre (tapez &gt;)
+- inférieur à mon nombre (tapez &lt;)
+- égal à mon nombre (tapez =)
+? &gt;
+
+Mon essai n°3
+********************
+Je propose : 48
+Le nombre secret est-t-il :
+- supérieur à mon nombre (tapez &gt;)
+- inférieur à mon nombre (tapez &lt;)
+- égal à mon nombre (tapez =)
+? &lt;
+
+Mon essai n°4
+********************
+Je propose : 40
+Le nombre secret est-t-il :
+- supérieur à mon nombre (tapez &gt;)
+- inférieur à mon nombre (tapez &lt;)
+- égal à mon nombre (tapez =)
+? &gt;
+
+Mon essai n°5
+********************
+Je propose : 44
+Le nombre secret est-t-il :
+- supérieur à mon nombre (tapez &gt;)
+- inférieur à mon nombre (tapez &lt;)
+- égal à mon nombre (tapez =)
+? &gt;
+</div><div class="d-none d-print-block">...</div>
+Mon essai n°6
+********************
+Je propose : 46
+Le nombre secret est-t-il :
+- supérieur à mon nombre (tapez &gt;)
+- inférieur à mon nombre (tapez &lt;)
+- égal à mon nombre (tapez =)
+? =
+
+:D :) :D :) :D :) :D :) :D :) :D :) :D :) :D :) :D :) :D :) 
+Hoorray! J&apos;ai trouvé en 6 coups.</code></pre>
+        <h4>Questions</h4>
+        <ol>
+          <li>Quel est le <b>nombre secret</b> choisit par l'utilisateur ?
+            <div class="mt-0 mb-4 p-1">
+              <input type="text" class="form-control save-content">
+            </div>
+          </li>
+          <li>Quel est le nombre d'essais effectués par l'ordinateur pour trouver le <b>nombre secret</b> ?
+            <div class="mt-0 mb-4 p-1">
+              <input type="number" min="0" max="10" class="form-control save-content">
+            </div>
+          </li>
+          <li>Quel est le traitement qui se répète plusieurs fois ?
+            <div class="mt-0 mb-4 p-1">
+              <textarea class="form-control save-content"></textarea>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>Etapes du programme</h3>
+
+        <ol type="a" class="order-items-exercise"
+          data-enonce="Ordonner les étapes d'exécution d'après les examples donnés précédemment." data-isnumbered="true"
+          hidden>
+          <li data-ordre="8">Saisir la <b>réponse</b> de l'utilisateur</li>
+          <li data-ordre="6">Calculer le <b>nombre proposé</b></li>
+          <li data-ordre="5">Afficher le numéro d'essai</li>
+          <li data-ordre="1" data-place="true">Afficher un message de bienvenue</li>
+          <li data-ordre="10" data-place="true">Afficher un message de victoire, si la <b>réponse</b> est "="</li>
+          <li data-ordre="4" data-place="true">Répéter</li>
+          <li data-ordre="9">Réduire l'intervalle de recherche, si la <b>réponse</b> est "&gt;" ou "&lt;"</li>
+          <li data-ordre="3">Initialiser les bornes de l'intervalle [1, 127]</li>
+          <li data-ordre="11" data-place="true">Jusqu'à 7 essais ou <b>réponse</b> est "="</li>
+          <li data-ordre="2" data-place="true">Afficher le principe du jeu</li>
+          <li data-ordre="7" data-place="true">Afficher le <b>nombre proposé</b></li>
+        </ol>
+      </section>
+    </article>
+
+    <article>
+      <h2>Briques logicielles</h2>
+
+      <section>
+        <h3>Brique n° 1 - Affichage formaté</h3>
+
+        <h4>Exemple 1</h4>
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="language-algorithm">x &larr; 8
+y &larr; 5
+p &larr; x * y
+Afficher(x, "*", y, "=", p)</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="language-algorithm">x = 8
+y = 5
+p = x * y
+print(f'{x} * {y} = {p}')</code></pre>
+          </div>
+          <div class="col-sm-6"></div>
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Résultat">&gt;&gt;&gt; x = 8
+&gt;&gt;&gt; y = 5
+&gt;&gt;&gt; p = x * y
+&gt;&gt;&gt; print(f&apos;{x} * {y} = {p}&apos;)
+8 * 5 = 40</code></pre>
+          </div>
+        </div>
+
+        <h4>Exemple 2</h4>
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="language-algorithm">nom &larr; "AHMED"
+Afficher("Bonjour, je suis", capitaliser(nom))</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="language-algorithm">nom = "AhMeD HaMdI"
+print(f'Bonjour, je suis {nom.capitalize()}')</code></pre>
+          </div>
+          <div class="col-sm-6"></div>
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Résultat">&gt;&gt;&gt; nom = &quot;AhMeD HaMdI&quot;
+&gt;&gt;&gt; print(f&apos;Bonjour, je suis {nom.capitalize()}&apos;)
+Bonjour, je suis Ahmed hamdi</code></pre>
+          </div>
+        </div>
+
+        <p class="explication">Questions</p>
+        <ol>
+          <li>Quelle est la fonction de <code>nom.capitalize()</code> ?
+            <div class="mt-0 mb-4 p-1">
+              <input type="text" class="form-control save-content">
+            </div>
+          </li>
+          <li>Tester la fonction <code>.upper()</code>. Quel est son rôle ?
+            <div class="mt-0 mb-4 p-1">
+              <input type="text" class="form-control save-content">
+            </div>
+          </li>
+          <li>Tester la fonction <code>.lower()</code>. Quel est son rôle ?
+            <div class="mt-0 mb-4 p-1">
+              <input type="text" class="form-control save-content">
+            </div>
+          </li>
+          <li>Tester la fonction <code>.title()</code>. Quel est son rôle ?
+            <div class="mt-0 mb-4 p-1">
+              <input type="text" class="form-control save-content">
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>Brique n°2 - Contrôle de saisie</h3>
+
+        <div>
+          <figure>
+            <img src="images/prj03/img04.png" alt="Contrôle de saisie">
+            <figcaption>Contrôle de saisie</figcaption>
+          </figure>
+        </div>
+
+        <p class="explication">Sans contrôle de saisie</p>
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="language-algorithm">Afficher("Votre choix (A, B ou C) ? ")
+Lire(choix)</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="language-python"># -
+choix = input("Votre choix (A, B ou C) ? ")</code></pre>
+          </div>
+          <div class="col-sm-6"></div>
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Résultat">&gt;&gt;&gt; # -
+&gt;&gt;&gt; choix = input(&quot;Votre choix (A, B ou C) ? &quot;)
+Votre choix (A, B ou C) ? X
+&gt;&gt;&gt; print(choix)
+X</code></pre>
+          </div>
+        </div>
+
+        <p class="explication">Remarque</p>
+        <p>Malgré que le programme demande d'entrer comme choix les lettres : A, B ou C, l'utilisateur peut saisir
+          n'importe quoi et il sera accepté par le programme.</p>
+        <p>Dans certains programmes, ce comportement peut générer des erreurs d'exécution. On devra lui trouver une
+          solution : <span class="text-success">Le contrôle de saisie</span>.</p>
+
+        <p class="explication">Avec contrôle de saisie</p>
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="language-algorithm">Répéter
+  Afficher("Votre choix (A, B ou C) ? ")
+  Lire(choix)
+Jusqu'à (choix="A") ou (choix="B") ou (choix="C")</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="language-python">while True:
+  choix = input("Votre choix (A, B ou C) ? ")
+  if choix == "A" or choix == "B" or choix == "C":
+    break</code></pre>
+          </div>
+          <div class="col-sm-6"></div>
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Résultat">&gt;&gt;&gt; while True:
+...   choix = input(&quot;Votre choix (A, B ou C) ? &quot;)
+...   if choix == &quot;A&quot; or choix == &quot;B&quot; or choix == &quot;C&quot;:
+...     break
+... 
+Votre choix (A, B ou C) ? X
+Votre choix (A, B ou C) ? haha
+Votre choix (A, B ou C) ? C
+&gt;&gt;&gt; print(choix)
+C</code></pre>
+          </div>
+        </div>
+
+        <p class="explication">Questions</p>
+        <ol>
+          <li>Ecrire un algorithme qui permet de saisir l'age d'un élève dans l'intervalle [15, 21]. Traduire en langage
+            Python.
+            <div class="bricks-canvas" data-slots="1">
+              <span class="brick">Répéter<br>
+                <span class="brick">Afficher("Quel est l'age de l'élève [15, 21] : ")<br>
+                  Lire(age)</span><br>
+                Jusqu'à <span class="brick">15 &le; age &le; 21</span></span>
+              <pre class="success"><code class="language-algorithm">Répéter
+  Afficher("Quel est l'age de l'élève [15, 21] : ")
+  Lire(age)
+Jusqu'à 15 &le; age &le; 21</code></pre>
+            </div>
+          </li>
+          <li>Ecrire un algorithme qui permet de saisir deux notes dans l'intervalle [0, 20]. Puis, de calculer et
+            afficher leur moyenne. Le traduire en Python.
+            <div class="mt-0 mb-4 p-1">
+              <textarea class="form-control save-content"></textarea>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>Brique n°3 - Répétition</h3>
+
+        <div>
+          <figure>
+            <img src="images/prj03/img05.jpg" alt="Boucle">
+            <figcaption>Boucle</figcaption>
+          </figure>
+        </div>
+
+        <p class="explication"></p>
+      </section>
+    </article>
+  </main>
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
+    <div class="text-center small">Année scolaire : 2020/2021</div>
+  </footer>
+  <script src="scripts/jquery.min.js"></script>
+  <script src="scripts/bootstrap.min.js"></script>
+  <script src="scripts/highlight.pack.js"></script>
+  <script src="scripts/hljs.algorithm.js"></script>
+  <script src="scripts/draggable.js"></script>
+  <script src="scripts/clipboard.min.js"></script>
+  <script src="scripts/pages.js"></script>
+  <script src="scripts/savecontent.js"></script>
+  <script src="scripts/vue.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+    document.querySelectorAll('.language-algorithm,.language-python')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+    $(() => {
+      const localStore = new PagePersistance();
+      const serverStore = new ServerSaves('Projet 1');
+      const userInputSaver = new UserInputSaver(
+        document.querySelector('.user-input-saver'),
+        localStore,
+        serverStore);
+      new Vue({
+        el: '#simulation-00',
+        data: {
+          propositions: [],
+          reponses: [],
+          borne_inf: 1,
+          borne_sup: 127,
+          current_value: 64,
+          current_reponse: '---',
+          trouve: false
+        },
+        mounted: function () {
+          this.initPropositions();
+        },
+        methods: {
+          initPropositions: function () {
+            this.trouve = false;
+            this.propositions = [];
+            this.borne_inf = 1;
+            this.borne_sup = 127;
+            this.current_value = 64;
+            for (let rep of this.reponses) {
+              this.propositions.push(this.findNextPropsition(rep));
+            }
+          },
+          reset: function () {
+            this.reponses = [];
+            this.current_reponse = '---';
+            this.initPropositions();
+          },
+          findNextPropsition: function (reponse) {
+            if (reponse === '>') {
+              this.borne_inf = this.current_value + 1;
+            } else if (reponse === '<') {
+              this.borne_sup = this.current_value - 1;
+            } else {
+              this.trouve = true;
+            }
+            const prop = { nbre: this.current_value, reponse: reponse };
+            this.current_value = parseInt((this.borne_inf + this.borne_sup) / 2);
+            this.current_reponse = '---';
+            return prop;
+          },
+          setChoice: function () {
+            this.reponses.push(this.current_reponse);
+            const prop = this.findNextPropsition(this.current_reponse);
+            this.propositions.push(prop);
+            if (this.borne_inf === this.borne_sup) {
+              this.propositions.push(this.findNextPropsition('='));
+            }
+          }
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
