@@ -701,7 +701,133 @@ Jusqu'à 15 &le; age &le; 21</code></pre>
           </figure>
         </div>
 
-        <p class="explication"></p>
+        <p class="explication">Afficher un message plusieurs fois</p>
+
+        <div class="row">
+          <div class="col-sm-6"><pre><code class="language-algorithm">Pour i de 0 à 4 Faire
+  Afficher("-- Police line do not cross --")
+Fin Pour</code></pre></div>
+          <div class="col-sm-6"><pre><code class="language-python">for i in range(5):
+  print("-- Police line do not cross --")
+</code></pre></div>
+          <div class="col-sm-6"></div>
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Résultat">&gt;&gt;&gt; for i in range(5):
+...   print(&quot;-- Police line do not cross --&quot;)
+... 
+-- Police line do not cross --
+-- Police line do not cross --
+-- Police line do not cross --
+-- Police line do not cross --
+-- Police line do not cross --</code></pre>
+          </div>
+        </div>
+
+        <p class="explication">Afficher un compteur</p>
+        <div class="row">
+          <div class="col-sm-6"><pre><code class="language-algorithm">Pour cpt de 1 à 3 Faire
+  Afficher("Pièce n°", cpt)
+Fin Pour</code></pre></div>
+          <div class="col-sm-6"><pre><code class="language-python">for cpt in range(1, 4):
+  print("Pièce n°", cpt)
+</code></pre></div>
+          <div class="col-sm-6"></div>
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Résultat">&gt;&gt;&gt; for cpt in range(1, 4):
+...   print(&quot;Pièce n°&quot;, cpt)
+... 
+Pièce n° 1
+Pièce n° 2
+Pièce n° 3</code></pre>
+          </div>
+        </div>
+
+        <p class="explication">Afficher les nombres impairs inférieurs à 10</p>
+        <div class="row">
+          <div class="col-sm-6"><pre><code class="language-algorithm">Pour i de 1 à 9 (pas=2) Faire
+  Afficher(i)
+Fin Pour</code></pre></div>
+          <div class="col-sm-6"><pre><code class="language-python">for i in range(1, 10, 2):
+  print(i)
+</code></pre></div>
+          <div class="col-sm-6"></div>
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Résultat">&gt;&gt;&gt; for i in range(1, 10, 2):
+...   print(i)
+... 
+1
+3
+5
+7
+9</code></pre>
+          </div>
+        </div>
+
+        <p class="explication">Préparer des cakes dans un petit four</p>
+        <div class="row">
+          <div class="col-sm-6"><pre><code class="language-algorithm">// Nombre de cakes
+nbc &larr; 7
+// Taille du four
+tf &larr; 4
+// Nombre de cuissons
+nb_cuissons &larr; nbc div tf + Ent(nbc mod tf &ne; 0)
+Afficher("- Ouvrir le four. Sortir le plateau.")
+Pour i de 1 à nb_cuissons Faire
+  Si nbc > tf Alors
+    nc &larr; tf
+  Sinon
+    nc &larr; nbc
+  Fin Si
+  nbc &larr; nbc - nc
+  Afficher("Cuisson n°", i)
+  Afficher("- Mettre", nc, "cakes dans le plateau")
+  Afficher("- Remettre le plateau dans le four. Fermer le four.")
+  Afficher("- Attendre la cuisson")
+  Afficher("- Ouvrir le four. Sortir le plateau.")
+  Afficher("- Enlever les", nc, "cakes cuits")
+Fin Pour
+Afficher("- Remettre le plateau dans le four. Fermer le four.")</code></pre></div>
+          <div class="col-sm-6"><pre><code class="language-python"># Nombre de cakes
+nbc = 7
+# Taille du four
+tf = 4
+# Nombre de cuissons
+nb_cuissons = nbc // tf + int(nbc % tf != 0)
+print("- Ouvrir le four. Sortir le plateau.")
+for i in range(1, nb_cuissons + 1):
+  if nbc > tf:
+    nc = tf
+  else:
+    nc = nbc
+  
+  nbc = nbc - nc
+  print("Cuisson n°", i)
+  print("- Mettre", nc, "cakes dans le plateau")
+  print("- Remettre le plateau dans le four. Fermer le four.")
+  print("- Attendre la cuisson")
+  print("- Ouvrir le four. Sortir le plateau.")
+  print("- Enlever les", nc, "cakes cuits")
+
+print("- Remettre le plateau dans le four. Fermer le four.")
+</code></pre></div>
+          <div class="col-sm-6"></div>
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Résultat">- Ouvrir le four. Sortir le plateau.
+Cuisson n° 1
+- Mettre 4 cakes dans le plateau
+- Remettre le plateau dans le four. Fermer le four.
+- Attendre la cuisson
+- Ouvrir le four. Sortir le plateau.
+- Enlever les 4 cakes cuits
+Cuisson n° 2
+- Mettre 3 cakes dans le plateau
+- Remettre le plateau dans le four. Fermer le four.
+- Attendre la cuisson
+- Ouvrir le four. Sortir le plateau.
+- Enlever les 3 cakes cuits
+- Remettre le plateau dans le four. Fermer le four.</code></pre>
+          </div>
+        </div>
       </section>
     </article>
   </main>
