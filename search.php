@@ -2,12 +2,8 @@
 
 date_default_timezone_set('Africa/Tunis');
 
-$HOST = '127.0.0.1';
-$USER = 'root';
-// $PWD = '';
-$PWD = 'abdouda';
-// $PWD = 'mysqlroot';
-$DB = 'pages_contents';
+require_once 'config.php';
+
 $db = mysqli_connect($HOST, $USER, $PWD, $DB);
 $request_method = $_SERVER['REQUEST_METHOD'];
 $pagename = isset($_GET['pagename']) ? $_GET['pagename'] : '';
