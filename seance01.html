@@ -4,184 +4,222 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projet n°1 - La tortue magique</title>
+  <title>La tortue magique</title>
   <link rel="stylesheet" href="styles/bootstrap.min.css">
   <link rel="stylesheet" href="styles/default.css">
   <link rel="stylesheet" href="styles/style.css">
 </head>
 
 <body>
-  <main class="container">
-    <div class="user-input-saver bg-secondary text-white mb-5 p-2">
+  <header class="py-2 px-4 bg-secondary">
+    <div class="user-input-saver text-white">
       <div class="row">
-        <div class="col-6">
+        <div class="col-sm-6">
           <label>Nom & Prénom</label>
           <input type="text" class="form-control save-content" placeholder="Nom & Prénom">
         </div>
-        <div class="col-6">
+        <div class="col-sm-6">
           <label>Classe</label>
-          <input type="text" class="form-control save-content" placeholder="Classe">
+          <select class="form-control save-content" placeholder="Classe">
+            <option>2TI</option>
+            <option>2SC</option>
+            <option>3T</option>
+          </select>
         </div>
       </div>
     </div>
-
+  </header>
+  <aside>
+    <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+  <main class="container">
     <h1>Projet n°1 - La tortue magique</h1>
-    <section>
-      <h2>Objectifs</h2>
-      <ol>
-        <li>Importer des fonctions à partir de modules</li>
-        <li>Appeler des fonctions et leur passer des arguments</li>
-        <li>Saisir des données au clavier</li>
-        <li>Utiliser une structure conditionnelle</li>
-        <li>Utiliser une structure itérative complète</li>
-      </ol>
-    </section>
+    <article>
+      <h2>Rappel</h2>
 
-    <section>
-      <h2>Activités</h2>
-      <p>Soit le programme <strong>Python</strong> suivant:</p>
-      <pre><code class="language-python">from turtle import *
+      <section>
+        <h3>Objectifs</h3>
+        <ol>
+          <li>Importer des fonctions à partir de modules</li>
+          <li>Appeler des fonctions et leur passer des arguments</li>
+          <li>Saisir des données au clavier</li>
+          <li>Utiliser une structure conditionnelle</li>
+          <li>Utiliser une structure itérative complète</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>Exemple</h3>
+
+        <p>Soit le programme <strong>Python</strong> suivant:</p>
+        <pre><code class="language-python">from turtle import *
 left(25)
 forward(100)
 mainloop()</code></pre>
-      <p class="explication">Explication</p>
-      <figure>
-        <img src="images/prj01/s01-img01.svg" alt="Programme expliqué">
-        <figcaption>Programme expliqué</figcaption>
-      </figure>
-      <h3>Travail à faire</h3>
-      <ol>
-        <li>Utiliser les fonctions précédentes pour dessiner un carré.
-          <p class="explication">Code source</p>
-          <div class="mt-1 mb-4 p-1">
-            <textarea class="form-control save-content" cols="30" rows="2" placeholder="Votre code ici..."></textarea>
-          </div>
-        </li>
+        <p class="explication">Explication</p>
+        <figure>
+          <img src="images/prj01/s01-img01.svg" alt="Programme expliqué">
+          <figcaption>Programme expliqué</figcaption>
+        </figure>
+      </section>
 
-        <li>Modifier le programme pour dessiner un rectangle.
-          <p class="explication">Code source</p>
-          <div class="mt-1 mb-4 p-1">
-            <textarea class="form-control save-content" cols="30" rows="2" placeholder="Votre code ici..."></textarea>
-          </div>
-        </li>
+      <section>
+        <h3>Un carré, un rectangle</h3>
 
-        <li>Dessiner le rectangle avec une longueur et une largeur données.
-          <p class="explication">Code snippet</p>
-          <p>L'instruction suivante permet de saisir une donnée au clavier :</p>
-          <pre><code class="language-python">long = int(input('Longueur : '))</code></pre>
-          <p class="explication">Explication</p>
-          <figure>
-            <img src="images/prj01/s01-img02.svg" alt="Saisie d'une donnée au clavier">
-            <figcaption>Saisie d'une donnée au clavier</figcaption>
-          </figure>
-          <p class="explication">Code source</p>
-          <div class="mt-1 mb-4 p-1">
-            <textarea class="form-control save-content" cols="30" rows="2" placeholder="Votre code ici..."></textarea>
-          </div>
-        </li>
+        <p>Utiliser les fonctions précédentes pour dessiner un carré.</p>
+        <p class="explication">Code source</p>
+        <div class="mt-1 mb-4 p-1">
+          <textarea class="form-control save-content" cols="30" rows="2" placeholder="Votre code ici..."></textarea>
+        </div>
 
-        <li>Dessiner un polygone régulier avec un nombre de cotés donné.
-          <ul>
-            <li>Si nc = 3 &rArr; Triangle équilatéral</li>
-            <li>Si nc = 4 &rArr; Carré</li>
-            <li>Si nc = 5 &rArr; Pentagone régulier</li>
-            <li>Si nc = 6 &rArr; Hexagone régulier</li>
-          </ul>
-          <figure>
-            <img src="images/prj01/s01-img03.svg" alt="Formes à dessiner">
-            <figcaption>Exemples de formes à dessiner</figcaption>
-          </figure>
-          <p class="explication">Code snippet</p>
-          <pre><code class="language-python">for _ in range(nc):
+        <p>Modifier le programme pour dessiner un rectangle.</p>
+        <p class="explication">Code source</p>
+        <div class="mt-1 mb-4 p-1">
+          <textarea class="form-control save-content" cols="30" rows="2" placeholder="Votre code ici..."></textarea>
+        </div>
+      </section>
+
+      <section>
+        <h3>Saisie de données</h3>
+
+        <p>Dessiner le rectangle avec une longueur et une largeur données.</p>
+        <p class="explication">Code snippet</p>
+        <p>L'instruction suivante permet de saisir une donnée au clavier :</p>
+        <pre><code class="language-python">long = int(input('Longueur : '))</code></pre>
+        <p class="explication">Explication</p>
+        <figure>
+          <img src="images/prj01/s01-img02.svg" alt="Saisie d'une donnée au clavier">
+          <figcaption>Saisie d'une donnée au clavier</figcaption>
+        </figure>
+        <p class="explication">Code source</p>
+        <div class="mt-1 mb-4 p-1">
+          <textarea class="form-control save-content" cols="30" rows="2" placeholder="Votre code ici..."></textarea>
+        </div>
+      </section>
+
+      <section>
+        <h3>Polygone régulier</h3>
+
+        <p>Dessiner un polygone régulier avec un nombre de cotés donné.</p>
+        <ul>
+          <li>Si nc = 3 &rArr; Triangle équilatéral</li>
+          <li>Si nc = 4 &rArr; Carré</li>
+          <li>Si nc = 5 &rArr; Pentagone régulier</li>
+          <li>Si nc = 6 &rArr; Hexagone régulier</li>
+        </ul>
+        <figure>
+          <img src="images/prj01/s01-img03.svg" alt="Formes à dessiner">
+          <figcaption>Exemples de formes à dessiner</figcaption>
+        </figure>
+        <p class="explication">Code snippet</p>
+        <pre><code class="language-python">for _ in range(nc):
     forward(long)
     left(360 / nc)</code></pre>
-          <p class="explication">Explication</p>
-          <figure>
-            <img src="images/prj01/s01-img04.svg" alt="Structure itérative complète">
-            <figcaption>Structure itérative complète</figcaption>
-          </figure>
-          <p class="explication">Code source</p>
-          <div class="mt-1 mb-4 p-1">
-            <textarea class="form-control save-content" cols="30" rows="2" placeholder="Votre code ici..."></textarea>
-          </div>
-        </li>
-        <li>Dessiner un polygone régulier, colorier l'arrière plan et la bordure avec des couleurs de votre choix.
-          <p class="explication">Code snippet</p>
-          <pre><code class="language-python">color('blue', 'gold')
+        <p class="explication">Explication</p>
+        <figure>
+          <img src="images/prj01/s01-img04.svg" alt="Structure itérative complète">
+          <figcaption>Structure itérative complète</figcaption>
+        </figure>
+        <p class="explication">Code source</p>
+        <div class="mt-1 mb-4 p-1">
+          <textarea class="form-control save-content" cols="30" rows="2" placeholder="Votre code ici..."></textarea>
+        </div>
+      </section>
+
+      <section>
+        <h3>Coloriage</h3>
+
+        Dessiner un polygone régulier, colorier l'arrière plan et la bordure avec des couleurs de votre choix.
+        <p class="explication">Code snippet</p>
+        <pre><code class="language-python">color('blue', 'gold')
 
 begin_fill()
 
 # dessiner un triangle équilatéral
 for _ in range(3):
-    forward(200)
-    left(120)
+  forward(200)
+  left(120)
 
 end_fill()</code></pre>
-          <p class="explication">Explication</p>
-          <figure>
-            <img src="images/prj01/s01-img05.svg" alt="Changer couleurs de bordure et de remplissage">
-            <figcaption>Changer couleurs de bordure et de remplissage</figcaption>
-          </figure>
-          <p class="explication">Code source</p>
-          <div class="mt-1 mb-4 p-1">
-            <textarea class="form-control save-content" cols="30" rows="2" placeholder="Votre code ici..."></textarea>
-          </div>
-        </li>
-        <li>Permettre à l'utilisateur d'entrer des couleurs de son choix.
-          <p class="explication">Code snippet</p>
+        <p class="explication">Explication</p>
+        <figure>
+          <img src="images/prj01/s01-img05.svg" alt="Changer couleurs de bordure et de remplissage">
+          <figcaption>Changer couleurs de bordure et de remplissage</figcaption>
+        </figure>
+        <p class="explication">Code source</p>
+        <div class="mt-1 mb-4 p-1">
+          <textarea class="form-control save-content" cols="30" rows="2" placeholder="Votre code ici..."></textarea>
+        </div>
+      </section>
+
+      <section>
+        <h3>Sélection des couleurs</h3>
+
+        <p>Permettre à l'utilisateur d'entrer des couleurs de son choix.</p>
+        <p class="explication">Code snippet</p>
+        <pre><code class="language-python">cbord = input('Couleur de la bordure : ')</code></pre>
+        <div class="alert alert-warning warning-sign" role="alert">
+          Le code de couleur, est une chaine de caractères, elle ne nécessite aucune conversion.
+          Il suffit just d'écrire :
           <pre><code class="language-python">cbord = input('Couleur de la bordure : ')</code></pre>
-          <div class="alert alert-warning warning-sign" role="alert">
-            Le code de couleur, est une chaine de caractères, elle ne nécessite aucune conversion.
-            Il suffit just d'écrire :
-            <pre><code class="language-python">cbord = input('Couleur de la bordure : ')</code></pre>
-            Par contre, la longueur d'un coté par contre est un entier, c'est pour cela que nous avons utilisé
-            <strong>int</strong> :
-            <pre><code class="language-python">long = int(input('Longueur : '))</code></pre>
-          </div>
-          <p class="explication">Code source</p>
-          <div class="mt-1 mb-4 p-1">
-            <textarea class="form-control save-content" cols="30" rows="2" placeholder="Votre code ici..."></textarea>
-          </div>
-        </li>
-        <li>Dessiner un carré d'une longueur donnée:
-          <ul>
-            <li>Si cote &ge; 100 &rArr; Bordure rouge, Remplissage vert</li>
-            <li>Si cote &lt; 100 &rArr; Bordure verte, Remplissage rouge</li>
-          </ul>
-          <p class="explication">Code snippet</p>
-          <pre><code class="language-python">if long &lt; 100:
+          Par contre, la longueur d'un coté par contre est un entier, c'est pour cela que nous avons utilisé
+          <strong>int</strong> :
+          <pre><code class="language-python">long = int(input('Longueur : '))</code></pre>
+        </div>
+        <p class="explication">Code source</p>
+        <div class="mt-1 mb-4 p-1">
+          <textarea class="form-control save-content" cols="30" rows="2" placeholder="Votre code ici..."></textarea>
+        </div>
+      </section>
+
+      <section>
+        <h3>Structure conditionnelle</h3>
+
+        <p>Dessiner un carré d'une longueur donnée:</p>
+        <ul>
+          <li>Si cote &ge; 100 &rArr; Bordure rouge, Remplissage vert</li>
+          <li>Si cote &lt; 100 &rArr; Bordure verte, Remplissage rouge</li>
+        </ul>
+        <p class="explication">Code snippet</p>
+        <pre><code class="language-python">if long &lt; 100:
     color('green', 'red')
 else:
     color('red', 'green')</code></pre>
-          <p class="explication">Explication</p>
-          <figure>
-            <img src="images/prj01/s01-img06.svg" alt="Utilisation d'une structure conditionnelle">
-            <figcaption>Utilisation d'une structure conditionnelle</figcaption>
-          </figure>
-          <p class="explication">Code source</p>
-          <div class="mt-1 mb-4 p-1">
-            <textarea class="form-control save-content" cols="30" rows="2" placeholder="Votre code ici..."></textarea>
-          </div>
-        </li>
-      </ol>
-    </section>
+        <p class="explication">Explication</p>
+        <figure>
+          <img src="images/prj01/s01-img06.svg" alt="Utilisation d'une structure conditionnelle">
+          <figcaption>Utilisation d'une structure conditionnelle</figcaption>
+        </figure>
+        <p class="explication">Code source</p>
+        <div class="mt-1 mb-4 p-1">
+          <textarea class="form-control save-content" cols="30" rows="2" placeholder="Votre code ici..."></textarea>
+        </div>
+      </section>
 
-    <section>
-      <h2>Evaluation</h2>
-      <ol>
-        <li>Importer la fonction <strong>randint</strong> du module <strong>random</strong>.</li>
-        <li>Saisir votre âge, dans une variable <strong>age</strong>.</li>
-        <li>Saisir votre nom, dans une variable <strong>nom</strong>.</li>
-        <li>Générer un nombre aléatoire, entre 5 et 10, en utilisant la fonction <strong>randint</strong>, affecter ce
-          nombre dans une variable <strong>x</strong>.</li>
-        <li>Si x &ge; 8, afficher un carré vert de coté 100</li>
-        <li>Si x &lt; 8, afficher un triangle rouge de coté 120</li>
-      </ol>
-      <p class="explication">Code source</p>
-      <div class="mt-1 mb-4 p-1">
-        <textarea class="form-control save-content" cols="30" rows="2" placeholder="Votre code ici..."></textarea>
-      </div>
-    </section>
+      <section>
+        <h3>Evaluation</h3>
+
+        <ol>
+          <li>Importer la fonction <strong>randint</strong> du module <strong>random</strong>.</li>
+          <li>Saisir votre âge, dans une variable <strong>age</strong>.</li>
+          <li>Saisir votre nom, dans une variable <strong>nom</strong>.</li>
+          <li>Générer un nombre aléatoire, entre 5 et 10, en utilisant la fonction <strong>randint</strong>, affecter ce
+            nombre dans une variable <strong>x</strong>.</li>
+          <li>Si x &ge; 8, afficher un carré vert de coté 100</li>
+          <li>Si x &lt; 8, afficher un triangle rouge de coté 120</li>
+        </ol>
+        <p class="explication">Code source</p>
+        <div class="mt-1 mb-4 p-1">
+          <textarea class="form-control save-content" cols="30" rows="2" placeholder="Votre code ici..."></textarea>
+        </div>
+      </section>
+    </article>
   </main>
   <script src="scripts/jquery.min.js"></script>
   <script src="scripts/bootstrap.min.js"></script>
@@ -189,6 +227,8 @@ else:
   <script src="scripts/hljs.algorithm.js"></script>
   <script src="scripts/draggable.js"></script>
   <script src="scripts/clipboard.min.js"></script>
+  <script src="scripts/pages.js"></script>
+  <script src="scripts/savecontent.js"></script>
   <script>
     hljs.initHighlightingOnLoad();
     document.querySelectorAll('.language-algorithm,.language-python')
@@ -208,8 +248,12 @@ else:
       }
     });
     $(() => {
-      const pagePersist = new PagePersistance();
-      const userInputSaver = new UserInputSaver(document.querySelector('.user-input-saver'), pagePersist);
+      const localStore = new PagePersistance();
+      const serverStore = new ServerSaves('Projet X');
+      const userInputSaver = new UserInputSaver(
+        document.querySelector('.user-input-saver'),
+        localStore,
+        serverStore);
     });
   </script>
 </body>
