@@ -420,6 +420,13 @@
       <section>
         <h3>Exemple d'exécution</h3>
 
+        <div class="d-print-none text-center">
+          <video controls>
+            <source src="videos/devine_mon_nombre.mp4" type="video/mp4">
+            <source src="videos/devine_mon_nombre.mp4.webm" type="video/webm">
+          </video>
+        </div>
+
         <pre><code class="hljs nohighlight">Bienvenue, cher utilisateur
 Aujourd&apos;hui, je vais jouer avec vous au jeu devine mon nombre.
 
@@ -549,6 +556,8 @@ y = 5
 p = x * y
 print(f'{x} * {y} = {p}')</code></pre>
           </div>
+        </div>
+        <div class="row d-print-none">
           <div class="col-sm-6"></div>
           <div class="col-sm-6">
             <pre><code class="nohighlight shell python" data-text="Résultat">&gt;&gt;&gt; x = 8
@@ -569,6 +578,8 @@ Afficher("Bonjour, je suis", capitaliser(nom))</code></pre>
             <pre><code class="language-algorithm">nom = "AhMeD HaMdI"
 print(f'Bonjour, je suis {nom.capitalize()}')</code></pre>
           </div>
+        </div>
+        <div class="row d-print-none">
           <div class="col-sm-6"></div>
           <div class="col-sm-6">
             <pre><code class="nohighlight shell python" data-text="Résultat">&gt;&gt;&gt; nom = &quot;AhMeD HaMdI&quot;
@@ -622,6 +633,8 @@ Lire(choix)</code></pre>
             <pre><code class="language-python"># -
 choix = input("Votre choix (A, B ou C) ? ")</code></pre>
           </div>
+        </div>
+        <div class="row d-print-none">
           <div class="col-sm-6"></div>
           <div class="col-sm-6">
             <pre><code class="nohighlight shell python" data-text="Résultat">&gt;&gt;&gt; # -
@@ -652,6 +665,8 @@ Jusqu'à (choix="A") ou (choix="B") ou (choix="C")</code></pre>
   if choix == "A" or choix == "B" or choix == "C":
     break</code></pre>
           </div>
+        </div>
+        <div class="row d-print-none">
           <div class="col-sm-6"></div>
           <div class="col-sm-6">
             <pre><code class="nohighlight shell python" data-text="Résultat">&gt;&gt;&gt; while True:
@@ -704,12 +719,18 @@ Jusqu'à 15 &le; age &le; 21</code></pre>
         <p class="explication">Afficher un message plusieurs fois</p>
 
         <div class="row">
-          <div class="col-sm-6"><pre><code class="language-algorithm">Pour i de 0 à 4 Faire
+          <div class="col-sm-6">
+            <pre><code class="language-algorithm">Pour i de 0 à 4 Faire
   Afficher("-- Police line do not cross --")
-Fin Pour</code></pre></div>
-          <div class="col-sm-6"><pre><code class="language-python">for i in range(5):
+Fin Pour</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="language-python">for i in range(5):
   print("-- Police line do not cross --")
-</code></pre></div>
+</code></pre>
+          </div>
+        </div>
+        <div class="row d-print-none">
           <div class="col-sm-6"></div>
           <div class="col-sm-6">
             <pre><code class="nohighlight shell python" data-text="Résultat">&gt;&gt;&gt; for i in range(5):
@@ -725,12 +746,18 @@ Fin Pour</code></pre></div>
 
         <p class="explication">Afficher un compteur</p>
         <div class="row">
-          <div class="col-sm-6"><pre><code class="language-algorithm">Pour cpt de 1 à 3 Faire
+          <div class="col-sm-6">
+            <pre><code class="language-algorithm">Pour cpt de 1 à 3 Faire
   Afficher("Pièce n°", cpt)
-Fin Pour</code></pre></div>
-          <div class="col-sm-6"><pre><code class="language-python">for cpt in range(1, 4):
+Fin Pour</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="language-python">for cpt in range(1, 4):
   print("Pièce n°", cpt)
-</code></pre></div>
+</code></pre>
+          </div>
+        </div>
+        <div class="row d-print-none">
           <div class="col-sm-6"></div>
           <div class="col-sm-6">
             <pre><code class="nohighlight shell python" data-text="Résultat">&gt;&gt;&gt; for cpt in range(1, 4):
@@ -744,13 +771,19 @@ Pièce n° 3</code></pre>
 
         <p class="explication">Afficher les nombres impairs inférieurs à 10</p>
         <div class="row">
-          <div class="col-sm-6"><pre><code class="language-algorithm">Pour i de 1 à 9 (pas=2) Faire
+          <div class="col-sm-6">
+            <pre><code class="language-algorithm">Pour i de 1 à 9 (pas=2) Faire
   Afficher(i)
-Fin Pour</code></pre></div>
-          <div class="col-sm-6"><pre><code class="language-python">for i in range(1, 10, 2):
+Fin Pour</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="language-python">for i in range(1, 10, 2):
   print(i)
-</code></pre></div>
-          <div class="col-sm-6"></div>
+</code></pre>
+          </div>
+        </div>
+        <div class="row d-print-none">
+          <div class="col-sm-6">&nbsp;</div>
           <div class="col-sm-6">
             <pre><code class="nohighlight shell python" data-text="Résultat">&gt;&gt;&gt; for i in range(1, 10, 2):
 ...   print(i)
@@ -762,72 +795,490 @@ Fin Pour</code></pre></div>
 9</code></pre>
           </div>
         </div>
+      </section>
 
-        <p class="explication">Préparer des cakes dans un petit four</p>
-        <div class="row">
-          <div class="col-sm-6"><pre><code class="language-algorithm">// Nombre de cakes
-nbc &larr; 7
-// Taille du four
-tf &larr; 4
-// Nombre de cuissons
-nb_cuissons &larr; nbc div tf + Ent(nbc mod tf &ne; 0)
-Afficher("- Ouvrir le four. Sortir le plateau.")
-Pour i de 1 à nb_cuissons Faire
-  Si nbc > tf Alors
-    nc &larr; tf
-  Sinon
-    nc &larr; nbc
-  Fin Si
-  nbc &larr; nbc - nc
-  Afficher("Cuisson n°", i)
-  Afficher("- Mettre", nc, "cakes dans le plateau")
-  Afficher("- Remettre le plateau dans le four. Fermer le four.")
-  Afficher("- Attendre la cuisson")
+      <section>
+        <h3>Récapitulatif</h3>
+        <p class="explication">Cuire des cakes dans un petit four</p>
+        <div>
+          <figure>
+            <img src="images/prj03/img06.jpg" alt="Gâteau dans une patisserie">
+            <figcaption>Gâteau dans une patisserie</figcaption>
+          </figure>
+        </div>
+        <p>On donne l'algorithme suivant permettant la cuisson de cakes dans un four.</p>
+        <pre><code class="language-algorithm">Programme Cuisson_four
+Début
+  // Saisie nombre de cakes (voir brique n°2)
+  Répéter 
+    Afficher("Entrer le nombre de cakes (> 0) ? ")
+    Lire(nbc)
+  Jusqu'à nbc > 0
+  // Saisie taille du four (voir brique n°2)
+  Répéter
+    Afficher("Entrer la taille du four (> 0) ? ")
+    Lire(tf)
+  Jusqu'à tf > 0
+  // Calcul du nombre de cuissons
+  nb_cuissons &larr; nbc div tf + Ent(nbc mod tf &ne; 0)
+  // Affichage du nombre de cuissons (Utiliser Brique n°1)
+  Afficher("Pour cuire", nbc, "cakes, il faudra", nb_cuissons, "cuissons.")
+  // Affichage cuissons
   Afficher("- Ouvrir le four. Sortir le plateau.")
-  Afficher("- Enlever les", nc, "cakes cuits")
-Fin Pour
-Afficher("- Remettre le plateau dans le four. Fermer le four.")</code></pre></div>
-          <div class="col-sm-6"><pre><code class="language-python"># Nombre de cakes
-nbc = 7
+  // Répétition de la cuisson nb_cuissons fois (voir brique n°3)
+  Pour i de 1 à nb_cuissons Faire
+    // Calcul du nombre de cakes à cuire dans le four
+    Si nbc > tf Alors
+      nc &larr; tf
+    Sinon
+      nc &larr; nbc
+    Fin Si
+    // Calcul du nombre de cakes restants après la cuisson de nc cakes
+    nbc &larr; nbc - nc
+    // Cuisson d'une série de cakes
+    Afficher("Cuisson n°", i) // Utiliser brique n°1
+    Afficher("- Mettre", nc, "cakes dans le plateau") // Utiliser brique n°1
+    Afficher("- Remettre le plateau dans le four. Fermer le four.")
+    Afficher("- Attendre la cuisson")
+    Afficher("- Ouvrir le four. Sortir le plateau.")
+    Afficher("- Enlever les", nc, "cakes cuits") // Utiliser brique n°1
+  Fin Pour
+  // fin de la cuisson de tous les cakes
+  Afficher("- Remettre le plateau dans le four. Fermer le four.")
+Fin</code></pre>
+
+        <p class="explication">Questions</p>
+        <p>On demande de :</p>
+        <ol>
+          <li>Déterminer le nom et le type des variables utilisées dans cet algorithme. Compléter le TDO (Tableau de
+            Déclaration des Objets).
+            <table class="table table-bordered">
+              <thead>
+                <tr>
+                  <th width="20%">Objet</th>
+                  <th width="20%">Type/Nature</th>
+                  <th>Rôle</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>nbc</td>
+                  <td>entier</td>
+                  <td>Nombre de cakes</td>
+                </tr>
+                <tr>
+                  <td>tf</td>
+                  <td>entier</td>
+                  <td>Taille du four en nombre de cakes</td>
+                </tr>
+                <tr>
+                  <td><input type="text" class="form-control save-content"></td>
+                  <td><input type="text" class="form-control save-content"></td>
+                  <td><input type="text" class="form-control save-content"></td>
+                </tr>
+                <tr>
+                  <td><input type="text" class="form-control save-content"></td>
+                  <td><input type="text" class="form-control save-content"></td>
+                  <td><input type="text" class="form-control save-content"></td>
+                </tr>
+                <tr>
+                  <td><input type="text" class="form-control save-content"></td>
+                  <td><input type="text" class="form-control save-content"></td>
+                  <td><input type="text" class="form-control save-content"></td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>Calculer le nombre de cuissons nécessaires dans les cas suivants :
+            <ul>
+              <li>nbc &larr; 8 et tf &larr; 4</li>
+              <li>nbc &larr; 1 et tf &larr; 6</li>
+              <li>nbc &larr; 10 et tf &larr; 4</li>
+            </ul>
+            <div class="mt-0 mb-4 p-1">
+              <textarea class="form-control save-content"></textarea>
+            </div>
+          </li>
+          <li>Calculer le nombre de cakes à cuire, dans une seule cuisson, dans les cas suivants :
+            <ul>
+              <li>nbc &larr; 7 et tf &larr; 4</li>
+              <li>nbc &larr; 3 et tf &larr; 4</li>
+            </ul>
+            <div class="mt-0 mb-4 p-1">
+              <textarea class="form-control save-content"></textarea>
+            </div>
+          </li>
+          <li>Traduire l'algorithme en Python en utilisant les briques logicielles indiquées.
+            <div class="d-none d-print-block">
+              <pre><code class="language-python"># Nombre de cakes
+while True:
+    nbc = int(input('Entrer le nombre de cakes (> 0) ? '))
+    if nbc > 0:
+        break
+    print('Erreur : Le nombre de cakes doit être supérieur à 0.')
+    print()
+
 # Taille du four
-tf = 4
+while True:
+    tf = int(input('Entrer la taille du four (> 0) ? '))
+    if tf > 0:
+        break
+    print('Erreur : La taille du four doit être supèrieure à 0.')
+    print()
+
+print(f'Nous allons cuir {nbc} cakes dans un four de {tf} places.')
+print()
+
 # Nombre de cuissons
 nb_cuissons = nbc // tf + int(nbc % tf != 0)
 print("- Ouvrir le four. Sortir le plateau.")
 for i in range(1, nb_cuissons + 1):
-  if nbc > tf:
-    nc = tf
-  else:
-    nc = nbc
-  
-  nbc = nbc - nc
-  print("Cuisson n°", i)
-  print("- Mettre", nc, "cakes dans le plateau")
-  print("- Remettre le plateau dans le four. Fermer le four.")
-  print("- Attendre la cuisson")
-  print("- Ouvrir le four. Sortir le plateau.")
-  print("- Enlever les", nc, "cakes cuits")
+    if nbc > tf:
+        nc = tf
+    else:
+        nc = nbc
 
-print("- Remettre le plateau dans le four. Fermer le four.")
-</code></pre></div>
-          <div class="col-sm-6"></div>
-          <div class="col-sm-6">
-            <pre><code class="nohighlight shell python" data-text="Résultat">- Ouvrir le four. Sortir le plateau.
-Cuisson n° 1
-- Mettre 4 cakes dans le plateau
-- Remettre le plateau dans le four. Fermer le four.
-- Attendre la cuisson
-- Ouvrir le four. Sortir le plateau.
-- Enlever les 4 cakes cuits
-Cuisson n° 2
-- Mettre 3 cakes dans le plateau
-- Remettre le plateau dans le four. Fermer le four.
-- Attendre la cuisson
-- Ouvrir le four. Sortir le plateau.
-- Enlever les 3 cakes cuits
-- Remettre le plateau dans le four. Fermer le four.</code></pre>
-          </div>
+    nbc = nbc - nc
+    print("Cuisson n°", i)
+    print("- Mettre", nc, "cakes dans le plateau")
+    print("- Remettre le plateau dans le four. Fermer le four.")
+    print("- Attendre la cuisson")
+    print("- Ouvrir le four. Sortir le plateau.")
+    print("- Enlever les", nc, "cakes cuits")
+    print()
+
+print("- Remettre le plateau dans le four. Fermer le four.")</code></pre>
+            </div>
+          </li>
+        </ol>
+      </section>
+    </article>
+
+    <article>
+      <h2>Assemblages de briques</h2>
+
+      <section>
+        <h3>Afficher un message de bienvenue</h3>
+
+        <p class="explication">Question</p>
+        <p>Ecrire un algorithme qui affiche le texte suivant :</p>
+
+        <pre><code class="hljs nohighlight">Bienvenue, cher utilisateur
+Aujourd'hui, je vais jouer avec vous au jeu devine mon nombre.
+ </code></pre>
+
+        <div class="bricks-canvas" data-slots="3">
+          <span class="brick">Afficher("Bienvenue, cher utilisateur")</span>
+          <span class="brick">Afficher("Aujourd'hui, je vais jouer avec vous au jeu devine mon nombre.")</span>
+          <span class="brick">Afficher()</span>
+          <pre class="success"><code class="language-algorithm">Afficher("Bienvenue, cher utilisateur")
+Afficher("Aujourd'hui, je vais jouer avec vous au jeu devine mon nombre.")
+Afficher()</code></pre>
         </div>
+      </section>
+
+      <section>
+        <h3>Afficher le principe du jeu</h3>
+
+        <p class="explication">Question</p>
+        <p>Ecrire un algorithme qui affiche le principe du jeu :</p>
+
+        <pre><code class="hljs no-highlight">Principe du jeu
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+Le principe du jeu est simple : 
+- Vous choisissez un nombre dans l'intervalle [1, 127].
+- Je vais le deviner en 8 essais max.
+- Vous devez indiquer si mon nombre proposé est supèrieur, inférieur ou égal au votre.
+
+Attention! Notez le nombre pour ne pas l'oublier.
+ </code></pre>
+
+        <div class="bricks-canvas" data-slots="3">
+          <span class="brick">Afficher('Principe du jeu')<br>
+            Afficher('=-' * 30)<br>
+            Afficher('Le principe du jeu est simple : ')</span>
+          <span class="brick">
+            Afficher("- Vous choisissez un nombre dans l'intervalle [1, 127].")<br>
+            Afficher("- Je vais le deviner en 8 essais max.")<br>
+            Afficher("- Vous devez indiquer si mon nombre proposé est supèrieur, inférieur ou égal au votre.")</span>
+          <span class="brick">Afficher()<br>
+            Afficher("Attention! Notez le nombre pour ne pas l'oublier.")<br>
+            Afficher()</span>
+          <pre class="success"><code class="language-algorithm">Afficher('Principe du jeu')
+Afficher('=-' * 30)
+Afficher('Le principe du jeu est simple : ')
+Afficher("- Vous choisissez un nombre dans l'intervalle [1, 127].")
+Afficher("- Je vais le deviner en 8 essais max.")
+Afficher("- Vous devez indiquer si mon nombre proposé est supèrieur, "
+         "inférieur ou égal au votre.")
+Afficher()
+Afficher("Attention! Notez le nombre pour ne pas l'oublier.")
+Afficher()</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h3>Initialiser les bornes de l'intervalle</h3>
+
+        <p class="explication">Question</p>
+
+        <p>Ecrire les instructions algorithmiques qui initialisent les bornes de l'intervalle [1, 127].</p>
+        <ul>
+          <li><b>bor_inf</b> désigne la borne inférieure</li>
+          <li><b>bor_sup</b> désigne la borne supèrieure</li>
+        </ul>
+
+        <div class="bricks-canvas" data-slots="1">
+          <span class="brick">bor_inf &larr; <span class="brick">1</span><br>
+            bor_sup &larr; <span class="brick">127</span></span>
+          <pre class="success"><code class="language-algorithm">bor_inf &larr; 1
+bor_sup &larr; 127</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h3>Afficher le numéro d'essai</h3>
+
+        <p class="explication">Question</p>
+
+        <p>Sachant que la variable <b>essai</b> contient le numéro d'essai, afficher le numéro d'essai de la façon
+          suivante :</p>
+        <pre><code class="hljs nohighlight">Mon essai n°1
+********************</code></pre>
+
+        <div class="mt-0 mb-4 p-1">
+          <textarea class="form-control save-content"></textarea>
+        </div>
+      </section>
+
+      <section>
+        <h3>Calculer le nombre proposé</h3>
+
+        <p class="explication">Question</p>
+
+        <p>Sachant que <b>mid</b> est le nombre situé au milieu de l'intervalle [bor_inf, bor_sup]. Ecrire l'instruction
+          algorithmique qui permet de calculer cette valeur.</p>
+
+        <div class="bricks-canvas" data-slots="1">
+          <span class="brick"><span class="brick">mid</span> &larr; (<span class="brick">bor_inf</span> +
+            <span class="brick">bor_sup</span>) div 2</span>
+          <pre class="success"><code class="language-algorithm">mid &larr; (bor_inf + bor_sup) div 2</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h3>Afficher le nomber proposé</h3>
+
+        <p class="explication">Question</p>
+
+        <p>Sachant que <b>mid</b> contient la valeur proposée, écrire une instruction algorithmique qui permet
+          d'afficher la valeur proposée de la façon suivante :</p>
+
+        <pre><code class="hljs nohighlight">Je propose : 64</code></pre>
+
+        <div class="mt-0 mb-4 p-1">
+          <input type="text" class="form-control save-content">
+        </div>
+      </section>
+
+      <section>
+        <h3>Saisir la réponse de l'utilisateur</h3>
+
+        <p class="explication">Question</p>
+
+        <p>Ecrire l'algorithme qui permet à l'utilisateur de répondre à la proposition de l'ordinateur. Voici un exemple
+          d'affichage :</p>
+
+        <pre><code class="hljs nohighlight">Le nombre secret est-t-il :
+- supérieur à mon nombre (tapez &gt;)
+- inférieur à mon nombre (tapez &lt;)
+- égal à mon nombre (tapez =)
+? &lt;</code></pre>
+
+        <div class="bricks-canvas" data-slots="2">
+          <span class="brick">Afficher('Le nombre secret est-t-il :')<br>
+            Afficher('- supérieur à mon nombre (tapez &gt;)')<br>
+            Afficher('- inférieur à mon nombre (tapez &lt;)')<br>
+            Afficher('- égal à mon nombre (tapez =)')</span>
+
+          <span class="brick">Répéter<br>
+            <span class="brick">Afficher("? ")<br>
+              Lire(reponse)</span><br>
+            Jusqu'à <span class="brick">(long(reponse) = 1) et (reponse dans '&lt;&gt;=')</span></span>
+          <pre class="success"><code class="language-algorithm">Afficher('Le nombre secret est-t-il :')
+Afficher('- supérieur à mon nombre (tapez &gt;)')
+Afficher('- inférieur à mon nombre (tapez &lt;)')
+Afficher('- égal à mon nombre (tapez =)')
+
+Répéter
+    Afficher("? ")
+    Lire(reponse)
+Jusqu'à (long(reponse) = 1) et (reponse dans '&lt;&gt;=')</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h3>Réduire l'intervalle de recherche</h3>
+
+        <p class="explication">Remarque</p>
+        <p>Lorsque l'utilisateur répond par "&gt;", <code>reponse &larr; '&gt;'</code>, cela signifie que le <b>nombre
+            proposé</b> par l'ordinateur est
+          inférieur au <b>nombre secret</b> de l'utilisateur,
+          l'intervalle de recherche sera réduit à <code>[mid+1, bor_sup].</code></p>
+
+        <p>Lorsque l'utilisateur répond par "&lt;", <code>reponse &larr; '&lt;'</code>, cela signifie que le <b>nombre
+            proposé</b> par l'ordinateur est
+          supérieur au <b>nombre secret</b> de l'utilisateur,
+          l'intervalle de recherche sera réduit à <code>[bor_inf, mid-1].</code></p>
+
+        <p class="explication">Compléter l'algorithme :</p>
+
+        <div class="bricks-canvas" data-slots="1">
+          <span class="brick">Si <span class="brick">reponse = "&gt;"</span> Alors<br>
+            <span class="brick">bor_inf &larr; mid + 1</span><br>
+            Sinon Si <span class="brick">reponse = "&lt;"</span> Alors<br>
+            <span class="brick">bor_sup &larr; mid - 1</span><br>
+            Fin si</span>
+          <pre class="success"><code class="language-algorithm">Si reponse = "&gt;" Alors
+  bor_inf &larr; mid + 1
+Sinon Si reponse = "&lt;" Alors
+  bor_sup &larr; mid - 1
+Fin si</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h3>Afficher le message de victoire</h3>
+
+        <p class="explication">Remarque</p>
+
+        <p>Lorsque l'utilisateur répond par "=", <code>reponse &larr; '='</code>, cela signifie que le <b>nombre
+            proposé</b> par l'ordinateur est
+          égal au <b>nombre secret</b> de l'utilisateur, l'ordinateur a deviné il va afficher un message de victoire de
+          la forme :</p>
+
+        <pre><code class="hljs nohighlight">:D :) :D :) :D :) :D :) :D :) :D :) :D :) :D :) :D :) :D :) 
+Hoorray! J'ai trouvé en 6 coups.</code></pre>
+
+        <p>Sachant que <b>essai</b> contient le nombre d'essai, compléter l'algorithme.</p>
+
+        <div class="bricks-canvas" data-slots="2">
+          <span class="brick">Afficher()<br>
+            Afficher(':D :) ' * 10)</span>
+          <span class="brick">Afficher("Hoorray! J'ai trouvé en", <span class="brick">essai</span>, "coups.")</span>
+          <pre class="success"><code class="language-algorithm">Si reponse = "=" Alors
+  Afficher()
+  Afficher(':D :) ' * 10)
+  Afficher("Hoorray! J'ai trouvé en", essai, "coups.")
+Fin si</code></pre>
+      </section>
+    </article>
+
+    <article>
+      <h2>Algorithme</h2>
+
+      <section>
+        <h3>Algorithme</h3>
+
+        <p>Ecrire l'algorithme du programme.</p>
+
+        <div class="d-none d-print-block">
+          <pre><code class="language-algorithm">Programme devine_mon_nombre
+Début
+  // Afficher un message de bienvenue
+  Afficher("Bienvenue, cher utilisateur")
+  Afficher("Aujourd'hui, je vais jouer avec vous au jeu devine mon nombre.")
+  Afficher()
+  // Afficher le principe du jeu
+  Afficher('Principe du jeu')
+  Afficher('=-' * 30)
+  Afficher('Le principe du jeu est simple : ')
+  Afficher("- Vous choisissez un nombre dans l'intervalle [1, 127].")
+  Afficher("- Je vais le deviner en 8 essais max.")
+  Afficher("- Vous devez indiquer si mon nombre proposé est supèrieur, "
+           "inférieur ou égal au votre.")
+  Afficher()
+  Afficher("Attention! Notez le nombre pour ne pas l'oublier.")
+  Afficher()
+  // Initialiser les bornes de l'intervalle
+  bor_inf ← 1
+  bor_sup ← 127
+  
+  Pour essai de 1 à 7 Faire
+    // Afficher le numéro d'essai
+    Afficher("Mon essai n°", essai)
+    Afficher('*' * 20)
+    // Calculer le nombre proposé
+    mid ← (bor_inf + bor_sup) div 2
+    // Afficher le nomber proposé
+    Afficher("Je propose :", mid)
+    // Saisir la réponse de l'utilisateur
+    Afficher('Le nombre secret est-t-il :')
+    Afficher('- supérieur à mon nombre (tapez &gt;)')
+    Afficher('- inférieur à mon nombre (tapez &lt;)')
+    Afficher('- égal à mon nombre (tapez =)')
+    Répéter
+        Afficher("? ")
+        Lire(reponse)
+    Jusqu'à (long(reponse) = 1) et (reponse dans '&lt;&gt;=')
+    // Réduire l'intervalle de recherche
+    Si reponse = "&gt;" Alors
+      bor_inf ← mid + 1
+    Sinon Si reponse = "&lt;" Alors
+      bor_sup ← mid - 1
+    // Afficher le message de victoire
+    Sinon
+      Afficher()
+      Afficher(':D :) ' * 10)
+      Afficher("Hoorray! J'ai trouvé en", essai, "coups.")
+      Sortir
+    Fin si
+  Fin Pour
+Fin</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h3>TDO</h3>
+
+        <p>Proposer le Tableau de Déclaration des Objets.</p>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th width="20%">Objet</th>
+              <th width="20%">Type/Nature</th>
+              <th>Rôle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>bor_inf</td>
+              <td>entier</td>
+              <td>Borne inférieure de l'intervalle de recherche/td>
+            </tr>
+            <tr>
+              <td>bor_sup</td>
+              <td>entier</td>
+              <td>Borne supérieure de l'intervalle de recherche</td>
+            </tr>
+            <tr>
+              <td>essai</td>
+              <td>entier</td>
+              <td>Nombre d'essais</td>
+            </tr>
+            <tr>
+              <td>mid</td>
+              <td>entier</td>
+              <td>Nombre proposé par l'ordinateur</td>
+            </tr>
+            <tr>
+              <td>reponse</td>
+              <td>chaine</td>
+              <td>Réponse de l'utilisateur à la proposition</td>
+            </tr>
+          </tbody>
+        </table>
       </section>
     </article>
   </main>

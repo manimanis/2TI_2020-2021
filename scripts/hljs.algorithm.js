@@ -5,7 +5,7 @@ hljs.registerLanguage('algorithm', (hljs) => {
     aliases: ['alg'],
     lexemes : '[\\\'àéèêâäöüÄÖÜßa-zA-Z]+',
     keywords: {
-      keyword: 'début afficher lire si alors sinon fin tantque faire répéter jusqu\'à mod div pour de à pas non et ou ouex',
+      keyword: 'programme début afficher lire si alors sinon fin tantque faire répéter jusqu\'à mod div pour de à pas non et ou ouex',
       literal: 'faux vrai nul'
     },
     contains: [
