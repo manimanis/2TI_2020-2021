@@ -258,3 +258,22 @@ pre > code.shell.python.nohighlight {
   margin: 0.5rem 0;
   display: block;
 }
+
+/***/
+@media print {
+  body {
+    min-width: initial !important;
+    max-width: initial !important;
+    width: initial !important;
+  }
+
+  .container {
+    min-width: initial !important;
+    max-width: initial !important;
+    width: initial !important;
+    padding-right: 0;
+    padding-left: 0;
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
