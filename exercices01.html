@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet n°1 - Exercices de rappel</title>
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/default.css">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+  <header class="py-2 px-4 bg-secondary">
+    <div class="user-input-saver text-white">
+      <div class="row">
+        <div class="col-sm-6">
+          <label>Nom & Prénom</label>
+          <input type="text" class="form-control save-content" placeholder="Nom & Prénom">
+        </div>
+        <div class="col-sm-6">
+          <label>Classe</label>
+          <select class="form-control save-content" placeholder="Classe">
+            <option>2TI</option>
+            <option>2SC</option>
+            <option>3T</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </header>
+  <aside>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+  <main class="container my-4">
+    <h1>Exercices de rappel</h1>
+
+    <article>
+      <h2>Exercices Projet n°1</h2>
+
+      <section>
+        <h3>Citerne d'huile</h3>
+
+        <p>Dans une presse d'huile, l'huile est conservée dans des citernes cylindriques de diamètre <b>d</b> et de
+          profondeur <b>h</b>. Sur la paroie de la citerne un indicateur gradué indique le niveau <b>nh</b> de l'huile
+          sous forme d'un pourcentage.</p>
+        <ul>
+          <li>Si l'indicateur affiche 0%, la citerne est vide.</li>
+          <li>Si l'indicateur affiche 20%, la citerne est remplie à 20% de sa capacité.</li>
+          <li>Si l'indicateur affiche 100%, la citerne est totalement remplie.</li>
+        </ul>
+        <p>On demande d'écrire l'algorithme d'un programme qui saisit les données de l'utilisateur (en mètres), puis
+          affiche la quantité de l'huile en litres.</p>
+        <p>On donne :</p>
+        <ul>
+          <li>Le diamètre de la citerne <b>d</b> et son hauteur (h) sont mesurés en mètres.</li>
+          <li>Le niveau de l'huile <b>nh</b> est mesuré en pourcentage (%).</li>
+          <li>1 m<sup>3</sup> = 1000 litres</li>
+          <li>La constante &pi; (<code>pi</code>) peut être importée du module <code>math</code> :
+            <pre><code class="language-python">from math import pi
+# calcul de l'aire d'un cercle
+r = 1.5
+print(pi*r*r)</code></pre>
+          </li>
+        </ul>
+        <p></p>
+
+        <div>
+          <figure>
+            <img src="images/ex01/img01.svg" alt="Citerne d'huile">
+            <figcaption>Citerne d'huile</figcaption>
+          </figure>
+        </div>
+
+        <p class="explication">Exemple d'exécution</p>
+        <pre><code class="hljs nohighlight">Donner le diamètre de la citerne (m) : 1.2
+Donner l'heuteur de la citerne (m) : 3
+Donne le niveau de l'huile (%) : 20
+La citerne contient 678 litres d'huile.</code></pre>
+      </section>
+
+      <section>
+        <h3>Gare routière</h3>
+
+        <div>
+          <figure>
+            <img src="images/ex01/gare_routiere.png" alt="Gare routière">
+            <figcaption>Gare routière</figcaption>
+          </figure>
+        </div>
+
+        <p>Un bus dans une gare routière, commence ses courses à partir de <b>hd</b> (heure de départ) du matin. Ses
+          courses continuent jusqu'au soir <b>hf</b> (heure fin). Sachant que le bus revient à la gare routière toutes
+          les <b>dt</b> (durée trajet) minutes, on veut calculer le nombre de voyages de ce bus en une journée.</p>
+
+        <p class="explication">Exemple d'exécution</p>
+
+        <pre><code class="hljs nohighlight">Quelle est l'heure de départ (hh:00) ? 5
+Quelle est l'heure de fin (hh:00) ? 17
+Quelle est la durée du trajet ? 20
+Le bus fait 36 voyages de 5h à 17h.</code></pre>
+      </section>
+    </article>
+  </main>
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
+    <div class="text-center small">Année scolaire : 2020/2021</div>
+  </footer>
+  <script src="scripts/jquery.min.js"></script>
+  <script src="scripts/bootstrap.min.js"></script>
+  <script src="scripts/highlight.pack.js"></script>
+  <script src="scripts/hljs.algorithm.js"></script>
+  <script src="scripts/draggable.js"></script>
+  <script src="scripts/clipboard.min.js"></script>
+  <script src="scripts/pages.js"></script>
+  <script src="scripts/savecontent.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+    document.querySelectorAll('.language-algorithm,.language-python')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+    $(() => {
+      const localStore = new PagePersistance();
+      const serverStore = new ServerSaves('Exercices 1');
+      const userInputSaver = new UserInputSaver(
+        document.querySelector('.user-input-saver'),
+        localStore,
+        serverStore);
+    });
+  </script>
+</body>
+
+</html>
