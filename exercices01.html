@@ -99,12 +99,228 @@ La citerne contient 678 litres d'huile.</code></pre>
           courses continuent jusqu'au soir <b>hf</b> (heure fin). Sachant que le bus revient à la gare routière toutes
           les <b>dt</b> (durée trajet) minutes, on veut calculer le nombre de voyages de ce bus en une journée.</p>
 
+        <p>On demande d'écrire l'algorithme d'un programme qui permet de trouver le nombre de voyages effectués par le
+          bus le long de la journée.</p>
+
         <p class="explication">Exemple d'exécution</p>
 
         <pre><code class="hljs nohighlight">Quelle est l'heure de départ (hh:00) ? 5
 Quelle est l'heure de fin (hh:00) ? 17
 Quelle est la durée du trajet ? 20
 Le bus fait 36 voyages de 5h à 17h.</code></pre>
+      </section>
+
+      <section>
+        <h3>Jeu de bonbons</h3>
+
+        <div>
+          <figure>
+            <img src="images/ex01/bonbons.jpg" alt="Bonbons">
+            <figcaption>Bonbons</figcaption>
+          </figure>
+        </div>
+
+        <p>Un enfants joue aux dés avec son père, l'enfant lance deux dés.</p>
+        <ul>
+          <li>Si l'enfant obtient le nombre 2 ou 12 : il gagne 2 bonbons (son père lui donne des bonbons)</li>
+          <li>Si l'enfant obtient le nombre 3 ou 11 : il gagne 1 bonbon</li>
+          <li>Si l'enfant obtient le nombre 4 ou 10 : il ne gagne rien</li>
+          <li>Si l'enfant obtient les nombres de 5 à 9 : il perd 1 bonbon (il doit rendre le bonbon à son père)</li>
+        </ul>
+
+        <p>Ecrire l'algorithme d'un programme qui simule un tour de ce jeu.</p>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <p class="explication">Exemple n°1</p>
+            <pre><code class="hljs nohighlight">Jeu de bonbons
+Vous lancez les dés pour gagner des bonbons! Miam!
+Lancement de dés
+Le nombre affiché est 4 + 1 = 5
+Tu perds un bonbon</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <p class="explication">Exemple n°2</p>
+            <pre><code class="hljs nohighlight">Jeu de bonbons
+Vous lancez les dés pour gagner des bonbons! Miam!
+Lancement de dés
+Le nombre affiché est 1 + 3 = 4
+Tu ne gagnes rien</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <p class="explication">Exemple n°3</p>
+            <pre><code class="hljs nohighlight">Jeu de bonbons
+Vous lancez les dés pour gagner des bonbons! Miam!
+Lancement de dés
+Le nombre affiché est 6 + 5 = 11
+Tu gagnes un bonbon</code></pre>
+          </div>
+
+          <div class="col-sm-6">
+            <p class="explication">Exemple n°4</p>
+            <pre><code class="hljs nohighlight">Jeu de bonbons
+Vous lancez les dés pour gagner des bonbons! Miam!
+Lancement de dés
+Le nombre affiché est 1 + 1 = 2
+Tu gagnes 2 bonbons</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Che la for me</h3>
+
+        <p>Tarek et Tamer sont deux jeunes enfants de 10 et 12 ans, respectivement. Ils aiment jouer à Minecraft, sur
+          leur
+          PC, parfois en mode créatif, et d’autres fois en mode survie (Survival).</p>
+        <figure>
+          <img src="images/prj02/img01.png" alt="Jeu Minecraft">
+          <img src="images/prj02/img02.jpg" alt="Scène de Minecraft">
+          <figcaption>Jeu Minecraft</figcaption>
+        </figure>
+        <p>Tous les jours, ces deux frères se disputent celui qui joue en premier. Pour les calmer, et pour profiter
+          d’un
+          moment de silence, leur père leurs apprend à gérer ce conflit en jouant à « She la for me ».</p>
+        <figure>
+          <img src="images/prj02/img03.jpg" alt="Jeu de mains, She la for me">
+          <figcaption>Jeu de mains, She la for me</figcaption>
+        </figure>
+        <p>L’un des deux, Tarek, cette fois-ci, sélectionne de haute voix : « frad ». Son frère, Tamer, lui répond d’un
+          même
+          ton : « Zouaz ». Puis, rapidement, les deux enfants tendent leurs mains en pliant quelques-un de leurs
+          doigts :
+          « She la for me ». Et tout en comptant, ensemble : « Cinq et deux, Sept, Impair ». « C’est moi qui gagne »,
+          crie
+          Tamer.</p>
+        <p>On demande d'écrire l'algorithme d'un programme qui simule ce jeu contre l'ordinateur.</p>
+        <ul>
+          <li>L'ordinateur choisit un nombre entre 0 et 5</li>
+          <li>L'utilisateur choisit un nombre entre 0 et 5</li>
+          <li>L'utilisateur choisit 0 pour « frad » et 1 pour « zouaz »</li>
+          <li>L'utilisateur gagne si la somme des nombre correspond au choix de l'utilisateur</li>
+          <li>L'ordinateur gagne sinon.</li>
+        </ul>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="hljs nohighlight">Jeu Frad/Zouaz
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+Votre choix [0, 5] ? 2
+0 : zouaz / 1 : frad ? 0
+2 + 2 = 4
+4 zouaz
+Tu as gagné!</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="hljs nohighlight">Jeu Frad/Zouaz
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+Votre choix [0, 5] ? 1
+0 : zouaz / 1 : frad ? 1
+1 + 1 = 2
+2 zouaz
+Haha! J'ai gagné cette fois!</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Toujours en retard ?</h3>
+
+        <p>Karim et Ahmed sont deux amis d'enfance. Ils se rencontrent périodiquement dans un salon de thé, pour
+          discuter et échanger les idées.</p>
+        <p>Aujourd'hui Karim a appelé Ahmed pour se rencontrer : &laquo; Ahla, on se rencontre après un moment au café ?
+          &raquo;. &laquo; Tout de suite! &raquo;, répond Karim.</p>
+        <p>Sachant que les deux amis possèdent, tous les deux, des voitures, que la distance entre la maison de Karim et
+          le café est <code>d1</code>, que la distance entre la maison d'Ahmed et le café est <code>d2</code>, que la
+          vitesse moyenne de la voiture de karim est <code>v1</code> et que celle d'Ahmed est <code>v2</code>, on désire
+          savoir lequel des deux viendra en retard au rendez-vous.</p>
+
+        <p>On demande d'écrire l'algorithme d'un programme qui :</p>
+        <ul>
+          <li>Saisie les distances <code>d1</code> et <code>d2</code></li>
+          <li>Saisie les vitesses des voitures <code>v1</code> et <code>v2</code></li>
+          <li>Calcule le temps nécessaire pour chacune des personnes pour arriver au salon to thé</li>
+          <li>Afficher "Toujours en retard Karim", si Karim arrive après Ahmed</li>
+          <li>Afficher "Toujours en retard Ahmed", si Karim arrive avant Ahmed</li>
+          <li>Afficher "Au bon moment!", si les deux amis arrivent au même instant</li>
+        </ul>
+        <div>
+          <figure>
+            <img src="images/ex01/trajet.svg" alt="Trajet des deux amis">
+            <figcaption>Trajet des deux amis</figcaption>
+          </figure>
+        </div>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <p class="explication">Exemple 1</p>
+            <pre><code class="hljs nohighlight">Distance maison Karim (km) ? 10
+Distance maison Ahmed (km) ? 8
+Vitesse voiture Karim (km/h) ? 40
+Vitesse voiture Ahmed (km/h) ? 50
+Karim arrive au café après 15 minutes
+Ahmed arrive au café après 9 minutes
+Toujours en retard Karim ?</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <p class="explication">Exemple 2</p>
+            <pre><code class="hljs nohighlight">Distance maison Karim (km) ? 15
+Distance maison Ahmed (km) ? 20
+Vitesse voiture Karim (km/h) ? 60
+Vitesse voiture Ahmed (km/h) ? 50
+Karim arrive au café après 15 minutes
+Ahmed arrive au café après 24 minutes
+Toujours en retard Ahmed ?</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Jeu tourner la roulette</h3>
+
+        <div>
+          <figure>
+            <img src="images/ex01/roulette.svg" alt="Jeu de roulette">
+            <figcaption>Jeu de roulette</figcaption>
+          </figure>
+        </div>
+
+        <p>Un opérateur téléphonique, veut fidéliser ces clients à travers un jeu pour gagner des forfaits Internet et
+          Téléphoniques. Il organise un jeu : Tourner la roulette.</p>
+        <p>Lorsque l'utilisateur ouvre dans l'application de l'opérateur, il est présenté avec une roulette qui contient
+          10 valeurs. L'utilisateur clique sur un bouton pour faire tourner la roulette. Après un certain temps elle
+          s'arrête.</p>
+        <ul>
+          <li>Revenez la prochaine fois, si la roulette s'arrête sur un nombre pair</li>
+          <li>Forfait Internet 500Mo, si la roulette s'arrête sur 1</li>
+          <li>Forfait Internet 1Go, si la roulette s'arrête sur 3</li>
+          <li>Forfait Internet 200Mo, si la roulette s'arrête sur 5</li>
+          <li>Forfait Téléphonique 2h, si la roulette s'arrête sur 7</li>
+          <li>Forfait Téléphonique 8h, si la roulette s'arrête sur 9</li>
+        </ul>
+
+        <p>Ecrire l'algorithme d'un programme qui permet de simuler ce jeu.</p>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="hljs nohighlight">L'opérateur TN CELLS vous souhaite la bienvenue!
+Introduire le temps de rotation de la roulette ? 3
+La roulette se met à tourner
+Elle s'arrête au bout de 3.0 secondes
+La roulette s'arrête devant le numéro 3
+Forfait Internet 1Go</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="hljs nohighlight">L'opérateur TN CELLS vous souhaite la bienvenue!
+Introduire le temps de rotation de la roulette ? 5
+La roulette se met à tourner
+Elle s'arrête au bout de 5.0 secondes
+La roulette s'arrête devant le numéro 8
+Revenez la prochaine fois</code></pre>
+          </div>
+        </div>
       </section>
     </article>
   </main>

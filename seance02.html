@@ -709,7 +709,7 @@ Lire(choix_cap)</code></pre>
                 <li><code>1</code> qui correspond à Face</li>
               </ul>
             </li>
-            <li>la variable <code>eq</code> correspond au nom de l'équipe qui a choisit en premier</li>
+            <li>la variable <code>eq</code> correspond au nom de l'équipe qui a choisi en premier</li>
           </ul>
           <p>On désire :</p>
           <ul>
@@ -723,7 +723,7 @@ Lire(choix_cap)</code></pre>
             <li>Afficher le choix du capitaine (<code>ch_choix</code>) de l'équipe (<code>eq</code>)</li>
           </ul>
           <p>On veut, par exemple, afficher le message :</p>
-          <pre><code class="nohighlight hljs">Le capitaine de l'équipe <b>Real</b> a choisit <b>Pile</b></code></pre>
+          <pre><code class="nohighlight hljs">Le capitaine de l'équipe <b>Real</b> a choisi <b>Pile</b></code></pre>
           <p><strong>Donner l'algorithme ? Traduire en Python ?</strong></p>
         </div>
         <div class="bricks-canvas" data-slots="2">
@@ -734,7 +734,7 @@ Lire(choix_cap)</code></pre>
             Sinon<br>
             <span class="brick">ch_cap &larr; "Face"</span><br>
             Fin Si<br>
-            Afficher("Le capitaine de l'équipe", <span class="brick">eq</span>, "a choisit", <span
+            Afficher("Le capitaine de l'équipe", <span class="brick">eq</span>, "a choisi", <span
               class="brick">ch_cap</span>)</span>
           <pre class="success"><code class="language-algorithm">Afficher("0: Pile, 1: Face ? ")
 Lire(choix_cap)
@@ -743,7 +743,7 @@ Si choix_cap = 0 Alors
 Sinon
   ch_cap &larr; "Face"
 Fin Si
-Afficher("Le capitaine de l'équipe", eq, "a choisit", ch_cap)</code></pre>
+Afficher("Le capitaine de l'équipe", eq, "a choisi", ch_cap)</code></pre>
         </div>
       </section>
 
@@ -879,7 +879,7 @@ Si choix_cap = 0 Alors
 Sinon
   ch_cap ← "Face"
 Fin Si
-Afficher("Le capitaine de l'équipe", eq, "a choisit ", ch_cap)
+Afficher("Le capitaine de l'équipe", eq, "a choisi", ch_cap)
 
 // Effectuer le tirage au sort à l'aide de la pièce de monnaie.
 ts ← alea(0, 1) // 0: Pile, 1: Face
