@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Jeu de trèfles</title>
+	<link rel="stylesheet" href="styles/bootstrap.min.css">
+	<link rel="stylesheet" href="styles/default.css">
+	<link rel="stylesheet" href="styles/style.css">
+	<style>
+		.deck {
+			background-color: #00b039;
+		}
+
+		.place {
+			position: relative;
+			width: 100%;
+			height: 212px;
+		}
+
+		.place .carte {
+			position: absolute;
+			left: 0;
+			top: 0;
+		}
+
+		.place .carte.slot01 {
+			left: 0;
+		}
+
+		.place .carte.slot02 {
+			left: calc((100% - 142px) / 9);
+		}
+
+		.place .carte.slot03 {
+			left: calc((100% - 142px) * 2 / 9);
+		}
+
+		.place .carte.slot04 {
+			left: calc((100% - 142px) / 3);
+		}
+
+		.place .carte.slot05 {
+			left: calc((100% - 142px) * 4 / 9);
+		}
+
+		.place .carte.slot06 {
+			left: calc((100% - 142px) * 5 / 9);
+		}
+
+		.place .carte.slot07 {
+			left: calc((100% - 142px) * 2 / 3);
+		}
+
+		.place .carte.slot08 {
+			left: calc((100% - 142px) * 7 / 9);
+		}
+
+		.place .carte.slot09 {
+			left: calc((100% - 142px) * 8 / 9);
+		}
+
+		.place .carte.slot10 {
+			left: calc(100% - 142px);
+		}
+
+		.carte {
+			display: inline-block;
+			width: 142px;
+			height: 212px;
+			background-color: transparent;
+			background-image: url(images/prj04/deck.png);
+		}
+
+		.carte01 {
+			background-position: -15px -681px;
+		}
+
+		.carte02 {
+			background-position: -167px -681px;
+		}
+
+		.carte03 {
+			background-position: -320px -681px;
+		}
+
+		.carte04 {
+			background-position: -473px -681px;
+		}
+
+		.carte05 {
+			background-position: -626px -681px;
+		}
+
+		.carte06 {
+			background-position: -778px -681px;
+		}
+
+		.carte07 {
+			background-position: -931px -681px;
+		}
+
+		.carte08 {
+			background-position: -1541px -681px;
+		}
+
+		.carte09 {
+			background-position: -1694px -681px;
+		}
+
+		.carte10 {
+			background-position: -1847px -681px;
+		}
+	</style>
+</head>
+
+<body>
+	<header class="py-2 px-4 bg-secondary">
+		<div class="user-input-saver text-white">
+			<div class="row">
+				<div class="col-sm-6">
+					<label>Nom & Prénom</label>
+					<input type="text" class="form-control save-content" placeholder="Nom & Prénom">
+				</div>
+				<div class="col-sm-6">
+					<label>Classe</label>
+					<input type="text" class="form-control save-content" placeholder="Classe">
+				</div>
+			</div>
+		</div>
+	</header>
+	<aside>
+		<nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#aside_navbar"
+				aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span> Menu
+			</button>
+			<div class="collapse navbar-collapse" id="aside_navbar"></div>
+		</nav>
+	</aside>
+	<main class="container my-4">
+		<h1>Projet n°3 - Jeu de trèfles</h1>
+
+		<article>
+			<h2>Exploration</h2>
+
+			<section>
+				<h3>Principe</h3>
+
+				<div>
+					<figure>
+						<img src="images/prj04/img01.png" alt="Le jeu de trèfles">
+						<figcaption>Le jeu de trèfles</figcaption>
+					</figure>
+				</div>
+
+				<p>Le jeu de Trèfles est un jeu de cartes qui se joue à deux en utilisant dix cartes trèfles :</p>
+				<ul>
+					<li>Les nombres de 1 à 7</li>
+					<li>Le ministre (J) qui représente le nombre 8</li>
+					<li>La reine (Q) qui représente le nombre 9</li>
+					<li>Le roi (K) qui représente le nombre 10</li>
+				</ul>
+
+				<p>Au début, les dix cartes sont bien mélangées, puis posées sur la table faces cachées.</p>
+				<p>Le jeu se fait, ensuite, en cinq tours, où à chaque fois :</p>
+				<ul>
+					<li>Le premier joueur tire une carte</li>
+					<li>Le deuxième joueur tire une autre carte, des cartes restantes</li>
+					<li>Le gagnant du tour est celui possédant la valeur minimale, exemple &laquo; Las &raquo; bat &laquo; Roi
+						&raquo;. Ce dernier marque un point.</li>
+				</ul>
+
+				<p><strong><em>Les cartes tirées ne sont pas remises.</em></strong></p>
+				<p>A la fin de la partie, toutes les cartes sont tirées, celui qui possède le score maximal est déclaré gagnant.
+				</p>
+
+				<div class="d-none deck">
+					<div class="place">
+						<span class="carte carte01 slot01"></span>
+						<span class="carte carte02 slot02"></span>
+						<span class="carte carte03 slot03"></span>
+						<span class="carte carte04 slot04"></span>
+						<span class="carte carte05 slot05"></span>
+						<span class="carte carte06 slot06"></span>
+						<span class="carte carte07 slot07"></span>
+						<span class="carte carte08 slot08"></span>
+						<span class="carte carte09 slot09"></span>
+						<span class="carte carte10 slot10"></span>
+					</div>
+
+				</div>
+			</section>
+		</article>
+	</main>
+	<footer class="d-print-none bg-dark text-white p-2">
+		<div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
+		<div class="text-center small">Année scolaire : 2020/2021</div>
+	</footer>
+	<script src="scripts/jquery.min.js"></script>
+	<script src="scripts/bootstrap.min.js"></script>
+	<script src="scripts/highlight.pack.js"></script>
+	<script src="scripts/hljs.algorithm.js"></script>
+	<script src="scripts/draggable.js"></script>
+	<script src="scripts/clipboard.min.js"></script>
+	<script src="scripts/pages.js"></script>
+	<script src="scripts/savecontent.js"></script>
+	<script src="scripts/vue.min.js"></script>
+	<script>
+		hljs.initHighlightingOnLoad();
+		document.querySelectorAll('.language-algorithm,.language-python')
+			.forEach(item => {
+				const div = document.createElement('div');
+				div.className = 'bd-clipboard d-print-none';
+				const btn = document.createElement('button');
+				btn.className = 'btn-clipboard';
+				btn.textContent = "📋";
+				btn.title = "Copier";
+				div.appendChild(btn);
+				item.parentElement.insertBefore(div, item);
+			});
+		new ClipboardJS('.btn-clipboard', {
+			target: (trigger) => {
+				return trigger.parentElement.nextElementSibling;
+			}
+		});
+		$(() => {
+			const localStore = new PagePersistance();
+			const serverStore = new ServerSaves('Projet 3');
+			const userInputSaver = new UserInputSaver(
+				document.querySelector('.user-input-saver'),
+				localStore,
+				serverStore);
+			new Vue({
+				el: '#simulation-00',
+				data: {
+					propositions: [],
+					reponses: [],
+					borne_inf: 1,
+					borne_sup: 127,
+					current_value: 64,
+					current_reponse: '---',
+					trouve: false
+				},
+				mounted: function () {
+					this.initPropositions();
+				},
+				methods: {
+					initPropositions: function () {
+						this.trouve = false;
+						this.propositions = [];
+						this.borne_inf = 1;
+						this.borne_sup = 127;
+						this.current_value = 64;
+						for (let rep of this.reponses) {
+							this.propositions.push(this.findNextPropsition(rep));
+						}
+					},
+					reset: function () {
+						this.reponses = [];
+						this.current_reponse = '---';
+						this.initPropositions();
+					},
+					findNextPropsition: function (reponse) {
+						if (reponse === '>') {
+							this.borne_inf = this.current_value + 1;
+						} else if (reponse === '<') {
+							this.borne_sup = this.current_value - 1;
+						} else {
+							this.trouve = true;
+						}
+						const prop = { nbre: this.current_value, reponse: reponse };
+						this.current_value = parseInt((this.borne_inf + this.borne_sup) / 2);
+						this.current_reponse = '---';
+						return prop;
+					},
+					setChoice: function () {
+						this.reponses.push(this.current_reponse);
+						const prop = this.findNextPropsition(this.current_reponse);
+						this.propositions.push(prop);
+						if (this.borne_inf === this.borne_sup) {
+							this.propositions.push(this.findNextPropsition('='));
+						}
+					}
+				}
+			});
+		});
+	</script>
+</body>
+
+</html>
