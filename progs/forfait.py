@@ -1,5 +1,5 @@
 from random import randint
-from time import  sleep
+from time import sleep
 
 print("L'opérateur TN CELLS vous souhaite la bienvenue!")
 t = float(input("Introduire le temps de rotation de la roulette ? "))

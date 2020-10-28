@@ -1,13 +1,27 @@
 from random import randint
 
 numeros = [
-    'Lass', 'Douce', 'Tris', 'Quattro', 'Chinqa', 
+    'Lass', 'Douce', 'Tris', 'Quattro', 'Chinqa',
     'Sdous', 'Sbou', 'Amira', 'Amir', 'Roi'
 ]
 
 print('=-' * 20)
-print('|', 'Jeu de cartes'.center(36), '|')
+print('|', 'Jeu de Trèfles'.center(36), '|')
 print('=-' * 20)
+
+print()
+print('Principe du jeu')
+print('=-' * 15)
+print('- Au début, dix cartes trèfles sont déposées sur une table,'
+      ' faces cachées.')
+print('A tour de rôle :')
+print('- tu sélectionne une carte parmi les cartes existantes.')
+print("- L'ordintar en sélectionne une autre.")
+print("Celui qui a la carte avec la petite valeur est gagnant du tour. "
+      "Il marque un point.")
+print("Le gagnant est celui avec le plus grand score.")
+print()
+
 
 # Construire les cartes
 jeu = numeros.copy()

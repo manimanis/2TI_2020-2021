@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet n°1 - Exercices de rappel</title>
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/default.css">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+  <header class="py-2 px-4 bg-secondary">
+    <div class="user-input-saver text-white">
+      <div class="row">
+        <div class="col-sm-6">
+          <label>Nom & Prénom</label>
+          <input type="text" class="form-control save-content" placeholder="Nom & Prénom">
+        </div>
+        <div class="col-sm-6">
+          <label>Classe</label>
+          <select class="form-control save-content" placeholder="Classe">
+            <option>2TI</option>
+            <option>2SC</option>
+            <option>3T</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </header>
+  <aside>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+  <main class="container my-4">
+    <h1>Exercices de rappel</h1>
+
+    <article>
+      <h2>Exercices Projet n°1</h2>
+
+      <section>
+        <h3>Citerne d'huile</h3>
+
+        <p>Dans une presse d'huile, l'huile est conservée dans des citernes cylindriques de diamètre <b>d</b> et de
+          profondeur <b>h</b>. Sur la paroie de la citerne un indicateur gradué indique le niveau <b>nh</b> de l'huile
+          sous forme d'un pourcentage.</p>
+        <ul>
+          <li>Si l'indicateur affiche 0%, la citerne est vide.</li>
+          <li>Si l'indicateur affiche 20%, la citerne est remplie à 20% de sa capacité.</li>
+          <li>Si l'indicateur affiche 100%, la citerne est totalement remplie.</li>
+        </ul>
+        <p>On demande d'écrire l'algorithme d'un programme qui saisit les données de l'utilisateur (en mètres), puis
+          affiche la quantité de l'huile en litres.</p>
+        <p>On donne :</p>
+        <ul>
+          <li>Le diamètre de la citerne <b>d</b> et son hauteur (h) sont mesurés en mètres.</li>
+          <li>Le niveau de l'huile <b>nh</b> est mesuré en pourcentage (%).</li>
+          <li>1 m<sup>3</sup> = 1000 litres</li>
+          <li>La constante &pi; (<code>pi</code>) peut être importée du module <code>math</code> : <span
+              class="d-none d-print-inline"><code>from math import pi</code></span>
+            <div class="d-print-none">
+              <pre><code class="language-python">from math import pi
+# calcul de l'aire d'un cercle
+r = 1.5
+print(pi*r*r)</code></pre>
+            </div>
+          </li>
+        </ul>
+
+        <div>
+          <figure>
+            <img src="images/ex01/img01.svg" alt="Citerne d'huile">
+            <figcaption>Citerne d'huile</figcaption>
+          </figure>
+        </div>
+
+        <div class="d-print-none">
+          <p class="explication">Exemple d'exécution</p>
+          <pre><code class="hljs nohighlight">Donner le diamètre de la citerne (m) : 1.2
+Donner l'hauteur de la citerne (m) : 3
+Donne le niveau de l'huile (%) : 20
+La citerne contient 678 litres d'huile.</code></pre>
+        </div>
+
+        <h4>Correction</h4>
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="language-algorithm">Programme Niveau_huile
+Début
+  // Saisie des données
+  Afficher("Donner le diamètre de la citerne (m) : ")
+  Lire(d)
+  Afficher("Donner l'hauteur de la citerne (m) : ")
+  Lire(h)
+  Afficher("Donner le niveau de l'huile (%) : ")
+  Lire(nh)
+
+  // Calcul de la quantité d'huile
+  vc &larr; &pi; * d * d * h / 4
+  qh &larr; ent(vc * nh * 10)
+
+  // Affichage de la quantité d'huile
+  Afficher("La citerne contient", qh, "litres d\'huile.'")
+Fin
+            </code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="language-python">from math import pi
+
+# Saisie des données
+d = float(input('Donner le diamètre de la citerne (m) : '))
+
+h = float(input('Donner l\'hauteur de la citerne (m) : '))
+
+nh = float(input('Donner le niveau de l\'huile (%) : '))
+
+
+# Calcul de la quantité d'huile
+vc = pi * d * d * h / 4
+qh = int(vc * nh * 10)  # 10 = 1000 / 100
+
+# Affichage de la quantité d'huile
+print(f'La citerne contient {qh} litres d\'huile.')</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="no-page-break-inside">
+        <h3>Gare routière</h3>
+
+        <div class="d-print-none">
+          <figure>
+            <img src="images/ex01/gare_routiere.png" alt="Gare routière">
+            <figcaption>Gare routière</figcaption>
+          </figure>
+        </div>
+
+        <p>Un bus dans une gare routière, commence ses courses à partir de <b>hd</b> (heure de départ) du matin. Ses
+          courses continuent jusqu'au soir <b>hf</b> (heure fin). Sachant que le bus revient à la gare routière toutes
+          les <b>dt</b> (durée trajet) minutes, on veut calculer le nombre de voyages de ce bus en une journée.</p>
+
+        <p>On demande d'écrire l'algorithme d'un programme qui permet de trouver le nombre de voyages effectués par le
+          bus le long de la journée.</p>
+
+        <p class="explication">Exemple d'exécution</p>
+
+        <div class="d-print-none">
+          <pre><code class="hljs nohighlight">Quelle est l'heure de départ (hh:00) ? 5
+Quelle est l'heure de fin (hh:00) ? 17
+Quelle est la durée du trajet ? 20
+Le bus fait 36 voyages de 5h à 17h.</code></pre>
+        </div>
+
+        <h4>Correction</h4>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="language-algorithm">Programme gare_routiere
+Début
+  // Saisie de données
+  Afficher("Quelle est l'heure de départ (hh:00) ? ")
+  Lire(hd)
+  Afficher("Quelle est l'heure de fin (hh:00) ? ")
+  Lire(hf)
+  Afficher("Quelle est la durée du trajet (mn)? ")
+  Lire(dt)
+
+  // Calcul du nombre de voyages
+  nv &larr; ((hf - hd) * 60) div dt
+
+  // Affichage du nombre de voyages
+  Afficher('Le bus fait", nv, "voyages de ", hd, "h à ", hf, "h.')
+Fin</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="language-python"># Saisie de données
+hd = int(input('Quelle est l\'heure de départ (hh:00) ? '))
+hf = int(input('Quelle est l\'heure de fin (hh:00) ? '))
+dt = int(input('Quelle est la durée du trajet (mn) ? '))
+
+# Calcul du nombre de voyages
+nv = (hf - hd) * 60 // dt
+
+# Affichage du nombre de voyages
+print(f'Le bus fait {nv} voyages de {hd}h à {hf}h.')</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Jeu de bonbons</h3>
+
+        <div class="d-print-none">
+          <figure>
+            <img src="images/ex01/bonbons.jpg" alt="Bonbons">
+            <figcaption>Bonbons</figcaption>
+          </figure>
+        </div>
+
+        <p>Un enfants joue aux dés avec son père, l'enfant lance deux dés.</p>
+        <ul>
+          <li>Si l'enfant obtient le nombre 2 ou 12 : il gagne 2 bonbons (son père lui donne des bonbons)</li>
+          <li>Si l'enfant obtient le nombre 3 ou 11 : il gagne 1 bonbon</li>
+          <li>Si l'enfant obtient le nombre 4 ou 10 : il ne gagne rien</li>
+          <li>Si l'enfant obtient les nombres de 5 à 9 : il perd 1 bonbon (il doit rendre le bonbon à son père)</li>
+        </ul>
+
+        <p>Ecrire l'algorithme d'un programme qui simule un tour de ce jeu.</p>
+
+        <div class="row d-print-none">
+          <div class="col-sm-6">
+            <p class="explication">Exemple n°1</p>
+            <pre><code class="hljs nohighlight">Jeu de bonbons
+Vous lancez les dés pour gagner des bonbons! Miam!
+Lancement de dés
+Le nombre affiché est 4 + 1 = 5
+Tu perds un bonbon</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <p class="explication">Exemple n°2</p>
+            <pre><code class="hljs nohighlight">Jeu de bonbons
+Vous lancez les dés pour gagner des bonbons! Miam!
+Lancement de dés
+Le nombre affiché est 1 + 3 = 4
+Tu ne gagnes rien</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <p class="explication">Exemple n°3</p>
+            <pre><code class="hljs nohighlight">Jeu de bonbons
+Vous lancez les dés pour gagner des bonbons! Miam!
+Lancement de dés
+Le nombre affiché est 6 + 5 = 11
+Tu gagnes un bonbon</code></pre>
+          </div>
+
+          <div class="col-sm-6">
+            <p class="explication">Exemple n°4</p>
+            <pre><code class="hljs nohighlight">Jeu de bonbons
+Vous lancez les dés pour gagner des bonbons! Miam!
+Lancement de dés
+Le nombre affiché est 1 + 1 = 2
+Tu gagnes 2 bonbons</code></pre>
+          </div>
+        </div>
+
+        <h4>Correction</h4>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="language-algorithm">Programme bonbons
+Début
+  Afficher("Jeu de bonbons")
+  Afficher("Vous lancez les dés pour gagner des bonbons! Miam!")
+  
+  Afficher("Lancement de dés")
+  Pause(1.5)
+  
+  de1 &larr; alea(1, 6)
+  de2 &larr; alea(1, 6)
+  s &larr; de1 + de2
+  Afficher("Le nombre affiché est", de1, "+", de2, "=", s)
+  
+  Si s = 2 ou s = 12 Alors
+    Afficher("Tu gagnes 2 bonbons")
+  Sinon Si s = 3 ou s = 11 Alors
+    Afficher("Tu gagnes un bonbon")
+  Sinon Si s = 4 ou s = 10 Alors
+    Afficher("Tu ne gagnes rien")
+  Sinon
+    Afficher("Tu perds un bonbon")
+  Fin Si
+Fin</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="language-python">from random import randint
+from time import sleep
+
+print('Jeu de bonbons')
+print('Vous lancez les dés pour gagner des bonbons! Miam!')
+
+print('Lancement de dés')
+sleep(1.5)
+
+de1 = randint(1, 6)
+de2 = randint(1, 6)
+s = de1 + de2
+print(f'Le nombre affiché est {de1} + {de2} = {s}')
+
+if s == 2 or s == 12:
+    print('Tu gagnes 2 bonbons')
+elif s == 3 or s == 11:
+    print('Tu gagnes un bonbon')
+elif s == 4 or s == 10:
+    print('Tu ne gagnes rien')
+else:
+    print('Tu perds un bonbon')</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="no-page-break-inside">
+        <h3>Che la for me</h3>
+
+        <p>Tarek et Tamer sont deux jeunes enfants de 10 et 12 ans, respectivement. Ils aiment jouer à Minecraft, sur
+          leur
+          PC, parfois en mode créatif, et d’autres fois en mode survie (Survival).</p>
+        <div class="d-print-none">
+          <figure>
+            <img src="images/prj02/img01.png" alt="Jeu Minecraft">
+            <img src="images/prj02/img02.jpg" alt="Scène de Minecraft">
+            <figcaption>Jeu Minecraft</figcaption>
+          </figure>
+        </div>
+        <p>Tous les jours, ces deux frères se disputent celui qui joue en premier. Pour les calmer, et pour profiter
+          d’un
+          moment de silence, leur père leurs apprend à gérer ce conflit en jouant à « She la for me ».</p>
+        <figure>
+          <img src="images/prj02/img03.jpg" alt="Jeu de mains, She la for me">
+          <figcaption>Jeu de mains, She la for me</figcaption>
+        </figure>
+        <p>L’un des deux, Tarek, cette fois-ci, sélectionne de haute voix : « frad ». Son frère, Tamer, lui répond d’un
+          même
+          ton : « Zouaz ». Puis, rapidement, les deux enfants tendent leurs mains en pliant quelques-un de leurs
+          doigts :
+          « She la for me ». Et tout en comptant, ensemble : « Cinq et deux, Sept, Impair ». « C’est moi qui gagne »,
+          crie
+          Tamer.</p>
+        <p>On demande d'écrire l'algorithme d'un programme qui simule ce jeu contre l'ordinateur.</p>
+        <ul>
+          <li>L'ordinateur choisit un nombre entre 0 et 5</li>
+          <li>L'utilisateur choisit un nombre entre 0 et 5</li>
+          <li>L'utilisateur choisit 0 pour « frad » et 1 pour « zouaz »</li>
+          <li>L'utilisateur gagne si la somme des nombre correspond au choix de l'utilisateur</li>
+          <li>L'ordinateur gagne sinon.</li>
+        </ul>
+
+        <div class="row d-print-none">
+          <div class="col-sm-6">
+            <pre><code class="hljs nohighlight">Jeu Frad/Zouaz
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+Votre choix [0, 5] ? 2
+0 : zouaz / 1 : frad ? 0
+2 + 2 = 4
+4 zouaz
+Tu as gagné!</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="hljs nohighlight">Jeu Frad/Zouaz
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+Votre choix [0, 5] ? 1
+0 : zouaz / 1 : frad ? 1
+1 + 1 = 2
+2 zouaz
+Haha! J'ai gagné cette fois!</code></pre>
+          </div>
+        </div>
+
+        <h4>Correction</h4>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="language-algorithm">Programme Frad_Zouaz
+Début
+  Afficher("Jeu Frad/Zouaz")
+  Afficher("=-" * 20)
+  Pause(2)
+
+  Afficher()
+  co &larr; alea(0, 5)
+  Afficher("Votre choix [0, 5] ? ")
+  Lire(cu)
+  s &larr; co + cu
+
+  Pause(1.5)
+
+  Afficher("0 : zouaz / 1 : frad ? ")
+  Lire(fz)
+
+  Pause(2)
+
+  Afficher(co, "+", cu, "=", s)
+  Si s mod 2 = 0 Alors
+      Afficher(s, "zouaz")
+  Sinon
+      Afficher(s, "frad")
+  Fin Si
+  Si fz = s mod 2 Alors
+      Afficher("Tu as gagné!")
+  Sinon
+      Afficher("Haha! J\'ai gagné cette fois!")
+  Fin si
+Fin</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="language-python">from random import randint
+from time import sleep
+
+print("Jeu Frad/Zouaz")
+print('=-' * 20)
+sleep(2)
+
+print()
+co = randint(0, 5)
+cu = int(input("Votre choix [0, 5] ? "))
+s = co + cu
+
+sleep(1.5)
+
+fz = int(input("0 : zouaz / 1 : frad ? "))
+
+sleep(2)
+
+print(f'{co} + {cu} = {s}')
+if s % 2 == 0:
+    print(f"{s} zouaz")
+else:
+    print(f"{s} frad")
+
+if fz == s % 2:
+    print('Tu as gagné!')
+else:
+    print('Haha! J\'ai gagné cette fois!')</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="no-page-break-inside">
+        <h3>Toujours en retard ?</h3>
+
+        <p>Karim et Ahmed sont deux amis d'enfance. Ils se rencontrent périodiquement dans un salon de thé, pour
+          discuter et échanger les idées.</p>
+        <p>Aujourd'hui Karim a appelé Ahmed pour se rencontrer : &laquo; Ahla, on se rencontre après un moment au café ?
+          &raquo;. &laquo; Tout de suite! &raquo;, répond Karim.</p>
+        <p>Sachant que les deux amis possèdent, tous les deux, des voitures, que la distance entre la maison de Karim et
+          le café est <code>d1</code>, que la distance entre la maison d'Ahmed et le café est <code>d2</code>, que la
+          vitesse moyenne de la voiture de karim est <code>v1</code> et que celle d'Ahmed est <code>v2</code>, on désire
+          savoir lequel des deux viendra en retard au rendez-vous.</p>
+
+        <p>On demande d'écrire l'algorithme d'un programme qui :</p>
+        <ul>
+          <li>Saisit les distances <code>d1</code> et <code>d2</code></li>
+          <li>Saisit les vitesses des voitures <code>v1</code> et <code>v2</code></li>
+          <li>Calcule le temps nécessaire pour chacune des personnes pour arriver au salon to thé</li>
+          <li>Affiche "Toujours en retard Karim", si Karim arrive après Ahmed</li>
+          <li>Affiche "Toujours en retard Ahmed", si Karim arrive avant Ahmed</li>
+          <li>Affiche "Au bon moment!", si les deux amis arrivent au même instant</li>
+        </ul>
+        <div>
+          <figure>
+            <img src="images/ex01/trajet.svg" alt="Trajet des deux amis">
+            <figcaption>Trajet des deux amis</figcaption>
+          </figure>
+        </div>
+
+        <div class="row d-print-none">
+          <div class="col-sm-6">
+            <p class="explication">Exemple 1</p>
+            <pre><code class="hljs nohighlight">Distance maison Karim (km) ? 10
+Distance maison Ahmed (km) ? 8
+Vitesse voiture Karim (km/h) ? 40
+Vitesse voiture Ahmed (km/h) ? 50
+Karim arrive au café après 15 minutes
+Ahmed arrive au café après 9 minutes
+Toujours en retard Karim ?</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <p class="explication">Exemple 2</p>
+            <pre><code class="hljs nohighlight">Distance maison Karim (km) ? 15
+Distance maison Ahmed (km) ? 20
+Vitesse voiture Karim (km/h) ? 60
+Vitesse voiture Ahmed (km/h) ? 50
+Karim arrive au café après 15 minutes
+Ahmed arrive au café après 24 minutes
+Toujours en retard Ahmed ?</code></pre>
+          </div>
+        </div>
+
+        <h4>Correction</h4>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="language-algorithm">Programme En_retartd
+Début
+  Afficher("Distance maison Karim (km) ? ")
+  Lire(d1)
+  Afficher("Distance maison Ahmed (km) ? ")
+  Lire(d2)
+  Afficher("Vitesse voiture Karim (km/h) ? ")
+  Lire(v1)
+  Afficher("Vitesse voiture Ahmed (km/h) ? ")
+  Lire(v2)
+
+  t1 &larr; (d1 * 60) mod v1
+  t2 &larr; (d2 * 60) mod v2
+
+  Afficher("Karim arrive au café après", t1, "minutes")
+  Afficher(f"Ahmed arrive au café après", t2, "minutes")
+
+  Si t1 > t2 Alors
+      Afficher("Toujours en retard Karim ?")
+  Sinon Si t1 &lt; t2 Alors
+      Afficher("Toujours en retard Ahmed ?")
+  Sinon
+      Afficher("Au bon moment!")
+  Fin si
+Fin</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="language-python">d1 = int(input("Distance maison Karim (km) ? "))
+d2 = int(input("Distance maison Ahmed (km) ? "))
+v1 = int(input("Vitesse voiture Karim (km/h) ? "))
+v2 = int(input("Vitesse voiture Ahmed (km/h) ? "))
+
+t1 = d1 * 60 // v1
+t2 = d2 * 60 // v2
+
+print(f"Karim arrive au café après {t1} minutes")
+print(f"Ahmed arrive au café après {t2} minutes")
+
+if t1 > t2:
+    print("Toujours en retard Karim ?")
+elif t1 &lt; t2:
+    print("Toujours en retard Ahmed ?")
+else:
+    print("Au bon moment!")</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section class="no-page-break-inside">
+        <h3>Jeu tourner la roulette</h3>
+
+        <div>
+          <figure>
+            <img src="images/ex01/roulette.svg" alt="Jeu de roulette">
+            <figcaption>Jeu de roulette</figcaption>
+          </figure>
+        </div>
+
+        <p>Un opérateur téléphonique, veut fidéliser ces clients à travers un jeu pour gagner des forfaits Internet et
+          Téléphoniques. Il organise un jeu : Tourner la roulette.</p>
+        <p>Lorsque l'utilisateur ouvre dans l'application de l'opérateur, il est présenté avec une roulette qui contient
+          10 valeurs. L'utilisateur clique sur un bouton pour faire tourner la roulette. Après un certain temps elle
+          s'arrête.</p>
+        <ul>
+          <li>Revenez la prochaine fois, si la roulette s'arrête sur un nombre pair</li>
+          <li>Forfait Internet 500Mo, si la roulette s'arrête sur 1</li>
+          <li>Forfait Internet 1Go, si la roulette s'arrête sur 3</li>
+          <li>Forfait Internet 200Mo, si la roulette s'arrête sur 5</li>
+          <li>Forfait Téléphonique 2h, si la roulette s'arrête sur 7</li>
+          <li>Forfait Téléphonique 8h, si la roulette s'arrête sur 9</li>
+        </ul>
+
+        <p>Ecrire l'algorithme d'un programme qui permet de simuler ce jeu.</p>
+
+        <div class="row d-print-none">
+          <div class="col-sm-6">
+            <pre><code class="hljs nohighlight">L'opérateur TN CELLS vous souhaite la bienvenue!
+Introduire le temps de rotation de la roulette ? 3
+La roulette se met à tourner
+Elle s'arrête au bout de 3.0 secondes
+La roulette s'arrête devant le numéro 3
+Forfait Internet 1Go</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="hljs nohighlight">L'opérateur TN CELLS vous souhaite la bienvenue!
+Introduire le temps de rotation de la roulette ? 5
+La roulette se met à tourner
+Elle s'arrête au bout de 5.0 secondes
+La roulette s'arrête devant le numéro 8
+Revenez la prochaine fois</code></pre>
+          </div>
+        </div>
+
+        <h4>Correction</h4>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="language-algorithm">Programme roulette
+Début
+  Afficher("L'opérateur TN CELLS vous souhaite la bienvenue!")
+  Afficher("Introduire le temps de rotation de la roulette ? ")
+  Lire(t)
+  Afficher("La roulette se met à tourner")
+  Pause(t)
+  Afficher("Elle s'arrête au bout de", t, "secondes")
+
+  ts &larr; alea(1, 10)
+  Si ts mod 2 = 0 Alors
+      message &larr; "Revenez la prochaine fois"
+  Sinon Si ts = 1 Alors
+      message &larr; "Forfait Internet 500Mo"
+  Sinon Si ts = 3 Alors
+      message &larr; "Forfait Internet 1Go"
+  Sinon Si ts = 5 Alors
+      message &larr; "Forfait Internet 200Mo"
+  Sinon Si ts = 7 Alors
+      message &larr; "Forfait Téléphonique 2h"
+  Sinon
+      message &larr; "Forfait Téléphonique 8h"
+  Fin si
+
+  Afficher("La roulette s'arrête devant le numéro", ts)
+  Afficher(message)
+Fin</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="language-python">from random import randint
+from time import sleep
+
+print("L'opérateur TN CELLS vous souhaite la bienvenue!")
+t = float(input("Introduire le temps de rotation de la roulette ? "))
+print("La roulette se met à tourner")
+sleep(t)
+print(f"Elle s'arrête au bout de {t} secondes")
+
+ts = randint(1, 10)
+if ts % 2 == 0:
+    message = "Revenez la prochaine fois"
+elif ts == 1:
+    message = "Forfait Internet 500Mo"
+elif ts == 3:
+    message = "Forfait Internet 1Go"
+elif ts == 5:
+    message = "Forfait Internet 200Mo"
+elif ts == 7:
+    message = "Forfait Téléphonique 2h"
+elif ts == 9:
+    message = "Forfait Téléphonique 8h"
+
+print(f"La roulette s'arrête devant le numéro {ts}")
+print(message)
+</code></pre>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
+    <div class="text-center small">Année scolaire : 2020/2021</div>
+  </footer>
+  <script src="scripts/jquery.min.js"></script>
+  <script src="scripts/bootstrap.min.js"></script>
+  <script src="scripts/highlight.pack.js"></script>
+  <script src="scripts/hljs.algorithm.js"></script>
+  <script src="scripts/draggable.js"></script>
+  <script src="scripts/clipboard.min.js"></script>
+  <script src="scripts/pages.js"></script>
+  <script src="scripts/savecontent.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+    document.querySelectorAll('.language-algorithm,.language-python')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+    $(() => {
+      const localStore = new PagePersistance();
+      const serverStore = new ServerSaves('Exercices 1');
+      const userInputSaver = new UserInputSaver(
+        document.querySelector('.user-input-saver'),
+        localStore,
+        serverStore);
+    });
+  </script>
+</body>
+
+</html>
