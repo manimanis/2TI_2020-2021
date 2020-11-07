@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Briques Logicielles - Résumé</title>
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/default.css">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+  <aside>
+    <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+  <main class="container my-4">
+    <h1>Briques Logicielles - Résumé</h1>
+
+    <article>
+      <h2>Structures Simples</h2>
+
+      <section>
+        <h3 class="brique">Affichage - Partie 1</h3>
+
+        <div class="no-page-break-inside">
+          <p class="explication">Affichage d'un texte simple</p>
+          <div class="row">
+            <div class="col-sm-6">
+              <pre><code class="language-algorithm">Afficher("J'aime la vie!")</code></pre>
+            </div>
+            <div class="col-sm-6">
+              <pre><code class="language-python">print("J'aime la vie!")</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="no-page-break-inside">
+          <p class="explication">Affichage du contenu d'une variable</p>
+          <div class="row">
+            <div class="col-sm-6">
+              <pre><code class="language-algorithm">msg &larr; "J'aime la vie!"
+Afficher(msg)</code></pre>
+            </div>
+            <div class="col-sm-6">
+              <pre><code class="language-python">msg = "J'aime la vie"
+print(msg)</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div class="">
+          <p class="explication">Affichage mixte (textes et variables)</p>
+          <div class="row no-page-break-inside">
+            <div class="col-sm-6">
+              <pre><code class="language-algorithm">nom &larr; "Mohamed"
+Afficher(nom, "est plein d'espoir.")</code></pre>
+            </div>
+            <div class="col-sm-6">
+              <pre><code class="language-python">nom = "Mohamed"
+print(nom, "est plein d'espoir.")</code></pre>
+            </div>
+          </div>
+
+          <div class="row no-page-break-inside">
+            <div class="col-sm-6">
+              <pre><code class="language-algorithm">nom &larr; "Mohamed"
+age &larr; 16
+Afficher("Je suis", nom, ", j'ai", age, "ans.")</code></pre>
+            </div>
+            <div class="col-sm-6">
+              <pre><code class="language-python">nom = "Mohamed"
+age = 16
+print("Je suis", nom, ", j'ai", age, "ans.")</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3 class="brique">Affichage - Partie 2</h3>
+
+        <div>
+          <p class="explication">f-String simple</p>
+          <p>Afficher une expression</p>
+          <div class="row no-page-break-inside">
+            <div class="col-sm-6">
+              <pre><code class="language-algorithm">x &larr; 8
+y &larr; 5
+Afficher(x, "*", y, "=", x*y)</code></pre>
+            </div>
+            <div class="col-sm-6">
+              <pre><code class="language-python">x = 8
+y = 5
+print(f'{x} * {y} = {x*y}')  # 8 * 5 = 40</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="explication">f-String entiers</p>
+          <p>Dans <code>{x:5}</code> le nombre 5 indique la taille minimale du champ x.</p>
+          <div class="row no-page-break-inside">
+            <div class="col-sm-6">
+              <pre><code class="language-algorithm">x &larr; 1
+y &larr; 2
+Afficher("x=", x, "- y=", y)</code></pre>
+            </div>
+            <div class="col-sm-6">
+              <pre><code class="language-python">x = 1
+y = 2
+print(f'x= {x:5} - y= {y:5}')  # x=     1 - y=     2</code></pre>
+            </div>
+          </div>
+
+          <p>Dans <code>{h:02}</code>, <code>h</code> est le nom d'une variable, <code>0</code> est le caractère de
+            remplissage et <code>2</code> la taille minimale à réserver pour l'affichage de h.</p>
+          <div class="row no-page-break-inside">
+            <div class="col-sm-6">
+              <pre><code class="language-algorithm">h &larr; 7
+m &larr; 0
+s &larr; 3
+Afficher(h, ":", m, ":", s)</code></pre>
+            </div>
+            <div class="col-sm-6">
+              <pre><code class="language-python">h = 7
+m = 0
+s = 3
+print(f'{h:02}:{m:02}:{s:02}')  # 07:00:03</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="explication">f-String réels</p>
+          <p>Dans <code>{moy:.2f}</code> le <code>.2</code> indique le nombre de chiffres après la virgule à utiliser
+            pour l'affichage d'un réel.</p>
+          <div class="row no-page-break-inside">
+            <div class="col-sm-6">
+              <pre><code class="language-algorithm">dc &larr; 11
+ds &larr; 12
+moy &larr; (dc + ds * 2) / 3
+Afficher("Moyenne =", moy)</code></pre>
+            </div>
+            <div class="col-sm-6">
+              <pre><code class="language-python">dc = 11
+ds = 12
+moy = (dc + ds * 2) / 3
+print(f'Moyenne = {moy:.2f}')  # Moyenne = 11.67</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3 class="brique">Saisie d'une donnée</h3>
+        <div class="">
+          <p class="explication">Saisie d'une chaîne de caractères</p>
+          <div class="row no-page-break-inside">
+            <div class="col-sm-6">
+              <pre><code class="language-algorithm">// nom est de type chaîne de caractères
+Afficher("Quel est votre nom ? ")
+Lire(nom)</code></pre>
+            </div>
+            <div class="col-sm-6">
+              <pre><code class="language-python"># nom est de type chaîne de caractères
+# Python permet d'écrire un code plus réduit
+nom = input("Quel est votre nom ? ")</code></pre>
+            </div>
+          </div>
+
+          <p class="explication">Saisie d'un entier</p>
+          <div class="row no-page-break-inside">
+            <div class="col-sm-6">
+              <pre><code class="language-algorithm">// age est de type entier
+Afficher("Quel est votre age ? ")
+Lire(age)</code></pre>
+            </div>
+            <div class="col-sm-6">
+              <pre><code class="language-python"># Python permet d'écrire un code plus réduit
+# age est de type entier
+age = int(input("Quel est votre age ? "))</code></pre>
+            </div>
+          </div>
+
+          <p class="explication">Saisie d'un réel</p>
+          <div class="row no-page-break-inside">
+            <div class="col-sm-6">
+              <pre><code class="language-algorithm">// hauteur est de type réel
+Afficher("Quel est votre hauteur (m) ? ")
+Lire(hauteur)</code></pre>
+            </div>
+            <div class="col-sm-6">
+              <pre><code class="language-python"># Python permet d'écrire un code plus réduit
+# hauteur est de type réel
+hauteur = float (input("Quel est votre hauteur (m) ? "))</code></pre>
+            </div>
+          </div>
+      </section>
+
+      <section>
+        <h3 class="brique">Choix d'une valeur au hasard</h3>
+        <div class="no-page-break-inside">
+          <p class="explication">Choix d'un nombre dans un intervalle</p>
+          <div class="row">
+            <div class="col-sm-6">
+              <pre><code class="language-algorithm">
+// Nbre aléatoire dans l'intervalle [10, 99]
+na &larr; alea(10, 99)
+Afficher(na)</code></pre>
+            </div>
+            <div class="col-sm-6">
+              <pre><code class="language-python">from random import randint
+# Nbre aléatoire dans l'intervalle [10, 99]
+na = randint(10, 99)
+print(na)</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="explication">Correspondre une valeur numérique à un texte</p>
+          <div class="row no-page-break-inside">
+            <div class="col-sm-6">
+              <pre><code class="language-algorithm">
+// Nbre alétaoire [1, 5]
+nbre &larr; alea(1, 5)
+Si nbre = 1 Alors
+  nbre_txt &larr; "Un"
+Sinon Si nbre = 2 Alors
+  nbre_txt &larr; "Deux"
+Sinon Si nbre = 3 Alors
+  nbre_txt &larr; "Trois"
+Sinon Si nbre = 4 Alors
+  nbre_txt &larr; "Quatre"
+Sinon 
+  nbre_txt &larr; "Cinq"
+Fin Si
+// Afficher le nombre tiré
+Afficher(nbre, " = ", nbre_txt)</code></pre>
+            </div>
+            <div class="col-sm-6">
+              <pre><code class="language-python">from random import randint
+# Nbre alétaoire [1, 5]
+nbre = randint(1, 5)
+if nbre == 1:
+  nbre_txt = "Un"
+elif nbre == 2:
+  nbre_txt = "Deux"
+elif nbre == 3:
+  nbre_txt = "Trois"
+elif nbre == 4:
+  nbre_txt = "Quatre"
+else: 
+  nbre_txt = "Cinq"
+
+# Afficher le nombre tiré
+print(nbre, " = ", nbre_txt)</code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <article>
+      <h2>Structures conditionnelles</h2>
+
+      <section>
+        <h3 class="brique">Formes</h3>
+
+        <div>
+          <p class="explication">Forme réduite</p>
+          <div class="row no-page-break-inside">
+            <div class="col-sm-6">
+              <pre><code class="language-algorithm">// Valeur absolue d'un nombre
+a &larr; -9
+va &larr; a
+si a &lt; 0 alors
+    a &larr; -a
+fin si
+Afficher("|", a, "|=", va)</code></pre>
+            </div>
+            <div class="col-sm-6">
+              <pre><code class="language-python"># Valeur absolue d'un nombre
+a = -9
+va = a
+if a &lt; 0:
+    va = -a
+
+print(f'| {a} |= {va}')  # | -9 |= 9</code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="explication">Forme alternative</p>
+          <div class="row no-page-break-inside">
+            <div class="col-sm-6">
+              <pre><code class="language-algorithm">// Signe d'un nombre
+
+a &larr; alea(-10, 10)
+si a >= 0 alors
+    afficher(a, "positif")
+sinon
+    afficher(a, "négatif")
+fin si</code></pre>
+            </div>
+            <div class="col-sm-6">
+              <pre><code class="language-python"># Signe d'un nombre
+from random import randint
+a = randint(-10, 10)
+if a >= 0:
+    print(f'{a} positif')
+else:
+    print(f'{a} négatif')
+# -3 négatif </code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="explication">Forme complète</p>
+          <div class="row no-page-break-inside">
+            <div class="col-sm-6">
+              <pre><code class="language-algorithm">// Comparaison de deux nombres
+
+a &larr; alea(1, 5)
+b &larr; alea(1, 5)
+si a > b alors
+    afficher(a, ">", b)
+sinon si a &lt; b alors
+    afficher(a, "&lt;", b)
+sinon
+    afficher(a, "=", b)
+fin si</code></pre>
+            </div>
+            <div class="col-sm-6">
+              <pre><code class="language-python"># Comparaison de deux nombres
+from random import randint
+a = randint(1, 5)
+b = randint(1, 5)
+if a > b:
+    print(a, '>', b)
+elif a &lt; b:
+    print(a, '&lt;', b)
+else:
+    print(a, '=', b)
+# 4 > 1  </code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+
+    <article>
+      <h2>Fonctions usuelles</h2>
+      
+    </article>
+  </main>
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
+    <div class="text-center small">Année scolaire : 2020/2021</div>
+  </footer>
+  <script src="scripts/jquery.min.js"></script>
+  <script src="scripts/bootstrap.min.js"></script>
+  <script src="scripts/highlight.pack.js"></script>
+  <script src="scripts/hljs.algorithm.js"></script>
+  <script src="scripts/draggable.js"></script>
+  <script src="scripts/clipboard.min.js"></script>
+  <script src="scripts/pages.js"></script>
+  <script src="scripts/savecontent.js"></script>
+  <script src="scripts/vue.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+    document.querySelectorAll('.language-algorithm,.language-python')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+    $(() => {
+      const localStore = new PagePersistance();
+      const serverStore = new ServerSaves('Building-Blocks');
+      const userInputSaver = new UserInputSaver(
+        document.querySelector('.user-input-saver'),
+        localStore,
+        serverStore);
+    });
+  </script>
+</body>
+
+</html>

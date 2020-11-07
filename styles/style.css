@@ -226,7 +226,9 @@ pre > code.shell.python.nohighlight {
 }
 
 .blk-container {
-  padding: 0.5rem;
+	padding: 0.5rem;
+	background-color: #3F51B547;
+	border: #3f51b550 solid 1px !important;
 }
 
 .blk-container .internal-brick {
@@ -235,6 +237,14 @@ pre > code.shell.python.nohighlight {
 
 .bricks-canvas .badge {
   font-size: 0.8rem;
+}
+
+.blk-drop-bricks .list-group {
+	background-color: #ffe0df;
+}
+
+.blk-drop-bricks .list-group-item {
+	border: #000000b5 solid 1px !important;
 }
 
 /*************************************************************************************/

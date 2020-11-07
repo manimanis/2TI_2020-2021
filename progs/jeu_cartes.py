@@ -1,14 +1,11 @@
 from random import randint
 
-numeros = [
-    'Lass', 'Douce', 'Tris', 'Quattro', 'Chinqa',
-    'Sdous', 'Sbou', 'Amira', 'Amir', 'Roi'
-]
+# Afficher le nom du jeu
+print('=-' * 30)
+print('|', 'Jeu de Trèfles'.center(56), '|')
+print('=-' * 30)
 
-print('=-' * 20)
-print('|', 'Jeu de Trèfles'.center(36), '|')
-print('=-' * 20)
-
+# Afficher le principe du jeu
 print()
 print('Principe du jeu')
 print('=-' * 15)
@@ -22,11 +19,12 @@ print("Celui qui a la carte avec la petite valeur est gagnant du tour. "
 print("Le gagnant est celui avec le plus grand score.")
 print()
 
-
-# Construire les cartes
-jeu = numeros.copy()
-
 # Mélanger les cartes
+cartes = [
+    'Lass', 'Douce', 'Tris', 'Quattro', 'Chinqa',
+    'Sdous', 'Sbou', 'Amira', 'Amir', 'Roi'
+]
+jeu = cartes.copy()
 nbre_cartes = len(jeu)
 for i in range(nbre_cartes // 2):
     autre = randint(i+1, nbre_cartes - 1)
@@ -35,45 +33,49 @@ for i in range(nbre_cartes // 2):
 score_ut = 0
 score_or = 0
 for partie in range(5):
-    print()
-    # Calculer le nombre de cartes restantes
+    # Le joueur tire une carte
     nbre_cartes = len(jeu)
+    print()
     print(f'Il reste {nbre_cartes} cartes.')
 
-    # Tirer une carte (utilisateur)
-    print('>' * 5, 'Joueur', '<' * 5)
+    print()
+    print('>' * 5, 'Joueur'.center(12), '<' * 5)
     while True:
         nc = int(input(f'Numéro carte à tirer [1, {nbre_cartes}] ? '))
         if 1 <= nc <= nbre_cartes:
             break
         print(f'Erreur : Entrer un nombre [1, {nbre_cartes}]')
+
     carte_ut = jeu[nc - 1]
+    print(f'Vous avez tiré : "{carte_ut}"')
+
     del jeu[nc - 1]
-    print(f'Vous avez tiré : {carte_ut}')
 
-    # Calculer le nombre de cartes restantes
+    # L'ordinateur tire une autre carte
     nbre_cartes = len(jeu)
+    print()
+    print(f'Il reste {nbre_cartes} cartes.')
 
-    # Tirer une carte (ordinateur)
-    print('>' * 5, 'Ordinateur', '<' * 5)
+    print()
+    print('>' * 5, 'Ordinateur'.center(12), '<' * 5)
     nc = randint(0, nbre_cartes - 1)
-    carte_or = jeu[nc]
-    del jeu[nc]
-    print(f'Je tire : {carte_or}')
 
-    # Calculer qui gagne
-    vc_ut = numeros.index(carte_ut)
-    vc_or = numeros.index(carte_or)
+    carte_or = jeu[nc]
+    print(f'Je tire : "{carte_or}"')
+
+    del jeu[nc]
+
+    # Déterminer le gagnant du tour
+    vc_ut = cartes.index(carte_ut)
+    vc_or = cartes.index(carte_or)
     if vc_ut < vc_or:
-        print(f'++ {carte_ut} bat {carte_or}')
-        print('++ Tu as gagné')
+        print(f'++ "{carte_ut}" bat "{carte_or}" => Tu as gagné')
         score_ut += 1
     else:
-        print(f'-- {carte_ut} est battu par {carte_or}')
-        print("-- Tu as perdu")
+        print(f'-- "{carte_ut}" est battu par "{carte_or}" => Tu as perdu')
         score_or += 1
 
-# Afficher score final
+# Afficher le gagnant de la partie
 print()
 print(f'Score final : {score_ut} contre {score_or}')
 if score_ut > score_or:

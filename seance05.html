@@ -316,9 +316,9 @@
           </video>
         </div>
 
-        <pre><code class="hljs nohighlight">=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-|            Jeu de Trèfles            |
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+        <pre><code class="hljs nohighlight">=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+|                      Jeu de Trèfles                      |
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 
 Principe du jeu
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
@@ -331,52 +331,84 @@ Le gagnant est celui avec le plus grand score.
 
 
 Il reste 10 cartes.
-&gt;&gt;&gt;&gt;&gt; Joueur &lt;&lt;&lt;&lt;&lt;
-Numéro carte à tirer [1, 10] ? 5
-Vous avez tiré : Tris
-&gt;&gt;&gt;&gt;&gt; Ordinateur &lt;&lt;&lt;&lt;&lt;
-Je tire : Amir
-++ Tris bat Amir
-++ Tu as gagné<span class="d-none d-print-block">...</span>
-<div class="d-print-none">
+
+&gt;&gt;&gt;&gt;&gt;    Joueur    &lt;&lt;&lt;&lt;&lt;
+Numéro carte à tirer [1, 10] ? 10
+Vous avez tiré : &quot;Lass&quot;
+
+Il reste 9 cartes.
+
+&gt;&gt;&gt;&gt;&gt;  Ordinateur  &lt;&lt;&lt;&lt;&lt;
+Je tire : &quot;Amir&quot;
+++ &quot;Lass&quot; bat &quot;Amir&quot; =&gt; Tu as gagné
+<span class="d-none d-print-inline">...</span><div class="d-print-none">
 Il reste 8 cartes.
-&gt;&gt;&gt;&gt;&gt; Joueur &lt;&lt;&lt;&lt;&lt;
-Numéro carte à tirer [1, 8] ? 4
-Vous avez tiré : Roi
-&gt;&gt;&gt;&gt;&gt; Ordinateur &lt;&lt;&lt;&lt;&lt;
-Je tire : Douce
--- Roi est battu par Douce
--- Tu as perdu
+
+&gt;&gt;&gt;&gt;&gt;    Joueur    &lt;&lt;&lt;&lt;&lt;
+Numéro carte à tirer [1, 8] ? 8
+Vous avez tiré : &quot;Quattro&quot;
+
+Il reste 7 cartes.
+
+&gt;&gt;&gt;&gt;&gt;  Ordinateur  &lt;&lt;&lt;&lt;&lt;
+Je tire : &quot;Sdous&quot;
+++ &quot;Quattro&quot; bat &quot;Sdous&quot; =&gt; Tu as gagné
 
 Il reste 6 cartes.
-&gt;&gt;&gt;&gt;&gt; Joueur &lt;&lt;&lt;&lt;&lt;
-Numéro carte à tirer [1, 6] ? 3
-Vous avez tiré : Lass
-&gt;&gt;&gt;&gt;&gt; Ordinateur &lt;&lt;&lt;&lt;&lt;
-Je tire : Sbou
-++ Lass bat Sbou
-++ Tu as gagné
+
+&gt;&gt;&gt;&gt;&gt;    Joueur    &lt;&lt;&lt;&lt;&lt;
+Numéro carte à tirer [1, 6] ? 6
+Vous avez tiré : &quot;Tris&quot;
+
+Il reste 5 cartes.
+
+&gt;&gt;&gt;&gt;&gt;  Ordinateur  &lt;&lt;&lt;&lt;&lt;
+Je tire : &quot;Chinqa&quot;
+++ &quot;Tris&quot; bat &quot;Chinqa&quot; =&gt; Tu as gagné
 
 Il reste 4 cartes.
-&gt;&gt;&gt;&gt;&gt; Joueur &lt;&lt;&lt;&lt;&lt;
-Numéro carte à tirer [1, 4] ? 2
-Vous avez tiré : Sdous
-&gt;&gt;&gt;&gt;&gt; Ordinateur &lt;&lt;&lt;&lt;&lt;
-Je tire : Quattro
--- Sdous est battu par Quattro
--- Tu as perdu
+
+&gt;&gt;&gt;&gt;&gt;    Joueur    &lt;&lt;&lt;&lt;&lt;
+Numéro carte à tirer [1, 4] ? 4
+Vous avez tiré : &quot;Amira&quot;
+
+Il reste 3 cartes.
+
+&gt;&gt;&gt;&gt;&gt;  Ordinateur  &lt;&lt;&lt;&lt;&lt;
+Je tire : &quot;Sbou&quot;
+-- &quot;Amira&quot; est battu par &quot;Sbou&quot; =&gt; Tu as perdu
 
 Il reste 2 cartes.
-&gt;&gt;&gt;&gt;&gt; Joueur &lt;&lt;&lt;&lt;&lt;
-Numéro carte à tirer [1, 2] ? 1
-Vous avez tiré : Amira
-&gt;&gt;&gt;&gt;&gt; Ordinateur &lt;&lt;&lt;&lt;&lt;
-Je tire : Chinqa
--- Amira est battu par Chinqa
--- Tu as perdu
+
+&gt;&gt;&gt;&gt;&gt;    Joueur    &lt;&lt;&lt;&lt;&lt;
+Numéro carte à tirer [1, 2] ? 2
+Vous avez tiré : &quot;Roi&quot;
+
+Il reste 1 cartes.
+
+&gt;&gt;&gt;&gt;&gt;  Ordinateur  &lt;&lt;&lt;&lt;&lt;
+Je tire : &quot;Douce&quot;
+-- &quot;Roi&quot; est battu par &quot;Douce&quot; =&gt; Tu as perdu
 </div>
-Score final : 2 contre 3
-Tu as perdu</code></pre>
+Score final : 3 contre 2
+Tu as gagné</code></pre>
+      </section>
+
+      <section>
+        <h3>Etapes du programme</h3>
+
+        <ol type="a" class="order-items-exercise"
+          data-enonce="Ordonner les étapes d'exécution d'après les examples donnés précédemment." data-isnumbered="true"
+          hidden>
+          <li data-ordre="8" data-place="true">Afficher le gagnant de la partie</li>
+          <li data-ordre="6">- L'ordinateur tire une autre carte</li>
+          <li data-ordre="5">- Le joueur tire une carte</li>
+          <li data-ordre="1" data-place="true">Afficher le nom du jeu</li>
+          <li data-ordre="4" data-place="true">Répéter 5 fois (5 tours)</li>
+          <li data-ordre="3">Mélanger les cartes</li>
+          <li data-ordre="2" data-place="true">Afficher le principe du jeu</li>
+          <li data-ordre="7">- Déterminer le gagnant du tour</li>
+        </ol>
       </section>
     </article>
   </main>

@@ -551,7 +551,7 @@ p &larr; x * y
 Afficher(x, "*", y, "=", p)</code></pre>
           </div>
           <div class="col-sm-6">
-            <pre><code class="language-algorithm">x = 8
+            <pre><code class="language-python">x = 8
 y = 5
 p = x * y
 print(f'{x} * {y} = {p}')</code></pre>
@@ -1024,8 +1024,8 @@ Afficher()</code></pre>
 
         <p>Ecrire les instructions algorithmiques qui initialisent les bornes de l'intervalle [1, 127].</p>
         <ul>
-          <li><b>bor_inf</b> désigne la borne inférieure</li>
-          <li><b>bor_sup</b> désigne la borne supèrieure</li>
+          <li><b>bor_inf</b> désigne la borne inférieure de l'intervalle</li>
+          <li><b>bor_sup</b> désigne la borne supèrieure de l'intervalle</li>
         </ul>
 
         <div class="bricks-canvas" data-slots="1">
@@ -1059,6 +1059,12 @@ bor_sup &larr; 127</code></pre>
         <p>Sachant que <b>mid</b> est le nombre situé au milieu de l'intervalle [bor_inf, bor_sup]. Ecrire l'instruction
           algorithmique qui permet de calculer cette valeur.</p>
 
+        <p class="explication">Exemples</p>
+        <p>- pour l'intervalle [5, 10] on calcule <code>mid &larr; (5 + 10) div 2</code> ou <code>mid &larr; 7</code>
+        </p>
+        <p>- pour l'intervalle [20, 30] on calcule <code>mid &larr; (20 + 30) div 2</code> ou <code>mid &larr; 25</code>
+        </p>
+
         <div class="bricks-canvas" data-slots="1">
           <span class="brick"><span class="brick">mid</span> &larr; (<span class="brick">bor_inf</span> +
             <span class="brick">bor_sup</span>) div 2</span>
@@ -1067,12 +1073,12 @@ bor_sup &larr; 127</code></pre>
       </section>
 
       <section>
-        <h3>Afficher le nomber proposé</h3>
+        <h3>Afficher le nombre proposé</h3>
 
         <p class="explication">Question</p>
 
-        <p>Sachant que <b>mid</b> contient la valeur proposée, écrire une instruction algorithmique qui permet
-          d'afficher la valeur proposée de la façon suivante :</p>
+        <p>Sachant que la variable <b>mid</b> contient la valeur proposée, écrire une instruction algorithmique qui
+          affiche la valeur proposée. Si <code>mid &larr; 64</code> l'affichage sera effectué de la façon suivante :</p>
 
         <pre><code class="hljs nohighlight">Je propose : 64</code></pre>
 
@@ -1086,34 +1092,38 @@ bor_sup &larr; 127</code></pre>
 
         <p class="explication">Question</p>
 
-        <p>Ecrire l'algorithme qui permet à l'utilisateur de répondre à la proposition de l'ordinateur. Voici un exemple
-          d'affichage :</p>
-
-        <pre><code class="hljs nohighlight">Le nombre secret est-t-il :
+        <p>Ecrire l'algorithme qui :</p>
+        <ul>
+          <li>Affiche le message :
+            <pre><code class="hljs nohighlight">Le nombre secret est-t-il :
 - supérieur à mon nombre (tapez &gt;)
 - inférieur à mon nombre (tapez &lt;)
-- égal à mon nombre (tapez =)
-? &lt;</code></pre>
+- égal à mon nombre (tapez =)</code></pre>
+          </li>
+          <li>Saisit la réponse de l'utilisateur</li>
+          <li>Réalise le contrôle de saisie : la réponse de l'utilisateur doit être un des trois symboles
+            <code>&lt;</code>, <code>&gt;</code>, <code>=</code></li>
+        </ul>
 
         <div class="bricks-canvas" data-slots="2">
-          <span class="brick">Afficher('Le nombre secret est-t-il :')<br>
-            Afficher('- supérieur à mon nombre (tapez &gt;)')<br>
-            Afficher('- inférieur à mon nombre (tapez &lt;)')<br>
-            Afficher('- égal à mon nombre (tapez =)')</span>
+          <span class="brick">Afficher("Le nombre secret est-t-il :")<br>
+            Afficher("- supérieur à mon nombre (tapez &gt;)")<br>
+            Afficher("- inférieur à mon nombre (tapez &lt;)")<br>
+            Afficher("- égal à mon nombre (tapez =)")</span>
 
           <span class="brick">Répéter<br>
             <span class="brick">Afficher("? ")<br>
               Lire(reponse)</span><br>
-            Jusqu'à <span class="brick">(long(reponse) = 1) et (reponse dans '&lt;&gt;=')</span></span>
-          <pre class="success"><code class="language-algorithm">Afficher('Le nombre secret est-t-il :')
-Afficher('- supérieur à mon nombre (tapez &gt;)')
-Afficher('- inférieur à mon nombre (tapez &lt;)')
-Afficher('- égal à mon nombre (tapez =)')
+            Jusqu'à <span class="brick">(long(reponse) = 1) et (reponse dans "&lt;&gt;=")</span></span>
+          <pre class="success"><code class="language-algorithm">Afficher("Le nombre secret est-t-il :")
+Afficher("- supérieur à mon nombre (tapez &gt;)")
+Afficher("- inférieur à mon nombre (tapez &lt;)")
+Afficher("- égal à mon nombre (tapez =)")
 
 Répéter
     Afficher("? ")
     Lire(reponse)
-Jusqu'à (long(reponse) = 1) et (reponse dans '&lt;&gt;=')</code></pre>
+Jusqu'à (long(reponse) = 1) et (reponse dans "&lt;&gt;=")</code></pre>
         </div>
       </section>
 
@@ -1162,10 +1172,10 @@ Hoorray! J'ai trouvé en 6 coups.</code></pre>
 
         <p>Sachant que <b>essai</b> contient le nombre d'essai, compléter l'algorithme.</p>
 
-        <div class="bricks-canvas" data-slots="2">
+        <div class="bricks-canvas" data-slots="1">
           <span class="brick">Afficher()<br>
-            Afficher(':D :) ' * 10)</span>
-          <span class="brick">Afficher("Hoorray! J'ai trouvé en", <span class="brick">essai</span>, "coups.")</span>
+            Afficher(':D :) ' * 10)<br>
+            Afficher("Hoorray! J'ai trouvé en", <span class="brick">essai</span>, "coups.")</span>
           <pre class="success"><code class="language-algorithm">Si reponse = "=" Alors
   Afficher()
   Afficher(':D :) ' * 10)
@@ -1210,7 +1220,7 @@ Début
     Afficher('*' * 20)
     // Calculer le nombre proposé
     mid ← (bor_inf + bor_sup) div 2
-    // Afficher le nomber proposé
+    // Afficher le nombre proposé
     Afficher("Je propose :", mid)
     // Saisir la réponse de l'utilisateur
     Afficher('Le nombre secret est-t-il :')
