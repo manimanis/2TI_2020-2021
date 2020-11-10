@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet n°1 - Exercices d'évaluation</title>
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/default.css">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+  <header class="py-2 px-4 bg-secondary">
+    <div class="user-input-saver text-white">
+      <div class="row">
+        <div class="col-sm-6">
+          <label>Nom & Prénom</label>
+          <input type="text" class="form-control save-content" placeholder="Nom & Prénom">
+        </div>
+        <div class="col-sm-6">
+          <label>Classe</label>
+          <select class="form-control save-content" placeholder="Classe">
+            <option>2TI</option>
+            <option>2SC</option>
+            <option>3T</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </header>
+  <aside>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+  <main class="container my-4">
+    <h1>Exercices d'évaluation</h1>
+
+    <article>
+      <h2>Exercices</h2>
+
+      <section>
+        <h3>Somme chiffres multiple de 5</h3>
+
+        <p>Ecrire l'algorithme d'un programme qui affiche tous les entiers de deux chiffres dont la somme des
+          chiffres est multiple de 5.</p>
+        <p class="explication">Exemples</p>
+        <p>14, 19, 23, etc</p>
+        <p class="explication">Explication</p>
+        <p>14 &rarr; 1 + 4 = 5 et 5 est un multiple de 5</p>
+        <p>19 &rarr; 1 + 9 = 10 et 10 est un multiple de 5</p>
+        <p>23 &rarr; 2 + 3 = 5 et 5 est un multiple de 5</p>
+      </section>
+
+      <section>
+        <h3>Dessiner triangle rectangle remplit</h3>
+
+        <p>Ecrire l'algorithme d'un programme qui affiche un triangle rectangle en utilisant le caractère
+          <code>*</code>. La base du triangle est donnée.</p>
+        <p class="explication">Exemple</p>
+        <pre><code class="hljs nohighlight">Donner la longueur de la base ? 4
+*
+**
+***
+****</code></pre>
+      </section>
+
+      <section>
+        <h3>Nombre premier</h3>
+
+        <p>Ecrire un programme qui affiche si un nombre n, donné, est premier ou non. Un nombre est dit premier s'il
+          admet exactement deux diviseurs 1 et lui même.</p>
+        <p class="explication">Exemples</p>
+        <pre><code class="hljs nohighlight">Donner un entier ? 5
+5 est premier</code></pre>
+        <pre><code class="hljs nohighlight">Donner un entier ? 15
+15 n'est pas premier</code></pre>
+      </section>
+
+      <section>
+        <h3>Produit de nombre se terminant en 91</h3>
+        <p>Ecrire un programme qui affiche tous les nombre de deux chiffres dont le produit :</p>
+        <ul>
+          <li>est un nombre de 4 chiffres</li>
+          <li>est un nombre qui se termine par 91</li>
+        </ul>
+        <p>Ne pas afficher des doublons. Par exemple, 19 * 89 et 89 * 19 sont considérés comme étant des doublons.</p>
+        <p class="explication">Exemples</p>
+        <pre><code class="hljs nohighlight">19 * 89 = 1691
+21 * 71 = 1491</code></pre>
+      </section>
+
+      <section>
+        <h3>Triangle rectangle vide</h3>
+
+        <p>Ecrire l'algorithme d'un programme qui affiche un triangle rectangle en utilisant le caractère
+          <code>*</code>. La base du triangle est donnée.</p>
+        <p class="explication">Exemple</p>
+        <pre><code class="hljs nohighlight">Donner la longueur de la base ? 5
+*
+**
+* *
+*  *
+*****</code></pre>
+      </section>
+
+      <section>
+        <h3>Triangle isocèle remplit</h3>
+
+        <p>Ecrire l'algorithme d'un programme qui affiche un triangle isocèle en utilisant le caractère
+          <code>*</code>. L'hauteur du triangle est donnée.</p>
+        <p class="explication">Exemple</p>
+        <pre><code class="hljs nohighlight">Donner la hauteur du triangle ? 5
+    *
+   ***
+  *****
+ *******
+*********</code></pre>
+      </section>
+
+      <section>
+        <h3>Somme des diviseurs d'un nombre</h3>
+
+        <p>Ecrire un programme qui affiche la somme des diviseurs d'un nombre n donné.</p>
+        <p class="explication">Exemples</p>
+        <pre><code class="hljs nohighlight">Donner un entier ? 12
+Somme des diviseurs : 28</code></pre>
+        <p>Les diviseurs de 12 sont : 1, 2, 3, 4, 6 et 12 et leur somme est : 28</p>
+      </section>
+
+      <section>
+        <h3>dizaines = unités + centaines</h3>
+        <p>Ecrire un programme qui affiche tous les nombres de trois chiffres dont le chiffre de dizaines est égal à la
+          somme des chiffres de centaines et d'unité.</p>
+        <p class="explication">Exemples</p>
+        <p>121, 143, etc</p>
+      </section>
+    </article>
+  </main>
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
+    <div class="text-center small">Année scolaire : 2020/2021</div>
+  </footer>
+  <script src="scripts/jquery.min.js"></script>
+  <script src="scripts/bootstrap.min.js"></script>
+  <script src="scripts/highlight.pack.js"></script>
+  <script src="scripts/hljs.algorithm.js"></script>
+  <script src="scripts/draggable.js"></script>
+  <script src="scripts/clipboard.min.js"></script>
+  <script src="scripts/pages.js"></script>
+  <script src="scripts/savecontent.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+    document.querySelectorAll('.language-algorithm,.language-python')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+    $(() => {
+      const localStore = new PagePersistance();
+      const serverStore = new ServerSaves('Exercices 3');
+      const userInputSaver = new UserInputSaver(
+        document.querySelector('.user-input-saver'),
+        localStore,
+        serverStore);
+    });
+  </script>
+</body>
+
+</html>

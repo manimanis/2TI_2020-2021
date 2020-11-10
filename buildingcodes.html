@@ -8,6 +8,12 @@
   <link rel="stylesheet" href="styles/bootstrap.min.css">
   <link rel="stylesheet" href="styles/default.css">
   <link rel="stylesheet" href="styles/style.css">
+  <style>
+    .my-inp {
+      display: inline-block;
+      width: fit-content;
+    }
+  </style>
 </head>
 
 <body>
@@ -272,7 +278,7 @@ print(nbre, " = ", nbre_txt)</code></pre>
       <h2>Structures conditionnelles</h2>
 
       <section>
-        <h3 class="brique">Formes</h3>
+        <h3 class="brique">Si</h3>
 
         <div>
           <p class="explication">Forme réduite</p>
@@ -359,8 +365,176 @@ else:
     </article>
 
     <article>
+      <h2>Structures itératives</h2>
+
+      <section>
+        <h3>Pour</h3>
+
+        <div>
+          <p class="explication">Afficher un message</p>
+          <div class="row no-page-break-inside">
+            <div class="col-sm-6">
+              <pre><code class="language-algorithm">// Afficher un message plusieurs fois
+Pour i de 0 à 4 Faire
+    Afficher("I am a Pythonista!")
+Fin Pour</code></pre>
+            </div>
+            <div class="col-sm-6">
+              <pre><code class="language-python"># Afficher un message plusieurs fois
+for i in range(5):
+    print("I am a Pythonista!")
+ </code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="explication">Les nombres d'un intervalle</p>
+          <div class="row no-page-break-inside">
+            <div class="col-sm-6">
+              <pre><code class="language-algorithm">// Afficher tous les nombres d'un intervalle
+Pour i de 10 à 20 Faire
+    Afficher("Le compteur marque", i)
+Fin Pour</code></pre>
+            </div>
+            <div class="col-sm-6">
+              <pre><code class="language-python"># Afficher un message plusieurs fois
+for i in range(10, 21):
+    print(f"Le compteur marque {i}")
+ </code></pre>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <p class="explication">Les nombres d'un intervalle par pas fixe</p>
+          <div class="row no-page-break-inside">
+            <div class="col-sm-6">
+              <pre><code class="language-algorithm">// Les nombres d'un intervalle par pas de 4
+Pour i de 3 à 20 (pas = 4) Faire
+    Afficher("Le compteur marque", i)
+Fin Pour</code></pre>
+            </div>
+            <div class="col-sm-6">
+              <pre><code class="language-python"># Afficher un message plusieurs fois
+for i in range(3, 21, 4):
+    print(f"Le compteur marque {i}")
+ </code></pre>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Répéter ... Jusqu'à</h3>
+      </section>
+    </article>
+
+    <article>
       <h2>Fonctions usuelles</h2>
-      
+
+      <section>
+        <h3>Conversions</h3>
+
+        <table class="table table-bordered" id="conversions">
+          <thead>
+            <tr>
+              <th colspan="2">Fontion</th>
+              <th rowspan="2" width="50%">Explication</th>
+              <th rowspan="2">Exemple</th>
+            </tr>
+            <tr>
+              <th width="16.6%">Algorithme</th>
+              <th width="16.6%">Python</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td></td>
+              <td>int(string)</td>
+              <td>Convertit une chaîne en un nombre entier</td>
+              <td>
+                <span v-if="!is_visible('int_str')"
+                  v-on:click="show_control('int_str')">int("{{int_str['param']}}")</span>
+                <input v-if="is_visible('int_str')" v-model="int_str['param']" v-on:keyup.enter="validate('int_str')"
+                  class="my-inp my-inp-str" placeholder="string"><br>
+                &RightArrow; {{int_str['res']}}
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>int(string, base)</td>
+              <td>Convertit une chaîne en un nombre entier dans une base numérique</td>
+              <td>
+                <span v-if="!is_visible('int_base')" v-on:click="show_control('int_base')">int("{{int_base['param0']}}",
+                  {{int_base['param1']}})</span>
+                <input v-if="is_visible('int_base')" v-model="int_base['param0']"
+                  v-on:keyup.enter="validate('int_base')" class="my-inp my-inp-str" placeholder="string">
+                <input v-if="is_visible('int_base')" v-model="int_base['param1']"
+                  v-on:keyup.enter="validate('int_base')" class="my-inp my-inp-str" placeholder="base"><br>
+                &RightArrow; {{int_base['res']}}
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>int(real)</td>
+              <td>Elimine la partie réelle d'un réel</td>
+              <td>
+                <span v-if="!is_visible('int_real')"
+                  v-on:click="show_control('int_real')">int({{int_real['param']}})</span>
+                <input v-if="is_visible('int_real')" v-model="int_real['param']" v-on:keyup.enter="validate('int_real')"
+                  class="my-inp my-inp-str" placeholder="real"><br>
+                &RightArrow; {{int_real['res']}}
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>float(string)</td>
+              <td>Convertit une chaîne en nombre réel</td>
+              <td>
+                <span v-if="!is_visible('float_str')"
+                  v-on:click="show_control('float_str')">float("{{float_str['param']}}")</span>
+                <input v-if="is_visible('float_str')" v-model="float_str['param']" v-on:keyup.enter="validate('float_str')"
+                  class="my-inp my-inp-str" placeholder="string"><br>
+                &RightArrow; {{float_str['res']}}
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                bool(objet)
+              </td>
+              <td>
+                Convertit un objet en booléen.<br>
+                Retourne <code>False</code> pour <code>0</code>, <code>0.0</code>, <code>None</code>, et <code>False</code>.
+              </td>
+              <td>
+                bool('False')<br>
+                &RightArrow; True<br>
+                bool(15.6)<br>
+                &RightArrow; True<br>
+                bool(None)<br>
+                &RightArrow; False<br>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td>
+                str(objet)
+              </td>
+              <td>Convertit un objet en texte.</td>
+              <td>
+                str(15)<br>
+                &RightArrow; '15'<br>
+                str(15.6)<br>
+                &RightArrow; '15.6'<br>
+                str(True)<br>
+                &RightArrow; 'True'<br>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
     </article>
   </main>
   <footer class="d-print-none bg-dark text-white p-2">
@@ -401,6 +575,80 @@ else:
         document.querySelector('.user-input-saver'),
         localStore,
         serverStore);
+      new Vue({
+        el: '#conversions',
+        data: {
+          int_str: {
+            param: '15',
+            res: 15,
+            fn: function () {
+              if (/^[\+-]*[0-9]+$/.test(this.param)) {
+                this.res = parseInt(this.param);
+              } else {
+                this.res = 'Error';
+              }
+            }
+          },
+          int_base: {
+            param0: '15',
+            param1: 16,
+            res: 21,
+            fn: function () {
+              if (/^[\+-]*[0-9A-Za-z]+$/.test(this.param0) && this.param1 > 1 && this.param1 < 37) {
+                const res = parseInt(this.param0, this.param1);
+                if (isNaN(res)) {
+                  this.res = 'Error';
+                } else {
+                  this.res = res;
+                }
+              } else {
+                this.res = 'Error';
+              }
+            }
+          },
+          int_real: {
+            param: '15.56',
+            res: 15,
+            fn: function () {
+              const res = parseInt(parseFloat(this.param));
+              if (!isNaN(res)) {
+                this.res = res;
+              } else {
+                this.res = 'Error';
+              }
+            }
+          },
+          float_str: {
+            param: '15.56',
+            res: 15.56,
+            fn: function () {
+              const res = parseFloat(this.param);
+              if (!isNaN(res)) {
+                this.res = res;
+              } else {
+                this.res = 'Error';
+              }
+            }
+          },
+          visible_controls: {}
+        },
+        methods: {
+          is_visible: function (name) {
+            if (typeof this.visible_controls[name] === 'undefined') {
+              this.visible_controls[name] = false;
+            }
+            return this.visible_controls[name];
+          },
+          show_control: function (name, visible = true) {
+            this.visible_controls[name] = visible;
+            this.$forceUpdate();
+          },
+          validate: function (name) {
+            this[name]['fn']();
+            this.show_control(name, false);
+          }
+        }
+      });
     });
   </script>
 </body>

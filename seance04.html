@@ -521,17 +521,15 @@ Hoorray! J&apos;ai trouvé en 6 coups.</code></pre>
         <ol type="a" class="order-items-exercise"
           data-enonce="Ordonner les étapes d'exécution d'après les examples donnés précédemment." data-isnumbered="true"
           hidden>
-          <li data-ordre="8">Saisir la <b>réponse</b> de l'utilisateur</li>
-          <li data-ordre="6">Calculer le <b>nombre proposé</b></li>
-          <li data-ordre="5">Afficher le numéro d'essai</li>
+          <li data-ordre="6">Saisir la <b>réponse</b> de l'utilisateur</li>
+          <li data-ordre="4">Afficher le numéro d'essai</li>
           <li data-ordre="1" data-place="true">Afficher un message de bienvenue</li>
-          <li data-ordre="10" data-place="true">Afficher un message de victoire, si la <b>réponse</b> est "="</li>
-          <li data-ordre="4" data-place="true">Répéter</li>
-          <li data-ordre="9">Réduire l'intervalle de recherche, si la <b>réponse</b> est "&gt;" ou "&lt;"</li>
-          <li data-ordre="3">Initialiser les bornes de l'intervalle [1, 127]</li>
-          <li data-ordre="11" data-place="true">Jusqu'à 7 essais ou <b>réponse</b> est "="</li>
-          <li data-ordre="2" data-place="true">Afficher le principe du jeu</li>
-          <li data-ordre="7" data-place="true">Afficher le <b>nombre proposé</b></li>
+          <li data-ordre="8" data-place="true">Afficher un message de victoire, si la <b>réponse</b> est "="</li>
+          <li data-ordre="3" data-place="true">Répéter</li>
+          <li data-ordre="7">Réduire l'intervalle de recherche, si la <b>réponse</b> est "&gt;" ou "&lt;"</li>
+          <li data-ordre="2">Initialiser les bornes de l'intervalle [1, 127]</li>
+          <li data-ordre="9" data-place="true">Jusqu'à 7 essais ou <b>réponse</b> est "="</li>
+          <li data-ordre="5" data-place="true">Calculer et afficher le <b>nombre proposé</b></li>
         </ol>
       </section>
     </article>
@@ -965,25 +963,8 @@ print("- Remettre le plateau dans le four. Fermer le four.")</code></pre>
 
         <pre><code class="hljs nohighlight">Bienvenue, cher utilisateur
 Aujourd'hui, je vais jouer avec vous au jeu devine mon nombre.
- </code></pre>
 
-        <div class="bricks-canvas" data-slots="3">
-          <span class="brick">Afficher("Bienvenue, cher utilisateur")</span>
-          <span class="brick">Afficher("Aujourd'hui, je vais jouer avec vous au jeu devine mon nombre.")</span>
-          <span class="brick">Afficher()</span>
-          <pre class="success"><code class="language-algorithm">Afficher("Bienvenue, cher utilisateur")
-Afficher("Aujourd'hui, je vais jouer avec vous au jeu devine mon nombre.")
-Afficher()</code></pre>
-        </div>
-      </section>
-
-      <section>
-        <h3>Afficher le principe du jeu</h3>
-
-        <p class="explication">Question</p>
-        <p>Ecrire un algorithme qui affiche le principe du jeu :</p>
-
-        <pre><code class="hljs no-highlight">Principe du jeu
+Principe du jeu
 =-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 Le principe du jeu est simple : 
 - Vous choisissez un nombre dans l'intervalle [1, 127].
@@ -993,18 +974,23 @@ Le principe du jeu est simple :
 Attention! Notez le nombre pour ne pas l'oublier.
  </code></pre>
 
-        <div class="bricks-canvas" data-slots="3">
+        <div class="bricks-canvas" data-slots="2">
+          <span class="brick">Afficher("Bienvenue, cher utilisateur")<br>
+            Afficher("Aujourd'hui, je vais jouer avec vous au jeu devine mon nombre.")<br>
+            Afficher()</span>
           <span class="brick">Afficher('Principe du jeu')<br>
             Afficher('=-' * 30)<br>
-            Afficher('Le principe du jeu est simple : ')</span>
-          <span class="brick">
+            Afficher('Le principe du jeu est simple : ')</br>
             Afficher("- Vous choisissez un nombre dans l'intervalle [1, 127].")<br>
             Afficher("- Je vais le deviner en 8 essais max.")<br>
-            Afficher("- Vous devez indiquer si mon nombre proposé est supèrieur, inférieur ou égal au votre.")</span>
-          <span class="brick">Afficher()<br>
+            Afficher("- Vous devez indiquer si mon nombre proposé est supèrieur, inférieur ou égal au votre.")<br>
+            Afficher()<br>
             Afficher("Attention! Notez le nombre pour ne pas l'oublier.")<br>
             Afficher()</span>
-          <pre class="success"><code class="language-algorithm">Afficher('Principe du jeu')
+          <pre class="success"><code class="language-algorithm">Afficher("Bienvenue, cher utilisateur")
+Afficher("Aujourd'hui, je vais jouer avec vous au jeu devine mon nombre.")
+Afficher()
+Afficher('Principe du jeu')
 Afficher('=-' * 30)
 Afficher('Le principe du jeu est simple : ')
 Afficher("- Vous choisissez un nombre dans l'intervalle [1, 127].")
@@ -1052,38 +1038,38 @@ bor_sup &larr; 127</code></pre>
       </section>
 
       <section>
-        <h3>Calculer le nombre proposé</h3>
+        <h3>Calculer et afficher le nombre proposé</h3>
 
-        <p class="explication">Question</p>
+        <p class="explication">Questions</p>
 
-        <p>Sachant que <b>mid</b> est le nombre situé au milieu de l'intervalle [bor_inf, bor_sup]. Ecrire l'instruction
-          algorithmique qui permet de calculer cette valeur.</p>
+        <ul>
+          <li>
+            <p>Sachant que <b>mid</b> est le nombre situé au milieu de l'intervalle [bor_inf, bor_sup]. Ecrire
+              l'instruction
+              algorithmique qui permet de calculer cette valeur.</p>
 
-        <p class="explication">Exemples</p>
-        <p>- pour l'intervalle [5, 10] on calcule <code>mid &larr; (5 + 10) div 2</code> ou <code>mid &larr; 7</code>
-        </p>
-        <p>- pour l'intervalle [20, 30] on calcule <code>mid &larr; (20 + 30) div 2</code> ou <code>mid &larr; 25</code>
-        </p>
+            <p class="explication">Exemples</p>
+            <p>- pour l'intervalle [5, 10] on calcule <code>mid &larr; (5 + 10) div 2</code> ou
+              <code>mid &larr; 7</code>
+            </p>
+            <p>- pour l'intervalle [20, 30] on calcule <code>mid &larr; (20 + 30) div 2</code> ou
+              <code>mid &larr; 25</code>
+            </p>
+          </li>
+          <li>
+            <p>Sachant que la variable <b>mid</b> contient la valeur proposée, écrire une instruction algorithmique qui
+              affiche la valeur proposée. Si <code>mid &larr; 64</code> l'affichage sera effectué de la façon suivante :
+            </p>
+            <pre><code class="hljs nohighlight">Je propose : 64</code></pre>
+          </li>
+        </ul>
 
-        <div class="bricks-canvas" data-slots="1">
+        <div class="bricks-canvas" data-slots="2">
           <span class="brick"><span class="brick">mid</span> &larr; (<span class="brick">bor_inf</span> +
-            <span class="brick">bor_sup</span>) div 2</span>
-          <pre class="success"><code class="language-algorithm">mid &larr; (bor_inf + bor_sup) div 2</code></pre>
-        </div>
-      </section>
-
-      <section>
-        <h3>Afficher le nombre proposé</h3>
-
-        <p class="explication">Question</p>
-
-        <p>Sachant que la variable <b>mid</b> contient la valeur proposée, écrire une instruction algorithmique qui
-          affiche la valeur proposée. Si <code>mid &larr; 64</code> l'affichage sera effectué de la façon suivante :</p>
-
-        <pre><code class="hljs nohighlight">Je propose : 64</code></pre>
-
-        <div class="mt-0 mb-4 p-1">
-          <input type="text" class="form-control save-content">
+            bor_sup) div 2</span>
+          <span class="brick">Afficher("Je propose :", mid)</span>
+          <pre class="success"><code class="language-algorithm">mid &larr; (bor_inf + bor_sup) div 2
+Afficher("Je propose :", mid)</code></pre>
         </div>
       </section>
 
@@ -1112,9 +1098,9 @@ bor_sup &larr; 127</code></pre>
             Afficher("- égal à mon nombre (tapez =)")</span>
 
           <span class="brick">Répéter<br>
-            <span class="brick">Afficher("? ")<br>
-              Lire(reponse)</span><br>
-            Jusqu'à <span class="brick">(long(reponse) = 1) et (reponse dans "&lt;&gt;=")</span></span>
+            Afficher("? ")<br>
+            <span class="brick">Lire(reponse)</span><br>
+            Jusqu'à (long(reponse) = 1) et <span class="brick">(reponse dans "&lt;&gt;=")</span></span>
           <pre class="success"><code class="language-algorithm">Afficher("Le nombre secret est-t-il :")
 Afficher("- supérieur à mon nombre (tapez &gt;)")
 Afficher("- inférieur à mon nombre (tapez &lt;)")
@@ -1144,10 +1130,10 @@ Jusqu'à (long(reponse) = 1) et (reponse dans "&lt;&gt;=")</code></pre>
         <p class="explication">Compléter l'algorithme :</p>
 
         <div class="bricks-canvas" data-slots="1">
-          <span class="brick">Si <span class="brick">reponse = "&gt;"</span> Alors<br>
+          <span class="brick">Si reponse = "&gt;" Alors<br>
             <span class="brick">bor_inf &larr; mid + 1</span><br>
             Sinon Si <span class="brick">reponse = "&lt;"</span> Alors<br>
-            <span class="brick">bor_sup &larr; mid - 1</span><br>
+            bor_sup &larr; mid - 1<br>
             Fin si</span>
           <pre class="success"><code class="language-algorithm">Si reponse = "&gt;" Alors
   bor_inf &larr; mid + 1
@@ -1173,9 +1159,12 @@ Hoorray! J'ai trouvé en 6 coups.</code></pre>
         <p>Sachant que <b>essai</b> contient le nombre d'essai, compléter l'algorithme.</p>
 
         <div class="bricks-canvas" data-slots="1">
-          <span class="brick">Afficher()<br>
-            Afficher(':D :) ' * 10)<br>
-            Afficher("Hoorray! J'ai trouvé en", <span class="brick">essai</span>, "coups.")</span>
+          <span class="brick">Si reponse = "=" Alors<br>
+            <span class="brick">Afficher()<br>
+              Afficher(':D :) ' * 10)<br>
+              Afficher("Hoorray! J'ai trouvé en", essai, "coups.")</span><br>
+            Fin si
+          </span>
           <pre class="success"><code class="language-algorithm">Si reponse = "=" Alors
   Afficher()
   Afficher(':D :) ' * 10)
