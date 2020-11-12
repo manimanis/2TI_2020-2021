@@ -1,7 +1,7 @@
 from random import randint
 
 print("Jeu de dès")
-print("==-" * 15)
+print("==-" * 10)
 
 de1 = randint(1, 6)
 de2 = randint(1, 6)
@@ -18,5 +18,5 @@ elif de1 + de2 == 6 or de1 + de3 == 6 or de2 + de3 == 6:
 else:
     gain = de1 + de2 + de3
 
-print(f"de1 : {de1} - de1 : {de2} - de1 : {de3}")
+print(f"de1 : {de1} - de2 : {de2} - de3 : {de3}")
 print(f"gain : {gain} points")

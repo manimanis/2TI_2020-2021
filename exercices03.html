@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projet n°1 - Exercices d'évaluation</title>
+  <title>Projet n°2 - Exercices structure Pour</title>
   <link rel="stylesheet" href="styles/bootstrap.min.css">
   <link rel="stylesheet" href="styles/default.css">
   <link rel="stylesheet" href="styles/style.css">
@@ -39,13 +39,35 @@
     </nav>
   </aside>
   <main class="container my-4">
-    <h1>Exercices d'évaluation</h1>
+    <h1>Exercices structure Pour</h1>
 
     <article>
       <h2>Exercices</h2>
 
       <section>
-        <h3>Somme chiffres multiple de 5</h3>
+        <h3>Nombres multiples de 3 (résolu)</h3>
+        <p>Ecrire l'algorithme d'un programme qui affiche les multiples de 3 dans un intervalle [a, b] donné.</p>
+        <p class="explication">Travail demandé</p>
+        <p>Proposer une autre méthode de résolution.</p>
+
+        <pre><code class="language-algorithm">Algorithme Multiple_3
+// méthode 1
+Début
+  Ecrire('Donner a ? ')
+  Lire(a)
+  Ecrire('Donner b ? ')
+  Lire(b)
+  Si a mod 3 &ne; 0 alors
+    a = a + (3 - a mod 3)
+  Fin Si
+  Pour i de a à b (pas = 3) Faire
+    Ecrire(i)
+  Fin Pour
+Fin</code></pre>
+      </section>
+
+      <section>
+        <h3>Somme chiffres multiple de 5 (résolu)</h3>
 
         <p>Ecrire l'algorithme d'un programme qui affiche tous les entiers de deux chiffres dont la somme des
           chiffres est multiple de 5.</p>
@@ -55,6 +77,62 @@
         <p>14 &rarr; 1 + 4 = 5 et 5 est un multiple de 5</p>
         <p>19 &rarr; 1 + 9 = 10 et 10 est un multiple de 5</p>
         <p>23 &rarr; 2 + 3 = 5 et 5 est un multiple de 5</p>
+
+        <p class="explication">Travail demandé</p>
+        <p>Proposer une autre méthode de résolution.</p>
+
+        <pre><code class="language-algorithm">Algorithme Multiple_5
+Début
+  Pour a de 10 à 99 Faire
+    sc &larr; a div 10 + a mod 10
+    si sc mod 5  == 0 alors
+      Ecrire(i)
+    fin si
+  Fin Pour
+Fin</code></pre>
+      </section>
+
+      <section class="no-page-break-inside">
+        <h3>Produit de nombres se terminant en 91</h3>
+        <p>Ecrire l'algorithme d'un programme qui affiche tous les nombre de deux chiffres dont le produit :</p>
+        <ul>
+          <li>est un nombre de 4 chiffres</li>
+          <li>est un nombre qui se termine par 91</li>
+        </ul>
+        <p>Ne pas afficher des doublons. Par exemple, 19 * 89 et 89 * 19 sont considérés comme étant des doublons.</p>
+        <p class="explication">Exemples</p>
+        <pre><code class="hljs nohighlight">19 * 89 = 1691
+21 * 71 = 1491</code></pre>
+        <p class="explication">Explication</p>
+        <p>1691 &rarr; est un nombre de 4 chiffres qui se termine par xx91.</p>
+      </section>
+
+      <section>
+        <h3>dizaines = unités + centaines</h3>
+        <p>Ecrire l'algorithme d'un programme qui affiche tous les nombres de trois chiffres dont le chiffre de dizaines
+          est égal à la somme des chiffres de centaines et d'unité.</p>
+        <p class="explication">Exemples</p>
+        <p>121, 143, etc</p>
+        <p class="explication">Explication</p>
+        <p>143 &rarr; centaines = 1, dizaines = 4, unités = 3 et 3 + 1 = 4</p>
+      </section>
+
+      <section>
+        <h3>Nombres Palintiples</h3>
+        <p>Un nombre <strong>palintiple</strong> est un nombre multiple de son retourné.</p>
+        <p class="explication">Exemples</p>
+        <p>Pour les nombres de quatre chiffres les palintiples sont : 1089 x 9 = 9801 et 2178 x 4 = 8712</p>
+        <p class="explication">Travail demandé</p>
+        <p>Ecrire l'algorithme d'un programme qui cherche tous les nombres palintiples de 5 chiffres.</p>
+      </section>
+
+      <section>
+        <h3>Nombres retournés de 3 chiffres</h3>
+        <p>Certains nombres de trois chiffres sont retournés lorsqu'on leur retranche 99.</p>
+        <p>On veut écrire l'algorithme d'un programme qui affiche tous les nombres de trois chiffres, dont la somme des
+          chiffres est 9, et qui sont retournés lorsqu'on leur retranche 99</p>
+        <p class="explication">Exemple</p>
+        <p>180 - 99 = 81, 1+8+0=9 et le retourné de 180 est 081 = 81.</p>
       </section>
 
       <section>
@@ -70,29 +148,17 @@
 ****</code></pre>
       </section>
 
-      <section>
+      <section class="no-page-break-inside">
         <h3>Nombre premier</h3>
 
-        <p>Ecrire un programme qui affiche si un nombre n, donné, est premier ou non. Un nombre est dit premier s'il
+        <p>Ecrire l'algorithme d'un programme qui affiche si un nombre n, donné, est premier ou non. Un nombre est dit
+          premier s'il
           admet exactement deux diviseurs 1 et lui même.</p>
         <p class="explication">Exemples</p>
         <pre><code class="hljs nohighlight">Donner un entier ? 5
 5 est premier</code></pre>
         <pre><code class="hljs nohighlight">Donner un entier ? 15
 15 n'est pas premier</code></pre>
-      </section>
-
-      <section>
-        <h3>Produit de nombre se terminant en 91</h3>
-        <p>Ecrire un programme qui affiche tous les nombre de deux chiffres dont le produit :</p>
-        <ul>
-          <li>est un nombre de 4 chiffres</li>
-          <li>est un nombre qui se termine par 91</li>
-        </ul>
-        <p>Ne pas afficher des doublons. Par exemple, 19 * 89 et 89 * 19 sont considérés comme étant des doublons.</p>
-        <p class="explication">Exemples</p>
-        <pre><code class="hljs nohighlight">19 * 89 = 1691
-21 * 71 = 1491</code></pre>
       </section>
 
       <section>
@@ -126,19 +192,11 @@
       <section>
         <h3>Somme des diviseurs d'un nombre</h3>
 
-        <p>Ecrire un programme qui affiche la somme des diviseurs d'un nombre n donné.</p>
+        <p>Ecrire l'algorithme d'un programme qui affiche la somme des diviseurs d'un nombre n donné.</p>
         <p class="explication">Exemples</p>
         <pre><code class="hljs nohighlight">Donner un entier ? 12
 Somme des diviseurs : 28</code></pre>
         <p>Les diviseurs de 12 sont : 1, 2, 3, 4, 6 et 12 et leur somme est : 28</p>
-      </section>
-
-      <section>
-        <h3>dizaines = unités + centaines</h3>
-        <p>Ecrire un programme qui affiche tous les nombres de trois chiffres dont le chiffre de dizaines est égal à la
-          somme des chiffres de centaines et d'unité.</p>
-        <p class="explication">Exemples</p>
-        <p>121, 143, etc</p>
       </section>
     </article>
   </main>

@@ -428,10 +428,14 @@ for i in range(3, 21, 4):
       <section>
         <h3>Répéter ... Jusqu'à</h3>
       </section>
+
+      <section>
+        <h3>Tant que</h3>
+      </section>
     </article>
 
     <article>
-      <h2>Fonctions usuelles</h2>
+      <h2>Fonctions prédéfinies</h2>
 
       <section>
         <h3>Conversions</h3>
@@ -450,12 +454,12 @@ for i in range(3, 21, 4):
           </thead>
           <tbody>
             <tr>
-              <td></td>
+              <td>valeur(string)</td>
               <td>int(string)</td>
               <td>Convertit une chaîne en un nombre entier</td>
               <td>
                 <span v-if="!is_visible('int_str')"
-                  v-on:click="show_control('int_str')">int("{{int_str['param']}}")</span>
+                  v-on:click="show_control('int_str')">valeur("{{int_str['param']}}")</span>
                 <input v-if="is_visible('int_str')" v-model="int_str['param']" v-on:keyup.enter="validate('int_str')"
                   class="my-inp my-inp-str" placeholder="string"><br>
                 &RightArrow; {{int_str['res']}}
@@ -476,37 +480,36 @@ for i in range(3, 21, 4):
               </td>
             </tr>
             <tr>
-              <td></td>
+              <td>ent(real)</td>
               <td>int(real)</td>
               <td>Elimine la partie réelle d'un réel</td>
               <td>
                 <span v-if="!is_visible('int_real')"
-                  v-on:click="show_control('int_real')">int({{int_real['param']}})</span>
+                  v-on:click="show_control('int_real')">ent({{int_real['param']}})</span>
                 <input v-if="is_visible('int_real')" v-model="int_real['param']" v-on:keyup.enter="validate('int_real')"
                   class="my-inp my-inp-str" placeholder="real"><br>
                 &RightArrow; {{int_real['res']}}
               </td>
             </tr>
             <tr>
-              <td></td>
+              <td>valeur(string)</td>
               <td>float(string)</td>
               <td>Convertit une chaîne en nombre réel</td>
               <td>
                 <span v-if="!is_visible('float_str')"
-                  v-on:click="show_control('float_str')">float("{{float_str['param']}}")</span>
-                <input v-if="is_visible('float_str')" v-model="float_str['param']" v-on:keyup.enter="validate('float_str')"
-                  class="my-inp my-inp-str" placeholder="string"><br>
+                  v-on:click="show_control('float_str')">valeur("{{float_str['param']}}")</span>
+                <input v-if="is_visible('float_str')" v-model="float_str['param']"
+                  v-on:keyup.enter="validate('float_str')" class="my-inp my-inp-str" placeholder="string"><br>
                 &RightArrow; {{float_str['res']}}
               </td>
             </tr>
             <tr>
               <td></td>
-              <td>
-                bool(objet)
-              </td>
+              <td>bool(objet)</td>
               <td>
                 Convertit un objet en booléen.<br>
-                Retourne <code>False</code> pour <code>0</code>, <code>0.0</code>, <code>None</code>, et <code>False</code>.
+                Retourne <code>False</code> pour <code>0</code>, <code>0.0</code>, <code>None</code>, et
+                <code>False</code>.
               </td>
               <td>
                 bool('False')<br>
@@ -518,18 +521,218 @@ for i in range(3, 21, 4):
               </td>
             </tr>
             <tr>
-              <td></td>
-              <td>
-                str(objet)
-              </td>
+              <td>convch(objet)</td>
+              <td>str(objet)</td>
               <td>Convertit un objet en texte.</td>
               <td>
-                str(15)<br>
+                convch(15)<br>
                 &RightArrow; '15'<br>
-                str(15.6)<br>
+                convch(15.6)<br>
                 &RightArrow; '15.6'<br>
-                str(True)<br>
+                convch(True)<br>
                 &RightArrow; 'True'<br>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h3>Fonctions numériques</h3>
+
+        <table class="table table-bordered" id="conversions">
+          <thead>
+            <tr>
+              <th colspan="2">Fontion</th>
+              <th rowspan="2" width="50%">Explication</th>
+              <th rowspan="2">Exemple</th>
+            </tr>
+            <tr>
+              <th width="16.6%">Algorithme</th>
+              <th width="16.6%">Python</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>arrondi(x)</td>
+              <td>round(x)</td>
+              <td>Retourne l'entier le plus proche de la valeur de x.<br>
+                <ul>
+                  <li>&RightArrow; ent(x), si la partie décimale &lt; 0.5</li>
+                  <li>&RightArrow; ent(x)+1, si la partie décimale &ge; 0.5</li>
+                </ul>
+              </td>
+              <td>
+                arrondi(15.49)<br>
+                &RightArrow; 15<br>
+                arrondi(15.5)<br>
+                &RightArrow; 16
+              </td>
+            </tr>
+            <tr>
+              <td>racine(x)</td>
+              <td>x ** 0.5</td>
+              <td>Retourne la racine carée d'un nombre x positif.
+              </td>
+              <td>
+                racine(16)<br>
+                &RightArrow; 4.0<br>
+                racine(17)<br>
+                &RightArrow; 4.123105
+              </td>
+            </tr>
+            <tr>
+              <td>alea(vi, vf)</td>
+              <td>from random import randint<br>randint(vi, vf)</td>
+              <td>Retourne un entier aléatoire de l'intervalle [vi, vf].
+              </td>
+              <td>
+                alea(10, 99)<br>
+                &RightArrow; 15<br>
+                alea(1, 6)<br>
+                &RightArrow; 5
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h3>Fonctions sur les caractères</h3>
+
+        <table class="table table-bordered" id="conversions">
+          <thead>
+            <tr>
+              <th colspan="2">Fontion</th>
+              <th rowspan="2" width="50%">Explication</th>
+              <th rowspan="2">Exemple</th>
+            </tr>
+            <tr>
+              <th width="16.6%">Algorithme</th>
+              <th width="16.6%">Python</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>ord(car)</td>
+              <td>ord(car)</td>
+              <td>Retourne le code UNICODE du caractère car.</td>
+              <td>
+                ord("0")<br>
+                &RightArrow; 48<br>
+                ord("A")<br>
+                &RightArrow; 65<br>
+                ord("a")<br>
+                &RightArrow; 97
+              </td>
+            </tr>
+            <tr>
+              <td>chr(code)</td>
+              <td>chr(code)</td>
+              <td>Retourne le caractère dont le code UNICODE est code.</td>
+              <td>
+                chr(48)<br>
+                &RightArrow; '0'<br>
+                chr(65)<br>
+                &RightArrow; 'A'<br>
+                chr(97)<br>
+                &RightArrow; 'a'
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h3>Fonctions sur les chaînes</h3>
+
+        <table class="table table-bordered" id="conversions">
+          <thead>
+            <tr>
+              <th colspan="2">Fontion</th>
+              <th rowspan="2" width="50%">Explication</th>
+              <th rowspan="2">Exemple</th>
+            </tr>
+            <tr>
+              <th width="16.6%">Algorithme</th>
+              <th width="16.6%">Python</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>long(ch)</td>
+              <td>len(ch)</td>
+              <td>Retourne le nombre de caractères UNICODE de la chaîne ch.</td>
+              <td>
+                long("sami")<br>
+                &RightArrow; 4<br>
+                long("bac 2021")<br>
+                &RightArrow; 8
+              </td>
+            </tr>
+            <tr>
+              <td>pos(ch1, ch2)</td>
+              <td>ch2.find(ch)</td>
+              <td>Retourne la première position de la chaîne ch1 dans ch2, ou -1 si ch1 n'est pas trouvée.</td>
+              <td>
+                pos('s', 'base')<br>
+                &RightArrow; 2<br>
+                pos('S', 'maison')<br>
+                &RightArrow; -1
+              </td>
+            </tr>
+            <tr>
+              <td>convch(x)</td>
+              <td>str(x)</td>
+              <td>Retourne la convresion d'un nombre (entier/réel) x en une chaîne de caractères.</td>
+              <td>
+                convch(100)<br>
+                &RightArrow; '100'<br>
+                convch('40.36')<br>
+                &RightArrow; '40.36'
+              </td>
+            </tr>
+            <tr>
+              <td>estnum(ch)</td>
+              <td>ch.isdigit()</td>
+              <td>Retourne Vrai/True si la chaîne ch est convertible en une valeur numérique, elle retourne Faux/False sinon.</td>
+              <td>
+                estnum('100')<br>
+                &RightArrow; Vrai<br>
+                estnum('a25')<br>
+                &RightArrow; Faux
+              </td>
+            </tr>
+            <tr>
+              <td>valeur(ch)</td>
+              <td>
+                int(ch), entier<br>
+                float(ch), réel
+              </td>
+              <td>Retourne la conversion d'une chaîne ch en une valeur numérique, si c'est possible.</td>
+              <td>
+                valeur('100')<br>
+                &RightArrow; 100<br>
+                valeur('25.5')<br>
+                &RightArrow; 25.5
+              </td>
+            </tr>
+            <tr>
+              <td>souschaine(ch, d, f)</td>
+              <td>ch[d:f]</td>
+              <td>Retourne une partie de la chaine ch à partir de la position d Jusqu'à la position f (non incluse).</td>
+              <td>
+                souschaine('baccalauréat 2021', 5, 12)<br>
+                &RightArrow; 'lauréat'
+              </td>
+            </tr>
+            <tr>
+              <td>majus(ch)</td>
+              <td>ch.upper()</td>
+              <td>Convertit la chaîne ch en majuscules.</td>
+              <td>
+                majus('baccalauréat 2021')<br>
+                &RightArrow; 'BACCALAURÉAT 2021'
               </td>
             </tr>
           </tbody>

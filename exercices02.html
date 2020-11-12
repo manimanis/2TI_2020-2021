@@ -63,6 +63,33 @@
           <li>Calcule le <strong>prix de vente</strong> en utilisant la formule ci-dessus, variable <code>pv</code></li>
           <li>Affiche le prix de vente</li>
         </ul>
+        <div class="row">
+          <div class="col-sm-4">
+            <pre><code class="nohighlight shell python" data-text="Exemple 1">Calcul du prix de vente
+==-==-==-==-==-==-==-==-==-==-==-==-==-
+Quel est le nom du produit ? Sardines
+Quel est le prix d'achat (DT) ? 5
+Gain : 20%
+Prix de vente : 6.000 DT</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <pre><code class="nohighlight shell python" data-text="Exemple 2">Calcul du prix de vente
+==-==-==-==-==-==-==-==-==-==-==-==-==-
+Quel est le nom du produit ? Trilia
+Quel est le prix d'achat (DT) ? 20
+Gain : 25%
+Prix de vente : 25.000 DT</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <pre><code class="nohighlight shell python" data-text="Exemple 3">Calcul du prix de vente
+==-==-==-==-==-==-==-==-==-==-==-==-==-
+Quel est le nom du produit ? saumon
+Quel est le prix d'achat (DT) ? 55
+Gain : 35%
+Prix de vente : 74.250 DT</code></pre>
+          </div>
+        </div>
+
       </section>
 
       <section>
@@ -86,9 +113,27 @@
           <li>Calcule la quantité d'eau pompée par la deuxième pompe : <code>qe2 = dp2 &times; t</code></li>
           <li>Calcule, puis affiche la quantité totale d'eau <code>qe</code> pompée.</li>
         </ul>
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple 1">Quantité d'eau pompée
+==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-
+Quel est le temps d'irrigation (mn) ? 80
+Temps de fonct. pompe 1 : 60 mn
+Temps de fonct. pompe 2 : 80 mn
+La quantité d'eau pompée est : 6000 + 6400 = 12400 litres</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple 2">Quantité d'eau pompée
+==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-
+Quel est le temps d'irrigation (mn) ? 50
+Temps de fonct. pompe 1 : 50 mn
+Temps de fonct. pompe 2 : 50 mn
+La quantité d'eau pompée est : 5000 + 4000 = 9000 litres</code></pre>
+          </div>
+        </div>
       </section>
 
-      <section>
+      <section class="no-page-break-inside">
         <h3>Vendeur ambulant</h3>
 
         <p>Un vendeur ambulant vend trois catégories d'articles devant les écoles primaires de la région.</p>
@@ -117,6 +162,28 @@
           <li>Affiche le chiffre d'affaire de la journée.</li>
           <li>Affiche s'il est satisfaisant, bon, ou mauvais.</li>
         </ul>
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple 1">Vendeur ambulant
+==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-
+Indiquer le nombre d'articles de chaque catégorie :
+Catégorie A ? 20
+Catégorie B ? 12
+Catégorie C ? 13
+Le chiffre d'affaires de la journée : 48.000 DT
+Bon</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple 2">Vendeur ambulant
+==-==-==-==-==-==-==-==-==-==-==-==-==-==-==-
+Indiquer le nombre d'articles de chaque catégorie :
+Catégorie A ? 35
+Catégorie B ? 20
+Catégorie C ? 20
+Le chiffre d'affaires de la journée : 77.500 DT
+Satisfaisant</code></pre>
+          </div>
+        </div>
       </section>
 
       <section>
@@ -137,9 +204,30 @@
           <li>Affiche la valeur de chaque dés, ainsi que la somme des trois dés</li>
           <li>Calcule et affiche le nombre de points gagnés</li>
         </ul>
+
+        <div class="row">
+          <div class="col-sm-4">
+            <pre><code class="nohighlight shell python" data-text="Exemple 1">Jeu de dès
+==-==-==-==-==-==-==-==-==-==-
+de1 : 4 - de2 : 4 - de3 : 6
+gain : 200 points</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <pre><code class="nohighlight shell python" data-text="Exemple 2">Jeu de dès
+==-==-==-==-==-==-==-==-==-==-
+de1 : 2 - de2 : 2 - de3 : 2
+gain : 300 points</code></pre>
+          </div>
+          <div class="col-sm-4">
+            <pre><code class="nohighlight shell python" data-text="Exemple 3">Jeu de dès
+==-==-==-==-==-==-==-==-==-==-
+de1 : 2 - de2 : 5 - de3 : 3
+gain : 10 points</code></pre>
+          </div>
+        </div>
       </section>
 
-      <section>
+      <section class="no-page-break-inside">
         <h3>Temps de téléchargement</h3>
 
         <p>Raslen veut télécharger deux fichiers volumineux avec une connexion faible débit.</p>
@@ -147,7 +235,8 @@
           taille <code>tf2</code> en Mo.</p>
         <p>Sachant que les vitesses de téléchargement respectives des deux fichiers sont <code>vt1</code> et
           <code>vt2</code> en Mo/s, on souhaite trouver lequel des deux fichiers sera téléchargé en premier.</p>
-          <p class="text-center"><code>Temps téléchargement(s) = Taille fichier(Mo) / Vitesse de téléchargement(Mo/s)</code></p>
+        <p class="text-center">
+          <code>Temps téléchargement(s) = Taille fichier(Mo) / Vitesse de téléchargement(Mo/s)</code></p>
         <p>On demande d'écrire l'algorithme d'un programme qui :</p>
         <ul>
           <li>Saisit les noms des deux fichiers <code>f1</code> et <code>f2</code>.</li>
@@ -157,6 +246,47 @@
           <li>Affiche le temps de téléchargement des deux fichiers.</li>
           <li>Affiche le nom du fichier qui sera téléchargé en premier.</li>
         </ul>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple 1">Nom des fichiers
+Fichier 1 ? the_matrix 
+Fichier 2 ? the_matrix_2003
+
+Taille des fichiers (Mo)
+the_matrix ? 900
+the_matrix_2003 ? 895
+
+Vitesses de téléchargement (Mo/s)
+the_matrix ? 0.8
+the_matrix_2003 ? 0.78
+
+Temps de téléchargement
+the_matrix : 0h 18mn 45s
+the_matrix_2003 : 0h 19mn 7s
+
+the_matrix termine en premier</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple 2">Nom des fichiers
+Fichier 1 ? lol
+Fichier 2 ? little_pool           
+
+Taille des fichiers (Mo)
+lol ? 5000
+little_pool ? 500
+
+Vitesses de téléchargement (Mo/s)
+lol ? 1
+little_pool ? 0.1
+
+Temps de téléchargement
+lol : 1h 23mn 20s
+little_pool : 1h 23mn 20s
+
+Les deux fichiers terminent en même temps</code></pre>
+          </div>
+        </div>
       </section>
     </article>
   </main>

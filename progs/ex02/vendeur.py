@@ -1,7 +1,7 @@
 print('Vendeur ambulant')
 print('==-' * 15)
 
-print("Veuillez indiquer le nombre d'articles vendus de chaque catégorie :")
+print("Indiquer le nombre d'articles de chaque catégorie :")
 na = int(input("Catégorie A ? "))
 nb = int(input("Catégorie B ? "))
 nc = int(input("Catégorie C ? "))
