@@ -546,7 +546,7 @@ Hoorray! J&apos;ai trouvé en 6 coups.</code></pre>
             <pre><code class="language-algorithm">x &larr; 8
 y &larr; 5
 p &larr; x * y
-Afficher(x, "*", y, "=", p)</code></pre>
+Ecrire(x, "*", y, "=", p)</code></pre>
           </div>
           <div class="col-sm-6">
             <pre><code class="language-python">x = 8
@@ -570,7 +570,7 @@ print(f'{x} * {y} = {p}')</code></pre>
         <div class="row">
           <div class="col-sm-6">
             <pre><code class="language-algorithm">nom &larr; "AHMED"
-Afficher("Bonjour, je suis", capitaliser(nom))</code></pre>
+Ecrire("Bonjour, je suis", capitaliser(nom))</code></pre>
           </div>
           <div class="col-sm-6">
             <pre><code class="language-algorithm">nom = "AhMeD HaMdI"
@@ -624,7 +624,7 @@ Bonjour, je suis Ahmed hamdi</code></pre>
         <p class="explication">Sans contrôle de saisie</p>
         <div class="row">
           <div class="col-sm-6">
-            <pre><code class="language-algorithm">Afficher("Votre choix (A, B ou C) ? ")
+            <pre><code class="language-algorithm">Ecrire("Votre choix (A, B ou C) ? ")
 Lire(choix)</code></pre>
           </div>
           <div class="col-sm-6">
@@ -653,7 +653,7 @@ X</code></pre>
         <div class="row">
           <div class="col-sm-6">
             <pre><code class="language-algorithm">Répéter
-  Afficher("Votre choix (A, B ou C) ? ")
+  Ecrire("Votre choix (A, B ou C) ? ")
   Lire(choix)
 Jusqu'à (choix="A") ou (choix="B") ou (choix="C")</code></pre>
           </div>
@@ -686,11 +686,11 @@ C</code></pre>
             Python.
             <div class="bricks-canvas" data-slots="1">
               <span class="brick">Répéter<br>
-                <span class="brick">Afficher("Quel est l'age de l'élève [15, 21] : ")<br>
+                <span class="brick">Ecrire("Quel est l'age de l'élève [15, 21] : ")<br>
                   Lire(age)</span><br>
                 Jusqu'à <span class="brick">15 &le; age &le; 21</span></span>
               <pre class="success"><code class="language-algorithm">Répéter
-  Afficher("Quel est l'age de l'élève [15, 21] : ")
+  Ecrire("Quel est l'age de l'élève [15, 21] : ")
   Lire(age)
 Jusqu'à 15 &le; age &le; 21</code></pre>
             </div>
@@ -719,7 +719,7 @@ Jusqu'à 15 &le; age &le; 21</code></pre>
         <div class="row">
           <div class="col-sm-6">
             <pre><code class="language-algorithm">Pour i de 0 à 4 Faire
-  Afficher("-- Police line do not cross --")
+  Ecrire("-- Police line do not cross --")
 Fin Pour</code></pre>
           </div>
           <div class="col-sm-6">
@@ -746,7 +746,7 @@ Fin Pour</code></pre>
         <div class="row">
           <div class="col-sm-6">
             <pre><code class="language-algorithm">Pour cpt de 1 à 3 Faire
-  Afficher("Pièce n°", cpt)
+  Ecrire("Pièce n°", cpt)
 Fin Pour</code></pre>
           </div>
           <div class="col-sm-6">
@@ -771,7 +771,7 @@ Pièce n° 3</code></pre>
         <div class="row">
           <div class="col-sm-6">
             <pre><code class="language-algorithm">Pour i de 1 à 9 (pas=2) Faire
-  Afficher(i)
+  Ecrire(i)
 Fin Pour</code></pre>
           </div>
           <div class="col-sm-6">
@@ -809,20 +809,20 @@ Fin Pour</code></pre>
 Début
   // Saisie nombre de cakes (voir brique n°2)
   Répéter 
-    Afficher("Entrer le nombre de cakes (> 0) ? ")
+    Ecrire("Entrer le nombre de cakes (> 0) ? ")
     Lire(nbc)
   Jusqu'à nbc > 0
   // Saisie taille du four (voir brique n°2)
   Répéter
-    Afficher("Entrer la taille du four (> 0) ? ")
+    Ecrire("Entrer la taille du four (> 0) ? ")
     Lire(tf)
   Jusqu'à tf > 0
   // Calcul du nombre de cuissons
   nb_cuissons &larr; nbc div tf + Ent(nbc mod tf &ne; 0)
   // Affichage du nombre de cuissons (Utiliser Brique n°1)
-  Afficher("Pour cuire", nbc, "cakes, il faudra", nb_cuissons, "cuissons.")
+  Ecrire("Pour cuire", nbc, "cakes, il faudra", nb_cuissons, "cuissons.")
   // Affichage cuissons
-  Afficher("- Ouvrir le four. Sortir le plateau.")
+  Ecrire("- Ouvrir le four. Sortir le plateau.")
   // Répétition de la cuisson nb_cuissons fois (voir brique n°3)
   Pour i de 1 à nb_cuissons Faire
     // Calcul du nombre de cakes à cuire dans le four
@@ -834,15 +834,15 @@ Début
     // Calcul du nombre de cakes restants après la cuisson de nc cakes
     nbc &larr; nbc - nc
     // Cuisson d'une série de cakes
-    Afficher("Cuisson n°", i) // Utiliser brique n°1
-    Afficher("- Mettre", nc, "cakes dans le plateau") // Utiliser brique n°1
-    Afficher("- Remettre le plateau dans le four. Fermer le four.")
-    Afficher("- Attendre la cuisson")
-    Afficher("- Ouvrir le four. Sortir le plateau.")
-    Afficher("- Enlever les", nc, "cakes cuits") // Utiliser brique n°1
+    Ecrire("Cuisson n°", i) // Utiliser brique n°1
+    Ecrire("- Mettre", nc, "cakes dans le plateau") // Utiliser brique n°1
+    Ecrire("- Remettre le plateau dans le four. Fermer le four.")
+    Ecrire("- Attendre la cuisson")
+    Ecrire("- Ouvrir le four. Sortir le plateau.")
+    Ecrire("- Enlever les", nc, "cakes cuits") // Utiliser brique n°1
   Fin Pour
   // fin de la cuisson de tous les cakes
-  Afficher("- Remettre le plateau dans le four. Fermer le four.")
+  Ecrire("- Remettre le plateau dans le four. Fermer le four.")
 Fin</code></pre>
 
         <p class="explication">Questions</p>
@@ -975,31 +975,31 @@ Attention! Notez le nombre pour ne pas l'oublier.
  </code></pre>
 
         <div class="bricks-canvas" data-slots="2">
-          <span class="brick">Afficher("Bienvenue, cher utilisateur")<br>
-            Afficher("Aujourd'hui, je vais jouer avec vous au jeu devine mon nombre.")<br>
-            Afficher()</span>
-          <span class="brick">Afficher('Principe du jeu')<br>
-            Afficher('=-' * 30)<br>
-            Afficher('Le principe du jeu est simple : ')</br>
-            Afficher("- Vous choisissez un nombre dans l'intervalle [1, 127].")<br>
-            Afficher("- Je vais le deviner en 8 essais max.")<br>
-            Afficher("- Vous devez indiquer si mon nombre proposé est supèrieur, inférieur ou égal au votre.")<br>
-            Afficher()<br>
-            Afficher("Attention! Notez le nombre pour ne pas l'oublier.")<br>
-            Afficher()</span>
-          <pre class="success"><code class="language-algorithm">Afficher("Bienvenue, cher utilisateur")
-Afficher("Aujourd'hui, je vais jouer avec vous au jeu devine mon nombre.")
-Afficher()
-Afficher('Principe du jeu')
-Afficher('=-' * 30)
-Afficher('Le principe du jeu est simple : ')
-Afficher("- Vous choisissez un nombre dans l'intervalle [1, 127].")
-Afficher("- Je vais le deviner en 8 essais max.")
-Afficher("- Vous devez indiquer si mon nombre proposé est supèrieur, "
+          <span class="brick">Ecrire("Bienvenue, cher utilisateur")<br>
+            Ecrire("Aujourd'hui, je vais jouer avec vous au jeu devine mon nombre.")<br>
+            Ecrire()</span>
+          <span class="brick">Ecrire('Principe du jeu')<br>
+            Ecrire("=-" * 30)<br>
+            Ecrire("Le principe du jeu est simple : ")</br>
+            Ecrire("- Vous choisissez un nombre dans l'intervalle [1, 127].")<br>
+            Ecrire("- Je vais le deviner en 8 essais max.")<br>
+            Ecrire("- Vous devez indiquer si mon nombre proposé est supèrieur, inférieur ou égal au votre.")<br>
+            Ecrire()<br>
+            Ecrire("Attention! Notez le nombre pour ne pas l'oublier.")<br>
+            Ecrire()</span>
+          <pre class="success"><code class="language-algorithm">Ecrire("Bienvenue, cher utilisateur")
+Ecrire("Aujourd'hui, je vais jouer avec vous au jeu devine mon nombre.")
+Ecrire()
+Ecrire("Principe du jeu")
+Ecrire("=-" * 30)
+Ecrire("Le principe du jeu est simple : ")
+Ecrire("- Vous choisissez un nombre dans l'intervalle [1, 127].")
+Ecrire("- Je vais le deviner en 8 essais max.")
+Ecrire("- Vous devez indiquer si mon nombre proposé est supèrieur, "
          "inférieur ou égal au votre.")
-Afficher()
-Afficher("Attention! Notez le nombre pour ne pas l'oublier.")
-Afficher()</code></pre>
+Ecrire()
+Ecrire("Attention! Notez le nombre pour ne pas l'oublier.")
+Ecrire()</code></pre>
         </div>
       </section>
 
@@ -1067,9 +1067,9 @@ bor_sup &larr; 127</code></pre>
         <div class="bricks-canvas" data-slots="2">
           <span class="brick"><span class="brick">mid</span> &larr; (<span class="brick">bor_inf</span> +
             bor_sup) div 2</span>
-          <span class="brick">Afficher("Je propose :", mid)</span>
+          <span class="brick">Ecrire("Je propose :", mid)</span>
           <pre class="success"><code class="language-algorithm">mid &larr; (bor_inf + bor_sup) div 2
-Afficher("Je propose :", mid)</code></pre>
+Ecrire("Je propose :", mid)</code></pre>
         </div>
       </section>
 
@@ -1092,22 +1092,22 @@ Afficher("Je propose :", mid)</code></pre>
         </ul>
 
         <div class="bricks-canvas" data-slots="2">
-          <span class="brick">Afficher("Le nombre secret est-t-il :")<br>
-            Afficher("- supérieur à mon nombre (tapez &gt;)")<br>
-            Afficher("- inférieur à mon nombre (tapez &lt;)")<br>
-            Afficher("- égal à mon nombre (tapez =)")</span>
+          <span class="brick">Ecrire("Le nombre secret est-t-il :")<br>
+            Ecrire("- supérieur à mon nombre (tapez &gt;)")<br>
+            Ecrire("- inférieur à mon nombre (tapez &lt;)")<br>
+            Ecrire("- égal à mon nombre (tapez =)")</span>
 
           <span class="brick">Répéter<br>
-            Afficher("? ")<br>
+            Ecrire("? ")<br>
             <span class="brick">Lire(reponse)</span><br>
             Jusqu'à (long(reponse) = 1) et <span class="brick">(reponse dans "&lt;&gt;=")</span></span>
-          <pre class="success"><code class="language-algorithm">Afficher("Le nombre secret est-t-il :")
-Afficher("- supérieur à mon nombre (tapez &gt;)")
-Afficher("- inférieur à mon nombre (tapez &lt;)")
-Afficher("- égal à mon nombre (tapez =)")
+          <pre class="success"><code class="language-algorithm">Ecrire("Le nombre secret est-t-il :")
+Ecrire("- supérieur à mon nombre (tapez &gt;)")
+Ecrire("- inférieur à mon nombre (tapez &lt;)")
+Ecrire("- égal à mon nombre (tapez =)")
 
 Répéter
-    Afficher("? ")
+    Ecrire("? ")
     Lire(reponse)
 Jusqu'à (long(reponse) = 1) et (reponse dans "&lt;&gt;=")</code></pre>
         </div>
@@ -1160,15 +1160,15 @@ Hoorray! J'ai trouvé en 6 coups.</code></pre>
 
         <div class="bricks-canvas" data-slots="1">
           <span class="brick">Si reponse = "=" Alors<br>
-            <span class="brick">Afficher()<br>
-              Afficher(':D :) ' * 10)<br>
-              Afficher("Hoorray! J'ai trouvé en", essai, "coups.")</span><br>
+            <span class="brick">Ecrire()<br>
+              Ecrire(":D :) " * 10)<br>
+              Ecrire("Hoorray! J'ai trouvé en", essai, "coups.")</span><br>
             Fin si
           </span>
           <pre class="success"><code class="language-algorithm">Si reponse = "=" Alors
-  Afficher()
-  Afficher(':D :) ' * 10)
-  Afficher("Hoorray! J'ai trouvé en", essai, "coups.")
+  Ecrire()
+  Ecrire(":D :) " * 10)
+  Ecrire("Hoorray! J'ai trouvé en", essai, "coups.")
 Fin si</code></pre>
       </section>
     </article>
@@ -1185,41 +1185,41 @@ Fin si</code></pre>
           <pre><code class="language-algorithm">Programme devine_mon_nombre
 Début
   // Afficher un message de bienvenue
-  Afficher("Bienvenue, cher utilisateur")
-  Afficher("Aujourd'hui, je vais jouer avec vous au jeu devine mon nombre.")
-  Afficher()
+  Ecrire("Bienvenue, cher utilisateur")
+  Ecrire("Aujourd'hui, je vais jouer avec vous au jeu devine mon nombre.")
+  Ecrire()
   // Afficher le principe du jeu
-  Afficher('Principe du jeu')
-  Afficher('=-' * 30)
-  Afficher('Le principe du jeu est simple : ')
-  Afficher("- Vous choisissez un nombre dans l'intervalle [1, 127].")
-  Afficher("- Je vais le deviner en 8 essais max.")
-  Afficher("- Vous devez indiquer si mon nombre proposé est supèrieur, "
+  Ecrire("Principe du jeu")
+  Ecrire("=-" * 30)
+  Ecrire("Le principe du jeu est simple : ")
+  Ecrire("- Vous choisissez un nombre dans l'intervalle [1, 127].")
+  Ecrire("- Je vais le deviner en 8 essais max.")
+  Ecrire("- Vous devez indiquer si mon nombre proposé est supèrieur, "
            "inférieur ou égal au votre.")
-  Afficher()
-  Afficher("Attention! Notez le nombre pour ne pas l'oublier.")
-  Afficher()
+  Ecrire()
+  Ecrire("Attention! Notez le nombre pour ne pas l'oublier.")
+  Ecrire()
   // Initialiser les bornes de l'intervalle
   bor_inf ← 1
   bor_sup ← 127
   
   Pour essai de 1 à 7 Faire
     // Afficher le numéro d'essai
-    Afficher("Mon essai n°", essai)
-    Afficher('*' * 20)
+    Ecrire("Mon essai n°", essai)
+    Ecrire("*" * 20)
     // Calculer le nombre proposé
     mid ← (bor_inf + bor_sup) div 2
     // Afficher le nombre proposé
-    Afficher("Je propose :", mid)
+    Ecrire("Je propose :", mid)
     // Saisir la réponse de l'utilisateur
-    Afficher('Le nombre secret est-t-il :')
-    Afficher('- supérieur à mon nombre (tapez &gt;)')
-    Afficher('- inférieur à mon nombre (tapez &lt;)')
-    Afficher('- égal à mon nombre (tapez =)')
+    Ecrire("Le nombre secret est-t-il :")
+    Ecrire("- supérieur à mon nombre (tapez &gt;)")
+    Ecrire("- inférieur à mon nombre (tapez &lt;)")
+    Ecrire("- égal à mon nombre (tapez =)")
     Répéter
-        Afficher("? ")
+        Ecrire("? ")
         Lire(reponse)
-    Jusqu'à (long(reponse) = 1) et (reponse dans '&lt;&gt;=')
+    Jusqu'à (long(reponse) = 1) et (reponse dans "&lt;&gt;=")
     // Réduire l'intervalle de recherche
     Si reponse = "&gt;" Alors
       bor_inf ← mid + 1
@@ -1227,9 +1227,9 @@ Début
       bor_sup ← mid - 1
     // Afficher le message de victoire
     Sinon
-      Afficher()
-      Afficher(':D :) ' * 10)
-      Afficher("Hoorray! J'ai trouvé en", essai, "coups.")
+      Ecrire()
+      Ecrire(":D :) " * 10)
+      Ecrire("Hoorray! J'ai trouvé en", essai, "coups.")
       Sortir
     Fin si
   Fin Pour

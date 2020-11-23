@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Devine mon nombre (Résumé)</title>
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/default.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <style>
+    .table-simulation td,
+    .table-simulation th {
+      width: 11.1%;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="py-2 px-4 bg-secondary">
+    <div class="user-input-saver text-white">
+      <div class="row">
+        <div class="col-sm-6">
+          <label>Nom & Prénom</label>
+          <input type="text" class="form-control save-content" placeholder="Nom & Prénom">
+        </div>
+        <div class="col-sm-6">
+          <label>Classe</label>
+          <input type="text" class="form-control save-content" placeholder="Classe">
+        </div>
+      </div>
+    </div>
+  </header>
+  <aside>
+    <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+  <main class="container my-4">
+    <h1>Projet n°2 - Devine mon nombre (Résumé)</h1>
+
+    <article>
+      <h2>Algorithme</h2>
+
+      <section>
+        <h3>Algorithme</h3>
+
+        <p>Ecrire l'algorithme du programme.</p>
+
+        <div>
+          <pre style="page-break-inside: initial;"><code class="language-algorithm">Programme devine_mon_nombre
+Début
+  // Afficher un message de bienvenue
+  Ecrire("Bienvenue, cher utilisateur")
+  Ecrire("Aujourd'hui, je vais jouer avec vous au jeu devine mon nombre.")
+  Ecrire()
+  Ecrire("Principe du jeu")
+  Ecrire("=-" * 30)
+  Ecrire("Le principe du jeu est simple : ")
+  Ecrire("- Vous choisissez un nombre dans l'intervalle [1, 127].")
+  Ecrire("- Je vais le deviner en 7 essais max.")
+  Ecrire("- Vous devez indiquer si mon nombre proposé est supèrieur, "
+           "inférieur ou égal au votre.")
+  Ecrire()
+  Ecrire("Attention! Notez le nombre pour ne pas l'oublier.")
+  Ecrire()
+  // Initialiser les bornes de l'intervalle
+  bor_inf ← 1
+  bor_sup ← 127
+  // Répéter 7 fois
+  Pour essai de 1 à 7 Faire
+    // Afficher le numéro d'essai
+    Ecrire("Mon essai n°", essai)
+    Ecrire("*" * 20)
+    // Calculer le nombre proposé
+    mid ← (bor_inf + bor_sup) div 2
+    Ecrire("Je propose :", mid)
+    // Saisir la réponse de l'utilisateur
+    Ecrire("Le nombre secret est-t-il :")
+    Ecrire("- supérieur à mon nombre (tapez &gt;)")
+    Ecrire("- inférieur à mon nombre (tapez &lt;)")
+    Ecrire("- égal à mon nombre (tapez =)")
+    Répéter
+        Ecrire("? ")
+        Lire(reponse)
+    Jusqu'à (long(reponse) = 1) et (reponse dans "&lt;&gt;=")
+    // Réduire l'intervalle de recherche
+    Si reponse = "&gt;" Alors
+      bor_inf ← mid + 1
+    Sinon Si reponse = "&lt;" Alors
+      bor_sup ← mid - 1
+    // Afficher le message de victoire
+    Sinon
+      Ecrire()
+      Ecrire(":D :) " * 10)
+      Ecrire("Hoorray! J'ai trouvé en", essai, "coups.")
+      Sortir
+    Fin si
+  Fin Pour
+Fin</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h3>Traduction Python</h3>
+
+        <div>
+          <pre style="page-break-inside: initial;"><code class="language-python"># coding: utf8
+print('Bienvenue, cher utilisateur')
+print("Aujourd'hui, je vais jouer avec vous au jeu devine mon nombre.")
+print()
+print('Principe du jeu')
+print('=-' * 30)
+print('Le principe du jeu est simple : ')
+print("- Vous choisissez un nombre dans l'intervalle [1, 127].")
+print("- Je vais le deviner en 7 essais max.")
+print("- Vous devez indiquer si mon nombre proposé est supèrieur, "
+      "inférieur ou égal au votre.")
+print()
+print("Attention! Notez le nombre pour ne pas l'oublier.")
+print()
+
+bor_inf = 1
+bor_sup = 127
+for i in range(7):
+    mid = (bor_inf + bor_sup) // 2
+    print()
+    print(f'Mon essai n°{i+1}')
+    print('*' * 20)
+    print(f'Je propose : {mid}')
+    print('Le nombre secret est-t-il :')
+    print('- supérieur à mon nombre (tapez >)')
+    print('- inférieur à mon nombre (tapez &lt;)')
+    print('- égal à mon nombre (tapez =)')
+
+    while True:
+        reponse = input("? ")
+        if len(reponse) == 1 and reponse in '&lt;>=':
+            break
+        print('Saisie incorrecte {reponse}')
+        print('Les réponses valides sont : ')
+        print('> : si le nombre est supérieur à mon nombre')
+        print('&lt; : si le nombre est inférieur à mon nombre')
+        print('= : si le nombre est égal à mon nombre')
+
+    if reponse == '>':
+        bor_inf = mid + 1
+    elif reponse == '&lt;':
+        bor_sup = mid - 1
+    else:
+        print()
+        print(':D :) ' * 10)
+        print(f"Hoorray! J'ai trouvé en {i+1} coups.")
+        break
+</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h3>TDO</h3>
+
+        <p>Proposer le Tableau de Déclaration des Objets.</p>
+
+        <table class="table table-bordered">
+          <thead>
+            <tr>
+              <th width="20%">Objet</th>
+              <th width="20%">Type/Nature</th>
+              <th>Rôle</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>bor_inf</td>
+              <td>entier</td>
+              <td>Borne inférieure de l'intervalle de recherche/td>
+            </tr>
+            <tr>
+              <td>bor_sup</td>
+              <td>entier</td>
+              <td>Borne supérieure de l'intervalle de recherche</td>
+            </tr>
+            <tr>
+              <td>essai</td>
+              <td>entier</td>
+              <td>Nombre d'essais</td>
+            </tr>
+            <tr>
+              <td>mid</td>
+              <td>entier</td>
+              <td>Nombre proposé par l'ordinateur</td>
+            </tr>
+            <tr>
+              <td>reponse</td>
+              <td>chaine</td>
+              <td>Réponse de l'utilisateur à la proposition</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </article>
+  </main>
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
+    <div class="text-center small">Année scolaire : 2020/2021</div>
+  </footer>
+  <script src="scripts/jquery.min.js"></script>
+  <script src="scripts/bootstrap.min.js"></script>
+  <script src="scripts/highlight.pack.js"></script>
+  <script src="scripts/hljs.algorithm.js"></script>
+  <script src="scripts/draggable.js"></script>
+  <script src="scripts/clipboard.min.js"></script>
+  <script src="scripts/pages.js"></script>
+  <script src="scripts/savecontent.js"></script>
+  <script src="scripts/vue.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+    document.querySelectorAll('.language-algorithm,.language-python')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+    $(() => {
+      const localStore = new PagePersistance();
+      const serverStore = new ServerSaves('Projet 1');
+      const userInputSaver = new UserInputSaver(
+        document.querySelector('.user-input-saver'),
+        localStore,
+        serverStore);
+      new Vue({
+        el: '#simulation-00',
+        data: {
+          propositions: [],
+          reponses: [],
+          borne_inf: 1,
+          borne_sup: 127,
+          current_value: 64,
+          current_reponse: '---',
+          trouve: false
+        },
+        mounted: function () {
+          this.initPropositions();
+        },
+        methods: {
+          initPropositions: function () {
+            this.trouve = false;
+            this.propositions = [];
+            this.borne_inf = 1;
+            this.borne_sup = 127;
+            this.current_value = 64;
+            for (let rep of this.reponses) {
+              this.propositions.push(this.findNextPropsition(rep));
+            }
+          },
+          reset: function () {
+            this.reponses = [];
+            this.current_reponse = '---';
+            this.initPropositions();
+          },
+          findNextPropsition: function (reponse) {
+            if (reponse === '>') {
+              this.borne_inf = this.current_value + 1;
+            } else if (reponse === '<') {
+              this.borne_sup = this.current_value - 1;
+            } else {
+              this.trouve = true;
+            }
+            const prop = { nbre: this.current_value, reponse: reponse };
+            this.current_value = parseInt((this.borne_inf + this.borne_sup) / 2);
+            this.current_reponse = '---';
+            return prop;
+          },
+          setChoice: function () {
+            this.reponses.push(this.current_reponse);
+            const prop = this.findNextPropsition(this.current_reponse);
+            this.propositions.push(prop);
+            if (this.borne_inf === this.borne_sup) {
+              this.propositions.push(this.findNextPropsition('='));
+            }
+          }
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

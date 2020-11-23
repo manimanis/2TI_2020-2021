@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet n°1 - Correction des exercices d'évaluation</title>
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/default.css">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+  <header class="py-2 px-4 bg-secondary">
+    <div class="user-input-saver text-white">
+      <div class="row">
+        <div class="col-sm-6">
+          <label>Nom & Prénom</label>
+          <input type="text" class="form-control save-content" placeholder="Nom & Prénom">
+        </div>
+        <div class="col-sm-6">
+          <label>Classe</label>
+          <select class="form-control save-content" placeholder="Classe">
+            <option>2TI</option>
+            <option>2SC</option>
+            <option>3T</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </header>
+  <aside>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+  <main class="container my-4">
+    <h1>Correction des exercices d'évaluation</h1>
+
+    <article>
+      <h2>Exercices</h2>
+
+      <section>
+        <h3>Vendeur de poissons</h3>
+
+        <div>
+          <pre><code class="language-algorithm">Algorithme poissonnier
+Début
+  Ecrire("Calcul du prix de vente")
+  Ecrire("==-"*15)
+
+  Ecrire("Quel est le nom du produit ? ")
+  Lire(np)
+
+  Ecrire("Quel est le prix d'achat (DT) ? ")
+  Lire(pa)
+
+  Si 0 &le; pa &lt; 15 Alors
+      g &larr; 0.2
+  Sinon Si pa &lt; 30 Alors
+      g &larr; 0.25
+  Sinon
+      g &larr; 0.35
+  Fin Si
+  Ecrire("Gain : ", g * 100, "%")
+
+  pv &larr; pa * (1 + g)
+  Ecrire("Prix de vente :", pv, "DT")
+Fin</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h3>Irrigation des champs</h3>
+
+        <div>
+          <pre><code class="language-algorithm">Algorithme Irrigation
+Début
+  Ecrire("Quantité d'eau pompée")
+  Ecrire("==-" * 15)
+
+  Ecrire("Quel est le temps d'irrigation (mn) ? ")
+  Lire(t)
+
+  tp1 &larr; t
+  Si t > 60 Alors
+      tp1 &larr; 60
+  Fin si
+  tp2 &larr; t
+
+  Ecrire("Temps de fonct. pompe 1 : ", tp1, " mn")
+  Ecrire("Temps de fonct. pompe 2 : ", t, " mn")
+
+  dp1 &larr; 100
+  dp2 &larr; 80
+  qe1 &larr; tp1 * dp1
+  qe2 &larr; tp2 * dp2
+  qe &larr; qe1 + qe2
+
+  Ecrire("La quantité d'eau pompée est :", qe1, "+", qe2, "=", qe, "litres")
+Fin</code></pre>
+        </div>
+        
+      </section>
+
+      <section>
+        <h3>Vendeur ambulant</h3>
+
+        <div>
+          <pre><code class="language-algorithm">Algorithme Vendeur_ambulant
+Début
+  Ecrire("Indiquer le nombre d'articles de chaque catégorie :")
+  Ecrire("Catégorie A ? ")
+  Lire(na)
+  ecrire("Catégorie B ? ")
+  Lire(nb)
+  Ecrire("Catégorie C ? ")
+  Lire(nc)
+
+  ca &larr; na * 0.5 + nb + nc * 2.0
+
+  Ecrire("Le chiffre d'affaires de la journée :", ca, "DT")
+  Si ca &lt; 35 Alors
+      Ecrire("Mauvais")
+  Sinon Si ca &lt; 50 Alors
+      Ecrire("Bon")
+  Sinon
+      Ecrire("Satisfaisant")
+  Fin si
+Fin</code></pre>
+        </div>
+        
+      </section>
+
+      <section>
+        <h3>Jeu de dés</h3>
+
+        <div>
+          <pre><code class="language-algorithm">Algorithme Jeu_des
+Début
+  Ecrire("Jeu de dès")
+  Ecrire("==-" * 10)
+
+  de1 &larr; alea(1, 6)
+  de2 &larr; alea(1, 6)
+  de3 &larr; alea(1, 6)
+
+  Si de1 = de2 = de3 Alors
+      gain &larr; 300
+  Sinon Si (de1 = de2) ou (de1 = de3) ou (de2 = de3) Alors
+      gain &larr; 200
+  Sinon Si (de1 = 6) ou (de2 = 6) ou (de3 = 6) Alors
+      gain &larr; 100
+  Sinon Si (de1 + de2 = 6) ou (de1 + de3 = 6) ou (de2 + de3 = 6) Alors
+      gain &larr; 50
+  Sinon
+      gain &larr; de1 + de2 + de3
+  Fin Si
+  Ecrire("de1 :", de1, "- de2 :", de2, "- de3 :", de3)
+  Ecrire("gain :", gain, "points")
+Fin</code></pre>
+        </div>
+      </section>
+
+      <section class="no-page-break-inside">
+        <h3>Temps de téléchargement</h3>
+
+        <div>
+          <pre><code class="language-algorithm">Algorithme Telechargement
+Début
+  Ecrire("Temps de téléchargement")
+  Ecrire("==-"*15)
+
+  Ecrire("Nom des fichiers")
+  Ecrire("Fichier 1 ? ")
+  Lire(f1)
+  Ecrire("Fichier 2 ? ")
+  Lire(f2)
+
+  Ecrire("\nTaille des fichiers (Mo)")
+  Ecrire(f1 + " ? ")
+  Lire(tf1)
+  Ecrire(f2 + " ? ")
+  Lire(tf2)
+
+  Ecrire("\nVitesses de téléchargement (Mo/s)")
+  Ecrire(f1 + " ? ")
+  Lire(vt1)
+  Ecrire(f2 + " ? ")
+  Lire(vt2)
+
+  tt1 &larr; tf1 / vt1
+  tt2 &larr; tf2 / vt2
+
+  Ecrire("\nTemps de téléchargement")
+  Ecrire(f1, ":", tt1 div 3600, "h", (tt1 div 60) mod 60, "mn", tt1 mod 60, "s")
+  Ecrire(f2, ":", tt2 div 3600, "h", (tt2 div 60) mod 60, "mn", tt2 mod 60, "s")
+
+  Ecrire()
+  Si tt1 &lt; tt2 Alors
+      Ecrire(f1, "termine en premier")
+  Sinon Si tt1 &gt; tt2 Alors
+      Ecrire(f2, "termine en premier")
+  Sinon
+      Ecrire("Les deux fichiers terminent en même temps")
+  Fin Si
+Fin</code></pre>
+      </section>
+    </article>
+  </main>
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
+    <div class="text-center small">Année scolaire : 2020/2021</div>
+  </footer>
+  <script src="scripts/jquery.min.js"></script>
+  <script src="scripts/bootstrap.min.js"></script>
+  <script src="scripts/highlight.pack.js"></script>
+  <script src="scripts/hljs.algorithm.js"></script>
+  <script src="scripts/draggable.js"></script>
+  <script src="scripts/clipboard.min.js"></script>
+  <script src="scripts/pages.js"></script>
+  <script src="scripts/savecontent.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+    document.querySelectorAll('.language-algorithm,.language-python')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+    $(() => {
+      const localStore = new PagePersistance();
+      const serverStore = new ServerSaves('Exercices 2');
+      const userInputSaver = new UserInputSaver(
+        document.querySelector('.user-input-saver'),
+        localStore,
+        serverStore);
+    });
+  </script>
+</body>
+
+</html>
