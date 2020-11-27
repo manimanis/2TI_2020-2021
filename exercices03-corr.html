@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Projet n°2 - Exercices structure Pour</title>
+  <title>Projet n°2 - Exercices structure Pour (Correction)</title>
   <link rel="stylesheet" href="styles/bootstrap.min.css">
   <link rel="stylesheet" href="styles/default.css">
   <link rel="stylesheet" href="styles/style.css">
@@ -39,7 +39,7 @@
     </nav>
   </aside>
   <main class="container my-4">
-    <h1>Exercices structure Pour</h1>
+    <h1>Exercices structure Pour (Correction)</h1>
 
     <article>
       <h2>Exercices</h2>
@@ -64,6 +64,20 @@ Début
     Ecrire(i)
   Fin Pour
 Fin</code></pre>
+        <h4>Correction</h4>
+        <pre><code class="language-algorithm">Algorithme Multiple_3
+  // méthode 2
+  Début
+    Ecrire("Donner a ? ")
+    Lire(a)
+    Ecrire("Donner b ? ")
+    Lire(b)
+    Pour i de a à b Faire
+      si i mod 3 = 0 Alors
+        Ecrire(i)
+      fin si
+    Fin Pour
+  Fin</code></pre>
       </section>
 
       <section>
@@ -85,9 +99,22 @@ Fin</code></pre>
 Début
   Pour a de 10 à 99 Faire
     sc &larr; a div 10 + a mod 10
-    si sc mod 5  = 0 alors
+    si sc mod 5 = 0 alors
       Ecrire(i)
     fin si
+  Fin Pour
+Fin</code></pre>
+
+        <h4>Correction</h4>
+        <pre><code class="language-algorithm">Algorithme Multiple_5
+Début
+  Pour d de 1 à 9 Faire
+    Pour u de 0 à 9 Faire
+      v &larr; d * 10 + u
+      si (d + u) mod 5 = 0 alors
+        Ecrire(v)
+      fin si
+    Fin pour
   Fin Pour
 Fin</code></pre>
       </section>
@@ -105,6 +132,19 @@ Fin</code></pre>
 21 * 71 = 1491</code></pre>
         <p class="explication">Explication</p>
         <p>1691 &rarr; est un nombre de 4 chiffres qui se termine par xx91.</p>
+
+        <h4>Correction</h4>
+        <pre><code class="language-algorithm">Algorithme prod_term_91
+Début
+  Pour a de 10 à 99 Faire
+    Pour b de (a + 1) à 99 Faire
+      p &larr; a * b
+      si p mod 100 = 91 alors
+        Ecrire(a, "*", b, "=", p)
+      fin si
+    Fin pour
+  Fin Pour
+Fin</code></pre>
       </section>
 
       <section>
@@ -115,6 +155,19 @@ Fin</code></pre>
         <p>121, 143, etc</p>
         <p class="explication">Explication</p>
         <p>143 &rarr; centaines = 1, dizaines = 4, unités = 3 et 3 + 1 = 4</p>
+
+        <h4>Correction</h4>
+        <pre><code class="language-algorithm">Algorithme dizaines_unites_centaines
+Début
+  Pour i de 100 à 999 Faire
+    u &larr; i mod 10
+    d &larr; (i div 10) mod 10
+    c &larr; i div 100
+    si (u + c) = d alors
+      Ecrire(i)
+    fin si
+  Fin Pour
+Fin</code></pre>
       </section>
 
       <section>
@@ -124,6 +177,22 @@ Fin</code></pre>
         <p>Pour les nombres de quatre chiffres les palintiples sont : 1089 x 9 = 9801 et 2178 x 4 = 8712</p>
         <p class="explication">Travail demandé</p>
         <p>Ecrire l'algorithme d'un programme qui cherche tous les nombres palintiples de 5 chiffres.</p>
+
+        <h4>Correction</h4>
+        <pre><code class="language-algorithm">Algorithme palintiples
+Début
+  Pour i de 10000 à 99999 Faire
+    u &larr; i mod 10
+    d &larr; (i div 10) mod 10
+    c &larr; (i div 100) mod 10
+    m &larr; (i div 1000) mod 10
+    dm &larr; i div 10000
+    inv &larr; u * 10000 + d * 1000 + c * 100 + m * 10 + dm
+    si inv >= 10000 et i mod inv = 0 alors
+      Ecrire(inv, "*", i div inv, "=", i)
+    fin si
+  Fin Pour
+Fin</code></pre>
       </section>
 
       <section>
