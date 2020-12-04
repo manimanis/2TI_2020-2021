@@ -202,6 +202,20 @@ Fin</code></pre>
           chiffres est 9, et qui sont retournés lorsqu'on leur retranche 99</p>
         <p class="explication">Exemple</p>
         <p>180 - 99 = 81, 1+8+0=9 et le retourné de 180 est 081 = 81.</p>
+
+        <h4>Correction</h4>
+        <pre><code class="language-algorithm">Algorithme retourne_3chiffres
+Début
+  Pour i de 100 à 999 Faire
+    u &larr; i mod 10
+    d &larr; (i div 10) mod 10
+    c &larr; i div 100
+    inv &larr; u * 100 + d * 10 + c
+    si (c+d+u)=9 ou i-inv = 99 alors
+      Ecrire(i, "-", inv, "=", i - inv)
+    fin si
+  Fin Pour
+Fin</code></pre>
       </section>
 
       <section>
@@ -215,6 +229,15 @@ Fin</code></pre>
 **
 ***
 ****</code></pre>
+        <h4>Correction</h4>
+        <pre><code class="language-algorithm">Algorithme triangle_1
+Début
+  Ecrire("Donner la longueur de la base ? ")
+  Lire(b)
+  Pour i de 1 à b Faire
+    Ecrire("*" * i)
+  Fin Pour
+Fin</code></pre>
       </section>
 
       <section class="no-page-break-inside">
@@ -228,6 +251,23 @@ Fin</code></pre>
 5 est premier</code></pre>
         <pre><code class="hljs nohighlight">Donner un entier ? 15
 15 n'est pas premier</code></pre>
+        <h4>Correction</h4>
+        <pre><code class="language-algorithm">Algorithme premier
+Début
+  Ecrire("Donner un entier ? ")
+  Lire(n)
+  cpt &larr; 0
+  Pour i de 1 à n Faire
+    si n mod i = 0 alors
+      cpt &larr; cpt + 1
+    fin si
+  Fin Pour
+  si cpt = 2 alors
+    Ecrire(n, "est premier")
+  sinon
+    Ecrire(n, "n'est pas premier")
+  Fin si
+Fin</code></pre>
       </section>
 
       <section>
@@ -242,6 +282,20 @@ Fin</code></pre>
 * *
 *  *
 *****</code></pre>
+
+        <h4>Correction</h4>
+        <pre><code class="language-algorithm">Algorithme triangle_2
+Début
+  Ecrire("Donner la longueur de la base ? ")
+  Lire(b)
+  Pour i de 1 à b Faire
+    Si i = 1 ou i = b alors
+      Ecrire("*" * i)
+    sinon
+      Ecrire("*" + " " * (i - 2) + "*")
+    Fin si
+  Fin Pour
+Fin</code></pre>
       </section>
 
       <section>
@@ -256,6 +310,20 @@ Fin</code></pre>
   *****
  *******
 *********</code></pre>
+
+        <h4>Correction</h4>
+        <pre><code class="language-algorithm">Algorithme triangle_3
+Début
+  Ecrire("Donner la longueur de la base ? ")
+  Lire(b)
+  ns &larr; 1      // Nombre d'étoiles 
+  ne &larr; b - 1  // Nombre d'espaces
+  Pour i de 1 à b Faire
+    Ecrire(" " * ne + "*" * ns)
+    ns &larr; ns + 2
+    ne &larr; ne - 1
+  Fin Pour
+Fin</code></pre>
       </section>
 
       <section>
@@ -266,6 +334,20 @@ Fin</code></pre>
         <pre><code class="hljs nohighlight">Donner un entier ? 12
 Somme des diviseurs : 28</code></pre>
         <p>Les diviseurs de 12 sont : 1, 2, 3, 4, 6 et 12 et leur somme est : 28</p>
+
+        <h4>Correction</h4>
+        <pre><code class="language-algorithm">Algorithme somme_div
+Début
+  Ecrire("Donner un entier ? ")
+  Lire(n)
+  s &larr; 0
+  Pour i de 1 à n Faire
+    si n mod i = 0 alors
+      s &larr; s + i
+    fin si
+  Fin Pour
+  Ecrire("Somme de diviseurs de", n, "est égale à", s)
+Fin</code></pre>
       </section>
     </article>
   </main>

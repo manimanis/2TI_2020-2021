@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Devoir de synthèse n°1 - 2TI</title>
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/default.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/seance03.css">
+  <style>
+    .pointille {
+      line-height: 0.75cm;
+      border-bottom: #666 dotted 2px;
+    }
+
+    .algorithme {
+      font-family: monospace;
+      font-size: 10pt;
+      border: 1px solid #333;
+      padding: 0.5em;
+    }
+
+    .algorithme p {
+      margin: 0;
+    }
+
+    .indent1 {
+      margin-left: 17px !important;
+      box-sizing: content-box;
+    }
+
+    .indent2 {
+      margin-left: 34px !important;
+      box-sizing: content-box;
+    }
+
+    @media print {
+      h1 {
+        font-size: 1.6em;
+      }
+
+      h2 {
+        font-size: 1.4em;
+      }
+
+      h3 {
+        font-size: 1.2em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="py-2 px-4 bg-secondary">
+    <div class="user-input-saver text-white">
+      <div class="row">
+        <div class="col-sm-6">
+          <label>Nom & Prénom</label>
+          <input type="text" class="form-control save-content" placeholder="Nom & Prénom">
+        </div>
+        <div class="col-sm-6">
+          <label>Classe</label>
+          <select class="form-control save-content" placeholder="Classe">
+            <option>2TI</option>
+            <option>2SC</option>
+            <option>3T</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </header>
+  <aside>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+  <main class="container">
+    <h1>Devoir de synthèse n°1 - 2<sup>ème</sup>TI</h1>
+
+    <article>
+      <h2 style="page-break-before: always;">Partie 2</h2>
+
+      <section>
+        <h3>Problème (13 pts)</h3>
+
+        <div class="row">
+          <div class="col-sm-8">
+            <h4>Puzzle Game</h4>
+            <p>Le petit <strong>Abdou</strong> et sa petite soeur <strong>Hala</strong> jouent un jeu de puzzles
+              amusant. Le jeu nécessite un puzzle de six pièces à construire pour chacun d'eux et un dé à six faces.</p>
+            <p>Le déroulement du jeu est comme suit :</p>
+            <ul>
+              <li>Hala commence à jouer au début :
+                <ul>
+                  <li>Avant de lancer le dé, elle annonce si la valeur trouvée sera paire ou impaire,</li>
+                  <li>Elle lance le dé,</li>
+                  <li>Si elle obtient une valeur correcte, elle construit une pièce de son puzzle, sinon c'est Abdou qui
+                    construit une pièce de son puzzle.</li>
+                </ul>
+              </li>
+              <li>Maintenant, c'est le tour de Abdou :
+                <ul>
+                  <li>Il choisit si le dé tombera sur une face paire ou impaire</li>
+                  <li>Puis, il lance le dé</li>
+                  <li>S'il obtient une valeur correcte, il construit une pièce de son puzzle, sinon c'est Hala qui
+                    construit une pièce de son puzzle.</li>
+                </ul>
+              </li>
+              <li>Le gagnant est celui qui termine la construction de son puzzle. Ils peuvent gagner tous les deux.</li>
+            </ul>
+          </div>
+          <div class="col-sm-4">
+            <figure>
+              <img src="images/DS01/puzzle01.png" alt="Puzzle Hala">
+              <figcaption>Puzzle Hala</figcaption>
+            </figure>
+            <figure>
+              <img src="images/DS01/puzzle02.png" alt="Puzzle Abdou">
+              <figcaption>Puzzle Abdou</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <h5>Travail demandé</h5>
+        <ol>
+          <li>Hala et Abdou ont construit 5 pièces sur 6 de leurs puzzles, maintenant c'est le tour de Abdou.
+            <ol type="a">
+              <li>Il choisit la face impaire et il jette le dé. Il obtient 4. <strong>Qui gagne le jeu ?</strong>
+                <p class="pointille">&nbsp;</p>
+              </li>
+              <li>Il choisit la face impaire et il jette le dé. Il obtient 5. <strong>Qui gagne le jeu ?</strong>
+                <p class="pointille">&nbsp;</p>
+              </li>
+            </ol>
+          </li>
+          <li>On demande de compléter le remplissage du tableau suivant:
+            <table class="table table-bordered">
+              <tbody>
+                <tr>
+                  <th width="7%">puz_ha</th>
+                  <td width="7%">0</td>
+                  <td width="7%">_</td>
+                  <td width="7%">1</td>
+                  <td width="7%">_</td>
+                  <td width="7%">2</td>
+                  <td width="7%">3</td>
+                  <td width="7%">
+                    <p class="pointille">&nbsp;</p>
+                  </td>
+                  <td width="7%">
+                    <p class="pointille">&nbsp;</p>
+                  </td>
+                  <td width="7%">
+                    <p class="pointille">&nbsp;</p>
+                  </td>
+                  <td width="7%">
+                    <p class="pointille">&nbsp;</p>
+                  </td>
+                  <td width="7%">
+                    <p class="pointille">&nbsp;</p>
+                  </td>
+                  <td width="7%">
+                    <p class="pointille">&nbsp;</p>
+                  </td>
+                  <td width="7%">
+                    <p class="pointille">&nbsp;</p>
+                  </td>
+                </tr>
+                <tr>
+                  <th>choix_ha</th>
+                  <td></td>
+                  <td>P</td>
+                  <td></td>
+                  <td>P</td>
+                  <td></td>
+                  <td>I</td>
+                  <td></td>
+                  <td>P</td>
+                  <td></td>
+                  <td>I</td>
+                  <td></td>
+                  <td>I</td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <th>puz_ab</th>
+                  <td>0</td>
+                  <td>1</td>
+                  <td>_</td>
+                  <td>2</td>
+                  <td>_</td>
+                  <td>_</td>
+                  <td>
+                    <p class="pointille">&nbsp;</p>
+                  </td>
+                  <td>
+                    <p class="pointille">&nbsp;</p>
+                  </td>
+                  <td>
+                    <p class="pointille">&nbsp;</p>
+                  </td>
+                  <td>
+                    <p class="pointille">&nbsp;</p>
+                  </td>
+                  <td>
+                    <p class="pointille">&nbsp;</p>
+                  </td>
+                  <td>
+                    <p class="pointille">&nbsp;</p>
+                  </td>
+                  <td>
+                    <p class="pointille">&nbsp;</p>
+                  </td>
+                </tr>
+                <tr>
+                  <th>choix_ab</th>
+                  <td></td>
+                  <td></td>
+                  <td>I</td>
+                  <td></td>
+                  <td>P</td>
+                  <td></td>
+                  <td>P</td>
+                  <td></td>
+                  <td>I</td>
+                  <td></td>
+                  <td>P</td>
+                  <td></td>
+                  <td>P</td>
+                </tr>
+                <tr>
+                  <th>de</th>
+                  <td></td>
+                  <td>5</td>
+                  <td>4</td>
+                  <td>6</td>
+                  <td>2</td>
+                  <td>1</td>
+                  <td>3</td>
+                  <td>3</td>
+                  <td>2</td>
+                  <td>4</td>
+                  <td>2</td>
+                  <td>5</td>
+                  <td>2</td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>Utiliser les briques suivantes pour compléter les étapes du programme, <strong>Utiliser uniquement la
+              lettre adéquate</strong> :
+            <ol type="A">
+              <li>Demander le choix de Hala <code>choix_ha</code> (P = pair et I = Impair)</li>
+              <li>Demander le choix de Abdou <code>choix_ab</code> (P = pair et I = Impair)</li>
+              <li>Répéter les étapes 2, 3, 4, 5, 6 et 7 jusqu'à <code>puz_ab = 6</code> ou <code>puz_ha = 6</code></li>
+              <li>Initialiser <code>puz_ab</code> et <code>puz_ha</code> à zéro</li>
+              <li>Si <code>choix_ha</code> est correct, incrémenter <code>puz_ha</code>, sinon incrémenter
+                <code>puz_ab</code></li>
+              <li>Si <code>choix_ab</code> est correct, incrémenter <code>puz_ab</code>, sinon incrémenter
+                <code>puz_ha</code></li>
+              <li>Lancer le dé <code>de</code> et afficher sa valeur (Hala Joue)</li>
+              <li>Lancer le dé <code>de</code> et afficher sa valeur (Abdou Joue)</li>
+              <li>Afficher le(s) gagnant(s)</li>
+            </ol>
+            <table class="table table-bordered">
+              <tbody>
+                <tr>
+                  <th width="10%">Num. étape</th>
+                  <td width="10%">1</td>
+                  <td width="10%">2</td>
+                  <td width="10%">3</td>
+                  <td width="10%">4</td>
+                  <td width="10%">5</td>
+                  <td width="10%">6</td>
+                  <td width="10%">7</td>
+                  <td width="10%">8</td>
+                  <td width="10%">9</td>
+                </tr>
+                <tr>
+                  <th>Etape</th>
+                  <td>D</td>
+                  <td>
+                    <p class="pointille">&nbsp;</p>
+                  </td>
+                  <td>
+                    <p class="pointille">&nbsp;</p>
+                  </td>
+                  <td>
+                    <p class="pointille">&nbsp;</p>
+                  </td>
+                  <td>
+                    <p class="pointille">&nbsp;</p>
+                  </td>
+                  <td>
+                    <p class="pointille">&nbsp;</p>
+                  </td>
+                  <td>
+                    <p class="pointille">&nbsp;</p>
+                  </td>
+                  <td>C</td>
+                  <td>
+                    <p class="pointille">&nbsp;</p>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>Ecrire l'algorithme de chaque étape.</li>
+        </ol>
+
+        <div class="algorithme">
+          <p>Algorithme Jeu_puzzle</p>
+          <p>Début</p>
+          <p>&nbsp;&nbsp;// étape 1</p>
+          <p class="indent1 pointille">&nbsp;</p>
+          <p class="indent1 pointille">&nbsp;</p>
+          <p>&nbsp;&nbsp;Répéter</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;// étape 2</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;Ecrire("Tour de Hala")</p>
+          <p class="indent2 pointille">&nbsp;</p>
+          <p class="indent2 pointille">&nbsp;</p>
+          <p class="indent2 pointille">&nbsp;</p>
+          <p class="indent2 pointille">&nbsp;</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;// étape 3</p>
+          <p class="indent2 pointille">&nbsp;</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;Ecrire("Dé =", de)</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;// étape 4</p>
+          <p class="indent2 pointille">&nbsp;</p>
+          <p class="indent2 pointille">&nbsp;</p>
+          <p class="indent2 pointille">&nbsp;</p>
+          <p class="indent2 pointille">&nbsp;</p>
+          <p class="indent2 pointille">&nbsp;</p>
+          <p class="indent2 pointille">&nbsp;</p>
+          <p class="indent2 pointille">&nbsp;</p>
+          <p class="indent2 pointille">&nbsp;</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;// étape 5</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;Ecrire("Tour de Abdou")</p>
+          <p class="indent2 pointille">&nbsp;</p>
+          <p class="indent2 pointille">&nbsp;</p>
+          <p class="indent2 pointille">&nbsp;</p>
+          <p class="indent2 pointille">&nbsp;</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;// étape 6</p>
+          <p class="indent2 pointille">&nbsp;</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;Ecrire("Dé =", de)</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;// étape 7</p>
+          <p class="indent2 pointille">&nbsp;</p>
+          <p class="indent2 pointille">&nbsp;</p>
+          <p class="indent2 pointille">&nbsp;</p>
+          <p class="indent2 pointille">&nbsp;</p>
+          <p class="indent2 pointille">&nbsp;</p>
+          <p class="indent2 pointille">&nbsp;</p>
+          <p class="indent2 pointille">&nbsp;</p>
+          <p class="indent2 pointille">&nbsp;</p>
+          <p>&nbsp;&nbsp;&nbsp;&nbsp;// étape 8</p>
+          <p class="indent1 pointille">Jusqu'à</p>
+          <p>&nbsp;&nbsp;// étape 9</p>
+          <p class="indent1 pointille">&nbsp;</p>
+          <p class="indent1 pointille">&nbsp;</p>
+          <p class="indent1 pointille">&nbsp;</p>
+          <p class="indent1 pointille">&nbsp;</p>
+          <p class="indent1 pointille">&nbsp;</p>
+          <p class="indent1 pointille">&nbsp;</p>
+          <p class="indent1 pointille">&nbsp;</p>
+          <p>Fin</p>
+        </div>
+      </section>
+    </article>
+  </main>
+  <script src="scripts/jquery.min.js"></script>
+  <script src="scripts/bootstrap.min.js"></script>
+  <script src="scripts/highlight.pack.js"></script>
+  <script src="scripts/hljs.algorithm.js"></script>
+  <script src="scripts/draggable.js"></script>
+  <script src="scripts/clipboard.min.js"></script>
+  <script src="scripts/pages.js"></script>
+  <script src="scripts/savecontent.js"></script>
+  <script src="scripts/vue.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+    document.querySelectorAll('.language-algorithm,.language-python')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+    $(() => {
+      const localStore = new PagePersistance();
+      const serverStore = new ServerSaves('DS_3T');
+      const userInputSaver = new UserInputSaver(
+        document.querySelector('.user-input-saver'),
+        localStore,
+        serverStore);
+      //   new Vue({
+      //     el: '#turtle_rabbit_game',
+      //     data: {
+      //       turtle_winner: false,
+      //       rabbit_winner: false,
+      //       dice_face: 3,
+      //       rabbit_pos: 0,
+      //       turtle_pos: 0,
+      //       winner_message: '',
+      //       dice_arr: new Array(6).fill(0)
+      //     },
+      //     computed: {
+      //       current_dice: function () {
+      //         return { [`de${this.dice_face}`]: true };
+      //       }
+      //     },
+      //     mounted: function () {
+      //       this.reset();
+      //       do {
+      //         this.clicked();
+      //       } while (!this.game_ended());
+      //       this.$forceUpdate();
+      //     },
+      //     methods: {
+      //       reset: function () {
+      //         this.turtle_winner = false;
+      //         this.rabbit_winner = false;
+      //         this.dice_face = 1 + Math.floor(Math.random() * 6);
+      //         this.rabbit_pos = 0;
+      //         this.turtle_pos = 0;
+      //         this.winner_message = '';
+      //         this.dice_arr = new Array(6).fill(0);
+      //       },
+      //       game_ended: function () {
+      //         return this.turtle_winner || this.rabbit_winner;
+      //       },
+      //       clicked: function () {
+      //         if (this.game_ended()) {
+      //           return;
+      //         }
+
+      //         this.dice_face = 1 + Math.floor(Math.random() * 6);
+      //         this.dice_arr[this.turtle_pos] = this.dice_face;
+      //         if (this.dice_face == 6) {
+      //           this.rabbit_pos = 6;
+      //           this.rabbit_winner = true;
+      //           this.winner_message = 'Lièvre gagne';
+      //         } else {
+      //           this.turtle_pos += 1;
+      //           if (this.turtle_pos == 6) {
+      //             this.turtle_winner = true;
+      //             this.winner_message = 'Tortue gagne';
+      //           }
+      //         }
+      //         this.$forceUpdate();
+      //       }
+      //     }
+      //   });
+    });
+  </script>
+</body>
+
+</html>
