@@ -13,6 +13,16 @@
       display: inline-block;
       width: fit-content;
     }
+
+    @media print {
+
+      .table-bordered>tbody>tr>td,
+      .table-bordered>thead>tr>td,
+      .table-bordered>tbody>tr>th,
+      .table-bordered>thead>tr>th {
+        border-color: #333 !important;
+      }
+    }
   </style>
 </head>
 
@@ -205,7 +215,7 @@ Lire(hauteur)</code></pre>
             <div class="col-sm-6">
               <pre><code class="language-python"># Python permet d'écrire un code plus réduit
 # hauteur est de type réel
-hauteur = float (input("Quel est votre hauteur (m) ? "))</code></pre>
+hauteur = float(input("Quel est votre hauteur (m) ? "))</code></pre>
             </div>
           </div>
       </section>
@@ -229,59 +239,30 @@ print(na)</code></pre>
             </div>
           </div>
         </div>
-
-        <div>
-          <p class="explication">Correspondre une valeur numérique à un texte</p>
-          <div class="row no-page-break-inside">
-            <div class="col-sm-6">
-              <pre><code class="language-algorithm">
-// Nbre alétaoire [1, 5]
-nbre &larr; alea(1, 5)
-Si nbre = 1 Alors
-  nbre_txt &larr; "Un"
-Sinon Si nbre = 2 Alors
-  nbre_txt &larr; "Deux"
-Sinon Si nbre = 3 Alors
-  nbre_txt &larr; "Trois"
-Sinon Si nbre = 4 Alors
-  nbre_txt &larr; "Quatre"
-Sinon 
-  nbre_txt &larr; "Cinq"
-Fin Si
-// Afficher le nombre tiré
-Ecrire(nbre, " = ", nbre_txt)</code></pre>
-            </div>
-            <div class="col-sm-6">
-              <pre><code class="language-python">from random import randint
-# Nbre alétaoire [1, 5]
-nbre = randint(1, 5)
-if nbre == 1:
-  nbre_txt = "Un"
-elif nbre == 2:
-  nbre_txt = "Deux"
-elif nbre == 3:
-  nbre_txt = "Trois"
-elif nbre == 4:
-  nbre_txt = "Quatre"
-else: 
-  nbre_txt = "Cinq"
-
-# Afficher le nombre tiré
-print(nbre, " = ", nbre_txt)</code></pre>
-            </div>
-          </div>
-        </div>
       </section>
     </article>
 
     <article>
-      <h2>Structures conditionnelles</h2>
+      <h2 style="page-break-before: always;">Structures conditionnelles</h2>
 
       <section>
         <h3 class="brique">Si</h3>
 
         <div>
           <p class="explication">Forme réduite</p>
+          <div class="row no-page-break-inside">
+            <div class="col-sm-6">
+              <pre><code class="language-algorithm">si [condition] alors
+    // Traitements
+fin si</code></pre>
+            </div>
+            <div class="col-sm-6">
+              <pre><code class="language-python">if [condition]:
+    # Traitements
+ </code></pre>
+            </div>
+          </div>
+          <p class="explication">Exemple</p>
           <div class="row no-page-break-inside">
             <div class="col-sm-6">
               <pre><code class="language-algorithm">// Valeur absolue d'un nombre
@@ -304,8 +285,26 @@ print(f'| {a} |= {va}')  # | -9 |= 9</code></pre>
           </div>
         </div>
 
+
         <div>
           <p class="explication">Forme alternative</p>
+          <div class="row no-page-break-inside">
+            <div class="col-sm-6">
+              <pre><code class="language-algorithm">si [condition] alors
+    // Traitement, si [condition] est vraie
+sinon
+    // Traitement, si [condition] est fausse
+fin si</code></pre>
+            </div>
+            <div class="col-sm-6">
+              <pre><code class="language-python">if [condition]:
+    # Traitements, si [condition] est vraie
+else:
+    # Traitements, si [condition] est fausse
+ </code></pre>
+            </div>
+          </div>
+          <p class="explication">Exemple</p>
           <div class="row no-page-break-inside">
             <div class="col-sm-6">
               <pre><code class="language-algorithm">// Signe d'un nombre
@@ -332,6 +331,27 @@ else:
 
         <div>
           <p class="explication">Forme complète</p>
+          <div class="row no-page-break-inside">
+            <div class="col-sm-6">
+              <pre><code class="language-algorithm">si [condition1] alors
+    // Traitement, si [condition1] est vraie
+sinon si [condition2] alors
+    // Traitement, si [condition2] est vraie
+sinon
+    // Traitement, si toutes les condition sont fausses
+fin si</code></pre>
+            </div>
+            <div class="col-sm-6">
+              <pre><code class="language-python">if [condition1]:
+    # Traitements, si [condition1] est vraie
+elif [condition2]:
+    # Traitements, si [condition2] est vraie
+else:
+    # Traitements, si toutes les condition sont fausses
+ </code></pre>
+            </div>
+          </div>
+          <p class="explication">Exemple</p>
           <div class="row no-page-break-inside">
             <div class="col-sm-6">
               <pre><code class="language-algorithm">// Comparaison de deux nombres
@@ -370,8 +390,21 @@ else:
       <section>
         <h3>Pour</h3>
 
+        <h4>1<sup>ère</sup> forme</h4>
         <div>
-          <p class="explication">Afficher un message</p>
+          <div class="row no-page-break-inside">
+            <div class="col-sm-6">
+              <pre><code class="language-algorithm">pour [cpt] de 0 à [fin]-1 Faire
+    // Traitements
+fin pour</code></pre>
+            </div>
+            <div class="col-sm-6">
+              <pre><code class="language-python">for [cpt] in range([fin]):
+    # Traitements
+ </code></pre>
+            </div>
+          </div>
+          <p class="explication">Exemple : Afficher un message</p>
           <div class="row no-page-break-inside">
             <div class="col-sm-6">
               <pre><code class="language-algorithm">// Afficher un message plusieurs fois
@@ -388,8 +421,21 @@ for i in range(5):
           </div>
         </div>
 
+        <h4>2<sup>ème</sup> forme</h4>
         <div>
-          <p class="explication">Les nombres d'un intervalle</p>
+          <div class="row no-page-break-inside">
+            <div class="col-sm-6">
+              <pre><code class="language-algorithm">pour [cpt] de [debut] à [fin] Faire
+    // Traitements
+fin pour</code></pre>
+            </div>
+            <div class="col-sm-6">
+              <pre><code class="language-python">for [cpt] in range([debut], [fin]+1):
+    # Traitements
+ </code></pre>
+            </div>
+          </div>
+          <p class="explication">Exemple : Les nombres d'un intervalle</p>
           <div class="row no-page-break-inside">
             <div class="col-sm-6">
               <pre><code class="language-algorithm">// Afficher tous les nombres d'un intervalle
@@ -406,8 +452,22 @@ for i in range(10, 21):
           </div>
         </div>
 
+        <h4>3<sup>ème</sup> forme</h4>
         <div>
-          <p class="explication">Les nombres d'un intervalle par pas fixe</p>
+          <div class="row no-page-break-inside">
+            <div class="col-sm-6">
+              <pre><code class="language-algorithm">pour [cpt] de [debut] à [fin] (pas=[p]) Faire
+    // Traitements
+fin pour</code></pre>
+            </div>
+            <div class="col-sm-6">
+              <pre><code class="language-python">for [cpt] in range([debut], [fin]+1, [p]):
+    # Traitements
+ </code></pre>
+            </div>
+          </div>
+          <p class="explication" style="page-break-before: always;">Exemple : Les nombres d'un intervalle par pas fixe
+          </p>
           <div class="row no-page-break-inside">
             <div class="col-sm-6">
               <pre><code class="language-algorithm">// Les nombres d'un intervalle par pas de 4
@@ -427,29 +487,105 @@ for i in range(3, 21, 4):
 
       <section>
         <h3>Répéter ... Jusqu'à</h3>
+        <div>
+          <div class="row no-page-break-inside">
+            <div class="col-sm-6">
+              <pre><code class="language-algorithm">Répéter
+    // Traitements
+Jusqu'à [condition]</code></pre>
+            </div>
+            <div class="col-sm-6">
+              <pre><code class="language-python">while True:
+    # Traitements
+    if [condition]:
+        break
+ </code></pre>
+            </div>
+          </div>
+          <p class="explication">Exemple : Saisir un entier de deux chiffres</p>
+          <div class="row no-page-break-inside">
+            <div class="col-sm-6">
+              <pre><code class="language-algorithm">Répéter
+    Ecrire("Donner un entier [10, 99] ? ")
+    Lire(n)
+Jusqu'à 10 &le; n &le; 99
+ </code></pre>
+            </div>
+            <div class="col-sm-6">
+              <pre><code class="language-python">while True:
+    n = int(input("Donner un entier [10, 99] ? "))
+    
+    if 10 &lt;= n &lt;= 99:
+        break</code></pre>
+            </div>
+          </div>
+        </div>
       </section>
 
       <section>
         <h3>Tant que</h3>
+        <div>
+          <div class="row no-page-break-inside">
+            <div class="col-sm-6">
+              <pre><code class="language-algorithm">Tant que [condition] Faire
+    // Traitements
+Fin Tant que</code></pre>
+            </div>
+            <div class="col-sm-6">
+              <pre><code class="language-python">while [condition]:
+    # Traitements
+ </code></pre>
+            </div>
+          </div>
+          <p class="explication">Exemple : Calculer le PGCD de deux nombres</p>
+          <div class="row no-page-break-inside">
+            <div class="col-sm-6">
+              <pre><code class="language-algorithm">
+a &larr; alea(10, 50)
+b &larr; alea(10, 50)
+Ecrire("a=", a, "- b=", b)
+Tant que b &ne; 0 Faire
+    r &larr; a mod b
+    a &larr; b
+    b &larr; r
+Fin Tant Que
+// Le PGCD est dans la variable a
+Ecrire(a)</code></pre>
+            </div>
+            <div class="col-sm-6">
+              <pre><code class="language-python">from random import randint
+a = randint(10, 50)
+b = randint(10, 50)
+print("a=", a, "- b=", b)
+while b != 0:
+    r = a % b
+    a = b
+    b = r
+
+# Le PGCD est dans la variable a
+print(a)</code></pre>
+            </div>
+          </div>
+        </div>
       </section>
     </article>
 
     <article>
-      <h2>Fonctions prédéfinies</h2>
+      <h2 style="page-break-before: always;">Fonctions prédéfinies</h2>
 
       <section>
         <h3>Conversions</h3>
 
-        <table class="table table-bordered" id="conversions">
+        <table class="table table-bordered table-sm" id="conversions">
           <thead>
             <tr>
               <th colspan="2">Fontion</th>
-              <th rowspan="2" width="50%">Explication</th>
-              <th rowspan="2">Exemple</th>
+              <th rowspan="2" width="30%">Explication</th>
+              <th rowspan="2" width="40%">Exemple</th>
             </tr>
             <tr>
-              <th width="16.6%">Algorithme</th>
-              <th width="16.6%">Python</th>
+              <th width="15%">Algorithme</th>
+              <th width="15%">Python</th>
             </tr>
           </thead>
           <tbody>
@@ -540,16 +676,16 @@ for i in range(3, 21, 4):
       <section>
         <h3>Fonctions numériques</h3>
 
-        <table class="table table-bordered" id="conversions">
+        <table class="table table-bordered table-sm" id="conversions">
           <thead>
             <tr>
               <th colspan="2">Fontion</th>
-              <th rowspan="2" width="50%">Explication</th>
-              <th rowspan="2">Exemple</th>
+              <th rowspan="2" width="30%">Explication</th>
+              <th rowspan="2" width="40%">Exemple</th>
             </tr>
             <tr>
-              <th width="16.6%">Algorithme</th>
-              <th width="16.6%">Python</th>
+              <th width="15%">Algorithme</th>
+              <th width="15%">Python</th>
             </tr>
           </thead>
           <tbody>
@@ -559,19 +695,32 @@ for i in range(3, 21, 4):
               <td>Retourne l'entier le plus proche de la valeur de x.<br>
                 <ul>
                   <li>&RightArrow; ent(x), si la partie décimale &lt; 0.5</li>
-                  <li>&RightArrow; ent(x)+1, si la partie décimale &ge; 0.5</li>
+                  <li>&RightArrow; ent(x)+1, si la partie décimale &gt; 0.5</li>
+                  <li>&RightArrow; l'entier pair le plus proche, si partie décimale = 0.5</li>
                 </ul>
               </td>
               <td>
-                arrondi(15.49)<br>
-                &RightArrow; 15<br>
-                arrondi(15.5)<br>
-                &RightArrow; 16
+                <table class="table table-borderless table-sm">
+                  <tbody>
+                    <tr>
+                      <td>arrondi(15.49)<br>
+                        &RightArrow; 15<br>
+                        arrondi(15.5)<br>
+                        &RightArrow; 16<br></td>
+                      <td>arrondi(16.5)<br>
+                        &RightArrow; 16<br>
+                        arrondi(16.51)<br>
+                        &RightArrow; 17<br></td>
+                    </tr>
+                  </tbody>
+                </table>
               </td>
             </tr>
             <tr>
               <td>racine(x)</td>
-              <td>x ** 0.5</td>
+              <td>x ** 0.5<br>
+                pow(x, 0.5)
+                math.sqrt(x)</td>
               <td>Retourne la racine carée d'un nombre x positif.
               </td>
               <td>
@@ -598,18 +747,18 @@ for i in range(3, 21, 4):
       </section>
 
       <section>
-        <h3>Fonctions sur les caractères</h3>
+        <h3 style="page-break-before: always;">Fonctions sur les caractères</h3>
 
-        <table class="table table-bordered" id="conversions">
+        <table class="table table-bordered table-sm" id="conversions">
           <thead>
             <tr>
               <th colspan="2">Fontion</th>
-              <th rowspan="2" width="50%">Explication</th>
-              <th rowspan="2">Exemple</th>
+              <th rowspan="2" width="30%">Explication</th>
+              <th rowspan="2" width="40%">Exemple</th>
             </tr>
             <tr>
-              <th width="16.6%">Algorithme</th>
-              <th width="16.6%">Python</th>
+              <th width="15%">Algorithme</th>
+              <th width="15%">Python</th>
             </tr>
           </thead>
           <tbody>
@@ -646,16 +795,16 @@ for i in range(3, 21, 4):
       <section>
         <h3>Fonctions sur les chaînes</h3>
 
-        <table class="table table-bordered" id="conversions">
+        <table class="table table-bordered table-sm" id="conversions">
           <thead>
             <tr>
               <th colspan="2">Fontion</th>
-              <th rowspan="2" width="50%">Explication</th>
-              <th rowspan="2">Exemple</th>
+              <th rowspan="2" width="30%">Explication</th>
+              <th rowspan="2" width="40%">Exemple</th>
             </tr>
             <tr>
-              <th width="16.6%">Algorithme</th>
-              <th width="16.6%">Python</th>
+              <th width="15%">Algorithme</th>
+              <th width="15%">Python</th>
             </tr>
           </thead>
           <tbody>
@@ -672,7 +821,7 @@ for i in range(3, 21, 4):
             </tr>
             <tr>
               <td>pos(ch1, ch2)</td>
-              <td>ch2.find(ch)</td>
+              <td>ch2.find(ch1)</td>
               <td>Retourne la première position de la chaîne ch1 dans ch2, ou -1 si ch1 n'est pas trouvée.</td>
               <td>
                 pos('s', 'base')<br>
@@ -695,7 +844,8 @@ for i in range(3, 21, 4):
             <tr>
               <td>estnum(ch)</td>
               <td>ch.isdigit()</td>
-              <td>Retourne Vrai/True si la chaîne ch est convertible en une valeur numérique, elle retourne Faux/False sinon.</td>
+              <td>Retourne Vrai/True si la chaîne ch est convertible en une valeur numérique, elle retourne Faux/False
+                sinon.</td>
               <td>
                 estnum('100')<br>
                 &RightArrow; Vrai<br>
@@ -720,10 +870,21 @@ for i in range(3, 21, 4):
             <tr>
               <td>souschaine(ch, d, f)</td>
               <td>ch[d:f]</td>
-              <td>Retourne une partie de la chaine ch à partir de la position d Jusqu'à la position f (non incluse).</td>
+              <td>Retourne une partie de la chaine ch à partir de la position d Jusqu'à la position f (non incluse).
+              </td>
               <td>
                 souschaine('baccalauréat 2021', 5, 12)<br>
                 &RightArrow; 'lauréat'
+              </td>
+            </tr>
+            <tr>
+              <td>efface(ch, d, f)</td>
+              <td>ch[:d] + ch[f:]</td>
+              <td>Supprime une partie de la chaine ch à partir de la position d Jusqu'à la position f (non incluse).
+              </td>
+              <td>
+                efface('med ali mani', 4, 8)<br>
+                &RightArrow; 'med mani'
               </td>
             </tr>
             <tr>
