@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Devoir de synthèse n°1 - 2TI</title>
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/default.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/seance03.css">
+  <style>
+    p {
+      margin: 0;
+    }
+
+    .algorithme p {
+      margin: 0;
+    }
+
+    .normal-table-6 {
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    .normal-table-6 td {
+      border: 1px solid #333;
+      width: calc(100% / 6);
+      text-align: center;
+    }
+
+    .normal-table-6 p {
+      margin: 0;
+    }
+
+    @media print {
+      h1 {
+        font-size: 1.6em;
+      }
+
+      h2 {
+        font-size: 1.4em;
+      }
+
+      h3 {
+        font-size: 1.2em;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="py-2 px-4 bg-secondary">
+    <div class="user-input-saver text-white">
+      <div class="row">
+        <div class="col-sm-6">
+          <label>Nom & Prénom</label>
+          <input type="text" class="form-control save-content" placeholder="Nom & Prénom">
+        </div>
+        <div class="col-sm-6">
+          <label>Classe</label>
+          <select class="form-control save-content" placeholder="Classe">
+            <option>2TI</option>
+            <option>2SC</option>
+            <option>3T</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </header>
+  <aside>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+  <main class="container">
+    <h1>Devoir de synthèse n°1 - 2<sup>ème</sup>TI</h1>
+
+    <article>
+      <h2>Partie 1</h2>
+
+      <section>
+        <h3>Exercice 1 (Pensée Logique)</h3>
+        <p>Les nombres suivants forment une séquence logique. Déterminer le nombre manquant dans chacun des cas suivants
+          :</p>
+        <p class="explication">Exemple</p>
+        <p>2 - 4 - 8 - ? - 32 &rarr; Le nombre manquant est <strong>16</strong> car 8 &times; 2 = 32 / 2 = 16</p>
+        <table class="table table-borderless table-sm">
+          <tbody>
+            <tr>
+              <td>
+                <table class="normal-table-6">
+                  <tbody>
+                    <tr>
+                      <td>12</td>
+                      <td>20</td>
+                      <td class="text-danger">
+                        28
+                      </td>
+                      <td>36</td>
+                      <td>44</td>
+                      <td>52</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td>
+                <table class="normal-table-6">
+                  <tbody>
+                    <tr>
+                      <td>1</td>
+                      <td>3</td>
+                      <td>6</td>
+                      <td>10</td>
+                      <td>15</td>
+                      <td class="text-danger">
+                        21
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table class="normal-table-6">
+                  <tbody>
+                    <tr>
+                      <td>4</td>
+                      <td>9</td>
+                      <td>16</td>
+                      <td>25</td>
+                      <td class="text-danger">
+                        36
+                      </td>
+                      <td>49</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td>
+                <table class="normal-table-6">
+                  <tbody>
+                    <tr>
+                      <td>2</td>
+                      <td>3</td>
+                      <td>5</td>
+                      <td>8</td>
+                      <td class="text-danger">
+                        13
+                      </td>
+                      <td>21</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table class="normal-table-6">
+                  <tbody>
+                    <tr>
+                      <td>15</td>
+                      <td>20</td>
+                      <td class="text-danger">
+                        25
+                      </td>
+                      <td>30</td>
+                      <td>35</td>
+                      <td>40</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td>
+                <table class="normal-table-6">
+                  <tbody>
+                    <tr>
+                      <td>4</td>
+                      <td>8</td>
+                      <td>12</td>
+                      <td class="text-danger">
+                        20
+                      </td>
+                      <td>32</td>
+                      <td>52</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table class="normal-table-6">
+                  <tbody>
+                    <tr>
+                      <td class="text-danger">
+                        15
+                      </td>
+                      <td>19</td>
+                      <td>23</td>
+                      <td>29</td>
+                      <td>31</td>
+                      <td>39</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+              <td>
+                <table class="normal-table-6">
+                  <tbody>
+                    <tr>
+                      <td>8</td>
+                      <td>4</td>
+                      <td>2</td>
+                      <td>1</td>
+                      <td>0.5</td>
+                      <td class="text-danger">
+                        0.25
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section>
+        <h3>Exercice 2 (Python)</h3>
+
+        <p>On demande d'écrire les instructions en langage Python.</p>
+
+        <ol>
+          <li>Ecrire une instruction Python qui saisit l'hauteur <code>h</code> en mètres d'un individu. L'hauteur doit
+            être supèrieure à 20 cm.
+            <pre><code class="language-python">while True:
+  h = float(input("Hauteur en m ?"))
+  if h > 0.2:
+    break</code></pre>
+          </li>
+          <li>Ecrire une instruction Python qui saisit la masse <code>m</code> en kg d'un individu. La masse doit
+            être supèrieure à 2 kg.
+            <pre><code class="language-python">while True:
+  m = int(input("Masse en kg ?"))
+  if m > 2:
+    break</code></pre>
+          </li>
+          <li>Ecrire une instruction Python qui calcule la masse corporelle <code>imc</code> de cet individu. Utiliser
+            la formule suivante :
+            <p class="text-center"><code>imc = m / h²</code></p>
+            <pre><code class="language-python">imc = m / (h * h)</code></pre>
+          </li>
+          <li>
+            Ecrire une instruction qui détermine la corpulence de l'individu, sachant que la corpulence est :
+            <ul>
+              <li><em>Malnutrition</em>, si <code>imc &lt; 18.5</code></li>
+              <li><em>Normale</em>, si <code>18.5 &le; imc &le; 25</code></li>
+              <li><em>Obése</em>, si <code>imc &gt; 25</code></li>
+            </ul>
+            <pre><code class="language-python">if imc &lt; 18.5:
+  print("Malnutrition")
+elif imc &le; 25:
+  print("Normale")
+else:
+  print("Obèse")</code></pre>
+          </li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>Exercice 3 (Algorithmique)</h3>
+
+        <ol>
+          <li>Ecrire une instruction qui saisit un entier <code>a</code> de trois chiffres. Le chiffre du milieu devra
+            être pair.
+            <pre><code class="language-algorithm">répéter
+  Ecrire("Donner un entier de trois chiffres ? ")
+  Lire(a)
+Jusqu'à (100 &le; a &le; 999) et ((a div 10) mod 2 = 0)</code></pre>
+          </li>
+          <li>
+            Ecrire une instruction qui :
+            <ul>
+              <li>Choisit deux nombres au hasard <code>v1</code> et <code>v2</code> :
+                <ul>
+                  <li><code>v2</code> est un nombre de deux chiffres</li>
+                  <li><code>v1</code> est un nombre d'un seul chiffre</li>
+                </ul>
+              </li>
+              <li>Détermine si <code>v1</code> est un diviseur de <code>v2</code></li>
+            </ul>
+            <p class="explication">Exemples</p>
+            <p>Si <code>v1 &larr; 25</code> et <code>v2 &larr; 5</code>, l'algorithme affiche : <strong>5 est un
+              diviseur de 25</strong></p>
+            <p>Si <code>v1 &larr; 13</code> et <code>v2 &larr; 3</code>, l'algorithme affiche : <strong>3 n'est pas un
+              diviseur de 13</strong></p>
+            <pre><code class="language-algorithm">v2 &larr; aléa(10, 99)
+v1 &larr; aléa(1, 9)
+si v2 mod v1 = 0 alors
+  Ecrire(v1, "est un diviseur de", v2)
+sinon
+  Ecrire(v1, "n'est pas un diviseur de", v2)
+fin si</code></pre>
+          </li>
+          <li>
+            Ecrire une instruction qui affiche tous les nombres palindromes de 3 chiffres.
+            <p class="explication">Exemple</p>
+            <p>101 est un nombre palindrome, car il reste le même si on l'inverse</p>
+            <p>120 n'est pas un nombre palindrome, car il devient 21 lorsqu'on l'inverse</p>
+
+            <pre><code class="language-algorithm">Pour i de 100 à 999 Faire
+  c &larr; i div 100
+  u &larr; i mod 10
+  si c = u alors
+    Ecrire(i)
+  Fin si  
+Fin Pour</code></pre>
+          </li>
+        </ol>
+      </section>
+    </article>
+
+    <article>
+      <h2 style="page-break-before: always;">Partie 2</h2>
+
+      <section>
+        <h3>Problème</h3>
+
+        <div class="row">
+          <div class="col-sm-9">
+            <h4>Puzzle Game</h4>
+            <p>Pour s'amuser un peu le petit abdou a inventé un jeu. Le jeu nécessite un puzzle à six pièces et un dé à
+              six faces.</p>
+            <p>Le but du jeu est de reconstituer le puzzle en suivant les règles en un minimum de coups.</p>
+            <p>Au début, le puzzle est démonté et le jeu se déroule comme suit :</p>
+            <ul>
+              <li>On lance le dé deux fois en notant sa valeur à chaque fois <code>de1</code> et <code>de2</code></li>
+              <li>On décide de :
+                <ul>
+                  <li>Monter une pièce du puzzle, si <code>de2 &gt; de1</code></li>
+                  <li>Monter deux pièces du puzzle, si <code>de2 = de1</code></li>
+                  <li>Démonter une pièce du puzzle, si <code>de2 &lt; de1</code></li>
+                </ul>
+              </li>
+              <li>Le jeu se termine lorsque le puzzle est reconstitué.</li>
+            </ul>
+          </div>
+          <div class="col-sm-3">
+            <figure>
+              <img src="images/DS01/puzzle_completed.png" alt="Puzzle Complet">
+              <figcaption>Puzzle Complet</figcaption>
+            </figure>
+
+            <figure>
+              <img src="images/DS01/dice.jpg" alt="Dé à six faces">
+              <figcaption>Dé à six faces</figcaption>
+            </figure>
+          </div>
+        </div>
+
+        <p>Le tableau suivant indique l'état du puzzle avant et après le lancement du dé.</p>
+
+        <div class="row">
+          <div class="col-sm-2 text-center border-bottom border-dark mb-1">
+            <p class="explication">Avant</p>
+          </div>
+          <div class="col-sm-2 text-center border-bottom border-dark mb-1">
+            <p class="explication">de1 / de2</p>
+          </div>
+          <div class="col-sm-2 text-center border-bottom border-dark mb-1">
+            <p class="explication">Après</p>
+          </div>
+          <div class="col-sm-6 text-center border-bottom border-dark mb-1">
+            <p class="explication">Explication</p>
+          </div>
+
+          <div class="col-sm-2 border-bottom border-dark mb-1">
+            <img src="images/DS01/puzzle_02.jpg" width="200" alt="Puzzle 2 pièces">
+          </div>
+          <div class="col-sm-2 text-center border-bottom border-dark mb-1">
+            de1
+            <div class="de border">
+              <div class="de6"></div>
+            </div>
+            de2
+            <div class="de border">
+              <div class="de5"></div>
+            </div>
+          </div>
+          <div class="col-sm-2 border-bottom border-dark mb-1">
+            <img src="images/DS01/puzzle_01.jpg" alt="Puzzle 1 pièce">
+          </div>
+          <div class="col-sm-6 border-bottom border-dark mb-1">de2 &lt; de1<br>&rarr; enlèver une pièce</div>
+
+          <div class="col-sm-2 border-bottom border-dark mb-1">
+            <img src="images/DS01/puzzle_01.jpg" alt="Puzzle 1 pièce">
+          </div>
+          <div class="col-sm-2 text-center border-bottom border-dark mb-1">
+            de1
+            <div class="de border">
+              <div class="de3"></div>
+            </div>
+            de2
+            <div class="de border">
+              <div class="de3"></div>
+            </div>
+          </div>
+          <div class="col-sm-2 border-bottom border-dark mb-1">
+            <img src="images/DS01/puzzle_03.jpg" alt="Puzzle 3 pièces">
+          </div>
+          <div class="col-sm-6 border-bottom border-dark mb-1">de2 = de1<br>&rarr; ajouter deux pièces</div>
+
+          <div class="col-sm-2 border-bottom border-dark mb-1">
+            <img src="images/DS01/puzzle_03.jpg" alt="Puzzle  pièces">
+          </div>
+          <div class="col-sm-2 text-center border-bottom border-dark mb-1">
+            de1
+            <div class="de border">
+              <div class="de2"></div>
+            </div>
+            de2
+            <div class="de border">
+              <div class="de5"></div>
+            </div>
+          </div>
+          <div class="col-sm-2 border-bottom border-dark mb-1">
+            <img src="images/DS01/puzzle_04.jpg" alt="Puzzle 4 pièces">
+          </div>
+          <div class="col-sm-6 border-bottom border-dark mb-1">de2 &gt; de1<br>&rarr; ajouter une pièce</div>
+        </div>
+
+        <h5>Travail demandé</h5>
+        <ol>
+          <li>Utiliser les briques suivantes pour compléter les étapes du programme, <strong>Utiliser uniquement la
+              lettre adéquate</strong> :
+            <ol type="A">
+              <li>Ajouter/Enlever des pièces au puzzle (variable <code>pieces</code>) en fonction de la valeur des dés
+                <code>de1</code> et <code>de2</code>
+              </li>
+              <li>Initialiser à zéro le nombre de pièces <code>pieces</code> du puzzle</li>
+              <li>Répéter les étapes 2, 3 et 4 jusqu'à <code>pieces = 6</code></li>
+              <li>Afficher le nombre actuel des pièces <code>pieces</code> du puzzle</li>
+              <li>Lancer le dé deux fois, noter la 1<sup>ère</sup> valeur dans <code>de1</code> et noter la
+                2<sup>ème</sup> valeur dans <code>de2</code></li>
+            </ol>
+            <table class="table table-bordered">
+              <tbody>
+                <tr>
+                  <th style="width: 16.6%">Num. étape</th>
+                  <td style="width: 16.6%">1</td>
+                  <td style="width: 16.6%">2</td>
+                  <td style="width: 16.6%">3</td>
+                  <td style="width: 16.6%">4</td>
+                  <td style="width: 16.6%">5</td>
+                </tr>
+                <tr>
+                  <th>Etape</th>
+                  <td>B</td>
+                  <td class="text-danger">
+                    E
+                  </td>
+                  <td class="text-danger">
+                    A
+                  </td>
+                  <td class="text-danger">
+                    D
+                  </td>
+                  <td class="text-danger">
+                    C
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </li>
+          <li>Ecrire l'algorithme de chaque étape.</li>
+        </ol>
+
+        <pre><code class="language-algorithm">Algorithme Jeu_puzzle
+Début
+  // étape 1
+  pieces &larr; 0
+  Répéter
+    // étape 2
+    de1 &larr; aléa(1, 6)
+    de2 &larr; aléa(1, 6)
+    Ecrire("de1 =", de1, "- de2 =", de2)
+    // étape 3
+    si de2 > de1 alors
+      pieces &larr; pieces + 1
+    sinon si de1 > de2 alors
+      si pieces > 0 alors
+        pieces &larr; pieces - 1
+      fin si
+    sinon // de1 = de2
+      pieces &larr; pieces + 2
+      si pieces &gt; 6 alors
+        pieces &larr; 6
+      fin si
+    fin si
+    // étape 4
+    Ecrire("Nombre de pièces montées :", pieces)
+  // étape 5
+  Jusqu'à (pieces = 6)
+Fin</code></pre>
+      </section>
+    </article>
+  </main>
+  <script src="scripts/jquery.min.js"></script>
+  <script src="scripts/bootstrap.min.js"></script>
+  <script src="scripts/highlight.pack.js"></script>
+  <script src="scripts/hljs.algorithm.js"></script>
+  <script src="scripts/draggable.js"></script>
+  <script src="scripts/clipboard.min.js"></script>
+  <script src="scripts/pages.js"></script>
+  <script src="scripts/savecontent.js"></script>
+  <script src="scripts/vue.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+    document.querySelectorAll('.language-algorithm,.language-python')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+    $(() => {
+      const localStore = new PagePersistance();
+      const serverStore = new ServerSaves('DS_3T');
+      const userInputSaver = new UserInputSaver(
+        document.querySelector('.user-input-saver'),
+        localStore,
+        serverStore);
+    });
+  </script>
+</body>
+
+</html>

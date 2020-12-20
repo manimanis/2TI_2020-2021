@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
   <meta charset="UTF-8">
@@ -218,6 +218,7 @@ Lire(hauteur)</code></pre>
 hauteur = float(input("Quel est votre hauteur (m) ? "))</code></pre>
             </div>
           </div>
+        </div>
       </section>
 
       <section>
@@ -580,12 +581,12 @@ print(a)</code></pre>
           <thead>
             <tr>
               <th colspan="2">Fontion</th>
-              <th rowspan="2" width="30%">Explication</th>
-              <th rowspan="2" width="40%">Exemple</th>
+              <th rowspan="2" style="width: 30%;">Explication</th>
+              <th rowspan="2" style="width: 40%;">Exemple</th>
             </tr>
             <tr>
-              <th width="15%">Algorithme</th>
-              <th width="15%">Python</th>
+              <th style="width: 15%;">Algorithme</th>
+              <th style="width: 15%;">Python</th>
             </tr>
           </thead>
           <tbody>
@@ -676,16 +677,16 @@ print(a)</code></pre>
       <section>
         <h3>Fonctions numériques</h3>
 
-        <table class="table table-bordered table-sm" id="conversions">
+        <table class="table table-bordered table-sm">
           <thead>
             <tr>
               <th colspan="2">Fontion</th>
-              <th rowspan="2" width="30%">Explication</th>
-              <th rowspan="2" width="40%">Exemple</th>
+              <th rowspan="2" style="width: 30%;">Explication</th>
+              <th rowspan="2" style="width: 40%;">Exemple</th>
             </tr>
             <tr>
-              <th width="15%">Algorithme</th>
-              <th width="15%">Python</th>
+              <th style="width: 15%">Algorithme</th>
+              <th style="width: 15%">Python</th>
             </tr>
           </thead>
           <tbody>
@@ -749,16 +750,16 @@ print(a)</code></pre>
       <section>
         <h3 style="page-break-before: always;">Fonctions sur les caractères</h3>
 
-        <table class="table table-bordered table-sm" id="conversions">
+        <table class="table table-bordered table-sm">
           <thead>
             <tr>
               <th colspan="2">Fontion</th>
-              <th rowspan="2" width="30%">Explication</th>
-              <th rowspan="2" width="40%">Exemple</th>
+              <th rowspan="2" style="width: 30%">Explication</th>
+              <th rowspan="2" style="width: 40%">Exemple</th>
             </tr>
             <tr>
-              <th width="15%">Algorithme</th>
-              <th width="15%">Python</th>
+              <th style="width: 15%">Algorithme</th>
+              <th style="width: 15%">Python</th>
             </tr>
           </thead>
           <tbody>
@@ -795,16 +796,16 @@ print(a)</code></pre>
       <section>
         <h3>Fonctions sur les chaînes</h3>
 
-        <table class="table table-bordered table-sm" id="conversions">
+        <table class="table table-bordered table-sm">
           <thead>
             <tr>
               <th colspan="2">Fontion</th>
-              <th rowspan="2" width="30%">Explication</th>
-              <th rowspan="2" width="40%">Exemple</th>
+              <th rowspan="2" style="width: 30%">Explication</th>
+              <th rowspan="2" style="width: 40%">Exemple</th>
             </tr>
             <tr>
-              <th width="15%">Algorithme</th>
-              <th width="15%">Python</th>
+              <th style="width: 15%">Algorithme</th>
+              <th style="width: 15%">Python</th>
             </tr>
           </thead>
           <tbody>
@@ -946,7 +947,7 @@ print(a)</code></pre>
             param: '15',
             res: 15,
             fn: function () {
-              if (/^[\+-]*[0-9]+$/.test(this.param)) {
+              if (/^[+-]*[0-9]+$/.test(this.param)) {
                 this.res = parseInt(this.param);
               } else {
                 this.res = 'Error';
@@ -958,7 +959,7 @@ print(a)</code></pre>
             param1: 16,
             res: 21,
             fn: function () {
-              if (/^[\+-]*[0-9A-Za-z]+$/.test(this.param0) && this.param1 > 1 && this.param1 < 37) {
+              if (/^[+-]*[0-9A-Za-z]+$/.test(this.param0) && this.param1 > 1 && this.param1 < 37) {
                 const res = parseInt(this.param0, this.param1);
                 if (isNaN(res)) {
                   this.res = 'Error';
@@ -974,7 +975,7 @@ print(a)</code></pre>
             param: '15.56',
             res: 15,
             fn: function () {
-              const res = parseInt(parseFloat(this.param));
+              const res = Math.floor(parseFloat(this.param));
               if (!isNaN(res)) {
                 this.res = res;
               } else {

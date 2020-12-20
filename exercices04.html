@@ -105,8 +105,10 @@ Votre nom inversé : bajR fessuoY</code></pre>
       <section>
         <h3>Palindrôme</h3>
 
-        <p>Ecrire l'algorithme d'un programme qui permet de vérifier si une chaine <code>ch</code>, non vide, est palindrome.</p>
-        <p>Une chaine palindrome est une chaine qui reste la même lorsqu'elle est inversée, exemples : RADAR, AZIZA, ALA, KAYAK, ETE, TOT, etc.</p>
+        <p>Ecrire l'algorithme d'un programme qui permet de vérifier si une chaine <code>ch</code>, non vide, est
+          palindrome.</p>
+        <p>Une chaine palindrome est une chaine qui reste la même lorsqu'elle est inversée, exemples : RADAR, AZIZA,
+          ALA, KAYAK, ETE, TOT, etc.</p>
 
         <pre><code class="nohighlight shell python" data-text="Exemple">Donner une chaine ? RADAR
 RADAR est palindrome</code></pre>
@@ -137,17 +139,100 @@ A  m  h  i     i     h  t  T  i  e
 
         <p>Ecrire l'algorithme d'un programme qui saisit votre date de naissance <code>dn</code> et la date actuelle
           <code>dj</code>, puis affiche la date de votre prochaine anniversaire.</p>
-        
+
         <div class="row">
-          <div class="col-sm-6"><pre><code class="nohighlight shell python" data-text="Exemple">Date de naissance ? 05/06/2002
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple">Date de naissance ? 05/06/2002
 Date du jour ? 05/05/2020
-Anniversaire : 05/06/2020</code></pre></div>
-          <div class="col-sm-6"><pre><code class="nohighlight shell python" data-text="Exemple">Date de naissance ? 05/06/2002
+Anniversaire : 05/06/2020</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple">Date de naissance ? 05/06/2002
 Date du jour ? 10/06/2020
-Anniversaire : 05/06/2021</code></pre></div>
+Anniversaire : 05/06/2021</code></pre>
+          </div>
         </div>
       </section>
 
+      <section>
+        <h3>Générateur d'email</h3>
+
+        <p>Ecrire l'algorithme d'un programme qui génère une adresse email à partir du nom et du prénom d'une personne
+          comme suit :</p>
+        <ul>
+          <li>Les lettres initiales du nom</li>
+          <li>Toutes les lettres prénom</li>
+          <li>Un nombre aléatoire de 3 chiffres</li>
+          <li>Le caractère @ suivi du nom de domaine</li>
+        </ul>
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple">Nom & Prénom ? bouraoui faouzi
+Nom du domaine ? gmail.com
+Adresse email : b.faouzi316@gmail.com</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple">Nom & Prénom ? ben jaafar adem
+Nom du domaine ? yahoo.fr
+Adresse email : bj.adem123@yahoo.fr</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Github Pages</h3>
+
+        <p>Github est un service web d'hébergement et de gestion de développement de logiciels utilisant le logiciel de
+          gestion de versions Git.</p>
+        <p>Lorsqu'on héberge un projet sur Github son code source sera accessible à travers l'adresse URL :</p>
+        <p>https://github.com/[utilisateur]/[projet]/</p>
+        <p><strong>Exemple :</strong> https://github.com/manimanis/4ECO/, ici <code>manianis</code> est le nom
+          d'utilisateur, et <code>4ECO</code> est le nom du projet</p>
+        <p>Les projets web peuvent bénéficier de l'hébergement gratuit à travers le service <code>Github pages</code>.
+          Ainsi, un projet sera accessible à l'adresse URL :</p>
+        <p>https://[utilisateur].github.io/[projet]/</p>
+        <p><strong>Exemple :</strong> https://manimanis.github.io/4ECO/</p>
+        <h4>Travail Demandé</h4>
+        <p>On demande d'écrire l'algorithme d'un programme qui :</p>
+        <ul>
+          <li>
+            Saisit une adresse URL Github ayant l'une des deux formes précédentes :</p>
+            <ul>
+              <li>https://github.com/[utilisateur]/[projet]/</li>
+              <li>https://[utilisateur].github.io/[projet]/</li>
+            </ul>
+          </li>
+          <li>Convertit l'adresse saisie dans l'autre seconde forme :
+            <ul>
+              <li>https://github.com/[utilisateur]/[projet]/ &lrarr; https://[utilisateur].github.io/[projet]/</li>
+              <li>Et inversement</li>
+            </ul>
+          </li>
+        </ul>
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple">Adresse Github ? https://manimanis.github.io/4ECO/
+Nom d'utilisateur : manimanis
+Projt : 4ECO
+Github repo : https://github.com/manimanis/4ECO/</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="nohighlight shell python" data-text="Exemple">Adresse Github ? https://github.com/manimanis/4ECO/
+Nom d'utilisateur : manimanis
+Projt : 4ECO
+Github pages : https://manimanis.github.io/4ECO/</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Youtube shortener</h3>
+
+        <p>Les adresses Youtube sont trop longues, exemple :</p>
+        <p>https://www.youtube.com/watch?v=j4dMnAPZu70</p>
+        <p>On souhaite écrire un algorithme qui permet de raccourcir ces adresses. Ainsi, l'adresse précédente devient :</p>
+        <p>https://youtu.be/j4dMnAPZu70</p>
+      </section>
     </article>
   </main>
   <footer class="d-print-none bg-dark text-white p-2">

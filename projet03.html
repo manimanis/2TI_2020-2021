@@ -325,7 +325,7 @@ Principe du jeu
 - Au début, dix cartes trèfles sont déposées sur une table, faces cachées.
 A tour de rôle :
 - tu sélectionne une carte parmi les cartes existantes.
-- L&apos;ordintar en sélectionne une autre.
+- L&apos;ordinateur en sélectionne une autre.
 Celui qui a la carte avec la petite valeur est gagnant du tour. Il marque un point.
 Le gagnant est celui avec le plus grand score.
 
@@ -400,15 +400,79 @@ Tu as gagné</code></pre>
         <ol type="a" class="order-items-exercise"
           data-enonce="Ordonner les étapes d'exécution d'après les examples donnés précédemment." data-isnumbered="true"
           hidden>
-          <li data-ordre="8" data-place="true">Afficher le gagnant de la partie</li>
-          <li data-ordre="6">- L'ordinateur tire une autre carte</li>
+          <li data-ordre="7" data-place="true">Afficher le gagnant de la partie</li>
+          <li data-ordre="4">- L'ordinateur tire une autre carte</li>
           <li data-ordre="5">- Le joueur tire une carte</li>
-          <li data-ordre="1" data-place="true">Afficher le nom du jeu</li>
-          <li data-ordre="4" data-place="true">Répéter 5 fois (5 tours)</li>
-          <li data-ordre="3">Mélanger les cartes</li>
-          <li data-ordre="2" data-place="true">Afficher le principe du jeu</li>
-          <li data-ordre="7">- Déterminer le gagnant du tour</li>
+          <li data-ordre="1" data-place="true">Afficher un message de bienvenue</li>
+          <li data-ordre="3" data-place="true">Répéter 5 fois (5 tours) les étapes 4, 5 et 6</li>
+          <li data-ordre="2">Mélanger les cartes</li>
+          <li data-ordre="6">- Déterminer le gagnant du tour</li>
         </ol>
+      </section>
+    </article>
+
+    <article>
+      <h2>Assemblages des briques</h2>
+
+      <section>
+        <h3>Message de Bienvenue</h3>
+
+        <p>Ecrire un algorithme qui affiche le message suivant au début du jeu :</p>
+        <pre><code class="hljs nohighlight">=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+|                      Jeu de Trèfles                      |
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+Principe du jeu
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+- Au début, dix cartes trèfles sont déposées sur une table, faces cachées.
+A tour de rôle :
+- tu sélectionne une carte parmi les cartes existantes.
+- L&apos;ordinateur en sélectionne une autre.
+Celui qui a la carte avec la petite valeur est gagnant du tour. Il marque un point.
+Le gagnant est celui avec le plus grand score.</code></pre>
+
+        <div class="bricks-canvas" data-slots="2">
+          <span class="brick">// Afficher le nom du jeu<br>
+            Ecrire("=-" * 30)<br>
+            Ecrire("|", "Jeu de Trèfles".center(56), "|")<br>
+            Ecrire("=-" * 30)</span>
+          <span class="brick">// Afficher le principe du jeu<br>
+            Ecrire()<br>
+            Ecrire("Principe du jeu")<br>
+            Ecrire("=-" * 15)<br>
+            Ecrire("- Au début, dix cartes trèfles sont déposées sur une table,"<br>
+                  " faces cachées.")<br>
+            Ecrire("A tour de rôle :")<br>
+            Ecrire("- tu sélectionne une carte parmi les cartes existantes.")<br>
+            Ecrire("- L'ordinateur en sélectionne une autre.")<br>
+            Ecrire("Celui qui a la carte avec la petite valeur est gagnant du tour. "<br>
+                   "Il marque un point.")<br>
+            Ecrire("Le gagnant est celui avec le plus grand score.")<br>
+            Ecrire()</span>
+          <pre class="success"><code class="language-algorithm">// Afficher le nom du jeu
+Ecrire("=-" * 30)
+Ecrire("|", "Jeu de Trèfles".center(56), "|")
+Ecrire("=-" * 30)
+
+// Afficher le principe du jeu
+Ecrire()
+Ecrire("Principe du jeu")
+Ecrire("=-" * 15)
+Ecrire("- Au début, dix cartes trèfles sont déposées sur une table,"
+      " faces cachées.")
+Ecrire("A tour de rôle :")
+Ecrire("- tu sélectionne une carte parmi les cartes existantes.")
+Ecrire("- L'ordinateur en sélectionne une autre.")
+Ecrire("Celui qui a la carte avec la petite valeur est gagnant du tour. "
+       "Il marque un point.")
+Ecrire("Le gagnant est celui avec le plus grand score.")
+Ecrire()</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h3>Mélanger les cartes</h3>
+        
       </section>
     </article>
   </main>
