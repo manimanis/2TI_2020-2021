@@ -218,14 +218,269 @@ Votre score est : 3 / 5
     </article>
 
     <article>
-      <h2>Briques Logicielles</h2>
+      <h2>Implémentation</h2>
 
       <section>
         <h3>Saisir un nombre n entre 1 et 10</h3>
 
-        
+        <p>Lorsque le petit Ismaïl commence à s'exercer, le programme lui demande de choisir le nombre de 1 à 10.</p>
+
+        <div>
+          <figure>
+            <img src="images/prj04/step01.png" alt="Choix d'un nombre">
+            <figcaption>Choix d'un nombre</figcaption>
+          </figure>
+        </div>
+
+        <p>Ecrire l'algorithme qui permet de saisir un nombre entier <strong>n</strong>, tel que 1 &le; n &le; 10.</p>
+
+        <div class="bricks-canvas" data-slots="1">
+          <span class="brick"><span class="brick">Répéter</span><br>
+            <span class="brick">Ecrire("Choisir un nombre de [1, 10] ? ")<br>
+              Lire(n)</span><br>
+            <span class="brick">Jusqu'à</span> <span class="brick">1 &le; n &le; 10</span></span>
+          <pre class="success"><code class="language-algorithm">Répéter
+  Ecrire("Choisir un nombre de [1, 10] ? ")
+  Lire(n)
+Jusqu'à 1 &le; n &le; 10</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h3>Initialiser un tableau avec des nombres aléatoires différentes</h3>
+
+        <p>Après que le petit élève choisisse le nombre <code>n</code> dans l'étape précédente, maintenant, le programme
+          devra choisir cinq questions différentes depuis la table de multiplication du nombre <code>n</code>.</p>
+
+        <h4>Partie 1</h4>
+
+        <p>Ecrire l'algorithme qui permet de remplir un tableau <strong>t</strong> par 5 nombres aléatoires différents
+          entre 1 et 10.</p>
+
+        <div>
+          <figure>
+            <img src="images/prj04/etape02.png" alt="Initialiser le tableau t">
+            <figcaption>Exemple d'initialisation du tableau t</figcaption>
+          </figure>
+        </div>
+
+        <p>On suppose que nous disposons d'une fonction nommée <code>Existe(t, n, v)</code> qui renvoie la valeur :</p>
+        <ul>
+          <li><code>Vrai</code>, si l'entier <code>v</code> fait partie des <code>n</code> premières valeurs du tableau
+            <code>t</code>.
+          </li>
+          <li><code>Faux</code>, sinon.</li>
+        </ul>
+
+        <p>Utiliser les blocs suivants pour construire l'algorithme désiré.</p>
+
+        <div class="bricks-canvas" data-slots="6">
+          <span class="brick">Pour i de 0 à 4 Faire</span>
+          <span class="brick">Répéter</span>
+          <span class="brick">v &larr; aléa(1, 10)</span>
+          <span class="brick">Jusqu'à non Existe(t, i-1, v)</span>
+          <span class="brick">t[i] &larr; v</span>
+          <span class="brick">Fin Pour</span>
+          <pre class="success"><code class="language-algorithm">Pour i de 0 à 4 Faire
+  Répéter
+    v &larr; aléa(1, 10)
+  Jusqu'à non Existe(t, i-1, v)
+  t[i] &larr; v
+Fin Pour</code></pre>
+        </div>
+
+        <h4>Partie 2</h4>
+
+        <p>Pour chacune des questions choisies, le programme propose quatre propositions différentes dont une seule est
+          correcte.</p>
+
+        <div>
+          <figure>
+            <img src="images/prj04/etape03.png" alt="Initialiser le tableau p">
+            <figcaption>Exemple d'initialisation du tableau <code>p</code>, la variable <code>br</code> indique l'indice
+              (le numéro) de la bonne réponse dans ce tableau</figcaption>
+          </figure>
+        </div>
+
+        <p>Pour celà, on pourra procéder de la façon suivante : </p>
+
+        <ul>
+          <li>Calculer <code>res</code> le produit de <code>n &times; t[i]</code></li>
+          <li>Pour chacun des éléments du tableau <code>p</code> dont l'indice sera nommé <code>j</code> :
+            <ul>
+              <li>Choisir une valeur aléatoire <code>v1</code> comprise entre 1 et 10</li>
+              <li>Choisir une autre valeur aléatoire <code>v2</code> comprise entre 1 et 10</li>
+              <li>Calculer le produit des deux valeurs <code>v1</code> et <code>v2</code> dans une variable nommée
+                <code>prod</code>
+              </li>
+              <li>Accepter <code>prod</code> si et seulement si :
+                <ul>
+                  <li><code>prod &ne; res</code></li>
+                  <li><code>prod</code> ne fait pas partie du tableau <code>p</code></li>
+                </ul>
+              </li>
+              <li>Affecter <code>prod</code> à <code>p[j]</code></li>
+            </ul>
+          </li>
+          <li>Sélectionner une valeur aléatoire nommée <code>br</code> entre 0 et 3, cette variable contient la position
+            de la bonne réponse dans le tableau <code>p</code></li>
+          <li>Affecter <code>res</code> à <code>p[br]</code></li>
+        </ul>
+
+        <p>Ecrire l'algorithme qui permet de remplir le tableau <code>p</code> par quatre nombres aléatoires
+          différents.</p>
+        <p>Utiliser les blocs suivants pour construire l'algorithme désiré.</p>
+
+        <div class="bricks-canvas" data-slots="4">
+          <span class="brick">res &larr; n * t[i]</span>
+          <span class="brick">
+            Pour j de 0 à 3 Faire<br>
+            Répéter<br>
+            <span class="brick">v1 &larr; aléa(1, 10)<br>
+              v2 &larr; aléa(1, 10)<br>
+              prod &larr; v1 * v2</span><br>
+            Jusqu'à <span class="brick">(prod &ne; res)</span> et (non Existe(p, j-1, prod))<br>
+            <span class="brick">p[j] &larr; prod</span><br>
+            Fin Pour
+          </span>
+          <span class="brick">br &larr; aléa(0, 3)</span>
+          <span class="brick">p[br] &larr; res</span>
+          <pre class="success"><code class="language-algorithm">res &larr; n * t[i]
+Pour j de 0 à 3 Faire
+  Répéter
+    v1 &larr; aléa(1, 10)
+    v2 &larr; aléa(1, 10)
+    prod &larr; v1 * v2
+  Jusqu'à (prod &ne; res) et (non Existe(p, j-1, prod))
+  p[j] &larr; prod
+Fin Pour
+br &larr; aléa(0, 3)
+p[br] &larr; res</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h3>Afficher les questions</h3>
+
+        <p>Ecrire l'algorithme qui permet d'afficher les questions de la façon suivante : </p>
+
+        <div class="row">
+          <div class="col-sm-6">
+            <pre><code class="hljs nohighlight">Question 1 / 5
+
+4 x 8 = ?
+a. 4
+b. 16
+c. 32
+d. 24</code></pre>
+          </div>
+          <div class="col-sm-6">
+            <pre><code class="hljs nohighlight">Question {i + 1} / 5
+
+{n} x {t[i]} = ?
+a. {p[0]}
+b. {p[1]}
+c. {p[2]}
+d. {p[3]}</code></pre>
+          </div>
+        </div>
+
+        <p>Utiliser les blocs suivants pour construire l'algorithme désiré.</p>
+
+        <div class="bricks-canvas" data-slots="2">
+          <span class="brick">
+            Ecrire("Question", i + 1, "/ 5")<br>
+            Ecrire()<br>
+            Ecrire(n, "x", t[i], "= ?")</span>
+          <span class="brick">
+            Pour j de 0 à 3 Faire<br>
+            Ecrire(<span class="brick">chr(97 + j)</span>+".", <span class="brick">p[j]</span>)<br>
+            Fin Pour
+          </span>
+          <pre class="success"><code class="language-algorithm">Ecrire("Question", i + 1, "/ 5")
+Ecrire()
+Ecrire(n, "x", t[i], "= ?")
+Pour j de 0 à 3 Faire
+  Ecrire(chr(97 + j)+".", p[j])
+Fin Pour</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h3>Saisir la réponse</h3>
+
+        <p>Après l'affichage de la question, le programme devra demander la réponse de l'utilisateur <code>rep</code>
+          qui devra être une lettre alphabétique de <code>"a"</code> à <code>"d"</code>.</p>
+
+        <p>Ecrire l'algorithme de cette étape en utilisant les blocs suivants :</p>
+        <div class="bricks-canvas" data-slots="4">
+          <span class="brick">Répéter</span>
+          <span class="brick">Ecrire("Quelle est la bonne réponse ? ")</span>
+          <span class="brick">Lire(rep)</span>
+          <span class="brick">Jusqu'à rep &in; ["a", "b", "c", "d"]</span>
+          <pre class="success"><code class="language-algorithm">Répéter
+    Ecrire("Quelle est la bonne réponse ? ")
+    Lire(rep)
+Jusqu'à rep &in; ["a", "b", "c", "d"]</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h3>Vérifier la réponse de l'utilisateur</h3>
+
+        <p>Une fois l'utilisateur a répondu à la question, on devra vérifier si elle est bonne ou mauvaise et afficher
+          un message en conséquence.</p>
+
+        <div>
+          <figure>
+            <img src="images/prj04/step0201-mini.png" alt="Réponse fausse">
+            <img src="images/prj04/step0202-mini.png" alt="Réponse correcte">
+            <figcaption>Le programme vérifie si la réponse de l'utilisateur est correcte</figcaption>
+          </figure>
+        </div>
+
+        <ul>
+          <li>Si l'écolier répond correctement il reçoit un message de félicitation et son score est incrémenté</li>
+          <li>Si l'écolier ne répond pas correctement il reçoit un message qui lui indique la bonne réponse</li>
+        </ul>
+
+        <p>On rappelle que :</p>
+        <ul>
+          <li>La variable <code>rep</code> contient le réponse de l'utilisateur, un caractère de <code>"a"</code> à "d"</li>
+          <li>La variable <code>br</code> contient l'indice de la bonne réponse dans le tableau <code>p</code></li>
+          <li>La variable <code>score</code> contient le score de l'élève, c-à-d le nombre de bonnes réponsess.</li>
+        </ul>
+
+        <p>Ecrire l'algorithme de cette étape en utilisant les blocs suivants :</p>
+
+        <div class="bricks-canvas" data-slots="6">
+          <span class="brick">r &larr; ord(rep) - 97</span>
+          <span class="brick">Si r = br Alors</span>
+          <span class="brick">Ecrire("Bravo, tu as deviné!")<br>
+            score &larr; score + 1</span>
+          <span class="brick">Sinon</span>
+          <span class="brick">Ecrire("Non, c'est faux ! La bonne réponse est", res)</span>
+          <span class="brick">Fin Si</span>
+          <pre class="success"><code class="language-algorithm">r &larr; ord(rep) - 97
+Si r = br Alors
+    Ecrire("Bravo, tu as deviné!")
+    score &larr; score + 1
+Sinon
+    Ecrire("Non, c'est faux ! La bonne réponse est", res)
+Fin si</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h3>Afficher le score de l'élève</h3>
+  
+        <p>Lorsque l'élève termine les cinq question le programme lui affiche son score.</p>
+  
+        <p>Ecrire l'instruction algorithmique, en sachant que le score est stocké dans la variable <code>score</code>.</p>
       </section>
     </article>
+
+    
 
   </main>
   <footer class="d-print-none bg-dark text-white p-2">
