@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jeu de trèfles</title>
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/default.css">
+  <link rel="stylesheet" href="styles/style.css">
+  <style>
+    .board {
+      background-color: #00b039;
+      padding: 0.5rem;
+    }
+
+    .deck {
+      padding: 0.25rem;
+    }
+
+    .place {
+      position: relative;
+      width: 100%;
+      height: 159px;
+    }
+
+    .place .carte {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .place .carte.slot1 {
+      left: 0;
+    }
+
+    .place .carte.slot2 {
+      left: calc((100% - 106px) / 9);
+    }
+
+    .place .carte.slot3 {
+      left: calc((100% - 106px) * 2 / 9);
+    }
+
+    .place .carte.slot4 {
+      left: calc((100% - 106px) / 3);
+    }
+
+    .place .carte.slot5 {
+      left: calc((100% - 106px) * 4 / 9);
+    }
+
+    .place .carte.slot6 {
+      left: calc((100% - 106px) * 5 / 9);
+    }
+
+    .place .carte.slot7 {
+      left: calc((100% - 106px) * 2 / 3);
+    }
+
+    .place .carte.slot8 {
+      left: calc((100% - 106px) * 7 / 9);
+    }
+
+    .place .carte.slot9 {
+      left: calc((100% - 106px) * 8 / 9);
+    }
+
+    .place .carte.slot10 {
+      left: calc(100% - 106px);
+    }
+
+    .carte {
+      display: inline-block;
+      width: 106px;
+      height: 159px;
+      background-color: transparent;
+      background-image: url(images/prj04/deck.png);
+      background-position: -471px -679px;
+      cursor: pointer;
+      border: #000 solid 1px;
+      border-radius: 10px;
+    }
+
+    .carte01 {
+      background-position: -11px -511px !important;
+    }
+
+    .carte02 {
+      background-position: -126px -511px !important;
+    }
+
+    .carte03 {
+      background-position: -240px -511px !important;
+    }
+
+    .carte04 {
+      background-position: -355px -511px !important;
+    }
+
+    .carte05 {
+      background-position: -469px -511px !important;
+    }
+
+    .carte06 {
+      background-position: -584px -511px !important;
+    }
+
+    .carte07 {
+      background-position: -698px -511px !important;
+    }
+
+    .carte08 {
+      background-position: -1156px -511px !important;
+    }
+
+    .carte09 {
+      background-position: -1271px -511px !important;
+    }
+
+    .carte10 {
+      background-position: -1385px -511px !important;
+    }
+
+    .score {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      font-size: 3rem;
+    }
+
+    .score::before {
+      content: "Scores";
+      display: block;
+      text-align: center;
+      width: 100%;
+      font-size: 1.2rem;
+    }
+
+    .score .utilisateur,
+    .score .pc {
+      width: calc(50% - 6px);
+      text-align: center;
+      margin: 0 3px;
+    }
+
+    .score .utilisateur::after,
+    .score .pc::after {
+      display: block;
+      width: 100%;
+      text-align: center;
+      font-size: .8rem;
+      background-color: white;
+      color: #006822;
+      font-weight: bold;
+    }
+
+    .score .utilisateur::after {
+      content: "Player";
+    }
+
+    .score .pc::after {
+      content: "PC";
+    }
+
+    .internal-deck p {
+      text-align: center;
+      color: #006822;
+      background-color: #fff;
+      font-weight: bold;
+      font-size: 0.9rem;
+      margin: 0;
+    }
+
+    .controls {
+      background-color: #006822;
+      padding: 0.75rem;
+      border-radius: 0.5rem;
+      color: #fff;
+      width: 250px;
+      margin: 1rem auto;
+    }
+
+    .controls .message {
+      color: #fff;
+      text-align: center;
+      background-color: brown;
+      margin: .5rem 0;
+      padding: 13px 3px;
+      border-radius: 0.5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="py-2 px-4 bg-secondary">
+    <div class="user-input-saver text-white">
+      <div class="row">
+        <div class="col-sm-6">
+          <label>Nom & Prénom</label>
+          <input type="text" class="form-control save-content" placeholder="Nom & Prénom">
+        </div>
+        <div class="col-sm-6">
+          <label>Classe</label>
+          <input type="text" class="form-control save-content" placeholder="Classe">
+        </div>
+      </div>
+    </div>
+  </header>
+  <aside>
+    <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+  <main class="container my-4">
+    <h1>Projet n°3 - Jeu de trèfles</h1>
+
+    <article>
+      <h2>Exploration</h2>
+
+      <section>
+        <h3>Principe</h3>
+
+        <div>
+          <figure>
+            <img src="images/prj04/img01.png" alt="Le jeu de trèfles">
+            <figcaption>Le jeu de trèfles</figcaption>
+          </figure>
+        </div>
+
+        <p>Le jeu de Trèfles est un jeu de cartes qui se joue à deux en utilisant dix cartes trèfles :</p>
+        <ul>
+          <li>Les nombres de 1 à 7</li>
+          <li>Le ministre (J) qui représente le nombre 8</li>
+          <li>La reine (Q) qui représente le nombre 9</li>
+          <li>Le roi (K) qui représente le nombre 10</li>
+        </ul>
+
+        <p>Au début, les dix cartes sont bien mélangées, puis posées sur la table faces cachées.</p>
+        <p>Le jeu se fait, ensuite, en cinq tours, où à chaque fois :</p>
+        <ul>
+          <li>Le premier joueur tire une carte</li>
+          <li>Le deuxième joueur tire une autre carte, des cartes restantes</li>
+          <li>Le gagnant du tour est celui possédant la valeur minimale, exemple &laquo; Las &raquo; bat
+            &laquo; Roi
+            &raquo;. Ce dernier marque un point.</li>
+        </ul>
+
+        <p><strong><em>Les cartes tirées ne sont pas remises.</em></strong></p>
+        <p>A la fin de la partie, toutes les cartes sont tirées, celui qui possède le score maximal est déclaré
+          gagnant.
+        </p>
+      </section>
+
+      <section>
+        <h3>Simulation</h3>
+
+        <p>Tester cette version, pour un exemple de partie.</p>
+
+        <div id="jeu-trefle" class="board">
+          <div class="internal-deck">
+            <p>Cartes disponibles</p>
+            <div class="deck border">
+              <div class="place">
+                <span v-for="(cls, index) in cartes_caches" v-bind:class="{['slot' + (index+1)]: true, 'carte': cls}"
+                  v-on:click="selectCard(index, 'user')"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="controls">
+            <div class="score">
+              <div class="utilisateur">{{score_utilisateur}}</div>
+              <div class="pc">{{score_pc}}</div>
+            </div>
+            <div v-if="message != ''">
+              <div class="message">{{message}}</div>
+              <button class="btn btn-dark w-100" v-on:click="reset()">Rejouer</button>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-sm-6 internal-deck">
+              <p>Cartes utilisateur</p>
+              <div class="deck border">
+                <div class="place">
+                  <span v-for="(cls, index) in cartes_util"
+                    v-bind:class="{['slot' + (index+1)]: true, 'carte': cls, [cls]: cls !== ''}"></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 internal-deck">
+              <p>Cartes ordinateur</p>
+              <div class="deck border">
+                <div class="place">
+                  <span v-for="(cls, index) in cartes_ordi"
+                    v-bind:class="{['slot' + (index+1)]: true, 'carte': cls, [cls]: cls !== ''}"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>Exemple d'exécution</h3>
+
+        <div class="d-print-none text-center">
+          <video controls>
+            <source src="images/prj04/jeu_trefles.mp4" type="video/mp4">
+            <source src="images/prj04/jeu_trefles.mp4.webm" type="video/webm">
+          </video>
+        </div>
+
+        <pre><code class="hljs nohighlight">=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+|                      Jeu de Trèfles                      |
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+Principe du jeu
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+- Au début, dix cartes trèfles sont déposées sur une table, faces cachées.
+A tour de rôle :
+- tu sélectionne une carte parmi les cartes existantes.
+- L&apos;ordinateur en sélectionne une autre.
+Celui qui a la carte avec la petite valeur est gagnant du tour. Il marque un point.
+Le gagnant est celui avec le plus grand score.
+
+
+Il reste 10 cartes.
+
+&gt;&gt;&gt;&gt;&gt;    Joueur    &lt;&lt;&lt;&lt;&lt;
+Numéro carte à tirer [1, 10] ? 10
+Vous avez tiré : &quot;Lass&quot;
+
+Il reste 9 cartes.
+
+&gt;&gt;&gt;&gt;&gt;  Ordinateur  &lt;&lt;&lt;&lt;&lt;
+Je tire : &quot;Amir&quot;
+++ &quot;Lass&quot; bat &quot;Amir&quot; =&gt; Tu as gagné
+<span class="d-none d-print-inline">...</span><div class="d-print-none">
+Il reste 8 cartes.
+
+&gt;&gt;&gt;&gt;&gt;    Joueur    &lt;&lt;&lt;&lt;&lt;
+Numéro carte à tirer [1, 8] ? 8
+Vous avez tiré : &quot;Quattro&quot;
+
+Il reste 7 cartes.
+
+&gt;&gt;&gt;&gt;&gt;  Ordinateur  &lt;&lt;&lt;&lt;&lt;
+Je tire : &quot;Sdous&quot;
+++ &quot;Quattro&quot; bat &quot;Sdous&quot; =&gt; Tu as gagné
+
+Il reste 6 cartes.
+
+&gt;&gt;&gt;&gt;&gt;    Joueur    &lt;&lt;&lt;&lt;&lt;
+Numéro carte à tirer [1, 6] ? 6
+Vous avez tiré : &quot;Tris&quot;
+
+Il reste 5 cartes.
+
+&gt;&gt;&gt;&gt;&gt;  Ordinateur  &lt;&lt;&lt;&lt;&lt;
+Je tire : &quot;Chinqa&quot;
+++ &quot;Tris&quot; bat &quot;Chinqa&quot; =&gt; Tu as gagné
+
+Il reste 4 cartes.
+
+&gt;&gt;&gt;&gt;&gt;    Joueur    &lt;&lt;&lt;&lt;&lt;
+Numéro carte à tirer [1, 4] ? 4
+Vous avez tiré : &quot;Amira&quot;
+
+Il reste 3 cartes.
+
+&gt;&gt;&gt;&gt;&gt;  Ordinateur  &lt;&lt;&lt;&lt;&lt;
+Je tire : &quot;Sbou&quot;
+-- &quot;Amira&quot; est battu par &quot;Sbou&quot; =&gt; Tu as perdu
+
+Il reste 2 cartes.
+
+&gt;&gt;&gt;&gt;&gt;    Joueur    &lt;&lt;&lt;&lt;&lt;
+Numéro carte à tirer [1, 2] ? 2
+Vous avez tiré : &quot;Roi&quot;
+
+Il reste 1 cartes.
+
+&gt;&gt;&gt;&gt;&gt;  Ordinateur  &lt;&lt;&lt;&lt;&lt;
+Je tire : &quot;Douce&quot;
+-- &quot;Roi&quot; est battu par &quot;Douce&quot; =&gt; Tu as perdu
+</div>
+Score final : 3 contre 2
+Tu as gagné</code></pre>
+      </section>
+
+      <section>
+        <h3>Etapes du programme</h3>
+
+        <ol type="a" class="order-items-exercise"
+          data-enonce="Ordonner les étapes d'exécution d'après les examples donnés précédemment." data-isnumbered="true"
+          hidden>
+          <li data-ordre="7" data-place="true">Afficher le gagnant de la partie</li>
+          <li data-ordre="4">- L'ordinateur tire une autre carte</li>
+          <li data-ordre="5">- Le joueur tire une carte</li>
+          <li data-ordre="1" data-place="true">Afficher un message de bienvenue</li>
+          <li data-ordre="3" data-place="true">Répéter 5 fois (5 tours) les étapes 4, 5 et 6</li>
+          <li data-ordre="2">Mélanger les cartes</li>
+          <li data-ordre="6">- Déterminer le gagnant du tour</li>
+        </ol>
+      </section>
+    </article>
+
+    <article>
+      <h2>Assemblages des briques</h2>
+
+      <section>
+        <h3>Message de Bienvenue</h3>
+
+        <p>Ecrire un algorithme qui affiche le message suivant au début du jeu :</p>
+        <pre><code class="hljs nohighlight">=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+|                      Jeu de Trèfles                      |
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+
+Principe du jeu
+=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
+- Au début, dix cartes trèfles sont déposées sur une table, faces cachées.
+A tour de rôle :
+- tu sélectionne une carte parmi les cartes existantes.
+- L&apos;ordinateur en sélectionne une autre.
+Celui qui a la carte avec la petite valeur est gagnant du tour. Il marque un point.
+Le gagnant est celui avec le plus grand score.</code></pre>
+
+        <div class="bricks-canvas" data-slots="2">
+          <span class="brick">// Afficher le nom du jeu<br>
+            Ecrire("=-" * 30)<br>
+            Ecrire("|", "Jeu de Trèfles".center(56), "|")<br>
+            Ecrire("=-" * 30)</span>
+          <span class="brick">// Afficher le principe du jeu<br>
+            Ecrire()<br>
+            Ecrire("Principe du jeu")<br>
+            Ecrire("=-" * 15)<br>
+            Ecrire("- Au début, dix cartes trèfles sont déposées sur une table,"<br>
+                  " faces cachées.")<br>
+            Ecrire("A tour de rôle :")<br>
+            Ecrire("- tu sélectionne une carte parmi les cartes existantes.")<br>
+            Ecrire("- L'ordinateur en sélectionne une autre.")<br>
+            Ecrire("Celui qui a la carte avec la petite valeur est gagnant du tour. "<br>
+                   "Il marque un point.")<br>
+            Ecrire("Le gagnant est celui avec le plus grand score.")<br>
+            Ecrire()</span>
+          <pre class="success"><code class="language-algorithm">// Afficher le nom du jeu
+Ecrire("=-" * 30)
+Ecrire("|", "Jeu de Trèfles".center(56), "|")
+Ecrire("=-" * 30)
+
+// Afficher le principe du jeu
+Ecrire()
+Ecrire("Principe du jeu")
+Ecrire("=-" * 15)
+Ecrire("- Au début, dix cartes trèfles sont déposées sur une table,"
+      " faces cachées.")
+Ecrire("A tour de rôle :")
+Ecrire("- tu sélectionne une carte parmi les cartes existantes.")
+Ecrire("- L'ordinateur en sélectionne une autre.")
+Ecrire("Celui qui a la carte avec la petite valeur est gagnant du tour. "
+       "Il marque un point.")
+Ecrire("Le gagnant est celui avec le plus grand score.")
+Ecrire()</code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h3>Mélanger les cartes</h3>
+        
+      </section>
+    </article>
+  </main>
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
+    <div class="text-center small">Année scolaire : 2020/2021</div>
+  </footer>
+  <script src="scripts/jquery.min.js"></script>
+  <script src="scripts/bootstrap.min.js"></script>
+  <script src="scripts/highlight.pack.js"></script>
+  <script src="scripts/hljs.algorithm.js"></script>
+  <script src="scripts/draggable.js"></script>
+  <script src="scripts/clipboard.min.js"></script>
+  <script src="scripts/pages.js"></script>
+  <script src="scripts/savecontent.js"></script>
+  <script src="scripts/vue.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+    document.querySelectorAll('.language-algorithm,.language-python')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+    $(() => {
+      const localStore = new PagePersistance();
+      const serverStore = new ServerSaves('Projet 3');
+      const userInputSaver = new UserInputSaver(
+        document.querySelector('.user-input-saver'),
+        localStore,
+        serverStore);
+      new Vue({
+        el: '#jeu-trefle',
+        data: {
+          cartes_caches: [],
+          cartes_util: [],
+          cartes_ordi: [],
+          util_index: -1,
+          ordi_index: -1,
+          score_utilisateur: 0,
+          score_pc: 0,
+          message: ''
+        },
+        mounted: function () {
+          this.initPropositions();
+        },
+        methods: {
+          initPropositions: function () {
+            this.shuffleCards();
+            for (let i = 0; i < 2; i++) {
+              this.selectCard(Math.floor(Math.random() * this.cartes_caches.length));
+            }
+          },
+          reset: function () {
+            this.shuffleCards();
+          },
+          shuffleCards: function () {
+            this.util_index = -2;
+            this.ordi_index = -2;
+            this.score_pc = 0;
+            this.score_utilisateur = 0;
+            this.message = '';
+            this.cartes_caches = Array(10).fill(0).map((v, i) => `carte${i < 9 ? '0' : ''}${i + 1}`);
+            this.cartes_util = Array(10).fill('');
+            this.cartes_ordi = Array(10).fill('');
+            for (let i = 0; i < this.cartes_caches.length / 2; i++) {
+              const j = Math.floor(Math.random() * this.cartes_caches.length);
+              const v1 = this.cartes_caches[i];
+              const v2 = this.cartes_caches[j];
+              this.cartes_caches[i] = v2;
+              this.cartes_caches[j] = v1;
+            }
+          },
+          selectRandomCard: function () {
+            const ne_cards = this.cartes_caches.filter(cls => cls !== '');
+            const idx = Math.floor(Math.random() * ne_cards.length);
+            return this.cartes_caches.indexOf(ne_cards[idx]);
+          },
+          selectCard: function (index, player) {
+            const carte_ut = this.cartes_caches[index];
+            this.util_index += 2;
+            console.log(this.util_index);
+            this.cartes_util[this.util_index] = carte_ut;
+            this.cartes_caches[index] = '';
+
+            index = this.selectRandomCard();
+            const carte_pc = this.cartes_caches[index];
+            this.ordi_index += 2;
+            this.cartes_ordi[this.ordi_index] = carte_pc;
+            this.cartes_caches[index] = '';
+
+            if (carte_ut < carte_pc) {
+              this.score_utilisateur++;
+            } else if (carte_ut > carte_pc) {
+              this.score_pc++;
+            }
+
+            if (this.score_utilisateur + this.score_pc == 5) {
+              if (this.score_utilisateur > this.score_pc) {
+                this.message = "Félicitations, tu as gagné!";
+              } else if (this.score_utilisateur < this.score_pc) {
+                this.message = "Désolé, tu as perdu!"
+              }
+            }
+            this.$forceUpdate();
+          }
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

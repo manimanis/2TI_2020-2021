@@ -4,192 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jeu de trèfles</title>
+  <title>Jeu de multiplication</title>
   <link rel="stylesheet" href="styles/bootstrap.min.css">
   <link rel="stylesheet" href="styles/default.css">
   <link rel="stylesheet" href="styles/style.css">
-  <style>
-    .board {
-      background-color: #00b039;
-      padding: 0.5rem;
-    }
-
-    .deck {
-      padding: 0.25rem;
-    }
-
-    .place {
-      position: relative;
-      width: 100%;
-      height: 159px;
-    }
-
-    .place .carte {
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
-
-    .place .carte.slot1 {
-      left: 0;
-    }
-
-    .place .carte.slot2 {
-      left: calc((100% - 106px) / 9);
-    }
-
-    .place .carte.slot3 {
-      left: calc((100% - 106px) * 2 / 9);
-    }
-
-    .place .carte.slot4 {
-      left: calc((100% - 106px) / 3);
-    }
-
-    .place .carte.slot5 {
-      left: calc((100% - 106px) * 4 / 9);
-    }
-
-    .place .carte.slot6 {
-      left: calc((100% - 106px) * 5 / 9);
-    }
-
-    .place .carte.slot7 {
-      left: calc((100% - 106px) * 2 / 3);
-    }
-
-    .place .carte.slot8 {
-      left: calc((100% - 106px) * 7 / 9);
-    }
-
-    .place .carte.slot9 {
-      left: calc((100% - 106px) * 8 / 9);
-    }
-
-    .place .carte.slot10 {
-      left: calc(100% - 106px);
-    }
-
-    .carte {
-      display: inline-block;
-      width: 106px;
-      height: 159px;
-      background-color: transparent;
-      background-image: url(images/prj04/deck.png);
-      background-position: -471px -679px;
-      cursor: pointer;
-      border: #000 solid 1px;
-      border-radius: 10px;
-    }
-
-    .carte01 {
-      background-position: -11px -511px !important;
-    }
-
-    .carte02 {
-      background-position: -126px -511px !important;
-    }
-
-    .carte03 {
-      background-position: -240px -511px !important;
-    }
-
-    .carte04 {
-      background-position: -355px -511px !important;
-    }
-
-    .carte05 {
-      background-position: -469px -511px !important;
-    }
-
-    .carte06 {
-      background-position: -584px -511px !important;
-    }
-
-    .carte07 {
-      background-position: -698px -511px !important;
-    }
-
-    .carte08 {
-      background-position: -1156px -511px !important;
-    }
-
-    .carte09 {
-      background-position: -1271px -511px !important;
-    }
-
-    .carte10 {
-      background-position: -1385px -511px !important;
-    }
-
-    .score {
-      width: 100%;
-      display: flex;
-      flex-wrap: wrap;
-      font-size: 3rem;
-    }
-
-    .score::before {
-      content: "Scores";
-      display: block;
-      text-align: center;
-      width: 100%;
-      font-size: 1.2rem;
-    }
-
-    .score .utilisateur,
-    .score .pc {
-      width: calc(50% - 6px);
-      text-align: center;
-      margin: 0 3px;
-    }
-
-    .score .utilisateur::after,
-    .score .pc::after {
-      display: block;
-      width: 100%;
-      text-align: center;
-      font-size: .8rem;
-      background-color: white;
-      color: #006822;
-      font-weight: bold;
-    }
-
-    .score .utilisateur::after {
-      content: "Player";
-    }
-
-    .score .pc::after {
-      content: "PC";
-    }
-
-    .internal-deck p {
-      text-align: center;
-      color: #006822;
-      background-color: #fff;
-      font-weight: bold;
-      font-size: 0.9rem;
-      margin: 0;
-    }
-
-    .controls {
-      background-color: #006822;
-      padding: 0.75rem;
-      border-radius: 0.5rem;
-      color: #fff;
-      width: 250px;
-      margin: 1rem auto;
-    }
-
-    .controls .message {
-      color: #fff;
-      text-align: center;
-      background-color: brown;
-      margin: .5rem 0;
-      padding: 13px 3px;
-      border-radius: 0.5rem;
-    }
-  </style>
+  <link rel="stylesheet" href="styles/projet03.css">
 </head>
 
 <body>
@@ -208,7 +27,7 @@
     </div>
   </header>
   <aside>
-    <nav class="navbar navbar-expand-xl navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#aside_navbar"
         aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span> Menu
@@ -217,7 +36,7 @@
     </nav>
   </aside>
   <main class="container my-4">
-    <h1>Projet n°3 - Jeu de trèfles</h1>
+    <h1>Projet n°3 - Jeu de multiplication</h1>
 
     <article>
       <h2>Exploration</h2>
@@ -226,80 +45,63 @@
         <h3>Principe</h3>
 
         <div>
-          <figure>
-            <img src="images/prj04/img01.png" alt="Le jeu de trèfles">
-            <figcaption>Le jeu de trèfles</figcaption>
+          <figure class="d-print-none">
+            <img src="images/prj04/animation.gif" alt="Le jeu de multiplication">
+            <figcaption>Le jeu de multiplication</figcaption>
+          </figure>
+          <figure class="d-none d-print-block">
+            <img src="images/prj04/step0202-mini.png" alt="Le jeu de multiplication">
+            <img src="images/prj04/step0201-mini.png" alt="Le jeu de multiplication">
+            <figcaption>Le jeu de multiplication</figcaption>
           </figure>
         </div>
 
-        <p>Le jeu de Trèfles est un jeu de cartes qui se joue à deux en utilisant dix cartes trèfles :</p>
-        <ul>
-          <li>Les nombres de 1 à 7</li>
-          <li>Le ministre (J) qui représente le nombre 8</li>
-          <li>La reine (Q) qui représente le nombre 9</li>
-          <li>Le roi (K) qui représente le nombre 10</li>
-        </ul>
+        <p>Mr Hatem, veut concevoir <strong>un programme éducatif</strong>, qui peut aider son fils, Ismaïl, un écolier
+          en
+          3<sup>ème</sup> année de base, qui vient tout juste de commencer <strong>l'apperentissage de la table de
+            multiplication</strong> en "Hissab".</p>
 
-        <p>Au début, les dix cartes sont bien mélangées, puis posées sur la table faces cachées.</p>
-        <p>Le jeu se fait, ensuite, en cinq tours, où à chaque fois :</p>
+        <p>Le programme se déroule comme suit :</p>
         <ul>
-          <li>Le premier joueur tire une carte</li>
-          <li>Le deuxième joueur tire une autre carte, des cartes restantes</li>
-          <li>Le gagnant du tour est celui possédant la valeur minimale, exemple &laquo; Las &raquo; bat
-            &laquo; Roi
-            &raquo;. Ce dernier marque un point.</li>
+          <li>Au début, l'enfant choisit un nombre de 1 à 10, pour s'exercer. Le programme va lui poser, par la suite,
+            cinq questions portant sur la multiplication de ce nombre avec cinq nombres distincts choisis au hasard
+            entre 1 et 10.</li>
+          <li>Pour chaque question, le programme propose quatre réponses différentes dont une seule est correcte.</li>
+          <li>Ismaïl, doit choisir sa réponse parmi les propositions données.</li>
+          <li>Le programme, félicite le petit garçon s'il répond correctement, sinon il lui indique la réponse correcte.
+          </li>
+          <li>A la fin de la partie, le programme affiche le score sur cinq de l'écolier.</li>
         </ul>
-
-        <p><strong><em>Les cartes tirées ne sont pas remises.</em></strong></p>
-        <p>A la fin de la partie, toutes les cartes sont tirées, celui qui possède le score maximal est déclaré
-          gagnant.
-        </p>
       </section>
 
       <section>
-        <h3>Simulation</h3>
+        <div class="d-print-none">
+          <h3>Simulation</h3>
 
-        <p>Tester cette version, pour un exemple de partie.</p>
+          <p>Tester cette version, pour un exemple de partie.</p>
 
-        <div id="jeu-trefle" class="board">
-          <div class="internal-deck">
-            <p>Cartes disponibles</p>
-            <div class="deck border">
-              <div class="place">
-                <span v-for="(cls, index) in cartes_caches" v-bind:class="{['slot' + (index+1)]: true, 'carte': cls}"
-                  v-on:click="selectCard(index, 'user')"></span>
+          <div id="jeu-multiplication">
+            <div class="step-1" v-if="step == 1">
+              <div class="text-center my-4">Sélectionner un nombre pour vous exercer ?</div>
+              <div class="choices">
+                <div class="choice" v-for="i in nombres" v-on:click="selectNumber(i)">{{i}}</div>
               </div>
             </div>
-          </div>
-
-          <div class="controls">
-            <div class="score">
-              <div class="utilisateur">{{score_utilisateur}}</div>
-              <div class="pc">{{score_pc}}</div>
-            </div>
-            <div v-if="message != ''">
-              <div class="message">{{message}}</div>
-              <button class="btn btn-dark w-100" v-on:click="reset()">Rejouer</button>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-sm-6 internal-deck">
-              <p>Cartes utilisateur</p>
-              <div class="deck border">
-                <div class="place">
-                  <span v-for="(cls, index) in cartes_util"
-                    v-bind:class="{['slot' + (index+1)]: true, 'carte': cls, [cls]: cls !== ''}"></span>
-                </div>
+            <div class="step-2" v-if="step == 2 || step == 3">
+              <div class="question-number">Question {{currentQuestion + 1}} / {{t.length}}</div>
+              <div class="question">{{n}} &times; {{t[currentQuestion]}} = ?</div>
+              <div class="choices">
+                <div class="choice"
+                  v-bind:class="{'correct': i == selectedAnswer && selectedAnswer == correctAnswer, 'incorrect': i == selectedAnswer && selectedAnswer != correctAnswer, 'correct-answer': i == correctAnswer && selectedAnswer != -1}"
+                  v-for="(prop, i) in p" v-on:click="checkAnswer(i)">{{prop}}</div>
               </div>
+              <div v-if="step == 3" class="feedback">{{message}}</div>
             </div>
-            <div class="col-sm-6 internal-deck">
-              <p>Cartes ordinateur</p>
-              <div class="deck border">
-                <div class="place">
-                  <span v-for="(cls, index) in cartes_ordi"
-                    v-bind:class="{['slot' + (index+1)]: true, 'carte': cls, [cls]: cls !== ''}"></span>
-                </div>
+            <div class="step-4" v-if="step == 4">
+              <div class="fin">Terminé</div>
+              <div>Score</div>
+              <div class="score">{{score}} / {{t.length}}</div>
+              <div class="text-center"><button class="btn btn-primary w-75" v-on:click="resetGame()">Rejouer</button>
               </div>
             </div>
           </div>
@@ -311,87 +113,90 @@
 
         <div class="d-print-none text-center">
           <video controls>
-            <source src="images/prj04/jeu_trefles.mp4" type="video/mp4">
-            <source src="images/prj04/jeu_trefles.mp4.webm" type="video/webm">
+            <source src="images/prj04/multiplication.mp4" type="video/mp4">
+            <source src="images/prj04/multiplication.mp4.webm" type="video/webm">
           </video>
         </div>
 
-        <pre><code class="hljs nohighlight">=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-|                      Jeu de Trèfles                      |
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-Principe du jeu
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-- Au début, dix cartes trèfles sont déposées sur une table, faces cachées.
-A tour de rôle :
-- tu sélectionne une carte parmi les cartes existantes.
-- L&apos;ordinateur en sélectionne une autre.
-Celui qui a la carte avec la petite valeur est gagnant du tour. Il marque un point.
-Le gagnant est celui avec le plus grand score.
+        <pre><code class="hljs nohighlight"><span class="d-print-none">  __  __         _  _    _         _  _              _    _               
+ |  \/  |       | || |  (_)       | |(_)            | |  (_)              
+ | \  / | _   _ | || |_  _  _ __  | | _   ___  __ _ | |_  _   ___   _ __  
+ | |\/| || | | || || __|| || &apos;_ \ | || | / __|/ _` || __|| | / _ \ | &apos;_ \ 
+ | |  | || |_| || || |_ | || |_) || || || (__| (_| || |_ | || (_) || | | |
+ |_|  |_| \__,_||_| \__||_|| .__/ |_||_| \___|\__,_| \__||_| \___/ |_| |_|
+                           | |                                            
+                           |_|                                            
 
 
-Il reste 10 cartes.
+</span>
+Choisir un nombre de [1, 10] ? 4
 
-&gt;&gt;&gt;&gt;&gt;    Joueur    &lt;&lt;&lt;&lt;&lt;
-Numéro carte à tirer [1, 10] ? 10
-Vous avez tiré : &quot;Lass&quot;
+Question 1 / 5
 
-Il reste 9 cartes.
+4 x 8 = ?
+a. 4
+b. 16
+c. 32
+d. 24
+Quelle est la bonne réponse ? d
+Non, c&apos;est faux ! La bonne réponse est 32
 
-&gt;&gt;&gt;&gt;&gt;  Ordinateur  &lt;&lt;&lt;&lt;&lt;
-Je tire : &quot;Amir&quot;
-++ &quot;Lass&quot; bat &quot;Amir&quot; =&gt; Tu as gagné
-<span class="d-none d-print-inline">...</span><div class="d-print-none">
-Il reste 8 cartes.
+<span class="d-print-none">Question 2 / 5
 
-&gt;&gt;&gt;&gt;&gt;    Joueur    &lt;&lt;&lt;&lt;&lt;
-Numéro carte à tirer [1, 8] ? 8
-Vous avez tiré : &quot;Quattro&quot;
+4 x 7 = ?
+a. 28
+b. 64
+c. 27
+d. 50
+Quelle est la bonne réponse ? 28
+Réponse invalide
+Quelle est la bonne réponse ? a
+Bravo, tu as deviné!
 
-Il reste 7 cartes.
+Question 3 / 5
 
-&gt;&gt;&gt;&gt;&gt;  Ordinateur  &lt;&lt;&lt;&lt;&lt;
-Je tire : &quot;Sdous&quot;
-++ &quot;Quattro&quot; bat &quot;Sdous&quot; =&gt; Tu as gagné
+4 x 6 = ?
+a. 24
+b. 4
+c. 6
+d. 30
+Quelle est la bonne réponse ? a
+Bravo, tu as deviné!
 
-Il reste 6 cartes.
+Question 4 / 5
 
-&gt;&gt;&gt;&gt;&gt;    Joueur    &lt;&lt;&lt;&lt;&lt;
-Numéro carte à tirer [1, 6] ? 6
-Vous avez tiré : &quot;Tris&quot;
+4 x 4 = ?
+a. 16
+b. 54
+c. 20
+d. 80
+Quelle est la bonne réponse ? a
+Bravo, tu as deviné!
 
-Il reste 5 cartes.
+Question 5 / 5
 
-&gt;&gt;&gt;&gt;&gt;  Ordinateur  &lt;&lt;&lt;&lt;&lt;
-Je tire : &quot;Chinqa&quot;
-++ &quot;Tris&quot; bat &quot;Chinqa&quot; =&gt; Tu as gagné
+4 x 9 = ?
+a. 81
+b. 50
+c. 36
+d. 4
+Quelle est la bonne réponse ? b
+Non, c&apos;est faux ! La bonne réponse est 36
+</span>
+<span class="d-none d-print-inline">...</span>
+Votre score est : 3 / 5
+<span class="d-print-none">
 
-Il reste 4 cartes.
-
-&gt;&gt;&gt;&gt;&gt;    Joueur    &lt;&lt;&lt;&lt;&lt;
-Numéro carte à tirer [1, 4] ? 4
-Vous avez tiré : &quot;Amira&quot;
-
-Il reste 3 cartes.
-
-&gt;&gt;&gt;&gt;&gt;  Ordinateur  &lt;&lt;&lt;&lt;&lt;
-Je tire : &quot;Sbou&quot;
--- &quot;Amira&quot; est battu par &quot;Sbou&quot; =&gt; Tu as perdu
-
-Il reste 2 cartes.
-
-&gt;&gt;&gt;&gt;&gt;    Joueur    &lt;&lt;&lt;&lt;&lt;
-Numéro carte à tirer [1, 2] ? 2
-Vous avez tiré : &quot;Roi&quot;
-
-Il reste 1 cartes.
-
-&gt;&gt;&gt;&gt;&gt;  Ordinateur  &lt;&lt;&lt;&lt;&lt;
-Je tire : &quot;Douce&quot;
--- &quot;Roi&quot; est battu par &quot;Douce&quot; =&gt; Tu as perdu
-</div>
-Score final : 3 contre 2
-Tu as gagné</code></pre>
+   _____                    _  ____               
+  / ____|                  | ||  _ \              
+ | |  __   ___    ___    __| || |_) | _   _   ___ 
+ | | |_ | / _ \  / _ \  / _` ||  _ &lt; | | | | / _ \
+ | |__| || (_) || (_) || (_| || |_) || |_| ||  __/
+  \_____| \___/  \___/  \__,_||____/  \__, | \___|
+                                       __/ |      
+                                      |___/       
+</span>
+</code></pre>
       </section>
 
       <section>
@@ -400,81 +205,28 @@ Tu as gagné</code></pre>
         <ol type="a" class="order-items-exercise"
           data-enonce="Ordonner les étapes d'exécution d'après les examples donnés précédemment." data-isnumbered="true"
           hidden>
-          <li data-ordre="7" data-place="true">Afficher le gagnant de la partie</li>
-          <li data-ordre="4">- L'ordinateur tire une autre carte</li>
-          <li data-ordre="5">- Le joueur tire une carte</li>
-          <li data-ordre="1" data-place="true">Afficher un message de bienvenue</li>
-          <li data-ordre="3" data-place="true">Répéter 5 fois (5 tours) les étapes 4, 5 et 6</li>
-          <li data-ordre="2">Mélanger les cartes</li>
-          <li data-ordre="6">- Déterminer le gagnant du tour</li>
+          <li data-ordre="6" data-place="true">Saisir la réponse de l'utilisateur</li>
+          <li data-ordre="4">Initialiser un tableau p avec 4 propositions dont une seule est correcte</li>
+          <li data-ordre="5" data-place="true">Afficher la question, et les propositions</li>
+          <li data-ordre="7">Si la réponse est correcte, incrémenter le score, sinon afficher la bonne réponse</li>
+          <li data-ordre="1" data-place="true">Saisir un nombre n entre 1 et 10</li>
+          <li data-ordre="8" data-place="true">Afficher le score final</li>
+          <li data-ordre="3" data-place="true">Pour chacun des nombres de t, refaire les étapes de 4 à 7</li>
+          <li data-ordre="2">Initialiser un tableau t avec 5 nombres aléatoires différents entre 1 et 10</li>
         </ol>
       </section>
     </article>
 
     <article>
-      <h2>Assemblages des briques</h2>
+      <h2>Briques Logicielles</h2>
 
       <section>
-        <h3>Message de Bienvenue</h3>
+        <h3>Saisir un nombre n entre 1 et 10</h3>
 
-        <p>Ecrire un algorithme qui affiche le message suivant au début du jeu :</p>
-        <pre><code class="hljs nohighlight">=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-|                      Jeu de Trèfles                      |
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-
-Principe du jeu
-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
-- Au début, dix cartes trèfles sont déposées sur une table, faces cachées.
-A tour de rôle :
-- tu sélectionne une carte parmi les cartes existantes.
-- L&apos;ordinateur en sélectionne une autre.
-Celui qui a la carte avec la petite valeur est gagnant du tour. Il marque un point.
-Le gagnant est celui avec le plus grand score.</code></pre>
-
-        <div class="bricks-canvas" data-slots="2">
-          <span class="brick">// Afficher le nom du jeu<br>
-            Ecrire("=-" * 30)<br>
-            Ecrire("|", "Jeu de Trèfles".center(56), "|")<br>
-            Ecrire("=-" * 30)</span>
-          <span class="brick">// Afficher le principe du jeu<br>
-            Ecrire()<br>
-            Ecrire("Principe du jeu")<br>
-            Ecrire("=-" * 15)<br>
-            Ecrire("- Au début, dix cartes trèfles sont déposées sur une table,"<br>
-                  " faces cachées.")<br>
-            Ecrire("A tour de rôle :")<br>
-            Ecrire("- tu sélectionne une carte parmi les cartes existantes.")<br>
-            Ecrire("- L'ordinateur en sélectionne une autre.")<br>
-            Ecrire("Celui qui a la carte avec la petite valeur est gagnant du tour. "<br>
-                   "Il marque un point.")<br>
-            Ecrire("Le gagnant est celui avec le plus grand score.")<br>
-            Ecrire()</span>
-          <pre class="success"><code class="language-algorithm">// Afficher le nom du jeu
-Ecrire("=-" * 30)
-Ecrire("|", "Jeu de Trèfles".center(56), "|")
-Ecrire("=-" * 30)
-
-// Afficher le principe du jeu
-Ecrire()
-Ecrire("Principe du jeu")
-Ecrire("=-" * 15)
-Ecrire("- Au début, dix cartes trèfles sont déposées sur une table,"
-      " faces cachées.")
-Ecrire("A tour de rôle :")
-Ecrire("- tu sélectionne une carte parmi les cartes existantes.")
-Ecrire("- L'ordinateur en sélectionne une autre.")
-Ecrire("Celui qui a la carte avec la petite valeur est gagnant du tour. "
-       "Il marque un point.")
-Ecrire("Le gagnant est celui avec le plus grand score.")
-Ecrire()</code></pre>
-        </div>
-      </section>
-
-      <section>
-        <h3>Mélanger les cartes</h3>
         
       </section>
     </article>
+
   </main>
   <footer class="d-print-none bg-dark text-white p-2">
     <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
@@ -515,79 +267,84 @@ Ecrire()</code></pre>
         localStore,
         serverStore);
       new Vue({
-        el: '#jeu-trefle',
+        el: '#jeu-multiplication',
         data: {
-          cartes_caches: [],
-          cartes_util: [],
-          cartes_ordi: [],
-          util_index: -1,
-          ordi_index: -1,
-          score_utilisateur: 0,
-          score_pc: 0,
-          message: ''
+          step: 1,
+          nombres: new Array(10).fill(0).map((v, i) => i + 1),
+          t: [],
+          p: [],
+          n: null,
+          selectedAnswer: 0,
+          correctAnswer: 0,
+          currentQuestion: 0,
+          score: 0,
+          message: ""
         },
         mounted: function () {
-          this.initPropositions();
         },
         methods: {
-          initPropositions: function () {
-            this.shuffleCards();
-            for (let i = 0; i < 2; i++) {
-              this.selectCard(Math.floor(Math.random() * this.cartes_caches.length));
+          resetGame: function () {
+            this.step = 1;
+          },
+          selectNumber: function (n) {
+            this.n = n;
+            this.score = 0;
+            this.selectRandomNumbers();
+            this.selectQuestion(0);
+          },
+          selectQuestion: function (nq) {
+            this.currentQuestion = nq;
+            this.step = 2;
+            this.selectedAnswer = -1;
+            this.selectRandomAnswers(this.t[nq] * this.n);
+          },
+          randint: function (d, f) {
+            return Math.floor(Math.random() * (f - d + 1)) + d;
+          },
+          selectRandomNumbers: function () {
+            this.t = [];
+            for (let i = 0; i < 5; i++) {
+              do {
+                v = this.randint(1, 10);
+              } while (this.t.includes(v));
+              this.t[i] = v;
             }
           },
-          reset: function () {
-            this.shuffleCards();
-          },
-          shuffleCards: function () {
-            this.util_index = -2;
-            this.ordi_index = -2;
-            this.score_pc = 0;
-            this.score_utilisateur = 0;
-            this.message = '';
-            this.cartes_caches = Array(10).fill(0).map((v, i) => `carte${i < 9 ? '0' : ''}${i + 1}`);
-            this.cartes_util = Array(10).fill('');
-            this.cartes_ordi = Array(10).fill('');
-            for (let i = 0; i < this.cartes_caches.length / 2; i++) {
-              const j = Math.floor(Math.random() * this.cartes_caches.length);
-              const v1 = this.cartes_caches[i];
-              const v2 = this.cartes_caches[j];
-              this.cartes_caches[i] = v2;
-              this.cartes_caches[j] = v1;
+          selectRandomAnswers: function (res) {
+            this.p = [];
+            for (let i = 0; i < 4; i++) {
+              let v1 = 0;
+              let v2 = 0;
+              let mul = 0;
+              do {
+                v1 = this.randint(1, 10);
+                v2 = this.randint(1, 10);
+                mul = v1 * v2;
+              } while (this.p.includes(mul) || mul == res);
+              this.p[i] = mul;
             }
+            this.correctAnswer = this.randint(0, 3);
+            this.p[this.correctAnswer] = res;
           },
-          selectRandomCard: function () {
-            const ne_cards = this.cartes_caches.filter(cls => cls !== '');
-            const idx = Math.floor(Math.random() * ne_cards.length);
-            return this.cartes_caches.indexOf(ne_cards[idx]);
-          },
-          selectCard: function (index, player) {
-            const carte_ut = this.cartes_caches[index];
-            this.util_index += 2;
-            console.log(this.util_index);
-            this.cartes_util[this.util_index] = carte_ut;
-            this.cartes_caches[index] = '';
-
-            index = this.selectRandomCard();
-            const carte_pc = this.cartes_caches[index];
-            this.ordi_index += 2;
-            this.cartes_ordi[this.ordi_index] = carte_pc;
-            this.cartes_caches[index] = '';
-
-            if (carte_ut < carte_pc) {
-              this.score_utilisateur++;
-            } else if (carte_ut > carte_pc) {
-              this.score_pc++;
+          checkAnswer: function (index) {
+            if (this.selectedAnswer != -1) {
+              return;
             }
-
-            if (this.score_utilisateur + this.score_pc == 5) {
-              if (this.score_utilisateur > this.score_pc) {
-                this.message = "Félicitations, tu as gagné!";
-              } else if (this.score_utilisateur < this.score_pc) {
-                this.message = "Désolé, tu as perdu!"
+            this.selectedAnswer = index;
+            if (index == this.correctAnswer) {
+              this.message = "Bravo, tu as deviné !";
+              this.score += 1;
+            } else {
+              this.message = "Désolé, ta réponse est fausse.";
+            }
+            this.step = 3;
+            setTimeout(() => {
+              if (this.currentQuestion < this.t.length - 1) {
+                this.selectQuestion(this.currentQuestion + 1);
+              } else {
+                this.step = 4;
               }
-            }
-            this.$forceUpdate();
+            }, 1500);
           }
         }
       });

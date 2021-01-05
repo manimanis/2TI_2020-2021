@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d49674bf-43b1-436e-9d75-6f9ec9d84a0a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/buildingblocks.html" beforeDir="false" afterPath="$PROJECT_DIR$/buildingblocks.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/exercices04.html" beforeDir="false" afterPath="$PROJECT_DIR$/exercices04.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/progs/prj03/jeu_cartes.py" beforeDir="false" afterPath="$PROJECT_DIR$/progs/prj03/jeu_cartes.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet03.html" beforeDir="false" afterPath="$PROJECT_DIR$/projet03.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/progs/prj03/jeu_cartes_v4.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projet02-resume.html" beforeDir="false" afterPath="$PROJECT_DIR$/projet02-resume.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,6 +15,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1luU7Z9lSgc4WVLEk9FcG93bPHR" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -37,12 +38,35 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1608446302991</updated>
-      <workItem from="1608446305012" duration="1400000" />
+      <workItem from="1608446305012" duration="2181000" />
     </task>
+    <task id="LOCAL-00001" summary="Corrected some inconsistencies">
+      <created>1608447992362</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1608447992362</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Corrected some inconsistencies" />
+    <option name="LAST_COMMIT_MESSAGE" value="Corrected some inconsistencies" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

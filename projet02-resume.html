@@ -168,8 +168,8 @@ for i in range(7):
         <table class="table table-bordered">
           <thead>
             <tr>
-              <th width="20%">Objet</th>
-              <th width="20%">Type/Nature</th>
+              <th style="width: 20%">Objet</th>
+              <th style="width: 20%">Type/Nature</th>
               <th>Rôle</th>
             </tr>
           </thead>
@@ -281,7 +281,7 @@ for i in range(7):
               this.trouve = true;
             }
             const prop = { nbre: this.current_value, reponse: reponse };
-            this.current_value = parseInt((this.borne_inf + this.borne_sup) / 2);
+            this.current_value = Math.floor((this.borne_inf + this.borne_sup) / 2);
             this.current_reponse = '---';
             return prop;
           },

@@ -1,0 +1,90 @@
+#jeu-multiplication {
+	border-radius: 15px;
+	border: 2px solid;
+	padding: 15px;
+	height: 350px;
+	max-width: 480px;
+	margin: 0 auto;
+}
+
+.step-1 .choices, .step-2 .choices {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.step-1 .choices .choice {
+  padding: 10px;
+  margin: 5px;
+  font-size: 3em;
+  width: calc(20% - 30px);
+  background-color: #3F51B5;
+  color: #fff;
+  text-align: center;
+  border-radius: 7px;
+  box-sizing: content-box;
+  cursor: pointer;
+}
+
+.step-2 .question-number {
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: bolder;
+}
+
+.step-2 .question {
+	font-size: 4em;
+	text-align: center;
+	margin: 0.25em 0;
+	font-weight: bold;
+	color: #FF5722;
+}
+
+.step-2 .choices .choice {
+  padding: 10px;
+  margin: 5px;
+  font-size: 3em;
+  width: calc(25% - 36px);
+  background-color: #CDDC39;
+  color: #795548;
+  border: transparent solid 3px;
+  text-align: center;
+  border-radius: 7px;
+  box-sizing: content-box;
+  cursor: pointer;
+}
+
+.step-2 .choices .choice.correct {
+  border: green solid 3px;
+}
+
+.step-2 .choices .choice.correct-answer {
+  background-color: green;
+  color: #fff;
+}
+
+.step-2 .choices .choice.incorrect {
+  border: red solid 3px;
+}
+
+.step-2 .feedback {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+}
+
+.step-4 {
+  text-align: center;
+}
+
+.step-4 .fin {
+	font-size: 4em;
+	margin: 0 0 0.3em;
+	color: cornflowerblue;
+}
+
+.step-4 .score {
+	font-size: 4.5em;
+	font-weight: bold;
+  color: mediumaquamarine;
+  margin-bottom: 0.3em;
+}
