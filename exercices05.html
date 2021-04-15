@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projet n°2 - Exercices sur les chaînes de caractères</title>
+  <link rel="stylesheet" href="styles/bootstrap.min.css">
+  <link rel="stylesheet" href="styles/default.css">
+  <link rel="stylesheet" href="styles/style.css">
+</head>
+
+<body>
+  <header class="py-2 px-4 bg-secondary">
+    <div class="user-input-saver text-white">
+      <div class="row">
+        <div class="col-sm-6">
+          <label>Nom & Prénom</label>
+          <input type="text" class="form-control save-content" placeholder="Nom & Prénom">
+        </div>
+        <div class="col-sm-6">
+          <label>Classe</label>
+          <select class="form-control save-content" placeholder="Classe">
+            <option>2TI</option>
+            <option>2SC</option>
+            <option>3T</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </header>
+  <aside>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#aside_navbar"
+        aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span> Menu
+      </button>
+      <div class="collapse navbar-collapse" id="aside_navbar"></div>
+    </nav>
+  </aside>
+  <main class="container my-4">
+    <h1>Exercices de rappel</h1>
+
+    <article>
+      <h2>Exercices</h2>
+
+      <section>
+        <h3>Calcul d'aire</h3>
+
+        <p>On veut écrire un programme qui calcule l'aire des formes suivantes :</p>
+        <ul>
+          <li>Carré : aire = coté²</li>
+          <li>Rectangle : aire = longueur &times; largeur</li>
+          <li>Triangle : aire = base &times; hauteur / 2</li>
+          <li>Cercle : aire = &pi; &times r²</li>
+          <li>Trapèze : aire = (coté1 + coté2) &times; hateur / 2</li>
+        </ul>
+
+        <div>
+          <figure>
+            <img src="images/ex05/aires.jpg" alt="Calcul d'aires">
+            <figcaption>Calcul d'aires</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section>
+        <h3>Températures</h3>
+
+        <p>Les anglais utilisent les °F pour exprimer les températures ambiantes. Nous utilions le °C.</p>
+        <p>Pour transformer une température exprimée en °C en °F on utilise la formule : F = 9/5.C+32</p>
+        <p>Pour retrouver l'équivalent en °C d'une température en °F, on utilise la formule : C = 5/9.(F-32)</p>
+
+        <div>
+          <figure>
+            <img src="images/ex05/temperature_conversion.jpeg" alt="Conversion de températures">
+            <figcaption>Conversion de températures</figcaption>
+          </figure>
+        </div>
+
+        <h4>Travail demandé</h4>
+
+        <p>Ecrire un programme qui :</p>
+        <ol>
+          <li>Saisit une température t, par exemple <code>25C</code> pour une température de 25°C ou <code>60F</code>
+            pour une température de 60°F.</li>
+          <li>Calcule, puis affiche son équivalent:
+            <ul>
+              <li>Si la température entrée est en °F on affiche son équivalent en °C</li>
+              <li>Et si elle est en °C on affiche son équivalent en °F</li>
+            </ul>
+          </li>
+        </ol>
+
+        <p>Afficher tous les résultats avec une seule décimale.</p>
+
+        <pre><code class="nohighlight shell python" data-text="Exemple 1">Donner une température en °C/°F (exemple : 15C) : 25C
+25.0 C = 77.0 F</code></pre>
+
+        <pre><code class="nohighlight shell python" data-text="Exemple 2">Donner une température en °C/°F (exemple : 15C) : 60F
+60.0 F = 15.6 C</code></pre>
+      </section>
+
+      <section>
+        <h3>Jeu Somme-Produit</h3>
+
+        <p>Vous jouez avec votre collègue au jeu de Somme-Produit. Dans ce jeu, votre collègue :</p>
+        <ul>
+          <li>Choisit deux nombres a et b</li>
+          <li>Calcule leur somme : <code>s = a + b</code></li>
+          <li>Calcule leur produit : <code>p = a * b</code></li>
+          <li>Puis, il vous indique les valeurs de <code>s</code> et de <code>p</code>.</li>
+          <li>C'est à vous de retrouver les valeurs de a et de b.</li>
+        </ul>
+
+        <p>Exemple, votre collègue choisit deux nombres et puis il vous dit : s = 5 et p = 6</p>
+        <p>Vous devez dans ce cas retrouver a et b tel que : a + b = 5 et a * b = 5</p>
+        <p>Dans cet exemple, la solution est : a = 2 et b = 3</p>
+
+        <h4>Travail demandé</h4>
+
+        <ol>
+          <li>Essayez de retrouver la valeur de a et de b, dans les cas suivants :
+            <ul>
+              <li>s = 12, p = 27</li>
+              <li>s = 14, p = 48</li>
+              <li>s = 6, p = 9</li>
+            </ul>
+          </li>
+          <li>Ecrire un programme qui étant donné deux entiers p et s. Détermine les valeurs de a et b.</li>
+        </ol>
+
+        <pre><code class="nohighlight shell python" data-text="Exemple 1">Donner la somme de a+b ? 5
+Donner le produit de a*b ? 6
+La solution est :
+a= 3 - b= 2</code></pre>
+
+        <pre><code class="nohighlight shell python" data-text="Exemple 2">Donner la somme de a+b ? 86
+Donner le produit de a*b ? 1224
+La solution est :
+a= 68 - b= 18</code></pre>
+
+        <pre><code class="nohighlight shell python" data-text="Exemple 3">Donner la somme de a+b ? 5
+Donner le produit de a*b ? 7
+Les nombres données sont incorrects!</code></pre>
+
+        <pre><code class="nohighlight shell python" data-text="Exemple 4">Donner la somme de a+b ? 20
+Donner le produit de a*b ? 3
+Les nombres a et b doivent être des entiers</code></pre>
+      </section>
+
+      <section>
+        <h3>Qualité d'une chaîne de caractères</h3>
+
+        <h4>Tirée de Google Kickstart 2021 - Round A</h4>
+
+        <p>Charles définit le score de qualité d'une chaîne comme le nombre d'indices i tels que
+          S[i] ≠ S(N - (i + 1)) où 0 ≤ i &lt; N / 2 (indexé 0).</p>
+
+        <p>Par exemple, la chaîne CABABC a un score de qualité de 2 puisque
+          S[1] ≠ S[4] et S[2] ≠ S[3].</p>
+
+        <p>Charles a donné à Ada une chaîne S de longueur N, composée de lettres majuscules
+          et lui a demandé de la convertir en une chaîne avec un score de qualité de K.
+          En une opération, Ada peut changer n'importe quel caractère de la chaîne en
+          une lettre majuscule.</p>
+
+        <p>Pourriez-vous aider Ada à trouver le nombre minimum d'opérations nécessaires
+          pour transformer la chaîne donnée en une chaîne avec un score de qualité égal à K?
+        </p>
+
+        <p>Ecrire un algorithme puis un programme qui:</p>
+        <ul>
+          <li>Saisit une chaîne de caractères alphabétique non vide, <code>s</code>.</li>
+          <li>Saisit un entier <code>k</code>, 0 &le; k &le; Long(s)/2</li>
+          <li>Calcule le score de qualité <code>sq</code> de la chaîne <code>s</code>.</li>
+          <li>Détermine le nombre de caractères à changer <code>ncc</code> dans <code>s</code>
+            pour atteindre un score <code>k</code></li>
+          <li>Affiche le résultat, <code>ncc</code>.</li>
+        </ul>
+
+        <h4>Exemples</h4>
+
+        <pre><code class="nohighlight shell python" data-text="Exemple 1">Donner une chaine de lettres majuscules ? ABCAA
+Donner le score de qualité à atteindre (0 ≤ k ≤ 2) ? 1
+Le score de qualité de ABCAA est 1
+Il faudra changer 0 caractères pour atteindre le score 1.</code></pre>
+
+        <pre><code class="nohighlight shell python" data-text="Exemple 2">Donner une chaine de lettres majuscules ? ABCDECCA
+Donner le score de qualité à atteindre (0 ≤ k ≤ 4) ? 4
+Le score de qualité de ABCDECCA est 2
+Il faudra changer 2 caractères pour atteindre le score 4.</code></pre>
+      </section>
+
+      <section>
+        <h3>Résumé des fonctions sur les chaînes de caractères</h3>
+
+        <h4>1. sous_chaine(ch, deb, fin)</h4>
+
+        <p>La fonction <code>sous_chaine(ch, deb, fin)</code> permet d'extraire la
+          partie de la chaîne de caractères <code>ch</code> qui est comprise entre les
+          indices [deb, fin[.</p>
+
+        <h5>Question</h5>
+        <p>Soit :</p>
+        <pre><code class="language-algorithm">eleve &larr; "Ahmed Ammar"</code></pre>
+        <p>Utiliser la fonction <code>sous_chaine()</code> pour extraire le nom et le
+          prénom de l'élève.</p>
+
+        <h4>2. long(ch)</h4>
+        <p>La fontion <code>long(ch)</code> permet de retrouver la longueur
+          d'une chaîne de caractères.</p>
+
+        <h5>Question</h5>
+        <p>Utiliser la fonction <code>long()</code> et une structure
+          conditionnelle (si) pour retrouver lesquelles des deux chaînes
+          est la plus longue. Le <code>nom</code> de l'élève ou bien
+          son <code>prénom</code>.</p>
+
+        <h4>3. estnum(ch)</h4>
+
+        <p>La fonction <code>estnum(ch)</code> renvoie <code>Vrai</code> si
+          tous les caractères de <code>ch</code> sont des chiffres décimaux.</p>
+
+        <h5>Question</h5>
+        <p>Soit</p>
+        <pre><code class="language-algorithm">dn &larr; "08/09/2012"</code></pre>
+        <p>Utiliser la fonction <code>sous_chaine()</code> pour extraire
+          l'année de naissance de l'élève, puis vérifier si elle est numérique
+          ou non.</p>
+
+        <h4>4. val(ch)</h4>
+
+        <p>La fonction <code>val(ch)</code> convertit une chaînes de caractères
+          qui contient des chiffres en une valeur numérique de type entier ou de type
+          réel.</p>
+
+        <h5>Question</h5>
+        <p>Utiliser la fonction <code>val()</code> pour calculer l'age de l'élève.</p>
+
+        <h4>5. pos(ch1, ch2)</h4>
+
+        <p>La fonction <code>pos(ch1, ch2)</code> recherche la première position de
+          <code>ch1</code> dans <code>ch2</code>, elle renvoie -1 si <code>ch1</code>
+          est introuvable
+        </p>
+
+        <h5>Question</h5>
+
+        <p>Soit :</p>
+
+        <pre><code class="language-algorithm">eleve &larr; "Mohamed Aziz Bounaaja"</code></pre>
+
+        <p>Utiliser la fonction <code>pos()</code> pour déterminer les initiales de l'élève,
+          c-à-d la première lettre de chaque mot qui le compose.</p>
+
+        <h4>6. convch(n)</h4>
+
+        <p>La fonction <code>convch(n)</code> convertit une valeur numérique de type
+          entier ou réel en une chaîne de caractères.</p>
+
+        <h5>Question</h5>
+
+        <p>On dit de 25 est <strong>un nombre automorphe</strong> car
+          <strong><u>25</u>²= 6<u>25</u>, aussi <u>76</u>² = 57<u>76</u></strong>
+        </p>
+        <p>Utiliser les fonction <code>convch()</code>, <code>sous_chaine()</code>
+          et une structure conditionnelle (si), pour vérifier si un nombre <code>n</code>
+          quelconque est automorphe ou non.</p>
+      </section>
+    </article>
+  </main>
+  <footer class="d-print-none bg-dark text-white p-2">
+    <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
+    <div class="text-center small">Année scolaire : 2020/2021</div>
+  </footer>
+  <script src="scripts/jquery.min.js"></script>
+  <script src="scripts/bootstrap.min.js"></script>
+  <script src="scripts/highlight.pack.js"></script>
+  <script src="scripts/hljs.algorithm.js"></script>
+  <script src="scripts/draggable.js"></script>
+  <script src="scripts/clipboard.min.js"></script>
+  <script src="scripts/pages.js"></script>
+  <script src="scripts/savecontent.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+    document.querySelectorAll('.language-algorithm,.language-python')
+      .forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'bd-clipboard d-print-none';
+        const btn = document.createElement('button');
+        btn.className = 'btn-clipboard';
+        btn.textContent = "📋";
+        btn.title = "Copier";
+        div.appendChild(btn);
+        item.parentElement.insertBefore(div, item);
+      });
+    new ClipboardJS('.btn-clipboard', {
+      target: (trigger) => {
+        return trigger.parentElement.nextElementSibling;
+      }
+    });
+    $(() => {
+      const localStore = new PagePersistance();
+      const serverStore = new ServerSaves('Exercices 4');
+      const userInputSaver = new UserInputSaver(
+        document.querySelector('.user-input-saver'),
+        localStore,
+        serverStore);
+    });
+  </script>
+</body>
+
+</html>

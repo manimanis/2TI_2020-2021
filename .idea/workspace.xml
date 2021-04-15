@@ -1,11 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d49674bf-43b1-436e-9d75-6f9ec9d84a0a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/progs/prj03/jeu_cartes_v4.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projet02-resume.html" beforeDir="false" afterPath="$PROJECT_DIR$/projet02-resume.html" afterDir="false" />
-    </list>
+    <list default="true" id="d49674bf-43b1-436e-9d75-6f9ec9d84a0a" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -39,6 +35,7 @@
       <option name="presentableId" value="Default" />
       <updated>1608446302991</updated>
       <workItem from="1608446305012" duration="2181000" />
+      <workItem from="1610255433301" duration="11000" />
     </task>
     <task id="LOCAL-00001" summary="Corrected some inconsistencies">
       <created>1608447992362</created>
@@ -63,6 +60,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Corrected some inconsistencies" />

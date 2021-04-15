@@ -20,6 +20,14 @@ h3 {
   color: #009688;
 }
 
+h4 {
+  color: #ff5722;
+}
+
+h5 {
+  color: #607d8b;
+}
+
 .explication {
   color: #e91e63;
   font-weight: bold;

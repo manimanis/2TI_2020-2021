@@ -478,10 +478,69 @@ Fin si</code></pre>
   
         <p>Ecrire l'instruction algorithmique, en sachant que le score est stocké dans la variable <code>score</code>.</p>
       </section>
+
+      <section>
+        <h3>Algorithme Complet</h3>
+
+        <figure>
+          <img src="images/prj04/algorithme-img.png" alt="Algorithme">
+          <figcaption>Algorithme Complet</figcaption>
+        </figure>
+        
+        <pre class="d-none"><code class="language-algorithm">Algorithme multiplication
+Début
+  Répéter
+    Ecrire("Donner un nombre [1, 10] ? ")
+    Lire(n)
+  Jusqu'à 1 &le; n &le; 10
+
+  Pour i de 0 à 4 Faire
+    Répéter
+      v &larr; aléa(1, 10)
+    Jusqu'à v &notin; t
+    t[i] &larr; v
+  Fin Pour
+
+  Pour i de 0 à 4 Faire
+    res &larr; n * t[i]
+    
+    Pour j de 0 à 3 Faire
+      Répéter
+        v1 &larr; aléa(1, 10)
+        v2 &larr; aléa(1, 10)
+        prod &larr; v1 * v2
+      Jusqu'à (prod &notin; p) et (res &ne; prod)
+
+      p[j] &larr; prod
+    Fin Pour
+
+    nr &larr; aléa(0, 3)
+    p[nr] &larr; res
+
+    Ecrire("Question", (i+1), "/5")
+    Ecrire(n, "&times;", t[i], " = ?")
+
+    Pour j de 0 à 3 Faire
+      Ecrire(chr(97 + j), ".", p[j])
+    Fin Pour
+
+    Répéter
+      Ecrire("Quelle est la bonne réponse ?")
+      Lire(rep)
+    Jusqu'à rep &in; ["a", "b", "c", "d"]
+
+    Si p[ord(rep)-97] = res Alors
+      Ecrire("Bravo, tu as deviné!")
+    Sinon
+      Ecrire("Faux, la réponse est : ")
+      Ecrire(chr(97 + nr), ".", res)
+    Fin Si
+  Fin Pour
+Fin</code></pre>
+      </section>
     </article>
 
     
-
   </main>
   <footer class="d-print-none bg-dark text-white p-2">
     <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
