@@ -446,7 +446,8 @@ Jusqu'à rep &in; ["a", "b", "c", "d"]</code></pre>
 
         <p>On rappelle que :</p>
         <ul>
-          <li>La variable <code>rep</code> contient le réponse de l'utilisateur, un caractère de <code>"a"</code> à "d"</li>
+          <li>La variable <code>rep</code> contient le réponse de l'utilisateur, un caractère de <code>"a"</code> à "d"
+          </li>
           <li>La variable <code>br</code> contient l'indice de la bonne réponse dans le tableau <code>p</code></li>
           <li>La variable <code>score</code> contient le score de l'élève, c-à-d le nombre de bonnes réponsess.</li>
         </ul>
@@ -473,10 +474,11 @@ Fin si</code></pre>
 
       <section>
         <h3>Afficher le score de l'élève</h3>
-  
+
         <p>Lorsque l'élève termine les cinq question le programme lui affiche son score.</p>
-  
-        <p>Ecrire l'instruction algorithmique, en sachant que le score est stocké dans la variable <code>score</code>.</p>
+
+        <p>Ecrire l'instruction algorithmique, en sachant que le score est stocké dans la variable <code>score</code>.
+        </p>
       </section>
 
       <section>
@@ -486,8 +488,8 @@ Fin si</code></pre>
           <img src="images/prj04/algorithme-img.png" alt="Algorithme">
           <figcaption>Algorithme Complet</figcaption>
         </figure>
-        
-        <pre class="d-none"><code class="language-algorithm">Algorithme multiplication
+
+        <pre><code class="language-algorithm">Algorithme multiplication
 Début
   Répéter
     Ecrire("Donner un nombre [1, 10] ? ")
@@ -540,7 +542,80 @@ Fin</code></pre>
       </section>
     </article>
 
-    
+    <article>
+      <h2>Tableaux</h2>
+
+      <section>
+        <h3>Activité</h3>
+
+        <p>On donne le tableau <code>t</code> suivant :</p>
+
+        <style>
+          tr.border td {
+            border: #000 solid 1px;
+          }
+
+          tr.cols-10 td {
+            width: calc(100% / 10);
+          }
+        </style>
+
+        <table class="table table-sm">
+          <tr class="border cols-10">
+            <td>10</td>
+            <td>15</td>
+            <td>7</td>
+            <td>19</td>
+            <td>20</td>
+            <td>14</td>
+            <td>13</td>
+            <td>10</td>
+            <td>8</td>
+            <td>17</td>
+          </tr>
+          <tr>
+            <td>0</td>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+          </tr>
+        </table>
+
+        <ol>
+          <li>Déclarer ce tableau en algorithme et en Python.</li>
+          <li>Remplir ce tableau à l'aide de valeurs saisies par l'utilisateur.
+            <ol type="a">
+              <li>Les valeurs saisies sont quelconques.</li>
+              <li>Les valeurs saisies doivent être dans l'intervalle [10, 20].</li>
+              <li>Les valeurs saisies doivent être ordonnées en ordre croissant.</li>
+            </ol>
+          </li>
+          <li>Remplir ce tableau par des valeurs aléatoires de 0 à 99.
+            <ol type="a">
+              <li>Les valeurs peuvent se répéter.</li>
+              <li>Les valeurs sont distincts.</li>
+            </ol>
+          </li>
+          <li>Afficher les éléments du tableau.</li>
+          <li>Inverser les éléments du tableau.</li>
+          <li>Calculer la somme des éléments de ce tableau.</li>
+          <li>Calculer la moyenne des éléments de ce tableau.</li>
+          <li>Calculer la valeur minimale dans ce tableau.</li>
+          <li>Calculer la valeur maximale de la même façon.</li>
+          <li>Extraire les éléments pairs, et les élémensts impairs dans deux tableaux <code>tp</code> pour les éléments
+            pairs et <code>ti</code> pour les éléments impairs.</li>
+          <li>Trouver le nombre d'éléments qui sont supèrieurs à 50.</li>
+          <li>Trouver le nombre d'éléments qui sont supérieurs à une valeur donnée.</li>
+        </ol>
+      </section>
+    </article>
+
   </main>
   <footer class="d-print-none bg-dark text-white p-2">
     <div class="text-center">Page créée avec ♥ par Mohamed Anis MANI</div>
